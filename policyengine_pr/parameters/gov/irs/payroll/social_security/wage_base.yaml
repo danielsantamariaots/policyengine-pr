@@ -1,0 +1,9 @@
+description: Maximum wages subject to Social Security tax.
+values:
+  2025-01-01: 176_100
+metadata:
+  unit: currency-USD
+  label: Social Security wage base
+  reference:
+    - title: IRS, 2025 Instructions for Form 1040-SS, Reminders ("Maximum income subject to social security tax for 2025")
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf

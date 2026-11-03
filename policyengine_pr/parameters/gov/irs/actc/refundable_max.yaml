@@ -1,0 +1,13 @@
+description: Maximum additional child tax credit per qualifying child.
+values:
+  2025-01-01: 1_700
+metadata:
+  unit: currency-USD
+  label: ACTC maximum per child
+  reference:
+    - title: Internal Revenue Code §24, as applied to bona fide residents of Puerto Rico
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf
+    - title: IRS, 2025 Instructions for Form 1040-SS, Reminders and Part II line 2
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf

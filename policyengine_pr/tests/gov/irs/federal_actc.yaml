@@ -1,0 +1,142 @@
+# Expected values computed by hand from IRS Form 1040-SS (2025), Part II,
+# using employee Social Security (6.2%, wage base $176,100) and Medicare
+# (1.45%) withholding from the 1040-SS instructions.
+
+- name: Single parent, two children, $30,000 wages (payroll-limited)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 30
+        employment_income: 30_000
+      c1:
+        age: 4
+        is_tax_unit_dependent: true
+      c2:
+        age: 9
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1, c2]
+    households:
+      household:
+        members: [parent, c1, c2]
+  output:
+    actc_qualifying_children: 2
+    # line 2: 2 x 1,700
+    # line 18: 30,000 x (6.2% + 1.45%) = 2,295
+    tax_unit_payroll_taxes: 2_295
+    federal_actc: 2_295
+
+- name: Single parent, one child, $60,000 wages (credit-limited)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 30
+        employment_income: 60_000
+      c1:
+        age: 10
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1]
+    households:
+      household:
+        members: [parent, c1]
+  output:
+    # payroll 4,590 > line 11 of 1,700
+    federal_actc: 1_700
+
+- name: Child aged 17 does not qualify but counts as other dependent
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 45
+        employment_income: 60_000
+      c1:
+        age: 17
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1]
+    households:
+      household:
+        members: [parent, c1]
+  output:
+    actc_qualifying_children: 0
+    actc_other_dependents: 1
+    federal_actc: 0
+
+- name: No payroll taxes paid means no credit
+  period: 2025
+  input:
+    people:
+      parent:
+        age: 30
+        employment_income: 0
+      c1:
+        age: 3
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1]
+    households:
+      household:
+        members: [parent, c1]
+  output:
+    federal_actc: 0
+
+- name: Joint, two children, $450,000 wages (phase-out, SS wage base)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 40
+        employment_income: 450_000
+      spouse:
+        age: 40
+      c1:
+        age: 4
+        is_tax_unit_dependent: true
+      c2:
+        age: 9
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, spouse, c1, c2]
+        pr_filing_status: JOINT
+    households:
+      household:
+        members: [parent, spouse, c1, c2]
+  output:
+    # line 5: 50,000; line 6: 2,500; line 9: 4,400; line 10: 1,900
+    # line 11: min(3,400, 1,900); payroll 6.2% x 176,100 + 1.45% x 450,000
+    tax_unit_payroll_taxes: 17_443.2
+    federal_actc: 1_900
+
+- name: Single, one child, $240,425 wages (excess rounded up to $41,000)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 40
+        employment_income: 240_425
+      c1:
+        age: 4
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1]
+    households:
+      household:
+        members: [parent, c1]
+  output:
+    # line 5: 40,425 -> 41,000; line 6: 2,050; line 9: 2,200; line 10: 150
+    federal_actc: 150

@@ -1,0 +1,13 @@
+description: Phase-out rate applied to modified AGI over the threshold, rounded up to the increment.
+values:
+  2025-01-01: 0.05
+metadata:
+  unit: /1
+  label: CTC phase-out rate
+  reference:
+    - title: Internal Revenue Code §24, as applied to bona fide residents of Puerto Rico
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II line 6
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf

@@ -1,0 +1,11 @@
+description: Employee share of the Medicare (HI) tax rate. Additional Medicare Tax (0.9% over $200,000) not modelled.
+values:
+  2025-01-01: 0.0145
+metadata:
+  unit: /1
+  label: Employee Medicare tax rate
+  reference:
+    - title: Internal Revenue Code §3101(b)
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
+    - title: IRS, Topic no. 751, Social Security and Medicare withholding rates ("1.45% for the employer and 1.45% for the employee")
+      href: https://www.irs.gov/taxtopics/tc751

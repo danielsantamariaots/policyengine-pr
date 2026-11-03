@@ -1,0 +1,19 @@
+description: Modified AGI above which the credit phases out, by filing status.
+metadata:
+  unit: currency-USD
+  label: CTC phase-out threshold
+  breakdown:
+    - pr_filing_status
+  reference:
+    - title: Internal Revenue Code §24, as applied to bona fide residents of Puerto Rico
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II line 4
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf
+SINGLE:
+  2025-01-01: 200_000
+JOINT:
+  2025-01-01: 400_000
+SEPARATE:
+  2025-01-01: 200_000

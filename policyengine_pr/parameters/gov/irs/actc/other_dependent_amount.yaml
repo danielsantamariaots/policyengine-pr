@@ -1,0 +1,13 @@
+description: Credit for other dependents amount per dependent used to compute the phase-out limitation.
+values:
+  2025-01-01: 500
+metadata:
+  unit: currency-USD
+  label: ODC amount per dependent
+  reference:
+    - title: Internal Revenue Code §24, as applied to bona fide residents of Puerto Rico
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
+    - title: IRS, 2025 Form 1040-SS, Part II
+      href: https://www.irs.gov/pub/irs-pdf/f1040ss.pdf
+    - title: IRS, 2025 Instructions for Form 1040-SS, Part II line 8
+      href: https://www.irs.gov/pub/irs-pdf/i1040ss.pdf
