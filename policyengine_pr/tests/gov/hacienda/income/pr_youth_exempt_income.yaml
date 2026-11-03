@@ -1,0 +1,122 @@
+# Expected values from the 2025 instructions, Schedule IE line 31 (first
+# $40,000 of wages exempt for individuals aged 16-26 at year end), and the
+# rate table / 92% factor on the remainder. Per BI 15-03, exempt wages still
+# count as earned income for the EITC (Anejo CT, Parte II, línea 1A).
+
+- name: "Age 22, $30,000 wages: fully exempt, no income tax"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 22
+        employment_income: 30_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_youth_exempt_income: 30_000
+    pr_net_taxable_income: 0
+    pr_income_tax: 0
+    # EITC unaffected: 1,794 - 15% x (30,000 - 19,130)
+    pr_eitc: 163.5
+
+- name: "Age 26, $55,000 wages: $40,000 exempt, tax on the rest"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 26
+        employment_income: 55_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_youth_exempt_income: 40_000
+    # 15,000 - 3,500
+    pr_net_taxable_income: 11_500
+    # 7% x 2,500 = 175 x 0.92
+    pr_income_tax: 161
+
+- name: Age 27 does not qualify
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 27
+        employment_income: 30_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_youth_exempt_income: 0
+    pr_income_tax: 1_223.6
+
+- name: Age 15 does not qualify
+  period: 2025
+  input:
+    people:
+      p:
+        age: 15
+        employment_income: 10_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_youth_exempt_income: 0
+
+- name: "Joint return, both spouses 24: each exempts up to $40,000"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      a:
+        age: 24
+        employment_income: 45_000
+      b:
+        age: 24
+        employment_income: 20_000
+    tax_units:
+      tax_unit:
+        members: [a, b]
+        pr_filing_status: JOINT
+    households:
+      household:
+        members: [a, b]
+  output:
+    # 40,000 + 20,000 exempt; taxable 5,000 - 7,000 exemption -> 0
+    pr_taxable_gross_income: 5_000
+    pr_net_taxable_income: 0
+
+- name: Exempt income still counts toward the $100,000 gross income test
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 25
+        employment_income: 130_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    # 90,000 - 3,500 = 86,500 -> 8,430 + 33% x 25,000 = 16,680; gross 130,000 > 100,000 -> x 0.95
+    pr_regular_tax: 16_680
+    pr_income_tax: 15_846

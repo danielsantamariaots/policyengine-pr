@@ -10,7 +10,7 @@ class pr_net_taxable_income(Variable):
     definition_period = YEAR
 
     def formula(tax_unit, period, parameters):
-        income = tax_unit("pr_gross_income", period)
+        income = tax_unit("pr_taxable_gross_income", period)
         deductions = tax_unit("pr_deductions", period)
         exemptions = tax_unit("pr_exemptions", period)
         return max_(0, income - deductions - exemptions)
