@@ -1,0 +1,17 @@
+# Structural test (no tax law involved): employment income sums across the tax unit.
+- name: Two earners in one tax unit
+  period: 2024
+  input:
+    people:
+      filer:
+        employment_income: 30_000
+      spouse:
+        employment_income: 12_500
+    tax_units:
+      tax_unit:
+        members: [filer, spouse]
+    households:
+      household:
+        members: [filer, spouse]
+  output:
+    tax_unit_employment_income: 42_500
