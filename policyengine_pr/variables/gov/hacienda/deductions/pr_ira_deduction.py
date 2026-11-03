@@ -7,8 +7,8 @@ class pr_ira_deduction(Variable):
     label = "PR IRA contribution deduction"
     documentation = (
         "Anejo A, Parte I, línea 7: per person, the lesser of contributions "
-        "and \$7,000, limited by wages and self-employment earnings, and not "
-        "allowed from age 75. The \$22,000 combined limit with employer plan "
+        "and $7,000, limited by wages and self-employment earnings, and not "
+        "allowed from age 75. The $22,000 combined limit with employer plan "
         "contributions is not modelled."
     )
     unit = USD

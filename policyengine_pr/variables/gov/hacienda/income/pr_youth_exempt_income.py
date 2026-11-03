@@ -6,7 +6,7 @@ class pr_youth_exempt_income(Variable):
     entity = Person
     label = "Youth exempt income (Ley 135-2014)"
     documentation = (
-        "Anejo IE Individuo, línea 31A: the first \$40,000 of wages of an "
+        "Anejo IE Individuo, línea 31A: the first $40,000 of wages of an "
         "individual aged 16 to 26 at the end of the taxable year. Applied "
         "per person; self-employment and services income not yet modelled."
     )

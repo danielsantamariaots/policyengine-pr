@@ -16,8 +16,8 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         "employment_income",
     ]
 
-    def __init__(self):
-        super().__init__(entities)
+    def __init__(self, reform=None):
+        super().__init__(entities, reform=reform)
 
 
 system = CountryTaxBenefitSystem()
