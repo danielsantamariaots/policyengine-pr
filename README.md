@@ -18,6 +18,8 @@ Statute texts used as sources live in `docs/statutes/`.
 
 ## Prototype calculator
 
+User guide (Spanish and English): [docs/TUTORIAL.md](docs/TUTORIAL.md).
+
 ```bash
 uv pip install -e ".[app]"
 streamlit run app/calculator.py
