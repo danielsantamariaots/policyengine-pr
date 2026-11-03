@@ -7,7 +7,7 @@ class pr_mortgage_interest_deduction(Variable):
     label = "PR home mortgage interest deduction"
     documentation = (
         "Anejo A, Parte I, línea 1i: the lesser of interest paid, 30% of "
-        "adjusted gross income plus exempt income, and \$35,000. The "
+        "adjusted gross income plus exempt income, and $35,000. The "
         "three-prior-year alternative test is not modelled."
     )
     unit = USD

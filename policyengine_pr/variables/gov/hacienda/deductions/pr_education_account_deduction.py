@@ -5,7 +5,7 @@ class pr_education_account_deduction(Variable):
     value_type = float
     entity = TaxUnit
     label = "PR educational contribution account deduction"
-    documentation = "Anejo A, Parte I, línea 8: up to \$1,000 per beneficiary; beneficiaries approximated by dependents under 26."
+    documentation = "Anejo A, Parte I, línea 8: up to $1,000 per beneficiary; beneficiaries approximated by dependents under 26."
     unit = USD
     definition_period = YEAR
 

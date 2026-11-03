@@ -6,7 +6,7 @@ class pr_gross_income(Variable):
     entity = TaxUnit
     label = "PR gross income including exempt income"
     documentation = (
-        "Sum used for the Sección 1021.01(c) \$100,000 test (instructions "
+        "Sum used for the Sección 1021.01(c) $100,000 test (instructions "
         "p. 20): adjusted gross income plus exempt wages and pensions."
     )
     unit = USD
