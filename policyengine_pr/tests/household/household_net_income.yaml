@@ -1,0 +1,76 @@
+# End-to-end cases combining the 2025 rate table, PR EITC (Anejo CT / BI RI
+# 26-01), federal ACTC (Form 1040-SS Part II) and employee payroll taxes.
+
+- name: Single parent, two children, $30,000 wages
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      parent:
+        age: 30
+        employment_income: 30_000
+      c1:
+        age: 4
+        is_tax_unit_dependent: true
+      c2:
+        age: 9
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [parent, c1, c2]
+    households:
+      household:
+        members: [parent, c1, c2]
+  output:
+    # 30,000 - 3,500 - 2 x 2,500 = 21,500 -> 7% x 12,500 = 875 x 0.92
+    pr_income_tax: 805
+    # 6,576 - 34.38% x (30,000 - 25,110)
+    pr_eitc: 4_894.82
+    # min(3,400, payroll 2,295)
+    federal_actc: 2_295
+    pr_refundable_credits: 7_189.82
+    household_tax: 3_100
+    # 30,000 - 3,100 + 7,189.82
+    household_net_income: 34_089.82
+
+- name: Single, no dependents, $50,000 wages
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 50_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    # 46,500 -> (3,430 + 25% x 5,000) x 0.92
+    pr_income_tax: 4_305.6
+    pr_refundable_credits: 0
+    # 50,000 x 7.65%
+    household_tax: 8_130.6
+    household_net_income: 41_869.4
+
+- name: Nonrefundable credits reduce liability but not below zero
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 20_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+        pr_nonrefundable_credits: 5_000
+    households:
+      household:
+        members: [filer]
+  output:
+    # 16,500 -> 7% x 7,500 = 525 x 0.92 = 483
+    pr_total_tax_determined: 483
+    pr_income_tax: 0
