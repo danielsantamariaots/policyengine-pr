@@ -5,8 +5,8 @@ metadata:
   rate_unit: /1
   label: PR individual income tax rates
   reference:
-    - title: Código de Rentas Internas de 2011, Sección 1021.01(a)
-      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=19
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(a)(3), compiled text p. 29-30
+      href: https://hacienda.pr.gov/sites/default/files/codigo_de_rentas_internas_de_puerto_rico_de_2011_-_ley_1-2011_-_rev_ogp_16_enero_2022.pdf
     - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 19, Tax Computation Table ("taxable years beginning after December 31, 2012")
       href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=19
 brackets:

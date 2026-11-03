@@ -1,0 +1,9 @@
+description: No IRA deduction for an individual who has reached this age at the end of the taxable year.
+values:
+  2025-01-01: 75
+metadata:
+  unit: year
+  label: PR IRA deduction age limit
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Schedule A Individual, Part I line 7
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf

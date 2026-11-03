@@ -20,3 +20,15 @@ adjustment, alternate basic tax, PR EITC, child credits, youth exemption.
 Biggest risks: microdata calibration (start the Hacienda data request
 immediately) and statute availability for 2025 amendments. Cut line if
 late: ship the household calculator first; aggregate estimates follow.
+
+## Scope notes (2026-11-03)
+
+- **Nonrefundable credits (Anejo B, Parte II).** All 2025 lines are
+  investment and incentive credits (housing infrastructure, affordable
+  rental housing, urban centre construction, conservation easements,
+  tourism, film, opportunity zones, purchased credits). None is a
+  household credit, so `pr_nonrefundable_credits` stays an input; a
+  reform affecting these is a business-incentive reform, out of scope.
+- **Preferential rates (Anejo A2).** Interest, dividends and capital
+  gains at 10%/15% are not modelled; such income is currently absent
+  rather than mistaxed at ordinary rates. Next income item to add.

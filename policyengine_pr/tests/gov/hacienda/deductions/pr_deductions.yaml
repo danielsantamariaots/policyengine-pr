@@ -1,0 +1,103 @@
+# Expected values computed by hand from the 2025 instructions, Schedule A
+# Individual, Part I: mortgage interest (lesser of paid, 30% of income,
+# $35,000), medical over 6% of AGI, charitable up to 50% of AGI, IRA up to
+# $7,000 per person, education accounts $1,000 per beneficiary.
+
+- name: Single, $60,000 wages, every deduction at or over its limit
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 40
+        employment_income: 60_000
+        mortgage_interest: 20_000
+        medical_expenses: 5_000
+        charitable_contributions: 40_000
+        ira_contributions: 10_000
+        student_loan_payments: 1_200
+      c1:
+        age: 10
+        is_tax_unit_dependent: true
+        education_account_contributions: 0
+    tax_units:
+      tax_unit:
+        members: [p, c1]
+    households:
+      household:
+        members: [p, c1]
+  output:
+    # min(20,000, 30% x 60,000 = 18,000, 35,000)
+    pr_mortgage_interest_deduction: 18_000
+    # 5,000 - 6% x 60,000
+    pr_medical_expense_deduction: 1_400
+    # min(40,000, 50% x 60,000)
+    pr_charitable_deduction: 30_000
+    pr_ira_deduction: 7_000
+    pr_student_loan_deduction: 1_200
+    pr_deductions: 57_600
+    # 60,000 - 57,600 - 3,500 - 2,500 < 0
+    pr_net_taxable_income: 0
+
+- name: Education account capped per beneficiary; IRA limited by earnings
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 40
+        employment_income: 4_000
+        ira_contributions: 6_000
+        education_account_contributions: 3_000
+      c1:
+        age: 5
+        is_tax_unit_dependent: true
+      c2:
+        age: 8
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [p, c1, c2]
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    pr_ira_deduction: 4_000
+    pr_education_account_deduction: 2_000
+
+- name: No IRA deduction at age 75
+  period: 2025
+  input:
+    people:
+      p:
+        age: 75
+        employment_income: 30_000
+        ira_contributions: 5_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_ira_deduction: 0
+
+- name: Veteran exemption raises exemptions by $1,500
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 45
+        employment_income: 30_000
+        is_veteran: true
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_exemptions: 5_000
+    # 25,000 -> 1,120 x 0.92
+    pr_income_tax: 1_030.4

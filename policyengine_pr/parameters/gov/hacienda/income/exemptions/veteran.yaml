@@ -1,0 +1,9 @@
+description: Additional personal exemption per veteran of the United States Armed Forces (taxpayer and spouse).
+values:
+  2025-01-01: 1_500
+metadata:
+  unit: currency-USD
+  label: PR additional personal exemption for veterans
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 18, Line 9 - Additional Personal Exemption for Veterans
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
