@@ -5,5 +5,7 @@ metadata:
   unit: /1
   label: PR gradual adjustment rate
   reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(b)(4), compiled text p. 30
+      href: https://hacienda.pr.gov/sites/default/files/codigo_de_rentas_internas_de_puerto_rico_de_2011_-_ley_1-2011_-_rev_ogp_16_enero_2022.pdf
     - title: Hacienda, 2025 Formulario 482 (informativo), Anejo P Individuo, línea 4
       href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf

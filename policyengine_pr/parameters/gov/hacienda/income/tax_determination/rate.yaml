@@ -3,27 +3,26 @@ metadata:
   unit: /1
   label: PR tax determination factor
   reference:
-    - title: Código de Rentas Internas de 2011, Sección 1021.01(c)
-      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=20
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(c) (added by Ley 257-2018; threshold set by Ley 40-2020), compiled text p. 31
+      href: https://hacienda.pr.gov/sites/default/files/codigo_de_rentas_internas_de_puerto_rico_de_2011_-_ley_1-2011_-_rev_ogp_16_enero_2022.pdf
     - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 20, Line 17
       href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=20
-# Start date not yet verified against the amending act; 2025 is the
-# earliest year confirmed by a document in docs/statutes/.
 reduced:
-  description: Factor for individuals whose gross income does not exceed the threshold.
+  description: Factor for individuals whose gross income does not exceed the threshold (taxable years beginning after 31 December 2019).
   values:
-    2025-01-01: 0.92
+    2019-01-01: 0.95
+    2020-01-01: 0.92
   metadata:
     unit: /1
 standard:
-  description: Factor for individuals whose gross income exceeds the threshold.
+  description: Factor for all other individuals (taxable years beginning after 31 December 2018).
   values:
-    2025-01-01: 0.95
+    2019-01-01: 0.95
   metadata:
     unit: /1
 gross_income_threshold:
   description: Gross income at or below which the reduced factor applies.
   values:
-    2025-01-01: 100_000
+    2020-01-01: 100_000
   metadata:
     unit: currency-USD
