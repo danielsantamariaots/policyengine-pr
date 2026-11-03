@@ -1,0 +1,11 @@
+description: Net taxable income above which the gradual adjustment applies.
+values:
+  2025-01-01: 500_000
+metadata:
+  unit: currency-USD
+  label: PR gradual adjustment threshold
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(b)
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf
+    - title: Hacienda, 2025 Formulario 482 (informativo), Anejo P Individuo, línea 2
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf

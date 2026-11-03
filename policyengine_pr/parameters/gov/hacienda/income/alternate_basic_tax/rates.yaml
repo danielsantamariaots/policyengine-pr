@@ -1,0 +1,48 @@
+description: Alternate basic tax rate schedule. Unlike the regular table, the rate for the bracket applies to the whole net income subject to ABT, not only the excess.
+metadata:
+  type: marginal_rate
+  threshold_unit: currency-USD
+  rate_unit: /1
+  label: PR alternate basic tax rates
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.02(a)
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf
+    - title: Hacienda, 2025 Formulario 482 (informativo), Anejo O Individuo, Parte II, línea 4
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf
+brackets:
+  - threshold:
+      values:
+        2025-01-01: 0
+    rate:
+      values:
+        2025-01-01: 0
+  - threshold:
+      values:
+        2025-01-01: 25_000
+    rate:
+      values:
+        2025-01-01: 0.01
+  - threshold:
+      values:
+        2025-01-01: 50_000
+    rate:
+      values:
+        2025-01-01: 0.03
+  - threshold:
+      values:
+        2025-01-01: 75_000
+    rate:
+      values:
+        2025-01-01: 0.05
+  - threshold:
+      values:
+        2025-01-01: 150_000
+    rate:
+      values:
+        2025-01-01: 0.10
+  - threshold:
+      values:
+        2025-01-01: 250_000
+    rate:
+      values:
+        2025-01-01: 0.24

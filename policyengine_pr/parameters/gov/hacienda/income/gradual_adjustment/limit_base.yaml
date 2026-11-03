@@ -1,0 +1,9 @@
+description: Base amount of the gradual adjustment limit, before adding the share of exemptions.
+values:
+  2025-01-01: 8_895
+metadata:
+  unit: currency-USD
+  label: PR gradual adjustment limit base
+  reference:
+    - title: Hacienda, 2025 Formulario 482 (informativo), Anejo P Individuo, línea 5(a)
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf

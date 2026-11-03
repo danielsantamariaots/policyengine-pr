@@ -1,0 +1,9 @@
+description: Rate applied to net taxable income in excess of the gradual adjustment threshold.
+values:
+  2025-01-01: 0.05
+metadata:
+  unit: /1
+  label: PR gradual adjustment rate
+  reference:
+    - title: Hacienda, 2025 Formulario 482 (informativo), Anejo P Individuo, línea 4
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf

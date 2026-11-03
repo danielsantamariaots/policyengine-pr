@@ -1,0 +1,9 @@
+description: Share of personal, veteran and dependent exemptions added to the gradual adjustment limit.
+values:
+  2025-01-01: 0.33
+metadata:
+  unit: /1
+  label: PR gradual adjustment limit exemption rate
+  reference:
+    - title: Hacienda, 2025 Formulario 482 (informativo), Anejo P Individuo, línea 5(b)
+      href: https://hacienda.pr.gov/sites/default/files/individuos_2025_rev._20_jun_25_informativo.pdf

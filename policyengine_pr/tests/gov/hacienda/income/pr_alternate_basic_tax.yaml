@@ -1,0 +1,50 @@
+# Expected values computed by hand from the 2025 Formulario 482 (informativo),
+# Anejo O Individuo, Parte II, línea 4. pr_abt_income is an input in phase 1;
+# these cases exercise the schedule's arithmetic, not a realistic return.
+
+- name: Wage-only filer owes no ABT
+  period: 2025
+  input:
+    employment_income: 150_000
+  output:
+    pr_abt_net_income: 0
+    pr_alternate_basic_tax: 0
+    pr_abt_excess: 0
+
+- name: Net ABT income exactly $25,000 is not taxed
+  period: 2025
+  input:
+    pr_abt_income: 28_500
+  output:
+    pr_abt_net_income: 25_000
+    pr_alternate_basic_tax: 0
+
+- name: Net ABT income $60,000 taxed at 3% of the whole amount
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    pr_abt_income: 63_500
+  output:
+    pr_abt_net_income: 60_000
+    pr_alternate_basic_tax: 1_800
+
+- name: Net ABT income $300,000 taxed at 24%, no regular tax to offset
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    pr_abt_income: 303_500
+  output:
+    pr_alternate_basic_tax: 72_000
+    pr_abt_excess: 72_000
+
+- name: ABT below regular tax yields no excess
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    employment_income: 100_000
+    pr_abt_income: 100_000
+  output:
+    # 96,500 -> 5% bracket
+    pr_alternate_basic_tax: 4_825
+    # regular: (8,430 + 33% x 35,000) x 0.92 = 18,381.6
+    pr_abt_excess: 0

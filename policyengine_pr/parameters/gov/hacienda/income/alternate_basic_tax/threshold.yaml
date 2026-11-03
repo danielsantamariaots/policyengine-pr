@@ -1,0 +1,11 @@
+description: Net income subject to alternate basic tax above which the tax applies.
+values:
+  2025-01-01: 25_000
+metadata:
+  unit: currency-USD
+  label: PR alternate basic tax threshold
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.02
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=82
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 82, Schedule O Individual
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=82

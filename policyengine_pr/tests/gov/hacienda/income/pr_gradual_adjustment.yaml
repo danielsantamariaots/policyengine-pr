@@ -1,0 +1,61 @@
+# Expected values computed by hand from the 2025 Formulario 482 (informativo),
+# Anejo P Individuo: 5% of net taxable income over $500,000, limited to
+# $8,895 + 33% of personal and dependent exemptions.
+
+- name: Single, $600,000 wages (adjustment below the limit)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    employment_income: 600_000
+  output:
+    pr_net_taxable_income: 596_500
+    # 8,430 + 33% x (596,500 - 61,500)
+    pr_regular_tax: 184_980
+    # 5% x 96,500 = 4,825; limit 8,895 + 33% x 3,500 = 10,050
+    pr_gradual_adjustment: 4_825
+    # (184,980 + 4,825) x 0.95
+    pr_regular_tax_before_credits: 180_314.75
+
+- name: Single, $1,000,000 wages (adjustment at the limit)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    employment_income: 1_000_000
+  output:
+    pr_regular_tax: 316_980
+    # 5% x 496,500 = 24,825 > limit 10,050
+    pr_gradual_adjustment: 10_050
+    pr_regular_tax_before_credits: 310_678.5
+
+- name: Joint, two dependents, $800,000 wages (limit includes dependents)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        employment_income: 800_000
+      spouse: {}
+      child1:
+        is_tax_unit_dependent: true
+      child2:
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [filer, spouse, child1, child2]
+        pr_filing_status: JOINT
+    households:
+      household:
+        members: [filer, spouse, child1, child2]
+  output:
+    pr_net_taxable_income: 788_000
+    pr_regular_tax: 248_175
+    # 5% x 288,000 = 14,400; limit 8,895 + 33% x 12,000 = 12,855
+    pr_gradual_adjustment: 12_855
+    pr_regular_tax_before_credits: 247_978.5
+
+- name: Below the threshold there is no adjustment
+  period: 2025
+  input:
+    employment_income: 400_000
+  output:
+    pr_gradual_adjustment: 0
