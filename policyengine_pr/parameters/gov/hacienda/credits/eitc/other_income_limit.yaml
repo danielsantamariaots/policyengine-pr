@@ -1,0 +1,11 @@
+description: Net income from sources other than earned income above which the PR EITC is denied (Anejo CT, Parte II, línea 2D).
+values:
+  2025-01-01: 10_000
+metadata:
+  unit: currency-USD
+  label: PR EITC other income limit
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1052.01
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf
+    - title: Hacienda, 2025 Anejo CT Individuo, Parte II, línea 2D
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf

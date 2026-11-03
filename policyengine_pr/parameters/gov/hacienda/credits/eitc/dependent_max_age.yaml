@@ -1,0 +1,15 @@
+description: Maximum age of a qualifying dependent child for the PR EITC at the end of the taxable year.
+metadata:
+  unit: year
+  label: PR EITC qualifying dependent maximum age
+  reference:
+    - title: Hacienda, 2025 Anejo CT Individuo, Parte I, requisito 4
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf
+default:
+  description: Maximum age for a child who is not a full-time student.
+  values:
+    2025-01-01: 18
+student:
+  description: Maximum age for a child who is a full-time student.
+  values:
+    2025-01-01: 25

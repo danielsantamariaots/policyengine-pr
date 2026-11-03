@@ -1,0 +1,31 @@
+description: Earned income at which the PR EITC begins to phase out, by number of qualifying dependents and filing status.
+metadata:
+  unit: currency-USD
+  label: PR EITC phase-out start
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1052.01(a)(5), as adjusted for inflation under Sección 1052.01(i)
+      href: https://hacienda.pr.gov/sites/default/files/publicaciones/2026/02/bi_ri_26-01_ajuste_por_inflacion_al_credito_por_trabajo_para_el_ano_2025_signed.pdf
+    - title: Hacienda, Boletín Informativo de Rentas Internas Núm. 26-01 (17 Feb 2026)
+      href: https://hacienda.pr.gov/sites/default/files/publicaciones/2026/02/bi_ri_26-01_ajuste_por_inflacion_al_credito_por_trabajo_para_el_ano_2025_signed.pdf
+    - title: Hacienda, 2025 Anejo CT Individuo, Parte III
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf
+0:
+  SINGLE:
+    2025-01-01: 19_130
+  JOINT:
+    2025-01-01: 21_530
+1:
+  SINGLE:
+    2025-01-01: 21_530
+  JOINT:
+    2025-01-01: 26_310
+2:
+  SINGLE:
+    2025-01-01: 25_110
+  JOINT:
+    2025-01-01: 29_900
+3:
+  SINGLE:
+    2025-01-01: 25_110
+  JOINT:
+    2025-01-01: 29_900

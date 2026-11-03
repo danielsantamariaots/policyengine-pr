@@ -1,0 +1,31 @@
+description: Earned income above which no PR EITC is allowed, by number of qualifying dependents and filing status (Anejo CT, Parte II, línea 5).
+metadata:
+  unit: currency-USD
+  label: PR EITC earned income limit
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1052.01(a)(5), as adjusted for inflation under Sección 1052.01(i)
+      href: https://hacienda.pr.gov/sites/default/files/publicaciones/2026/02/bi_ri_26-01_ajuste_por_inflacion_al_credito_por_trabajo_para_el_ano_2025_signed.pdf
+    - title: Hacienda, Boletín Informativo de Rentas Internas Núm. 26-01 (17 Feb 2026)
+      href: https://hacienda.pr.gov/sites/default/files/publicaciones/2026/02/bi_ri_26-01_ajuste_por_inflacion_al_credito_por_trabajo_para_el_ano_2025_signed.pdf
+    - title: Hacienda, 2025 Anejo CT Individuo, Parte III
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf
+0:
+  SINGLE:
+    2025-01-01: 31_090
+  JOINT:
+    2025-01-01: 33_490
+1:
+  SINGLE:
+    2025-01-01: 37_081
+  JOINT:
+    2025-01-01: 41_861
+2:
+  SINGLE:
+    2025-01-01: 44_237
+  JOINT:
+    2025-01-01: 49_027
+3:
+  SINGLE:
+    2025-01-01: 47_833
+  JOINT:
+    2025-01-01: 52_623

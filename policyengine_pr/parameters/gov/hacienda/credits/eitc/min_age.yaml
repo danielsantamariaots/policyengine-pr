@@ -1,0 +1,9 @@
+description: Minimum age of the taxpayer (and spouse) at the end of the taxable year to claim the PR EITC.
+values:
+  2025-01-01: 19
+metadata:
+  unit: year
+  label: PR EITC minimum claimant age
+  reference:
+    - title: Hacienda, 2025 Anejo CT Individuo, Parte I, requisito 3
+      href: https://hacienda.pr.gov/sites/default/files/anejo_ct_rev._20_jun_25-informativo.pdf

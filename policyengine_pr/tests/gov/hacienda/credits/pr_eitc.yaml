@@ -1,0 +1,234 @@
+# Expected values computed by hand from Hacienda's 2025 Anejo CT Individuo,
+# Parte III, with parameters confirmed by BI RI 26-01 (17 Feb 2026).
+
+- name: Single, no dependents, $10,000 wages (phase-in)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 10_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_eitc_dependent_count: 0
+    pr_eitc_eligible: true
+    # 15% x 10,000
+    pr_eitc: 1_500
+
+- name: Single, no dependents, $15,000 wages (at the maximum)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 15_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    # 15% x 15,000 = 2,250, capped at 1,794
+    pr_eitc: 1_794
+
+- name: Single, no dependents, $25,000 wages (phase-out)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 25_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    # 1,794 - 15% x (25,000 - 19,130) = 1,794 - 880.5
+    pr_eitc: 913.5
+
+- name: Single, no dependents, $32,000 wages (over the limit)
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 32_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_eitc_eligible: false
+    pr_eitc: 0
+
+- name: Single parent, one child, $18,000 wages
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 35
+        employment_income: 18_000
+      child:
+        age: 8
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [filer, child]
+    households:
+      household:
+        members: [filer, child]
+  output:
+    pr_eitc_dependent_count: 1
+    # 33.98% x 18,000 = 6,116.4, capped at 4,186
+    pr_eitc: 4_186
+
+- name: Joint, two children, $35,000 wages (phase-out)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 40
+        employment_income: 25_000
+      spouse:
+        age: 38
+        employment_income: 10_000
+      child1:
+        age: 5
+        is_tax_unit_dependent: true
+      child2:
+        age: 12
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [filer, spouse, child1, child2]
+        pr_filing_status: JOINT
+    households:
+      household:
+        members: [filer, spouse, child1, child2]
+  output:
+    pr_eitc_dependent_count: 2
+    # 6,576 - 34.38% x (35,000 - 29,900) = 6,576 - 1,753.38
+    pr_eitc: 4_822.62
+
+- name: Single, four children, $30,000 wages (three-or-more schedule)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 45
+        employment_income: 30_000
+      c1:
+        age: 2
+        is_tax_unit_dependent: true
+      c2:
+        age: 6
+        is_tax_unit_dependent: true
+      c3:
+        age: 10
+        is_tax_unit_dependent: true
+      c4:
+        age: 15
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [filer, c1, c2, c3, c4]
+    households:
+      household:
+        members: [filer, c1, c2, c3, c4]
+  output:
+    pr_eitc_dependent_count: 4
+    # 7,774 - 34.21% x (30,000 - 25,110) = 7,774 - 1,672.869
+    pr_eitc: 6_101.13
+
+- name: Dependent aged 20, not a student, does not count; aged 22 student does
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 50
+        employment_income: 20_000
+      c1:
+        age: 20
+        is_tax_unit_dependent: true
+      c2:
+        age: 22
+        is_tax_unit_dependent: true
+        is_full_time_student: true
+    tax_units:
+      tax_unit:
+        members: [filer, c1, c2]
+    households:
+      household:
+        members: [filer, c1, c2]
+  output:
+    pr_eitc_dependent_count: 1
+    # 33.98% x 20,000 = 6,796 capped at 4,186
+    pr_eitc: 4_186
+
+- name: Claimant under 19 is ineligible
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 18
+        employment_income: 12_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_eitc_eligible: false
+    pr_eitc: 0
+
+- name: Married filing separately is ineligible
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 12_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+        pr_filing_status: SEPARATE
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_eitc: 0
+
+- name: Other income over $10,000 denies the credit
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 30
+        employment_income: 12_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+        pr_eitc_other_income: 10_001
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_eitc: 0
