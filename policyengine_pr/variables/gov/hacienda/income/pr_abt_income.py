@@ -6,10 +6,15 @@ class pr_abt_income(Variable):
     entity = TaxUnit
     label = "PR income subject to alternate basic tax before exemptions"
     documentation = (
-        "Anejo O Individuo, Parte I, línea 16. Input in phase 1: per the "
-        "2025 instructions (p. 82), taxpayers with wage income only are not "
-        "subject to the ABT, and the business, pass-through and exempt "
-        "income items that feed this line are not yet modelled."
+        "Anejo O Individuo, Parte I, línea 16: business profit (lines 1-5) "
+        "and other income including taxable pensions (line 6), plus any "
+        "amount entered in pr_abt_other_income. Wages are excluded "
+        "(2025 instructions, p. 82)."
     )
     unit = USD
     definition_period = YEAR
+    adds = [
+        "self_employment_income",
+        "pr_taxable_pension_income",
+        "pr_abt_other_income",
+    ]

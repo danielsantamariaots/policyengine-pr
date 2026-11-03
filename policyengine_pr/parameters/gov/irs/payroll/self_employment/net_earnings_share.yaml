@@ -1,0 +1,11 @@
+description: Share of self-employment profit treated as net earnings from self-employment (Schedule SE line 4a).
+values:
+  2025-01-01: 0.9235
+metadata:
+  unit: /1
+  label: SE net earnings share
+  reference:
+    - title: Internal Revenue Code §1401, §1402(a)(12)
+      href: https://www.irs.gov/pub/irs-pdf/f1040sse.pdf
+    - title: IRS, 2025 Schedule SE (Form 1040)
+      href: https://www.irs.gov/pub/irs-pdf/f1040sse.pdf

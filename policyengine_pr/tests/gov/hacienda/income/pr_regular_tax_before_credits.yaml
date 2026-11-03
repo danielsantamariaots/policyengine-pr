@@ -52,7 +52,7 @@
       tax_unit:
         members: [filer, spouse, child1, child2]
         pr_filing_status: JOINT
-        pr_deductions: 4_000
+        pr_other_deductions: 4_000
     households:
       household:
         members: [filer, spouse, child1, child2]

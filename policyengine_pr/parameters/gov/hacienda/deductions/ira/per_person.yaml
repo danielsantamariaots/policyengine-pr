@@ -1,0 +1,11 @@
+description: Maximum deductible IRA contribution per individual (also limited to earned income; $14,000 aggregate for joint filers).
+values:
+  2025-01-01: 7_000
+metadata:
+  unit: currency-USD
+  label: PR IRA deduction per person
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1033.15(a)(7), as amended for 2025
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Relevant Facts (increase from $5,000 to $7,000) and Schedule A Individual, Part I line 7
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf

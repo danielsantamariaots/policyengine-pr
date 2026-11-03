@@ -1,0 +1,9 @@
+description: Mortgage interest is deductible only up to this share of adjusted gross income plus exempt income (current year or any of the three preceding years).
+values:
+  2025-01-01: 0.30
+metadata:
+  unit: /1
+  label: PR mortgage interest income share limit
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Schedule A Individual, Part I line 1
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf

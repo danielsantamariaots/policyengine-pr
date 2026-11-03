@@ -1,0 +1,90 @@
+# Expected values computed by hand from IRS 2025 Schedule SE (Form 1040):
+# net earnings = 92.35% of profit; 12.4% Social Security up to the $176,100
+# wage base less wages; 2.9% Medicare on all net earnings; none below $400.
+
+- name: $50,000 self-employment profit, no wages
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 40
+        self_employment_income: 50_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    # 46,175 x (12.4% + 2.9%)
+    self_employment_tax: 7_064.775
+    self_employment_tax_deductible: 3_532.3875
+    # PR: AGI 50,000 - 3,500 = 46,500 -> (3,430 + 25% x 5,000) x 0.92
+    pr_income_tax: 4_305.6
+    # ABT: 46,500 net -> 1% = 465 < regular tax
+    pr_abt_excess: 0
+    pr_eitc: 0
+
+- name: Profit of $400 is below the net-earnings floor
+  period: 2025
+  input:
+    people:
+      p:
+        age: 40
+        self_employment_income: 400
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    # 92.35% x 400 = 369.4 < 400
+    self_employment_tax: 0
+
+- name: Wages above the wage base leave no Social Security room
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 40
+        employment_income: 180_000
+        self_employment_income: 20_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    # 2.9% x 18,470 only
+    self_employment_tax: 535.63
+
+- name: "Self-employed parent, two children: ACTC limited by half of SE tax"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 40
+        self_employment_income: 20_000
+      c1:
+        age: 3
+        is_tax_unit_dependent: true
+      c2:
+        age: 6
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [p, c1, c2]
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    # 18,470 x 15.3% = 2,825.91; half = 1,412.955
+    tax_unit_payroll_taxes: 1_412.955
+    federal_actc: 1_412.955
+    # EITC: two children, 20,000 < 25,110 -> 40% x 20,000 = 8,000 capped at 6,576
+    pr_eitc: 6_576

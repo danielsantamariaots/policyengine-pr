@@ -1,0 +1,11 @@
+description: Charitable contributions are deductible up to this share of adjusted gross income (excess carried forward 5 years, not modelled).
+values:
+  2025-01-01: 0.50
+metadata:
+  unit: /1
+  label: PR charitable contribution AGI limit
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1033.15(a)(3)
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Schedule A Individual, Part I line 4
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf

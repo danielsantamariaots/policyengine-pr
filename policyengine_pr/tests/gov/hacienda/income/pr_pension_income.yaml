@@ -1,0 +1,60 @@
+# Expected values from the 2025 instructions, Schedule H Individual, Part II
+# line 8: $11,000 exempt under age 60, $15,000 at 60 or older.
+
+- name: Pensioner aged 65, $30,000 pension
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 65
+        pension_income: 30_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_taxable_pension_income: 15_000
+    pr_exempt_pension_income: 15_000
+    # 15,000 - 3,500 = 11,500 -> 7% x 2,500 = 175 x 0.92
+    pr_income_tax: 161
+    self_employment_tax: 0
+    household_tax: 161
+
+- name: Pensioner aged 55, $8,000 pension is fully exempt
+  period: 2025
+  input:
+    people:
+      p:
+        age: 55
+        pension_income: 8_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_taxable_pension_income: 0
+    pr_income_tax: 0
+
+- name: Social Security benefits are not taxed but count as market income
+  period: 2025
+  input:
+    people:
+      p:
+        age: 70
+        social_security: 18_000
+    tax_units:
+      tax_unit:
+        members: [p]
+    households:
+      household:
+        members: [p]
+  output:
+    pr_taxable_gross_income: 0
+    pr_income_tax: 0
+    household_market_income: 18_000
+    household_net_income: 18_000

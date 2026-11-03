@@ -1,0 +1,9 @@
+description: Maximum deductible contribution to an educational contribution or My Future account per beneficiary.
+values:
+  2025-01-01: 1_000
+metadata:
+  unit: currency-USD
+  label: PR education account deduction per beneficiary
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Relevant Facts (increase from $500 to $1,000) and Schedule A Individual, Part I line 8
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf

@@ -1,0 +1,15 @@
+description: Annual pension income exempt from gross income under Sección 1031.02(a)(13), by pensioner age.
+metadata:
+  unit: currency-USD
+  label: PR pension exemption
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1031.02(a)(13)
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Schedule H Individual, Part II line 8
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
+under_60:
+  values:
+    2025-01-01: 11_000
+age_60_or_older:
+  values:
+    2025-01-01: 15_000

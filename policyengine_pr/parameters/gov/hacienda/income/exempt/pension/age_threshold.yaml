@@ -1,0 +1,9 @@
+description: Age at which the higher pension exemption applies.
+values:
+  2025-01-01: 60
+metadata:
+  unit: year
+  label: PR pension exemption age threshold
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, Schedule H Individual, Part II line 8
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf
