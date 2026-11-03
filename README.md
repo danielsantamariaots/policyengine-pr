@@ -15,3 +15,10 @@ make test
 ```
 
 Statute texts used as sources live in `docs/statutes/`.
+
+## Prototype calculator
+
+```bash
+uv pip install -e ".[app]"
+streamlit run app/calculator.py
+```
