@@ -1,0 +1,9 @@
+description: Exemption per dependent claimed in full.
+values:
+  2025-01-01: 2_500
+metadata:
+  unit: currency-USD
+  label: PR exemption per dependent
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 18, Line 8 - Exemption for Dependents
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=18

@@ -1,0 +1,15 @@
+description: Personal exemption by filing status.
+metadata:
+  unit: currency-USD
+  label: PR personal exemption
+  breakdown:
+    - pr_filing_status
+  reference:
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 18, Line 7 - Personal Exemption
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=18
+SINGLE:
+  2025-01-01: 3_500
+JOINT:
+  2025-01-01: 7_000
+SEPARATE:
+  2025-01-01: 3_500

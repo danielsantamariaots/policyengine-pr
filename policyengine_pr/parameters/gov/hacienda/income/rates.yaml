@@ -1,0 +1,42 @@
+description: Puerto Rico normal income tax rates for individuals, applied to net taxable income.
+metadata:
+  type: marginal_rate
+  threshold_unit: currency-USD
+  rate_unit: /1
+  label: PR individual income tax rates
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(a)
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=19
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 19, Tax Computation Table ("taxable years beginning after December 31, 2012")
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=19
+brackets:
+  - threshold:
+      values:
+        2013-01-01: 0
+    rate:
+      values:
+        2013-01-01: 0
+  - threshold:
+      values:
+        2013-01-01: 9_000
+    rate:
+      values:
+        2013-01-01: 0.07
+  - threshold:
+      values:
+        2013-01-01: 25_000
+    rate:
+      values:
+        2013-01-01: 0.14
+  - threshold:
+      values:
+        2013-01-01: 41_500
+    rate:
+      values:
+        2013-01-01: 0.25
+  - threshold:
+      values:
+        2013-01-01: 61_500
+    rate:
+      values:
+        2013-01-01: 0.33

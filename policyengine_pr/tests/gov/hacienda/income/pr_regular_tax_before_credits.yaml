@@ -1,0 +1,66 @@
+# Expected values computed by hand from Hacienda's 2025 Individual Income Tax
+# Return Instructions: Tax Computation Table (p. 19), Line 7 personal
+# exemption and Line 8 dependent exemption (p. 18), Line 17 92%/95% rule (p. 20).
+
+- name: Single, $30,000 wages (14% bracket, 92% factor)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    employment_income: 30_000
+  output:
+    # 30,000 - 3,500 exemption = 26,500
+    pr_net_taxable_income: 26_500
+    # 1,120 + 14% x (26,500 - 25,000)
+    pr_regular_tax: 1_330
+    # gross income <= 100,000 -> x 0.92
+    pr_regular_tax_before_credits: 1_223.6
+
+- name: Single, $12,500 wages (top of 0% bracket)
+  period: 2025
+  input:
+    employment_income: 12_500
+  output:
+    pr_net_taxable_income: 9_000
+    pr_regular_tax_before_credits: 0
+
+- name: Single, $120,000 wages (33% bracket, 95% factor)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    employment_income: 120_000
+  output:
+    pr_net_taxable_income: 116_500
+    # 8,430 + 33% x (116,500 - 61,500)
+    pr_regular_tax: 26_580
+    # gross income > 100,000 -> x 0.95
+    pr_regular_tax_before_credits: 25_251
+
+- name: Joint, two dependents, $70,000 wages, $4,000 deductions
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        employment_income: 50_000
+      spouse:
+        employment_income: 20_000
+      child1:
+        is_tax_unit_dependent: true
+      child2:
+        is_tax_unit_dependent: true
+    tax_units:
+      tax_unit:
+        members: [filer, spouse, child1, child2]
+        pr_filing_status: JOINT
+        pr_deductions: 4_000
+    households:
+      household:
+        members: [filer, spouse, child1, child2]
+  output:
+    # 7,000 personal + 2 x 2,500 dependents
+    pr_exemptions: 12_000
+    # 70,000 - 4,000 - 12,000
+    pr_net_taxable_income: 54_000
+    # 3,430 + 25% x (54,000 - 41,500)
+    pr_regular_tax: 6_555
+    pr_regular_tax_before_credits: 6_030.6

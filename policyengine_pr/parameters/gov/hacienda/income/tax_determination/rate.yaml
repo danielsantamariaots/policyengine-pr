@@ -1,0 +1,29 @@
+description: Share of the sum of regular tax and gradual adjustment that is determined as tax.
+metadata:
+  unit: /1
+  label: PR tax determination factor
+  reference:
+    - title: Código de Rentas Internas de 2011, Sección 1021.01(c)
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=20
+    - title: Hacienda, 2025 Individual Income Tax Return Instructions, p. 20, Line 17
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=20
+# Start date not yet verified against the amending act; 2025 is the
+# earliest year confirmed by a document in docs/statutes/.
+reduced:
+  description: Factor for individuals whose gross income does not exceed the threshold.
+  values:
+    2025-01-01: 0.92
+  metadata:
+    unit: /1
+standard:
+  description: Factor for individuals whose gross income exceeds the threshold.
+  values:
+    2025-01-01: 0.95
+  metadata:
+    unit: /1
+gross_income_threshold:
+  description: Gross income at or below which the reduced factor applies.
+  values:
+    2025-01-01: 100_000
+  metadata:
+    unit: currency-USD
