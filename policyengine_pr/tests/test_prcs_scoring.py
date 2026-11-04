@@ -47,7 +47,11 @@ def test_calibration_hits_every_target():
 
     w, report = calibrate(Simulation(dataset=PRCS))
     assert (w > 0).all()
-    assert (abs(report["after_ratio"] - 1) < 1e-6).all()
+    constrained = report[report["constraint"]]
+    assert (abs(constrained["after_ratio"] - 1) < 1e-6).all()
+    assert (
+        ~report["constraint"]
+    ).sum() >= 1  # the returns count is reported, not imposed
 
 
 def test_behavioural_response_shrinks_the_static_revenue_gain():
