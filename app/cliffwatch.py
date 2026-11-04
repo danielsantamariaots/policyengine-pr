@@ -24,6 +24,7 @@ CREDIT_COLOR = "#1baf7a"
 NET_COLOR = "#1f1f1f"
 MARKET_COLOR = "#9a9a94"
 CLIFF_COLOR = "#d6283c"
+PAN_COLOR = "#c9a227"
 
 TEXT = {
     "title": ("CliffWatch · Puerto Rico", "CliffWatch · Puerto Rico"),
@@ -85,6 +86,7 @@ TEXT = {
     "s_payroll": ("Seguro Social y Medicare", "Social Security and Medicare"),
     "s_eitc": ("Crédito por Trabajo", "Crédito por Trabajo (PR EITC)"),
     "s_actc": ("Crédito federal por hijos", "Federal child credit (ACTC)"),
+    "s_pan": ("PAN", "PAN (nutrition assistance)"),
     "s_cliff": ("Precipicio", "Cliff"),
     "s_emtr": ("Ley vigente", "Current law"),
     "s_emtr_reform": ("Reforma", "Reform"),
@@ -124,6 +126,7 @@ TEXT = {
     ),
     "cause_tax": ("Sube la contribución de PR", "PR income tax rises"),
     "cause_payroll": ("Suben Seguro Social y Medicare", "Payroll taxes rise"),
+    "cause_pan": ("Se pierde el PAN", "PAN lost"),
     "narr_none": (
         "Para este hogar no hay precipicios: el ingreso neto sube siempre que "
         "suben los salarios, y en ningún tramo se pierde la mitad o más de "
@@ -171,13 +174,21 @@ TEXT = {
         "suben el Seguro Social y Medicare",
         "payroll taxes rise",
     ),
+    "narr_cause_pan": (
+        "el hogar pierde el PAN al superar el límite de ingreso neto",
+        "the household loses PAN by exceeding the net income limit",
+    ),
     "note": (
-        "La tasa marginal efectiva se calcula sobre pasos de $500. El modelo "
-        "no incluye todavía beneficios (PAN, Medicaid/Vital, TANF), cuyos "
-        "precipicios son mayores que los contributivos a ingresos bajos.",
-        "The effective marginal rate is computed over $500 steps. The model "
-        "does not yet include benefits (PAN, Medicaid/Vital, TANF), whose "
-        "cliffs dwarf the tax ones at low incomes.",
+        "La tasa marginal efectiva se calcula sobre pasos de $500. El PAN se "
+        "modela con el beneficio máximo para todo hogar elegible, porque ADSEF "
+        "no publica la tabla de beneficios por nivel de ingreso neto: el "
+        "precipicio al superar el límite es, en parte, un artefacto de esa "
+        "laguna. Medicaid/Vital, TANF y Sección 8 no están incluidos.",
+        "The effective marginal rate is computed over $500 steps. PAN is "
+        "modelled at the maximum benefit for every eligible household because "
+        "ADSEF does not publish the benefit schedule by net income: the cliff "
+        "at the limit is partly an artefact of that gap. Medicaid/Vital, TANF "
+        "and Section 8 are not included.",
     ),
 }
 
@@ -191,6 +202,7 @@ VARS = {
     "se": "self_employment_tax",
     "eitc": "pr_eitc",
     "actc": "federal_actc",
+    "pan": "pan",
 }
 
 
@@ -235,6 +247,7 @@ def find_cliffs(df, L):
             "cause_actc": -d.loc[i, "actc"],
             "cause_tax": d.loc[i, "tax"],
             "cause_payroll": d.loc[i, "payroll"],
+            "cause_pan": -d.loc[i, "pan"],
         }
         cause = max(adverse, key=adverse.get)
         rows.append(
@@ -447,6 +460,7 @@ def render(
     bars = [
         ("eitc", "s_eitc", CREDIT_COLOR, 1),
         ("actc", "s_actc", "#0d7a52", 1),
+        ("pan", "s_pan", PAN_COLOR, 1),
         ("tax", "s_tax", TAX_COLOR, -1),
         ("payroll", "s_payroll", PAYROLL_COLOR, -1),
     ]
@@ -568,6 +582,7 @@ def render(
                 "payroll",
                 "eitc",
                 "actc",
+                "pan",
                 "net",
                 "emtr",
             ]
@@ -579,6 +594,7 @@ def render(
                 "payroll": t("s_payroll"),
                 "eitc": t("s_eitc"),
                 "actc": t("s_actc"),
+                "pan": t("s_pan"),
                 "net": t("s_net"),
                 "emtr": t("col_emtr"),
             }

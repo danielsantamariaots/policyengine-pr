@@ -36,3 +36,13 @@ late: ship the household calculator first; aggregate estimates follow.
   4%/20% columns (special acts, pension lump sums), capital-loss
   carryovers, and interest from outside Puerto Rico (taxed at ordinary
   rates; enter it as self-employment income only as a stopgap).
+- **PAN (ADSEF).** Modelled since 2026-11-04 from Reglamento 8684 and the
+  NAP State Plan FY2022 (`docs/statutes/pan/`): counted income (50% of
+  pensions and Social Security), earned-income, other-income, elderly and
+  standard deductions, net-income limits and maximum benefits by household
+  size, elderly bonus. Gaps, each flagged in the parameter file: the Tabla
+  de Beneficios schedule is not published (`benefit_reduction_rate` = 0
+  pays the maximum to every eligible household); limits for sizes 2–18 are
+  the October 2021 values; no resources test, dependent-care, disability,
+  student or medical deductions, or Vieques/Culebra supplement. Ask ADSEF
+  for the current Tabla and the FY2026 plan.

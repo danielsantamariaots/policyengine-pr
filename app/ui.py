@@ -249,9 +249,9 @@ TEXT = {
     "m_net": ("Ingreso neto", "Net income"),
     "m_net_help": (
         "Ingresos del hogar menos contribución de PR, Seguro Social y "
-        "Medicare, más créditos reembolsables.",
+        "Medicare, más créditos reembolsables y PAN.",
         "Household income minus PR tax, Social Security and Medicare, plus "
-        "refundable credits.",
+        "refundable credits and PAN.",
     ),
     "m_rate": ("Lo que se va de cada $100", "Out of every $100"),
     "m_rate_help": (
@@ -280,15 +280,20 @@ TEXT = {
     "not_included_title": ("Qué no incluye", "What is not included"),
     "not_included": (
         "Tasas preferenciales distintas del 10% y 15% (columnas de 4% y 20% "
-        "del Anejo A2); créditos por inversión (Anejo B); beneficios como PAN, "
-        "Medicaid/Vital, TANF y Sección 8, cuyos precipicios a ingresos bajos "
-        "son mayores que los contributivos; efectos de comportamiento. La "
+        "del Anejo A2); créditos por inversión (Anejo B); Medicaid/Vital, TANF "
+        "y Sección 8. El PAN está incluido con el beneficio máximo por tamaño "
+        "del hogar, pero ADSEF no publica la tabla que reduce el beneficio "
+        "según el ingreso neto, ni los límites vigentes para hogares de 2 o "
+        "más personas (se usan los de octubre de 2021); efectos de "
+        "comportamiento. La "
         "exención para jóvenes (Ley 135-2014) se aplica automáticamente "
         "entre los 16 y 26 años.",
         "Preferential rates other than 10% and 15% (Anejo A2 columns at 4% "
-        "and 20%); investment credits (Anejo B); benefits such as PAN, "
-        "Medicaid/Vital, TANF and Section 8, whose cliffs at low incomes are "
-        "larger than the tax ones; behavioural responses. The youth "
+        "and 20%); investment credits (Anejo B); Medicaid/Vital, TANF and "
+        "Section 8. PAN is included at the maximum benefit by household size, "
+        "but ADSEF does not publish the schedule that reduces the benefit "
+        "with net income, nor the current limits for households of 2 or more "
+        "(October 2021 values are used); behavioural responses. The youth "
         "exemption (Ley 135-2014) applies automatically at ages 16–26.",
     ),
     "assumptions_title": ("Ver supuestos", "See assumptions"),

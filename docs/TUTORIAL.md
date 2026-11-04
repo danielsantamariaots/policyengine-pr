@@ -123,7 +123,16 @@ reforma, y los precipicios se calculan sobre la reforma.
 - Tasas preferenciales distintas del 10% (intereses bancarios), 15%
   (dividendos y ganancias de capital): columnas de 4% y 20% del Anejo A2.
 - Créditos no reembolsables por inversión (Anejo B).
-- Beneficios: PAN, Medicaid/Vital, TANF, Sección 8.
+- Beneficios: Medicaid/Vital, TANF, Sección 8. El **PAN** sí está incluido
+  (Reglamento 8684 y Plan Estatal NAP): elegibilidad por ingreso neto
+  mensual y beneficio máximo según el tamaño del hogar, con el bono por
+  edad avanzada. Lagunas señaladas: ADSEF no publica la tabla que reduce el
+  beneficio a medida que sube el ingreso neto (el modelo paga el máximo a
+  todo hogar elegible, por lo que el precipicio al superar el límite es en
+  parte un artefacto), ni los límites vigentes para hogares de 2 o más
+  personas (se usan los de octubre de 2021); tampoco se modelan recursos,
+  deducciones por cuido, incapacidad o estudio, ni el suplemento de Vieques
+  y Culebra.
 - Efectos de comportamiento: el modelo es estático.
 
 Los resultados son estimaciones y no sustituyen asesoría profesional.
