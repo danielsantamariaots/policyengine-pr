@@ -44,7 +44,7 @@ Además: diccionario de datos, fecha de corte, nota de supresión, y las tabulac
 4. Cantidades vigentes de las deducciones del artículo 45 (cuido, incapacidad, estudiante, gastos médicos, enfermedad terminal, agricultura).
 5. Beneficio máximo de Vieques y Culebra y bono de edad avanzada vigentes.
 6. La enmienda de 2024 al Reglamento 8684 (recursos, 50% de pensiones y Seguro Social, exención por nuevo empleo).
-7. Características de los participantes (tamaño del núcleo, edad, fuente de ingreso), para comparar con el modelo: hoy el modelo tiene 1.72 millones de personas en núcleos PAN frente a 1.27 millones de FNS.
+7. ~~Características de los participantes~~ **Ya recibido**: los listados mensuales de ADSEF (sep. 2023 – ago. 2025, por municipio) dan núcleos, participantes, edades, fuente de ingreso y beneficio emitido. Sirven para calibrar y validar; no sustituyen la Tabla de Beneficios ni los límites (puntos 1 a 6).
 
 **TANF.**
 8. La tabla de necesidades básicas (estándar de necesidad y de pago) de la categoría C por tamaño de la unidad (secciones 4.16 y 4.22 del Reglamento 7653); solo conocemos el valor para tres personas.

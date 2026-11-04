@@ -41,6 +41,37 @@ envejecimiento desde 2018 y parte el mismo efecto de contar a todo el hogar.
 Pendiente: la Tabla de ADSEF por núcleo y las características de
 participantes (carta a ADSEF, punto 4).
 
+## PAN: comparación con los listados mensuales de ADSEF (añadido 4 nov. 2026)
+
+ADSEF entregó a Espacios Abiertos sus listados de emisiones de septiembre de
+2023 a agosto de 2025 por municipio y oficina
+(`docs/statutes/pan/adsef_listados/`). Promedio de los doce meses hasta
+agosto de 2025 frente al modelo (base calibrada):
+
+| Medida | Modelo | ADSEF (sep. 2024 – ago. 2025) |
+|---|---|---|
+| Núcleos (casos) con beneficio | 738,510 (calibrado a FNS AF2024) | 730,133 |
+| Participantes | 1,721,325 | 1,247,785 |
+| Personas por núcleo | 2.33 | 1.71 |
+| Beneficio por núcleo al mes | $331 | $335 |
+| Participantes de 60+ | 29.4% | 34.3% |
+| Participantes menores de 18 | 19.4% | 21.3% |
+| Participantes con salarios | 25.7% | 17.3% |
+| Participantes con Seguro Social | 25.8% | 36.0% |
+| Núcleos sin ningún ingreso | 11% | 20.1% |
+
+**Lectura.** El dinero por núcleo cuadra (es el objetivo de calibración).
+Lo que no cuadra es la composición: el modelo mete demasiadas personas por
+núcleo y demasiados trabajadores, y pocas personas mayores y núcleos sin
+ingreso. Son dos defectos del mismo origen: (1) la elegibilidad del modelo
+es más amplia que la participación real (toda unidad bajo el límite recibe
+el máximo), y la calibración la recorta reponderando hogares en vez de
+quitar a los que no participan; (2) muchos núcleos reales son una persona
+mayor sola o una familia sin ingresos declarados, que en la encuesta
+aparecen dentro de hogares más grandes con trabajadores. Los listados dan
+los objetivos para corregirlo: participantes, 60+, con salarios, con Seguro
+Social, sin ingreso, y todo ello por municipio.
+
 ## Crédito por Trabajo
 
 | Medida | Modelo | Publicado | Fuente |
