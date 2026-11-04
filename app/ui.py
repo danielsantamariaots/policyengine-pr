@@ -436,18 +436,28 @@ def init_state(lever_defaults):
     st.session_state.setdefault("reform_name", "")
 
 
+def _lookup(table, value):
+    """Find a preset/reform by key or by either label; None if unknown
+    (a stale widget value after a reload must not crash the page)."""
+    for row in table:
+        if value in (row[0], row[1], row[2]):
+            return row
+    return None
+
+
 def apply_preset():
-    key = st.session_state["preset"]
-    overrides = next(p[3] for p in PRESETS if p[0] == key)
-    if key == "custom":
+    row = _lookup(PRESETS, st.session_state.get("preset"))
+    if row is None or row[0] == "custom":
         return
-    for k, v in {**DEFAULTS, **overrides}.items():
+    for k, v in {**DEFAULTS, **row[3]}.items():
         st.session_state[k] = v
 
 
 def apply_example_reform(lever_defaults):
-    key = st.session_state["example_reform"]
-    changes = next(r[3] for r in EXAMPLE_REFORMS if r[0] == key)
+    row = _lookup(EXAMPLE_REFORMS, st.session_state.get("example_reform"))
+    if row is None:
+        return
+    key, changes = row[0], row[3]
     for path, base in lever_defaults.items():
         st.session_state[f"r_{path}"] = base
     for path, value in changes.items():
