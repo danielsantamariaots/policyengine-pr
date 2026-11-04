@@ -86,8 +86,8 @@ TEXT = {
         "How much of each extra $100 does it keep?",
     ),
     "explain_net": (
-        "La línea continua es el ingreso neto del hogar (lo que le queda tras contribuciones, créditos y ayudas) para cada nivel de salario del contribuyente; la línea de rayas es el ingreso de mercado, lo que ganaría sin contribuciones ni ayudas. Donde la línea continua baja al subir el salario hay un precipicio: ganar $500 más deja menos dinero. Cada etiqueta roja dice cuánto se pierde y por qué; la banda sombreada es un tramo donde el hogar se queda con $50 o menos de cada $100 adicionales.",
-        "The solid line is the household's net income (what is left after taxes, credits and benefits) at each level of the filer's wages; the dashed line is market income, what it would earn with no taxes or benefits. Where the solid line drops as wages rise there is a cliff: earning $500 more leaves less money. Each red label says how much is lost and why; the shaded band is a range where the household keeps $50 or less of each extra $100.",
+        "La línea continua es el ingreso neto del hogar (lo que le queda tras contribuciones, créditos y ayudas) para cada nivel de salario del contribuyente; la línea de rayas son los ingresos del hogar antes de contribuciones y ayudas (salarios, pensiones, Seguro Social, intereses). Donde la línea continua baja al subir el salario hay un precipicio: ganar $500 más deja menos dinero. Cada etiqueta roja dice cuánto se pierde y por qué; la banda sombreada es un tramo donde el hogar se queda con $50 o menos de cada $100 adicionales.",
+        "The solid line is the household's net income (what is left after taxes, credits and benefits) at each level of the filer's wages; the dashed line is the household's income before taxes and benefits (wages, pensions, Social Security, interest). Where the solid line drops as wages rise there is a cliff: earning $500 more leaves less money. Each red label says how much is lost and why; the shaded band is a range where the household keeps $50 or less of each extra $100.",
     ),
     "explain_components": (
         "Las franjas de arriba son lo que el hogar recibe a cada nivel de salario (Crédito por Trabajo, crédito federal por hijos, PAN, TANF y, si tiene vale, Sección 8); las de abajo, lo que paga (contribución de Puerto Rico, Seguro Social y Medicare). La altura de cada franja es su cantidad anual. Donde una franja de arriba se estrecha de golpe, esa ayuda se pierde.",
@@ -109,7 +109,10 @@ TEXT = {
         "Ver precipicios y zonas en tabla",
         "See cliffs and zones as tables",
     ),
-    "s_market": ("Ingreso de mercado", "Market income"),
+    "s_market": (
+        "Ingresos antes de contribuciones y ayudas",
+        "Income before taxes and benefits",
+    ),
     "s_net": ("Ingreso neto", "Net income"),
     "s_net_reform": ("Ingreso neto (reforma)", "Net income (reform)"),
     "s_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
@@ -558,7 +561,7 @@ def render(
         for w in cliffs["wages"]:
             charts.vline(fig, w, color=charts.SERIES["cliff"], dash="dash")
 
-    # --- net income vs market income
+    # --- net income vs income before taxes and benefits
     fig = charts.figure(
         t("chart_net"),
         t("chart_net_sub"),

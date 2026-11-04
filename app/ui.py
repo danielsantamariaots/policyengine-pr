@@ -281,8 +281,8 @@ TEXT = {
         "Of each extra $100, it keeps",
     ),
     "m_rate_help": (
-        "Si el hogar ganara $100 más, cuántos dólares le quedarían después de pagar más contribución y de perder parte de los créditos y ayudas. Se calcula como 100 menos la tasa neta (ingreso de mercado menos ingreso neto, dividido por el ingreso de mercado); más de $100 significa que los créditos crecen más de lo que sube la contribución.",
-        "If the household earned $100 more, how many dollars it would keep after paying more tax and losing part of its credits and benefits. Computed as 100 minus the net rate (market income minus net income, over market income); more than $100 means credits grow faster than the tax.",
+        "Si el hogar ganara $100 más, cuántos dólares le quedarían después de pagar más contribución y de perder parte de los créditos y ayudas. Se calcula como 100 menos la tasa neta (ingresos antes de contribuciones y ayudas menos ingreso neto, dividido por los ingresos antes de contribuciones y ayudas); más de $100 significa que los créditos crecen más de lo que sube la contribución.",
+        "If the household earned $100 more, how many dollars it would keep after paying more tax and losing part of its credits and benefits. Computed as 100 minus the net rate (income before taxes and benefits minus net income, over income before taxes and benefits); more than $100 means credits grow faster than the tax.",
     ),
     "headline_sentence": (
         "Su hogar paga **{}** de contribución sobre ingresos, recibe **{}** en "
@@ -303,8 +303,8 @@ TEXT = {
         "grow faster than the tax.",
     ),
     "rate_sentence_zero": (
-        "Este hogar no tiene ingresos de mercado.",
-        "This household has no market income.",
+        "Este hogar no tiene ingresos propios.",
+        "This household has no income of its own.",
     ),
     "not_included_title": (
         "Qué cubre y qué no",
@@ -367,8 +367,8 @@ TEXT = {
         "**Credits:** **{}** Crédito por Trabajo (depends on earned income and dependents) and **{}** federal child credit (ACTC). Both are refundable: paid even when the tax is zero.",
     ),
     "why_net": (
-        "**Ingreso neto:** ingresos de mercado {} menos contribución {} y Seguro Social y Medicare {}, más créditos {} y ayudas {} (PAN {}, TANF {}, Sección 8 {}) = **{}**.",
-        "**Net income:** market income {} minus tax {} and Social Security and Medicare {}, plus credits {} and benefits {} (PAN {}, TANF {}, Section 8 {}) = **{}**.",
+        "**Ingreso neto:** ingresos antes de contribuciones y ayudas {} menos contribución {} y Seguro Social y Medicare {}, más créditos {} y ayudas {} (PAN {}, TANF {}, Sección 8 {}) = **{}**.",
+        "**Net income:** income before taxes and benefits {} minus tax {} and Social Security and Medicare {}, plus credits {} and benefits {} (PAN {}, TANF {}, Section 8 {}) = **{}**.",
     ),
     "glossary_title": ("Glosario", "Glossary"),
     "examples_title": ("Hogares de ejemplo", "Example households"),
@@ -919,6 +919,12 @@ def why(base, shown, L):
 
 
 GLOSSARY = [
+    (
+        "Ingresos antes de contribuciones y ayudas",
+        "Income before taxes and benefits",
+        "Todo lo que el hogar recibe por sí mismo en el año, antes de pagar contribuciones y antes de sumar créditos y ayudas: salarios, cuenta propia, pensiones, Seguro Social, intereses, dividendos y ganancias de capital. Es la línea de rayas en las gráficas; no coincide con el ingreso bruto ajustado de la planilla, que excluye el Seguro Social y parte de las pensiones.",
+        "Everything the household receives on its own during the year, before paying taxes and before adding credits and benefits: wages, self-employment, pensions, Social Security, interest, dividends and capital gains. It is the dashed line in the charts; it differs from the return's adjusted gross income, which leaves out Social Security and part of pensions.",
+    ),
     (
         "Ingreso bruto ajustado",
         "Adjusted gross income",

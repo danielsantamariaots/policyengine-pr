@@ -107,7 +107,7 @@ Para volver a la ley vigente, restaure el valor original del parámetro.
 Arriba de la barra lateral, cambie *Mi hogar* por *¿Y si gano más?* (CliffWatch). Con el
 mismo hogar, la página muestra:
 
-- **Ingreso neto frente a ingreso de mercado**, con los salarios del
+- **Ingreso neto frente a ingresos antes de contribuciones y ayudas**, con los salarios del
   contribuyente de $0 a $150,000 en pasos de $500; los precipicios se marcan
   con una X roja.
 - **Contribuciones y créditos por nivel de salarios**: Crédito por Trabajo y
@@ -234,7 +234,7 @@ levers a proposal is likely to move. Change any of them and the page shows
 deltas against current law plus a *Change in net income* chart.
 
 **4. CliffWatch.** Switch *My household* to *What if I earn more?* at the top of the
-sidebar: net income vs market income in $500 steps to $150,000, taxes and
+sidebar: net income vs income before taxes and benefits in $500 steps to $150,000, taxes and
 credits by wage level, the effective marginal rate, and tables of cliffs
 (where $500 more in wages lowers net income) and high-rate zones (≥ 50%).
 With a reform active, both curves are compared. *Compare with*, at the
