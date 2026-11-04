@@ -1,29 +1,23 @@
-**Asunto:** Modelo contributivo de Puerto Rico · prototipo para su revisión
+**Asunto:** Ya tenemos prototipo de la calculadora contributiva
 
-Estimado/a [nombre]:
+Hola Ataveyra:
 
-Le escribo para compartir el prototipo de la **calculadora contributiva y de ayudas de Puerto Rico** que desarrolla Espacios Abiertos sobre la plataforma de código abierto PolicyEngine. Está en línea en https://policyengine-pr.streamlit.app.
+Te escribo para que veas dónde está la calculadora contributiva antes de que sigamos. Está en línea aquí: https://policyengine-pr.streamlit.app. Abre *Empezar con un ejemplo* y juega un rato; con cinco minutos te haces una idea mejor que con cualquier explicación mía.
 
-**Qué hace.** Para cualquier hogar que usted describa (edades, salarios, otros ingresos, municipio, vale de vivienda), calcula en segundos la contribución sobre ingresos de 2025, el Crédito por Trabajo, el crédito federal adicional por hijos, el Seguro Social y Medicare, el PAN, el TANF y la elegibilidad al Plan Vital, y muestra con qué ingreso neto se queda el hogar. Cada regla está escrita a partir de un documento oficial (las instrucciones de la planilla, el Código de Rentas Internas, los reglamentos de ADSEF, las tablas de HUD) y el documento se cita en cada parámetro.
+En corto: describes un hogar (edades, salarios, otros ingresos, municipio) y en segundos te dice cuánto paga de contribución, cuánto recibe de Crédito por Trabajo y del crédito federal por hijos, qué pasa con el PAN, el TANF, el Plan Vital y la Sección 8, y con cuánto se queda al final. Cada regla sale de un documento oficial (instrucciones de la planilla, Código, reglamentos de ADSEF, tablas de HUD) y el documento está citado en cada número.
 
-**Tres páginas.**
-- *Mi hogar*: las cuatro cifras del hogar, una explicación en palabras de por qué salen y el detalle línea por línea de la planilla.
-- *¿Y si gano más?*: cómo cambian contribuciones, créditos y ayudas a medida que sube el salario, y dónde están los «precipicios» en los que ganar más deja al hogar con menos.
-- *Reforma contributiva*: el costo para Hacienda y quién gana y quién pierde con una propuesta de cambio en la ley, simulada sobre los microdatos de la Encuesta sobre la Comunidad de Puerto Rico calibrados a los totales oficiales.
+Lo que más me interesa que mires:
 
-**Para qué sirve.** El objetivo es poder estimar, en cuestión de días, el efecto de cualquier reforma contributiva que se proponga en 2027, hogar por hogar y para el conjunto de la isla, con cifras que cualquiera pueda verificar porque el código y las fuentes son públicos.
+- **¿Y si gano más?**: muestra dónde una familia pierde dinero por ganar más (los «precipicios»). Para Carmen, madre con dos hijos, el PAN se pierde de golpe a los $41,000 y el hogar queda $4,152 por debajo. Es el tipo de hallazgo que podemos contar.
+- **Reforma contributiva**: cuesta y reparte cualquier propuesta en segundos sobre los microdatos de la Encuesta sobre la Comunidad, calibrados a las cifras de Hacienda, ADSEF y HUD. Ensayé una reforma ficticia de siete cambios y desde el texto hasta el Word y el enlace para compartir tardé menos de quince minutos. Eso es lo que necesitamos en 2027.
+- Las **tarjetas PNG** y los enlaces: cualquier resultado se puede pegar en un mensaje o en una presentación con nuestra marca y la versión del modelo.
 
-**Qué le adjunto.**
-1. *Tutorial* (Word): cómo usar cada página, con ejemplos.
-2. *Cómo está construido el modelo* (Word): la descripción técnica para quien quiera revisar o reutilizar el código y los datos.
-3. *Documentos del proyecto* (carpeta comprimida): metodología, hoja de ruta, guía de contribución, fuentes oficiales por programa, cartas de solicitud de datos, informes de ejemplo y casos de validación.
+Lo que todavía no está, para que no te sorprenda: ADSEF no publica la tabla que reduce el PAN con el ingreso, así que el modelo paga el máximo a todo el que es elegible; el TANF usa el máximo de una familia de tres para todos; la Sección 8 usa las rentas de HUD y no el esquema de Vivienda. Todo eso está declarado en la propia herramienta y en las cuatro cartas de solicitud de datos que tenemos listas para Hacienda, ADSEF, Salud y Vivienda. Falta también la comprobación con planillas reales de un CPA, que es lo que nos permitirá decir en público que cuadra.
 
-El modelo es un prototipo: las reglas contributivas están probadas con casos calculados a mano y está en marcha una comprobación con planillas reales revisadas por un CPA; las ayudas tienen lagunas declaradas en la propia herramienta (ADSEF no publica la tabla que reduce el PAN con el ingreso, por ejemplo). Agradecería cualquier observación, en particular sobre lo que un usuario no entienda o un experto no se crea.
+Te adjunto el tutorial en español, una nota técnica por si quieres pasársela a alguien que sepa de datos, y una carpeta con todos los documentos del proyecto (metodología, hoja de ruta, cartas, informes de ejemplo, casos de validación). Los PDF de las fuentes oficiales pesan 38 MB; si los quieres te los paso por enlace.
 
-Quedo a su disposición para una demostración de media hora.
+Dos cosas que me ayudarían de ti esta semana: que lo pruebes como si fueras una persona que no sabe nada de contribuciones y me digas en qué te atascas, y que pensemos juntos el nombre que le vamos a dar antes de que alguien lo comparta.
 
-Un saludo cordial,
+Un abrazo,
 
-[Nombre]
-[Cargo], Espacios Abiertos
-[correo · teléfono]
+Daniel
