@@ -1,0 +1,9 @@
+description: Highest age for the larger dependent-care deduction.
+metadata:
+  unit: year
+  label: PAN dependent care young-child age limit
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 27 ('aged 2 or under')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=27
+values:
+  2015-12-28: 2

@@ -8,7 +8,7 @@ class pan_deductions(Variable):
     documentation = (
         "Reglamento 8684, Art. 45; amounts from the SPO FY2022 pp. 26-27 and the 2024 amendment. "
         "Earned-income deduction (50% up to the cap, minimum $100) or, for households with no earnings, the fixed other-income deduction; "
-        "$100 per member aged 60+; standard deduction. Not modelled: disabled, student, terminally ill, medical and dependent-care deductions (no inputs yet)."
+        "$100 per member aged 60+ and per student; dependent care ($225 per child aged 2 or under, $200 per older child) when the household pays it to work; $100 recurrent medical expenses when reported; standard deduction. Not modelled: disabled and terminally ill deductions (no inputs), and the agriculture deduction."
     )
     unit = USD
     definition_period = YEAR
@@ -33,5 +33,36 @@ class pan_deductions(Variable):
         ).gov.adsef.pan.deductions.elderly * household(
             "pan_elderly_count", period
         )
-        monthly = earned_deduction + other_deduction + elderly + p.standard
+        age = household.members("age", period)
+        students = household.sum(
+            household.members("is_full_time_student", period)
+        )
+        young_max = parameters(
+            period
+        ).gov.adsef.pan.dependent_care_max_age_young
+        care = where(
+            household("pan_pays_dependent_care", period),
+            p.dependent_care_young * household.sum(age <= young_max)
+            + p.dependent_care_older
+            * household.sum((age > young_max) & (age < 18)),
+            0,
+        )
+        medical = where(
+            household("pan_recurrent_medical_expenses", period)
+            & household.any(
+                (age >= parameters(period).gov.adsef.pan.elderly_age)
+                | (age < 18)
+            ),
+            p.medical,
+            0,
+        )
+        monthly = (
+            earned_deduction
+            + other_deduction
+            + elderly
+            + p.student * students
+            + care
+            + medical
+            + p.standard
+        )
         return monthly * MONTHS_IN_YEAR

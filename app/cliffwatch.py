@@ -469,6 +469,12 @@ def render(
         .get(YEAR, False)
     )
     st.title(t("title"))
+    charts.mobile_hint(
+        (
+            "En el móvil, pulse » arriba a la izquierda para describir el hogar.",
+            "On a phone, tap » at the top left to describe the household.",
+        )[L]
+    )
     st.caption(md("caption"))
     if summary:
         st.markdown(f"**{summary}**")

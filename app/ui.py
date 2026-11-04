@@ -46,6 +46,9 @@ DEFAULTS = {
     "abt_other_income": 0,
     "housing_assisted": False,
     "housing_rent": 0,
+    "pan_resources": 0,
+    "pan_pays_dependent_care": False,
+    "pan_recurrent_medical_expenses": False,
     **{f"c{i}": min(4 + 4 * i, 25) for i in range(8)},
     **{f"filer_{v}": 0 for v in PERSON_VARS},
     **{f"spouse_{v}": 0 for v in PERSON_VARS},
@@ -299,8 +302,8 @@ TEXT = {
         "del TANF; efectos de comportamiento. "
         "**Incluido con salvedades:** el PAN paga el beneficio máximo a todo "
         "hogar elegible, porque ADSEF no publica la tabla que lo reduce según "
-        "el ingreso neto, usa los límites de octubre de 2021 para hogares de 2 "
-        "o más personas y no aplica prueba de recursos; el TANF (categoría C, "
+        "el ingreso neto y usa los límites de octubre de 2021 para hogares de 2 "
+        "o más personas; el TANF (categoría C, "
         "madre o padre solo con hijos menores) usa el máximo de una familia de "
         "tres ($584) para todo tamaño; la Sección 8 solo se calcula si usted "
         "indica que el hogar tiene un vale, con los límites y rentas justas "
@@ -313,8 +316,7 @@ TEXT = {
         "responses. **Included with caveats:** PAN pays the "
         "maximum benefit to every eligible household because ADSEF does not "
         "publish the schedule that reduces it with net income, uses the "
-        "October 2021 limits for households of 2 or more, and applies no "
-        "resources test; TANF (category C, single parent with minor "
+        "October 2021 limits for households of 2 or more; TANF (category C, single parent with minor "
         "children) uses the three-person maximum ($584) for every size; "
         "Section 8 is computed only if you say the household holds a voucher, "
         "with the San Juan-Guaynabo income limits and fair market rents applied "
@@ -467,6 +469,11 @@ def hh_from_state(state):
         "abt_other_income": g("abt_other_income", 0),
         "housing_assisted": bool(g("housing_assisted", False)),
         "housing_rent": g("housing_rent", 0),
+        "pan_resources": g("pan_resources", 0),
+        "pan_pays_dependent_care": bool(g("pan_pays_dependent_care", False)),
+        "pan_recurrent_medical_expenses": bool(
+            g("pan_recurrent_medical_expenses", False)
+        ),
     }
     if not hh["joint"]:
         hh["spouse_wages"], hh["spouse"] = 0, {}

@@ -7,7 +7,7 @@ git clone https://github.com/danielsantamariaots/policyengine-pr
 cd policyengine-pr
 uv venv --python 3.12 .venv && source .venv/bin/activate
 uv pip install -e ".[dev,app]"
-make test            # 98 tests
+make test            # 102 tests
 streamlit run app/calculator.py
 ```
 

@@ -1,0 +1,13 @@
+description: Deduction for recurrent medical expenses of elderly, disabled members or children, when the household reports them.
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN recurrent medical expenses deduction
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 45.C"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 27 ($100 recurrent medical expenses)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=27
+  gap: One $100 deduction per household when pan_recurrent_medical_expenses is set and a member is aged 60+ or under 18 (disability is not an input).
+values:
+  2015-12-28: 100

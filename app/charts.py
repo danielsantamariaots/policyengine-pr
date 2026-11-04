@@ -17,6 +17,7 @@ Usage::
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 """
 
+import textwrap
 from pathlib import Path
 
 import plotly.graph_objects as go
@@ -136,10 +137,16 @@ def figure(
     fig.update_layout(template="pr", height=height)
     if title:
         text = f"<b>{title}</b>"
-        if subtitle:
-            text += f"<br><span style='font-size:12px;color:{MUTED}'>{subtitle}</span>"
+        lines = textwrap.wrap(subtitle, 60) if subtitle else []
+        if lines:
+            text += (
+                f"<br><span style='font-size:12px;color:{MUTED}'>"
+                + "<br>".join(lines)
+                + "</span>"
+            )
         fig.update_layout(
-            title=dict(text=text), margin=dict(t=84 if subtitle else 64)
+            title=dict(text=text),
+            margin=dict(t=64 + 20 * len(lines)),
         )
     if x_title:
         fig.update_xaxes(title_text=x_title)
@@ -201,7 +208,8 @@ def vline(fig, x, color=ZERO, dash="dot", label=None):
             yref="paper",
             text=label,
             showarrow=False,
-            yanchor="bottom",
+            yanchor="top",
+            bgcolor="rgba(255,255,255,0.8)",
             font=dict(size=11, color=MUTED),
         )
 
@@ -228,6 +236,14 @@ def _fontface():
     return path.read_text() if path.exists() else ""
 
 
+def mobile_hint(text):
+    """A one-line hint shown only on narrow screens (the sidebar with the
+    household inputs is hidden behind the » button there)."""
+    st.markdown(
+        f"<div class='pr-mobile-hint'>{text}</div>", unsafe_allow_html=True
+    )
+
+
 def inject_css():
     """Site typography and KPI styling for the Streamlit page."""
     css = """
@@ -243,6 +259,19 @@ def inject_css():
         [data-testid="stMetricLabel"] p { color: %(MUTED)s; font-size: .82rem; font-family: %(FONT)s; }
         [data-testid="stSidebar"] { background: %(SOFT)s; border-right: 1px solid %(LINE)s; }
         [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { font-family: %(FONT)s; }
+        .pr-mobile-hint { display: none; }
+        @media (max-width: 640px) {
+          .stApp h1 { font-size: 1.6rem; line-height: 1.2; }
+          .stApp h2 { font-size: 1.25rem; }
+          .stApp h3 { font-size: 1.05rem; }
+          .block-container { padding-left: 1rem; padding-right: 1rem; padding-top: 3rem; }
+          [data-testid="stHorizontalBlock"] { flex-direction: row !important; flex-wrap: wrap !important; gap: .5rem !important; }
+          [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] { flex: 1 1 calc(50%% - .5rem) !important; min-width: calc(50%% - .5rem) !important; width: auto !important; }
+          [data-testid="stMetric"] { padding: .6rem .75rem; }
+          [data-testid="stMetricValue"] { font-size: 1.45rem; }
+          [data-testid="stMetricLabel"] p { font-size: .74rem; }
+          .pr-mobile-hint { display: block; background: %(SOFT)s; border: 1px solid %(LINE)s; border-radius: 10px; padding: .5rem .75rem; font-size: .85rem; color: %(MUTED)s; margin-bottom: .5rem; }
+        }
         </style>
     """ % dict(
         FONT=FONT,

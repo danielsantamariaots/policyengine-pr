@@ -1,0 +1,9 @@
+description: Maximum countable resources for a household with no member aged 60 or over or totally disabled.
+metadata:
+  unit: currency-USD
+  label: PAN resource limit
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 28 (resources $5,000)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=28
+values:
+  2015-12-28: 5_000

@@ -169,8 +169,10 @@ es estático).
   medida que sube el ingreso neto, así que el modelo paga el máximo a todo
   hogar elegible (el precipicio al superar el límite es en parte un
   artefacto); los límites para hogares de 2 o más personas son los de
-  octubre de 2021; no se modelan recursos, deducciones por cuido,
-  incapacidad o estudio, ni el suplemento de Vieques y Culebra.
+  octubre de 2021. La prueba de recursos ($5,000; $15,000 con una persona
+  de 60+) y las deducciones por cuido, estudio y gastos médicos se aplican
+  si usted las indica en *PAN: recursos y gastos*; no se modelan la
+  deducción por incapacidad ni el suplemento de Vieques y Culebra.
 - **TANF** (categoría C: madre o padre solo con hijos menores): máximo de
   una familia de tres ($584 al mes, Welfare Rules Database 2023) aplicado
   a todo tamaño, porque ADSEF no publica la tabla de necesidades; el

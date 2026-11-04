@@ -70,6 +70,31 @@ TEXT = {
         "Casualty losses and items not computed",
     ),
     "advanced": ("Avanzado", "Advanced"),
+    "pan_inputs": ("PAN: recursos y gastos", "PAN: resources and expenses"),
+    "pan_resources": (
+        "Recursos contables del hogar ($)",
+        "Household countable resources ($)",
+    ),
+    "pan_resources_help": (
+        "Cuentas bancarias y otros bienes contables (Reglamento 8684, Arts. 46-48). Límite de $5,000, o $15,000 si hay una persona de 60 años o más.",
+        "Bank balances and other countable assets (Reglamento 8684, Arts. 46-48). Limit $5,000, or $15,000 with a member aged 60+.",
+    ),
+    "pan_care": (
+        "Paga cuido de niños para poder trabajar",
+        "Pays child care in order to work",
+    ),
+    "pan_care_help": (
+        "Deducción de $225 al mes por niño de 2 años o menos y $200 por niño mayor (Art. 45.D).",
+        "Deduction of $225 a month per child aged 2 or under and $200 per older child (Art. 45.D).",
+    ),
+    "pan_medical": (
+        "Gastos médicos recurrentes (60+ o menores)",
+        "Recurrent medical expenses (60+ or children)",
+    ),
+    "pan_medical_help": (
+        "Deducción de $100 al mes (Art. 45.C).",
+        "Deduction of $100 a month (Art. 45.C).",
+    ),
     "housing": ("Vivienda (Sección 8)", "Housing (Section 8)"),
     "housing_assisted": (
         "El hogar tiene un vale de Sección 8",
@@ -122,6 +147,10 @@ TEXT = {
         "precipicios y tasas marginales, vea CliffWatch.",
         "Same household; filer wages varied from $0 to $150,000. For cliffs "
         "and marginal rates, see CliffWatch.",
+    ),
+    "mobile_hint": (
+        "En el móvil, pulse » arriba a la izquierda para describir el hogar y la reforma.",
+        "On a phone, tap » at the top left to describe the household and the reform.",
     ),
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
     "s_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
@@ -503,6 +532,13 @@ def build_situation(hh, filer_wages):
                 "members": members,
                 "housing_assisted": {YEAR: hh["housing_assisted"]},
                 "housing_rent": {YEAR: hh["housing_rent"]},
+                "pan_resources": {YEAR: hh["pan_resources"]},
+                "pan_pays_dependent_care": {
+                    YEAR: hh["pan_pays_dependent_care"]
+                },
+                "pan_recurrent_medical_expenses": {
+                    YEAR: hh["pan_recurrent_medical_expenses"]
+                },
             }
         },
     }
@@ -628,6 +664,25 @@ with st.sidebar:
             step=500,
             help=t("other_deductions_help"),
             key="other_deductions",
+        )
+    with st.expander(t("pan_inputs")):
+        hh["pan_resources"] = st.number_input(
+            t("pan_resources"),
+            0,
+            1_000_000,
+            step=500,
+            key="pan_resources",
+            help=t("pan_resources_help"),
+        )
+        hh["pan_pays_dependent_care"] = st.checkbox(
+            t("pan_care"),
+            key="pan_pays_dependent_care",
+            help=t("pan_care_help"),
+        )
+        hh["pan_recurrent_medical_expenses"] = st.checkbox(
+            t("pan_medical"),
+            key="pan_recurrent_medical_expenses",
+            help=t("pan_medical_help"),
         )
     with st.expander(t("housing")):
         hh["housing_assisted"] = st.checkbox(
@@ -767,6 +822,7 @@ if view == "cliff":
     st.stop()
 
 st.title(t("title"))
+charts.mobile_hint(t("mobile_hint"))
 st.caption(t("caption"))
 st.markdown(f"**{ui.household_summary(hh, filer_wages, L)}**")
 if reform:
@@ -939,6 +995,7 @@ with right:
         hide_index=True,
         height=600,
         column_config={
+            t("col_item"): st.column_config.TextColumn(width="medium"),
             t("col_what"): st.column_config.TextColumn(width="large"),
         },
     )

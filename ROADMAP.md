@@ -45,7 +45,11 @@ late: ship the household calculator first; aggregate estimates follow.
   pays the maximum to every eligible household); limits for sizes 2–18 are
   the October 2021 values; no resources test, dependent-care, disability,
   student or medical deductions, or Vieques/Culebra supplement. Ask ADSEF
-  for the current Tabla and the FY2026 plan.
+  for the current Tabla and the FY2026 plan. **Since 2026-11-04** the
+  resources test ($5,000 / $15,000 with a member 60+) and the student,
+  dependent-care ($225 / $200) and medical ($100) deductions are modelled
+  from app inputs (`pan_resources`, `pan_pays_dependent_care`,
+  `pan_recurrent_medical_expenses`); zero/false in the microdata.
 - **Plan Vital and TANF.** Modelled since 2026-11-04 (`docs/statutes/vital/`,
   `docs/statutes/tanf/`). Vital: household MAGI against the CMS Puerto Rico
   Medicaid/CHIP levels (April 2026 table applied to 2025); eligibility
@@ -112,11 +116,11 @@ late: ship the household calculator first; aggregate estimates follow.
 | Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | live at https://policyengine-pr.streamlit.app (4 Nov 2026); custom domain pending |
 | Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI green, guide done, repo public (4 Nov 2026); AGPL-3.0 (4 Nov 2026) |
 | Nov–Dec 2026 | CPA validation of 10–15 real anonymised 2025 returns | workbook prepared |
-| Dec 2026 | Calibration review (weights, tax-unit construction) | pending |
-| Dec 2026 | Reform report template, dry-run on a dummy reform | generator done |
-| Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | Section 8 done (4 Nov 2026, San Juan tables); PAN resources test pending |
+| Dec 2026 | Calibration review (weights, tax-unit construction) | first pass 4 Nov 2026: 90% of weight ratios within 0.44–2.4, 0.1% of weight above 3 (large PAN households with EITC); PAN-only households scaled to 0.68, EITC households to 1.27. Tax-unit rules reviewed (spouse codes 21/23 joint, partners 22/24 separate, dependents <21 or student <26); re-check against Hacienda's tables |
+| Dec 2026 | Reform report template, dry-run on a dummy reform | dry run 4 Nov 2026: EITC +20% with ETI 0.25, 2.3 s to Markdown, 0.1 s to Word; stale "not uprated" line fixed |
+| Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | both done 4 Nov 2026 (Section 8 with San Juan tables; PAN resources and care/student/medical deductions as inputs) |
 | Jan 2027 | Behavioural response switch (ETI) on top brackets | done |
-| Jan 2027 | Mobile layout and accessibility pass | pending |
+| Jan 2027 | Mobile layout and accessibility pass | first pass 4 Nov 2026: two-column metrics, smaller headings, wrapped chart subtitles, sidebar hint; every chart has a table view |
 | Feb–Mar 2027 | Tax year 2026 parameters (instructions + BI RI EITC adjustment) | waits on Hacienda |
 | Mar 2027 | Replace aggregate calibration with Hacienda's distributional tables | waits on Hacienda |
 | Mar–Apr 2027 | Launch; score the reform proposal within days of release | — |

@@ -1,0 +1,13 @@
+description: Special deduction per household member who is a student.
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN student deduction
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 45.C"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 27 ($100 per student)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=27
+  gap: Applied to members aged 18+ enrolled in school (is_full_time_student); the reglamento does not restrict it by age.
+values:
+  2015-12-28: 100

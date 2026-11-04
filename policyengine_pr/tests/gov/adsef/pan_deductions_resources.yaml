@@ -1,0 +1,87 @@
+# Expected values from Reglamento 8684 Art. 45-48 and the NAP SPO FY2022
+# pp. 26-28 (deductions: earned 50% up to $1,400 from Aug 2024; dependent care
+# $225 / $200; student, elderly and medical $100; standard $279 from Aug 2024;
+# resources $5,000 / $15,000 with a member aged 60+).
+
+- name: "Single parent, children aged 1 and 5, $1,000 a month, pays child care: deductions 500 + 225 + 200 + 279"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+      c1:
+        age: 1
+      c2:
+        age: 5
+    households:
+      household:
+        members: [p, c1, c2]
+        pan_pays_dependent_care: true
+        pan_resources: 4_000
+  output:
+    # (500 + 425 + 279) x 12
+    pan_deductions: 14_448
+    pan_net_income: 0
+    pan_resources_eligible: true
+    pan_eligible: true
+    # three persons, maximum $368 x 12
+    pan: 4_416
+
+- name: Same household with $6,000 in resources is over the $5,000 limit
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+      c1:
+        age: 1
+      c2:
+        age: 5
+    households:
+      household:
+        members: [p, c1, c2]
+        pan_resources: 6_000
+  output:
+    pan_resources_eligible: false
+    pan_eligible: false
+    pan: 0
+
+- name: "Retiree aged 65 with $12,000 of resources keeps the $15,000 limit; medical deduction applies"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 65
+        social_security: 12_000
+    households:
+      household:
+        members: [p]
+        pan_resources: 12_000
+        pan_recurrent_medical_expenses: true
+  output:
+    pan_resources_eligible: true
+    # other income $100 + elderly $100 + medical $100 + standard $279, x 12
+    pan_deductions: 6_948
+    pan_eligible: true
+
+- name: "A full-time student aged 20 in the household adds $100 a month"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 45
+        employment_income: 12_000
+      s:
+        age: 20
+        is_full_time_student: true
+    households:
+      household:
+        members: [p, s]
+  output:
+    # (500 + 100 + 279) x 12
+    pan_deductions: 10_548

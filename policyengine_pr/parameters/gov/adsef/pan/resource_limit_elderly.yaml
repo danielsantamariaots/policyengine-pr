@@ -1,0 +1,12 @@
+description: Maximum countable resources for a household with a member aged 60 or over (extended to totally disabled members by the 2024 amendment).
+metadata:
+  unit: currency-USD
+  label: PAN resource limit, elderly or disabled member
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 28 (resources $15,000 if a member is 60+)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=28
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 5 (2024 amendment: also totally disabled members)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=5
+  gap: Disability is not an input; only age 60+ triggers the higher limit.
+values:
+  2015-12-28: 15_000

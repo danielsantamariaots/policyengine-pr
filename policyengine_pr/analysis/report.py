@@ -156,7 +156,7 @@ def write_report(
         "",
         "- Reglas del año contributivo 2025 codificadas desde los formularios e instrucciones de Hacienda, el IRS, ADSEF y CMS; cada parámetro cita su fuente (repositorio policyengine-pr).",
         "- Microdatos: Encuesta sobre la Comunidad de Puerto Rico 2023 (PUMS), 1.28 millones de hogares ponderados, con pesos calibrados a los totales oficiales de recaudo (Hacienda, AF2023-24), Crédito por Trabajo (año contributivo 2023) y PAN (USDA FNS, AF2024).",
-        "- Unidades contributivas construidas desde la composición del hogar; ingresos de 2023 sin ajustar a 2025.",
+        "- Unidades contributivas construidas desde la composición del hogar; ingresos de 2023 ajustados a 2025 por el salario medio anual de Puerto Rico (BLS QCEW, ×1.0815). La contribución sobre ingresos se muestra antes del Crédito por Trabajo; el recaudo neto calibrado es la diferencia entre ambas filas.",
         f"- Respuesta de comportamiento: {'ninguna (modelo estático)' if eti == 0 else f'elasticidad del ingreso tributable de {eti} aplicada al cambio en la tasa marginal neta de los salarios'}.",
         "- PAN con el beneficio máximo para todo hogar elegible (ADSEF no publica la tabla de reducción); TANF con el máximo de una familia de tres para todo tamaño.",
         "- Los niveles están calibrados a totales agregados; los cambios son la cifra principal. Estimaciones, no asesoría profesional.",
