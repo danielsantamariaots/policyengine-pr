@@ -5,6 +5,7 @@ metadata:
   reference:
     - title: "24 CFR 982.402(b)(1): the PHA subsidy standard must provide for the smallest number of bedrooms needed without more than two persons per bedroom"
       href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
-  gap: Vivienda's own subsidy standard (which may give a separate bedroom to the head of household) is not published; two per bedroom, rounded up, is applied.
+    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.B Occupancy Standards: two persons per bedroom; head of household/spouse have a separate bedroom; a one-person family gets a one-bedroom voucher"
+      href: https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf
 values:
   2025-01-01: 2

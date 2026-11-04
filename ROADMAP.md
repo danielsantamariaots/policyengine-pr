@@ -100,10 +100,14 @@ late: ship the household calculator first; aggregate estimates follow.
   tenant payment (30% adjusted, 10% gross floor), subsidy = min(payment
   standard, gross rent) − TTP, bedrooms at two per room. Only households
   flagged `housing_assisted` (an app input; the "voucher" preset) receive it,
-  so Section 8 is not in reform scoring. GAPS: San Juan-Guaynabo income
-  limits and FMRs applied island-wide; Vivienda's payment standards,
-  subsidy standard and minimum rent unpublished; no medical, disability or
-  child-care deductions. CliffWatch gains a two-household comparison
+  so Section 8 is not in reform scoring. PRPHA's Administrative Plan (June
+  2025, avp.pr.gov) supplies the occupancy standard (head/spouse own
+  bedroom, two per bedroom otherwise) and the $0 minimum rent. GAPS: San
+  Juan-Guaynabo income limits and FMRs applied island-wide; the dollar
+  payment-standard schedule and utility allowances unpublished (plan gives
+  only the 90–110% band); no medical, disability or child-care deductions;
+  HUD's Picture of Subsidized Households 2024 (PHA table) still to be
+  downloaded for voucher counts and average HAP. CliffWatch gains a two-household comparison
   (presets, or the same adults unmarried → marriage penalty). The URL
   carries every non-default input and lever (`ui.sync_query_params`), so a
   calculator or CliffWatch view can be shared as a link.

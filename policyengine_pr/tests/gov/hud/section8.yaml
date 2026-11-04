@@ -105,3 +105,44 @@
   output:
     # min(569, 500) - 0, x 12
     section8: 6_000
+
+- name: "Head with three children: own bedroom plus two for the children (PRPHA Sec. VI.B), $861 standard"
+  period: 2025
+  input:
+    people:
+      p:
+        age: 35
+      c1:
+        age: 3
+        is_tax_unit_dependent: true
+      c2:
+        age: 7
+        is_tax_unit_dependent: true
+      c3:
+        age: 12
+        is_tax_unit_dependent: true
+    households:
+      household:
+        members: [p, c1, c2, c3]
+        housing_assisted: true
+  output:
+    section8_bedrooms: 3
+    section8_payment_standard: 861
+    # TANF 584 x 12 = 7,008 counts as income; adjusted 7,008 - 3 x 480 = 5,568;
+    # TTP = max(0.30 x 464, 0.10 x 584) = 139.20; (861 - 139.20) x 12
+    section8: 8_661.6
+
+- name: A couple alone gets a one-bedroom voucher
+  period: 2025
+  input:
+    people:
+      p:
+        age: 40
+      s:
+        age: 40
+    households:
+      household:
+        members: [p, s]
+        housing_assisted: true
+  output:
+    section8_bedrooms: 1

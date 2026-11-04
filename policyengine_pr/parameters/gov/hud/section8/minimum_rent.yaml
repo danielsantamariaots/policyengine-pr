@@ -6,6 +6,7 @@ metadata:
   reference:
     - title: "24 CFR 5.630(a): the PHA sets a minimum rent of $0 to $50 a month (with hardship exemptions)"
       href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
-  gap: Vivienda's minimum rent is not published; $0 is assumed. $50 is the statutory maximum.
+    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.D.3: 'PRPHA minimum rent of $0'"
+      href: https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf
 values:
   2025-01-01: 0

@@ -8,12 +8,13 @@ metadata:
       href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=RentLimits&program=HOME
     - title: "24 CFR 982.503(b): the PHA sets a payment standard between 90% and 110% of the FMR for each bedroom size"
       href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
+    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.A: payment standards set annually between 90% and 110% of the FMR, within three months of HUD's FMR publication; hold-harmless on FMR decreases"
+      href: https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf
   gap: >-
     HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them.
-    The payment standards adopted by the Departamento de la Vivienda /
-    Administración de Vivienda Pública for its voucher programme are not
-    published online; 100% of the San Juan FMR is used for every area until
-    Vivienda provides its schedule.
+    The Administrative Plan states the 90-110% band but not the dollar schedule
+    adopted for FY2025 by area and bedroom size; 100% of the San Juan-Guaynabo
+    FMR is used for every area until PRPHA provides it.
 0:
   2025-01-01: 552
 1:

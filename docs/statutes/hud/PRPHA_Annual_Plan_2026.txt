@@ -1,0 +1,3160 @@
+Annual PHA Plan                       U.S. Department of Housing and Urban                            OMB No. 2577-
+                                                                                                      0226 Expires:
+(Standard PHAs and                    Development
+                                                                                                      9/30/2027
+Troubled PHAs)                        Office of Public and Indian Housing
+
+ Purpose. The 5-Year and Annual PHA Plans provide a ready source for interested parties to locate basic PHA policies,
+ rules, and requirements concerning the PHA’s operations, programs, and services, including changes to these policies,
+ and informs HUD, families served by the PHA, and members of the public of the PHA’s mission, goals and objectives for
+ serving the needs of low- income, very low- income, and extremely low- income families.
+
+
+ Applicability. The Form HUD-50075-ST is to be completed annually by STANDARD PHAs or TROUBLED PHAs. PHAs
+ that meet the definition of a High Performer PHA, Small PHA, HCV-Only PHA or Qualified PHA do not need to submit
+ this form.
+
+
+ Definitions.
+ (1) High-Performer PHA – A PHA that owns or manages more than 550 combined public housing units and housing
+     choice vouchers, and was designated as a high performer on both the most recent Public Housing Assessment
+     System (PHAS) and Section Eight Management Assessment Program (SEMAP) assessments if administering
+     both programs, or PHAS if only administering public housing.
+ (2) Small PHA - A PHA that is not designated as PHAS or SEMAP troubled, that owns or manages less than 250 public
+     housing units and any number of vouchers where the total combined units exceed 550.
+ (3) Housing Choice Voucher (HCV) Only PHA - A PHA that administers more than 550 HCVs, was not designated
+     as troubled in its most recent SEMAP assessment and does not own or manage public housing.
+ (4) Standard PHA - A PHA that owns or manages 250 or more public housing units and any number of vouchers
+     where the total combined units exceed 550, and that was designated as a standard performer in the most
+     recent PHAS or SEMAP assessments.
+ (5) Troubled PHA - A PHA that achieves an overall PHAS or SEMAP score of less than 60 percent.
+ (6) Qualified PHA - A PHA with 550 or fewer public housing dwelling units and/or housing choice vouchers
+     combined and is not PHAS or SEMAP troubled.
+
+
+
+
+  A.    PHA Information.
+        PHA Name: Puerto Rico Public Housing Administration______ PHA Code: RQ005
+  A.1   PHA Type:      Standard PHA      Troubled PHA
+        PHA Plan for Fiscal Year Beginning: (MM/YYYY): July 2026
+        PHA Inventory (Based on Annual Contributions Contract (ACC) units at time of FY
+        beginning, above)
+        Number of Public Housing (PH) Units __53,591_________ Number of Housing
+        Choice Vouchers (HCVs) __12,863__________Total Combined Units/Vouchers
+        ___66,454______________
+        PHA Plan Submission Type:     Annual Submission         Revised Annual
+        Submission
+
+        Availability of Information. PHAs must have the elements listed below readily available to the public. A PHA must identify
+        the specific location(s) where the proposed PHA Plan, PHA Plan Elements, and all information relevant to the public
+
+
+
+
+                                                               Page 1 of 74                                 form HUD-50075-ST (03/31/2024)
+      hearing and proposed PHA Plan are available for inspection by the public. At a minimum, PHAs must post PHA Plans,
+      including updates, at each Asset Management Project (AMP) and main office or central office of the PHA. PHAs are
+A.1   strongly encouraged to post complete PHA Plans on their official website. PHAs are also encouraged to provide each
+      resident council a copy of their PHA Plans.
+
+
+      The PHA Annual Plan and associated documents are available for review at Central
+      Office located in San Juan at the Office of the HCVP Coordinator of Subsidized Housing
+      or at the Strategic Planning Office. The physical address is 606 Juan C. Cordero Davila
+      Building, Barbosa Avenue, 9th and 5th floor, San Juan, Puerto Rico or webpage
+      http://www.avp.pr.gov.
+
+      AVP-RQ005 manages 12,896 vouchers across the island with nine (9) regional offices.
+      They are located in:
+
+          ▪   Aguadilla Regional Office can be reach at (787) 759-9407 ext. 3727 and serves
+              the following (9) municipalities: Aguadilla, Aguada, Isabela, Quebradillas, Moca,
+              San Sebastian, Lares, Añasco and Rincón.
+          ▪   Arecibo Regional Office can be reach at (787) 759-9407 ext. 3732 and serves the
+              following (11) municipalities: Camuy, Arecibo, Hatillo, Utuado, Barceloneta, Florida,
+              Manatí, Vega Baja, Vega Alta, Morovis and Ciales.
+          ▪   Bayamón Regional Office can be reach at (787) 759-9407 ext. 3750 and serves
+              the following (8) municipalities: Bayamón, Dorado, Toa Baja, Toa Alta, Corozal,
+              Naranjito Cataño and Comerío.
+          ▪   Caguas Regional Office can be reach at (787) 759-9407 ext. 3775 and serves the
+              following (8) municipalities: Caguas, Barranquitas, Cidra, Cayey, Aguas Buenas,
+              Gurabo, Aibonito and Salinas.
+
+          ▪   Carolina Regional Office can be reach at (787) 759-9407 ext.3759 and serves the
+              following (9) municipalities: Carolina, Trujillo Alto, Loíza, Canovanas, Luquillo, Río
+              Grande, Fajardo,Culebra and Vieques.
+          ▪   Humacao Regional Office can be reach at (787) 759-9407 ext. 3912 and serves
+              the following (11) municipalities: Humacao, Ceiba, San Lorenzo, Arroyo, Patillas,
+              Maunabo, Guayama, Juncos, Las Piedras, Yabucoa and Naguabo.
+          ▪   Mayaguez Regional Office can be reach at (787) 759-9407 ext 3798 and serves
+              the following (9) municipalities: Mayaguez, Hormigueros, Lajas, Cabo Rojo, San
+              Germán, Sabana Grande, Maricao, Las Marías.
+          ▪   Ponce Regional Office can be reach at (787) 759-9407 ext. 3808 and serves the
+              following (11) municipalities: Ponce, Yauco, Guayanilla, Peñuelas, Adjuntas,
+              Jayuya, Orocovis, Villaba, Coamo, Juana Díaz and Santa Isabel.
+          ▪   San Juan Regional Office can be reach at, (787) 759-9407 ext. 3832 and serves
+              (2) municipalities: San Juan and Guaynabo.
+
+
+
+
+                                                          Page 2 of 74                              form HUD-50075-ST (03/31/2024)
+A.1   AVP-RQ005 manages public housing: 328 public housing projects and 53,597 housing
+      units, with ten (10) regional offices. They are located in:
+
+      •     Aguadilla Region 787.759.9407 Ext. 3850, 3851. Serves the following
+      municipalities: Isabela, Aguadilla, Aguada, Moca, Rincón, Añasco, and San Sebastián.
+      •     Arecibo Region 787.759.9407 Ext. 3857, 3858. Serves the following municipalities:
+      Quebradillas, Arecibo, Camuy, Hatillo, Lares, Utuado, Barceloneta, Manatí, Florida,
+      Morovis, Ciales, Vega Baja, and Vega Alta.
+      •     Bayamón Region 787.759.9407 Ext. 3868, 3869, and 3872. Serves the following
+      municipalities: Dorado, Bayamón, Toa Baja, Cataño, Toa Alta, Guaynabo, Corozal,
+      Naranjito, and Comerío.
+      •      Carolina Region 787.759.9407 Ext. 3883, 3885, 3887. Serves the following
+      municipalities: Trujillo Alto, Carolina, Loíza, Canóvanas, Río Grande, Luquillo, and
+      Fajardo.
+      •      Caguas Region 787.759.9407 Ext. 3893, 3894, 3895. Serves the following
+      municipalities: Aguas Buenas, Caguas, Cidra, Gurabo, San Lorenzo, and Juncos.
+      •      Humacao Region 787.759.9407 Ext. 3903, 3904, 3905. Serves the following
+      municipalities: Las Piedras, Humacao, Naguabo, Ceiba, Yabucoa, Maunabo, Patillas,
+      and Vieques. •        Guayama Region 787.759.9407 Ext. 3917, 3918, 3922. Serves the
+      following municipalities: Cayey, Guayama, Arroyo, Salinas, Aibonito, Santa Isabel,
+      Coamo, Barranquitas, and Orocovis.
+      •      Ponce Region 787.759.9407 Ext. 3956, 3963, 3964. Serves the following
+      municipalities: Jayuya, Ponce, Villalba, Juana Díaz, Adjuntas, Yauco, Guayanilla, and
+      Peñuelas.
+      •      Mayagüez Region 787.759.9407 Ext. 3930, 3934, 3935. Serves the following
+      municipalities: Las Marías, Mayagüez, Maricao, San Germán, Sabana Grande, Guánica,
+      Lajas, Cabo Rojo, and Hormigueros.
+
+         PHA Consortia: (Check box if submitting a Joint PHA Plan and complete table
+      below)
+                                                                                   No. of Units in Each
+       Participating       PHA      Program(s) in the           Program(s) not
+                                                                                        Program
+           PHAs            Code         Consortia               in the Consortia
+                                                                                     PH           HCV
+      Lead PHA:
+
+
+
+
+                                                 Page 3 of 74                          form HUD-50075-ST (03/31/2024)
+B.    Plan Elements
+
+
+
+B.1   Revision of Existing PHA Plan Elements.
+
+      (a) Have the following PHA Plan elements been revised by the PHA?
+
+      Y   N
+             Statement of Housing Needs and Strategy for Addressing Housing Needs
+             Deconcentration and Other Policies that Govern Eligibility, Selection, and
+      Admissions.
+              Financial Resources.
+              Rent Determination.
+              Operation and Management.
+              Grievance Procedures.
+              Homeownership Programs.
+              Community Service and Self-Sufficiency Programs.
+              Safety and Crime Prevention.
+              Pet Policy.
+              Asset Management.
+              Substantial Deviation.
+              Significant Amendment/Modification
+
+      (b) If the PHA answered yes for any element, describe the revisions for each revised
+      element(s):
+
+
+
+      Housing Needs and Strategies to Address Them
+
+      Projections from the U.S. Census Bureau are revealing and indicate that the
+      growing trend in the elderly population will continue. According to Census
+      projections for the year 2020, the population aged 60 and older will represent
+      25.9 percent of the island's total population. In other words, a quarter of the
+      population will be elderly. By 2050, it is expected that 37.2 percent of the
+      population will be people aged 60 or older.
+
+
+
+
+                                             Page 4 of 74                    form HUD-50075-ST (03/31/2024)
+B.1
+                            Population projections of 60 years or older
+                                           Puerto Rico
+                                        Years 2000 - 2050
+
+
+             YEARS           POPULATION OF 60                POPULATION   % OF POPULATION
+                              YEARS OR MORE                    TOTAL            60+
+              2000                585,701                     3,813,278         15.4
+              2010                760,075                     3,725,789         20.4
+              2014                823,070                     3,620,897         22.7
+              2020                910,573                     3,519,901         25.9
+              2030                1,036,523                   3,414,456         30.4
+              2040                1,101,290                   3,225,607         34.1
+              2050                1,110,968                   2,984,291         37.2
+      Source: U.S. Census Bureau, International Database.
+
+
+      As part of the initiatives to increase the inventory of public housing projects
+      and address the growth in the elderly population, the AVP acquired the
+      following projects:
+
+                      •   Ponce de León 55 (PL #55)
+
+                      •   Vieques Elderly
+
+      To meet the growing demand for housing, the Public Housing Administration
+      plans to continue evaluating existing housing projects and land for future
+      developments. This approach aims to increase the existing inventory as
+      needed, ensuring the continued provision of housing with dignified and safe
+      conditions in compliance with applicable building codes.
+
+
+
+
+                                              Page 5 of 74                   form HUD-50075-ST (03/31/2024)
+B.1   WAITING LIST DEMOGRAPHIC REPORT (Section)
+
+         Municipio   Solicitante     Total de        Total de       Total de     Total de
+                                   Familias con     Familias de   Familias con   Familias
+                                   Discapacidad      ancianos        niños          de
+                                                                  menores de     madres
+                                                                    18 años      solteras
+
+      ADJUNTAS       1             0                0             1              1
+
+      AGUAS          13            0                1             6              13
+      BUENAS
+      AIBONITO       3             0                0             1              3
+
+      ANASCO         2             0                0             2              2
+
+      ARECIBO        76            4                5             35             64
+
+      ARROYO         6             0                0             4              6
+
+      BARCELONET     52            2                2             26             45
+      A
+      BARRANQUIT     3             0                0             2              3
+      AS
+      BAYAMON        247           5                5             79             234
+
+      CABO ROJO      8             0                1             2              8
+
+      CAGUAS         130           2                8             48             129
+
+      CAMUY          14            0                0             7              12
+
+      CANOVANAS      49            2                3             24             44
+
+      CAROLINA       217           10               6             91             197
+
+      CATANO         37            1                0             8              35
+
+      CAYEY          36            1                1             14             36
+
+      CEIBA          16            0                0             7              15
+
+      CIALES         23            1                0             11             17
+
+      CIDRA          9             0                0             4              8
+
+      COMERIO        28            2                2             16             25
+
+      COROZAL        29            1                0             16             26
+
+      DORADO         21            0                0             11             20
+
+      FAJARDO        31            1                1             15             26
+
+      FLORIDA        31            0                2             18             25
+
+
+
+
+                                                  Page 6 of 74                              form HUD-50075-ST (03/31/2024)
+      GUANICA       3     0     0            2    3
+B.1   GUAYAMA       12    1     0            6    10
+
+      GUAYNABO      24    1     0            13   21
+
+      GURABO        20    0     1            10   16
+
+      HATILLO       27    1     1            13   24
+
+      HORMIGUERO    3     0     0            1    3
+      S
+      HUMACAO       59    1     2            31   53
+
+      ISABELA       2     0     0            1    2
+
+      JUANA DIAZ    1     0     0            0    1
+
+      JUNCOS        40    0     0            23   33
+
+      LAJAS         3     0     1            1    3
+
+      LARES         1     0     0            1    1
+
+      LAS MARIAS    4     0     0            1    4
+
+      LAS PIEDRAS   22    2     2            10   21
+
+      LOIZA         36    1     2            18   34
+
+      LUQUILLO      20    3     1            8    20
+
+      MANATI        121   6     4            48   112
+
+      MAUNABO       6     0     1            2    5
+
+      MAYAGUEZ      51    0     2            14   50
+
+      MOCA          1     0     0            1    1
+
+      MOROVIS       65    3     0            41   58
+
+      NAGUABO       16    0     0            10   15
+
+      NARANJITO     41    3     2            23   34
+
+      OROCOVIS      1     0     0            0    1
+
+      PATILLAS      4     1     0            2    3
+
+      PONCE         5     0     0            1    4
+
+      RIO GRANDE    50    1     0            24   43
+
+      SABANA        3     0     0            3    3
+      GRANDE
+      SALINAS       1     0     0            0    1
+
+
+
+
+                              Page 7 of 74              form HUD-50075-ST (03/31/2024)
+      SAN GERMAN      3             0                0            2           2
+B.1   SAN JUAN        315           9                6            139         287
+
+      SAN LORENZO     26            3                3            11          24
+
+      SAN             2             0                0            1           2
+      SEBASTIAN
+      SANTA ISABEL    1             0                0            1           1
+
+      TOA ALTA        64            2                1            31          55
+
+      TOA BAJA        101           4                0            32          96
+
+      TRUJILLO        40            4                2            15          37
+      ALTO
+      UTUADO          34            2                1            17          27
+
+      VEGA ALTA       57            2                2            33          50
+
+      VEGA BAJA       80            4                4            37          67
+
+      YABUCOA         30            0                2            18          25
+
+      YAUCO           1             0                0            0           1
+
+      Total           2,478         86               77           1,093       2,247
+
+
+
+
+      WAITING LIST FOR QUARTERS OR MUNICIPALITES
+
+                           Listado de Listas de Espera por Municipio
+                                            Sección 9
+      Municipio             0 Bed   1 Bed    2 Bed        3 Bed   4 Bed   5+ Bed      Total
+      Aguada                0       198      89           45      14      2           348
+      Aguadilla             0       675      164          65      23      6           933
+      Anasco                0       56       10           5       5       0           76
+      Isabela               0       0        61           78      9       0           148
+      Moca                  0       168      62           29      10      0           269
+      Rincon                0       61       23           9       5       0           98
+      San Sebastian         0       163      4            3       4       3           177
+      Arecibo               0       275      58           23      13      8           377
+      Barceloneta           0       156      76           50      13      0           295
+      Camuy                 0       108      29           9       2       0           148
+      Ciales                0       39       12           6       4       3           64
+
+
+                                                   Page 8 of 74                         form HUD-50075-ST (03/31/2024)
+      Florida        0   70      21           10      0    0   101
+B.1   Hatillo        0   127     44           10      6    0   187
+      Lares          0   0       0            20      0    0   20
+      Manati         0   155     50           17      3    0   225
+      Morovis        0   13      1            2       1    3   20
+      Quebradillas   0   66      11           5       1    1   84
+      Utuado         0   111     41           19      7    0   178
+      Vega Alta      0   154     95           39      20   4   312
+      Vega Baja      0   179     75           56      22   0   332
+      Barranquitas   0   131     46           30      14   5   226
+      Bayamon        0   1,164   303          144     38   9   1,658
+      Catano         0   588     174          125     18   6   911
+      Comerio        0   66      24           12      4    2   108
+      Corozal        0   77      48           19      5    2   151
+      Dorado         0   257     104          65      26   7   459
+      Guaynabo       0   323     128          68      22   7   548
+      Naranjito      0   57      38           19      7    4   125
+      Orocovis       0   55      33           20      5    1   114
+      Toa Alta       0   169     111          63      17   0   360
+      Toa Baja       0   323     128          91      24   0   566
+      Aguas Buenas   0   53      17           3       2    1   76
+      Caguas         0   894     166          37      18   2   1,117
+      Cayey          0   170     98           77      8    1   354
+      Cidra          0   64      25           16      1    1   107
+      Gurabo         0   75      10           1       0    1   87
+      Juncos         0   72      9            5       4    1   91
+      San Lorenzo    0   108     25           12      0    0   145
+      Canovanas      0   373     164          97      39   0   673
+      Carolina       0   1,501   537          230     75   2   2,345
+      Fajardo        0   259     108          53      24   2   446
+      Loiza          0   120     27           21      3    1   172
+      Luquillo       0   183     58           41      15   4   301
+      Rio Grande     0   235     109          59      21   0   424
+
+
+                                       Page 9 of 74              form HUD-50075-ST (03/31/2024)
+      Trujillo Alto   0   220     54           29       10   2   315
+B.1   Vieques         0   50      52           48       9    4   163
+      Aibonito        0   72      12           9        2    0   95
+      Arroyo          0   111     26           14       8    0   159
+      Cayey           0   0       0            3        0    0   3
+      Coamo           0   119     48           34       11   3   215
+      Guayama         0   289     43           29       13   2   376
+      Patillas        0   77      40           19       8    0   144
+      Salinas         0   141     55           35       8    5   244
+      Ceiba           0   87      54           9        6    0   156
+      Humacao         0   184     14           8        4    1   211
+      Las Piedras     0   120     12           11       5    0   148
+      Maunabo         0   65      19           19       1    0   104
+      Naguabo         0   129     27           10       2    0   168
+      Yabucoa         0   38      4            22       7    0   71
+      Cabo Rojo       0   61      11           7        4    0   83
+      Guanica         0   24      4            6        3    1   38
+      Hormigueros     0   56      12           8        6    1   83
+      Lajas           0   46      9            3        1    2   61
+      Las Marias      0   18      11           6        0    0   35
+      Maricao         0   11      6            4        2    3   26
+      Mayaguez        0   335     61           29       19   2   446
+      Sabana Grande   0   60      10           3        3    0   76
+      San German      0   42      9            1        3    1   56
+      Adjuntas        0   81      25           16       6    0   128
+      Guayanilla      0   90      36           23       3    0   152
+      Jayuya          0   35      22           32       6    0   95
+      Juana Diaz      0   133     29           16       4    1   183
+      Penuelas        0   78      22           19       9    1   129
+      Ponce           0   1,158   178          87       14   2   1,439
+      Santa Isabel    0   82      25           34       5    0   146
+      Villalba        0   63      14           11       3    0   91
+      Yauco           0   90      15           6        4    2   117
+
+
+                                        Page 10 of 74                form HUD-50075-ST (03/31/2024)
+       San Juan          0       3,922    898          331      127   25    5,303
+B.1    TOTAL             0       18,178   5,273        2,749    868   147   27,215
+
+
+
+      (c) The PHA must submit its Deconcentration Policy for Field Office review.
+
+
+
+      PUBLIC HOUSING ADMINISTRATION (AVP)
+      The Admissions and Continued Occupancy Policy (ACOP) is included as Attachment
+      #1. Document #9667, April 10, 2025.
+
+      DECONCENTRATION OF POVERTY AND INCOME MIXING, 24 CFR 903.1 AND 903.2
+      The AVP’s policy regarding the deconcentration of poverty, in compliance with 24 CFR
+      903.2(c)(5), is included in the ACOP.
+
+      VIOLENCE AGAINST WOMEN ACT (VAWA):
+      VAWA is incorporated into the ACOP in compliance with 24 CFR 5.2003.
+      ARTICLE XVI.7: VIOLENCE AGAINST WOMEN ACT (VAWA): NOTICE, DOCUMENTATION, AND
+      CONFIDENTIALITY.
+
+      RENT DETERMINATION
+      CHAPTER VI: INCOME AND RENT DETERMINATION [24 CFR PART 5, SUBPARTS E AND F; 24
+      CFR 960, SUBPART C]
+      This chapter includes calculations for annual income, assets, and adjusted income, as
+      well as the rent calculation.
+
+      PROGRAM ADMINISTRATION AND OPERATION
+      CHAPTER I: PROGRAM PLAN OVERVIEW and CHAPTER XVI: PROGRAM ADMINISTRATION—
+      both included in the ACOP—cover the legal basis, definition, and operation of the
+      program, as well as its administration.
+
+      GRIEVANCES AND APPEALS
+      CHAPTER XIV: GRIEVANCES AND APPEALS, included in the ACOP, outlines the process
+      established by the agency for handling grievances and appeals.
+
+      COMMUNITY SERVICE
+      CHAPTER XI: COMMUNITY SERVICE establishes the definition and requirements for
+      community service, as well as its implementation.
+
+
+
+
+                                                Page 11 of 74                 form HUD-50075-ST (03/31/2024)
+      PET POLICY
+B.1   The pet policy is contained in Chapter X: PETS, in accordance with 24 CFR 5, SUBPART C;
+      24 CFR 960, SUBPART G.
+
+      Financial Resources
+
+      In accordance with PIH Notice 2018-03, PRPHA intends to use up to 20% of its Operating
+      Subsidy for capital fund activities.
+
+      View PRPHA funds see attached # 2
+
+
+      Objectives of the Housing Choice Voucher Program (Section 8) in Housing
+      Allocation
+
+      The objective of AVP in administering the Housing Choice Voucher Program is to
+      provide subsidies so that low-income families can obtain decent, safe, and
+      sanitary housing. The number of families served is limited by the number of
+      vouchers, available funds, AVP's budget, and the availability of adequate
+      housing.
+
+      The Housing Choice Voucher Program (Section 8) provides participating
+      families with housing opportunities by subsidizing rental payments to private
+      landlords. Through this program, AVP assists low-income families in obtaining
+      quality housing within AVP's geographic jurisdiction, which includes all
+      municipalities in Puerto Rico.
+
+
+      Administration and Operations. (Attached 3, Section 8 Administrative Plan)
+
+
+      Section 8
+
+
+      • Special Program Vouchers will be addressed according to needs:
+
+         •   Family Unification Program (FUP)
+
+         •   Homeownership Program
+
+         •   HUD-VASH
+
+         •   Mainstream Vouchers
+
+
+
+                                             Page 12 of 74                   form HUD-50075-ST (03/31/2024)
+B.1   Project-Based Voucher (PBV):
+
+      AVP provides PBV for 38 projects, encompassing 2,869 housing units divided into senior
+      living facilities and multifamily housing. PBVs assist elderly adults, disabled individuals,
+      and mixed-income families. The projects are located in different municipalities across
+      the island and offer diverse service options for their residents. Citizens interested in
+      applying for PBV can do so by completing the online pre-application or visiting any of
+      the nine (9) Regional Offices of the program.
+
+      Project based:
+
+                                                                      Number of
+          Project Name                                 Municipality               Project Type
+                                                                        Units
+          Golden Living Barceloneta                     Barceloneta      91          Elderly
+                                                                                  Elderly/Disabl
+          Panorama Gold                                  Bayamón         168
+                                                                                        e
+                                                                                  Elderly/Disabl
+          San Miguel Elderly                             Bayamón         82
+                                                                                        e
+                                                                                  Elderly/Disabl
+          Laderas del Río Elderly                        Bayamón         50
+                                                                                        e
+          Cabo Rojo Elderly                              Cabo Rojo       88          Eld/Dis
+                                                                                  Elderly/Disabl
+          Notre Dame Elderly                               Caguas        88
+                                                                                        e
+          Galeria Urbana                                   Caguas        25        Multifamily
+          Villas del Peregrino                             Caguas        25          Elderly
+          Remanso Elderly                                 Carolina       31          Elderly
+                                                                                  Elderly/Disabl
+          Golden Living Cidra                               Cidra        120
+                                                                                        e
+                                                                                  Elderly/Disabl
+          San Blas Aparatments                             Coamo         68
+                                                                                        e
+                                                                                  Elderly/Disabl
+          Condominio Monteflor                            Comerio        33
+                                                                                        e
+                                                                                  Elderly/Disabl
+          Égida Florida                                     Florida      72
+                                                                                        e
+          Égida de la Asociación de Miembros de
+          la Policia de Puerto Rico en Guaynabo          Guaynabo        52          Elderly
+          Monserrate Elderly                           Hormigueros       34          Elderly
+          Vistas del Boulevard                           Humacao         28        Multifamily
+                                                                                  Elderly/Disabl
+                                                         Humacao         90
+          Hogar Manuel Mediavilla Negrón II                                              e
+                                                                                  Elderly/Disabl
+          El Dorado Elderly                              Juana Díaz      83
+                                                                                        e
+          Las Piedras Elderly                           Las Piedras      123         Elderly
+
+
+
+
+                                                  Page 13 of 74                    form HUD-50075-ST (03/31/2024)
+                                                                     Number of
+      Project Name                                 Municipality                      Project Type
+B.1                                                                       Units
+      Paseo Samaritano                              Las Piedras            60         Multifamily
+                                                                                     Elderly/Disabl
+      Loiza Elderly                                      Loiza             120              e
+      Égida de la Asociación de Miembros de
+      la Policía de Puerto Rico en Maunabo            Maunabo               67           Elderly
+      San Fernando Elderly Center                    Mayagüez              29            Elderly
+                                                                                     Elderly/Disabl
+      Morovis Elderly                                  Morovis             92
+                                                                                            e
+                                                                                     Elderly/Disabl
+      Égida del Bosque                                 Patillas            120
+                                                                                            e
+                                                                                     Elderly/Disabl
+      Inmobiliaria La Trinidad                          Ponce              49
+                                                                                            e
+      Rio Dorado Elderly                            Rio Grande             86            Elderly
+      Portal de San Germán                         San Germán              56         Multifamily
+                                                                                     Elderly/Disabl
+      Égida Enfermeras                               San Juan               81              e
+                                                                                     Elderly/Disabl
+      Los Angeles Housing                            San Juan              124
+                                                                                            e
+                                                                                     Elderly/Disabl
+      Golden Residence @ The Village                 San Juan              140
+                                                                                            e
+      Ciudad Lumen                                   San Juan              140           Elderly
+      Reinaissance Square (Multi-stage)
+                                                     San Juan              28         Multifamily
+      Las Gladiolas
+      Bayshore Villas (Multi-stage) Puerta
+                                                     San Juan              33         Multifamily
+      de Tierra
+      La Inmaculada Elderly Center                   San Juan              48            Elderly
+                                                                                     Elderly/Disabl
+      Égida Santa Isabel                           Santa Isabel            120
+                                                                                            e
+                                                                                     Elderly/Disabl
+      Palacio Dorado                                  Toa Alta             103
+                                                                                            e
+                                                                                     Elderly/Disabl
+      Suarez Sandin                                  Vega Baja              22
+                                                                                            e
+                         TOTAL                                            2,869
+
+
+                  ▪   Moderate Rehabilitation Program
+
+                                                                  Number of
+                  Project Name                Municipality                        Project Type
+                                                                    Units
+            Alameda Tower I y III               San Juan             152          Multifamily
+                                                                                  Single Room
+           Hogar Amparo (SRO)                   San Juan             83
+                                                                                  Occupancy
+            Apartamentos Luna                    Juncos              12           Multifamily
+                      TOTAL                                         245
+
+
+                                              Page 14 of 74                            form HUD-50075-ST (03/31/2024)
+B.1
+      As part of its initiatives to increase the housing inventory and address the
+      growing needs of the elderly population and Puerto Rican families, AVP aims to
+      identify and promote innovative strategies to effectively tackle the housing
+      shortage on the island, ensuring transparency and efficiency in resource
+      allocation.
+
+
+                     DEMOGRAPHIC REPORT FOR SECCION 9
+
+
+
+      MUNICIPALITIES     Total           Total            Total      Total
+                         Families with   Families         Families   Families
+                         Disability      Elderly          with       Single Mom
+                                                          Children
+                                                          Less 18
+
+      Adjuntas           9               28               38         28
+
+      Aguada             39              45               117        90
+      Aguadilla          60              161              203        146
+      Aguas Buenas       2               7                16         13
+      Aibonito           5               11               19         15
+      Añasco             3               11               19         11
+      Arecibo            30              30               89         64
+      Arroyo             11              22               33         27
+      Barceloneta        14              17               116        83
+      Barranquitas       30              38               76         57
+      Bayamón            124             130              388        313
+      Cabo Rojo          9               13               16         10
+      Caguas             69              94               176        138
+      Camuy              6               9                29         23
+      Canóvanas          41              63               246        211
+      Carolina           133             309              620        522
+
+
+
+                                               Page 15 of 74                      form HUD-50075-ST (03/31/2024)
+      Catano        65   94              256   215
+B.1
+      Cayey         24   30              142   119
+      Ceiba         23   6               55    44
+      Ciales        4    5               21    17
+      Cidra         8    11              39    30
+      Coamo         15   17              75    62
+      Comerío       10   17              33    28
+      Corozal       18   20              62    52
+      Dorado        35   46              169   137
+      Fajardo       39   23              150   117
+      Florida       7    11              25    19
+      Guánica       1    4               13    13
+      Guayama       24   45              60    53
+      Guayanilla    10   26              50    43
+      Guaynabo      39   45              175   150
+      Gurabo        4    6               12    9
+      Hatillo       7    12              50    41
+      Hormigueros   6    4               21    17
+      Humacao       21   20              22    16
+      Isabela       14   13              109   89
+      Jayuya        7    6               55    42
+      Juana Díaz    11   20              45    32
+      Juncos        7    7               13    10
+      Lajas         3    8               11    8
+      Lares         1    0               18    14
+      Las Marías    1    1               12    11
+      Las Piedras   12   13              24    16
+      Loíza         9    18              43    37
+
+
+
+                              Page 16 of 74          form HUD-50075-ST (03/31/2024)
+Luquillo        19    19               99     78
+Manati          15    15               59     44
+Maricao         3     2                11     7
+Maunabo         13    19               31     23
+Mayagüez        27    33               90     65
+Moca            15    43               83     67
+Morovis         2     0                6      5
+Naguabo         18    11               29     22
+Naranjito       13    15               55     44
+Orocovis        17    20               49     30
+Patillas        15    18               48     36
+Penuelas        8     20               43     36
+Ponce           74    135              220    179
+Quebradillas    5     6                12     8
+Rincón          12    15               31     22
+Rio Grande      33    40               168    134
+Sabana Grande   4     8                14     11
+Salinas         15    33               87     68
+San Germán      11    5                10     5
+San Juan        227   384              1036   866
+San Lorenzo     12    10               27     22
+San Sebastian   15    28               12     8
+Santa Isabel    2     11               59     47
+Toa Alta        29    40               147    122
+Toa Baja        45    137              205    174
+Trujillo Alto   14    18               79     68
+Utuado          10    35               54     43
+Vega Alta       16    24               140    112
+
+
+
+                            Page 17 of 74           form HUD-50075-ST (03/31/2024)
+      Vega Baja                    18                  23                 140                108
+      Vieques                      11                  20                 93                 68
+      Villalba                     1                   6                  22                 16
+      Yabucoa                      7                   9                  27                 21
+      Yauco                        13                  14                 20                 14
+      TOTAL                        1749                2732               7167               5765
+
+
+B2   New Activities.
+
+     (a) Does the PHA intend to undertake any new activities related to the following in the PHA’s current Fiscal Year?
+
+
+     Y    N
+                Hope VI or Choice Neighborhoods.
+                Mixed Finance Modernization or Development.
+                Demolition and/or Disposition.
+                Designated Housing for Elderly and/or Disabled Families.
+                Conversion of Public Housing to Tenant-Based Assistance.
+                Conversion of Public Housing to Project-Based Rental Assistance or Project-
+     Based Vouchers under RAD.
+            Occupancy by Over-Income Families.
+            Occupancy by Police Officers.
+            Non-Smoking Policies.
+            Project-Based Vouchers.
+            Units with Approved Vacancies for Modernization.
+            Other Capital Grant Programs (i.e., Capital Fund Community Facilities Grants
+     or Emergency Safety and Security Grants).
+
+     (b) If any of these activities are planned for the current Fiscal Year, describe the activities. For new demolition activities,
+     describe any public housing development or portion thereof, owned by the PHA for which the PHA has applied or will
+     apply for demolition and/or disposition approval under section 18 of the 1937 Act under the separate
+     demolition/disposition approval process. If using Project-Based Vouchers (PBVs), provide the projected number of
+     project-based units and general locations, and describe how project basing would be consistent with the PHA Plan.
+
+
+     Modernizations or Developments
+
+     Design:
+        •          José Castillo Mercado (RQ 3032 and AMP 005009032P) – Rehabilitation
+        •          Francisco Figueroa (RQ 3024 and AMP 005008001P) – Rehabilitation
+        •          El Flamboyán (RQ 5081 and AMP 005005007P) – Stormwater management
+                   project for flood control.
+
+
+                                                               Page 18 of 74                                 form HUD-50075-ST (03/31/2024)
+     Modernization and Demolition Projects
+B2
+        •     Los Laureles (RQ 5168 and AMP 005003012) – Comprehensive Modernization
+        •     El Flamboyán (RQ 5081 and AMP 005005007P) – Stormwater Management
+              Project for flood control
+        •     Rafael Torrech (RQ 5003 and AMP 005003003P) – Modernization including
+              Seismic Retrofitting
+
+     UFAS Accessible Unit Plan
+
+        •     Construction activities to certify the adaptability of 350 units (partial and full
+              accessibility) located in various public housing developments, ensuring
+              compliance with ADA standards as established in the AVP Voluntary
+              Compliance Agreement.
+
+     Capital Improvements / Extraordinary Maintenance
+
+        •     An investment of $28.98 million across various projects.
+
+     Projects Funded by FEMA Disaster Assistance Grants DR-4339 and DR-4473
+
+        •     This fiscal year, we will complete the contract awards for 11 projects (out of the
+              51 previously identified) under the first phase of the Disaster Recovery
+              Program. Twenty-eight municipalities will be impacted, with a total budget of
+              $582.1 million. Construction work on 19 of these projects is expected to be
+              completed.
+
+        •     Bidding processes will begin for the second phase of recovery work. This
+              phase consists of 34 projects distributed across 22 municipalities, with an
+              estimated implementation cost of $55.7 million.
+
+        •     Plans are also in place to assign design work for an additional 110 projects,
+              distributed across 41 municipalities, with an investment of $61.5 million in
+              design fees.
+
+     Environmental Compliance – Lead-Based Paint (LBP) Compliance – 40 CFR 745 / 24 CFR
+     35 (“Lead-Based Paint Poisoning Prevention in Certain Residential Structures”) and
+     Asbestos-Containing Materials.
+
+
+
+
+                                             Page 19 of 74                     form HUD-50075-ST (03/31/2024)
+•     Lead-Based Paint (LBP) detection surveys and/or visual inspections and
+asbestos surveys in 9,763 units – Phase One Implementation;
+
+•      Conducting LBP risk assessments in 1,704 housing units and/or blood lead level
+testing for children under the age of 6, as defined in federal regulations 40 CFR 745
+and/or 24 CFR 35.
+
+Energy Matters
+
+•     Planning: A pilot plan is being developed to install solar-powered security lighting
+in communities, starting with elderly housing facilities and several public housing
+developments. We will provide our communities with resilience and a safe environment
+during power outages and reduce energy consumption costs for common areas.
+
+Designation of Housing for the Elderly and/or Families with Disabilities
+
+
+
+Ponce de León 55 (PL #55),
+
+The proposed project, Ponce de León 55 (PL #55), will be a newly constructed
+community designated for older adults (62+), located in Santurce, San Juan. The
+project will consist of six residential stories along Juan Ponce de León Avenue, with two
+levels of underground parking providing 137 parking spaces. It will encompass
+approximately 268,489 total square feet, including residential areas, parking, and
+common spaces. The development will feature a sustainable, hurricane-resilient
+design, complying with ICC-700 standards and all applicable energy and building
+codes.
+
+The project will serve the low-income senior population, with units for households
+earning 50% and 60% of the Area Median Income (AMI). It will include 38 LIPH units and
+184 PBV units, all designated for older adults (62+), with the flexibility to admit near-
+elderly households (ages 50–61) if necessary.
+
+
+
+Vieques Elderly
+
+Vieques Elderly is a project that the AVP (Vieques Housing Authority) plans to acquire in
+the municipality of Vieques. This development features a total of 28 (28) housing units
+for seniors. The structure is divided into two structural components:
+
+
+
+
+                                         Page 20 of 74                    form HUD-50075-ST (03/31/2024)
+     • Main building with 18 housing units, all with one bedroom, and a communal service
+     area.
+
+     • Row house-style structures with 10 independent units, each with one bedroom and
+     individual access.
+
+     The units comply with the federal standards of the Uniform Federal Accessibility
+     Standards (UFAS) and the Americans with Disabilities Act (ADA).
+
+
+
+
+B3   Progress Report.
+
+     Provide a description of the PHA’s progress in meeting its Mission and Goals described in the PHA 5-Year
+     and Annual Plan.
+
+
+
+
+     ADMINISTRATION OF THE PROPERTY MANAGEMENT DIVISION
+
+
+         •   Coordinate, direct, and supervise intervention and compliance activities
+             related to Public Housing properties to ensure that agents and the
+             managing municipality comply with established federal and state laws,
+             regulations, standards, procedures, and public policies. (Code of Federal
+             Regulations - 24 CFR 5.703).
+
+
+         •   Continue monitoring interventions in the following areas: Pre-REAC (24
+             CFR 902.5), Health & Safety (24 CFR 7703), Physical Appearance (24 CFR
+             902.21), General Inspection of Common Areas (24 CFR 5703e), Unit
+             Inspection (24 CFR 5703d), Site Inspection (24 CFR 5703a), Building
+             Inspection (24 CFR 5703b), and Systems Inspection (24 CFR 5703c).
+
+
+         •   Continue Inside, Outside, and Unit Inspections (24 CFR 5703) using the
+             following templates: Inside, Outside, and Units, with the corresponding
+             follow-up.
+
+
+
+                                                     Page 21 of 74                          form HUD-50075-ST (03/31/2024)
+     •   Participate in REAC/NSPIRE inspections, including NSPIRE Inspections (24
+         CFR 902.25), Health & Safety Inspections (24 CFR 902.02.21 and 24 CFR
+         5.703), Technical Reviews (24 CFR 902.24 and 5.711d), and Responses to
+         REAC Findings (24 CFR 902.44), with their respective follow-ups.
+
+
+     •   Continuing interventions related to Emergency and Regular Service
+         Requests (24 CFR Chapter IX 901.5), Project Accounting (24 CFR 902.9),
+         Asset Management (24 CFR 990), Occupancy (24 CFR 960.253; Part 966,
+         966.4, and 351345), inventory verification, compliance monitoring, and
+         other related tasks. ensuring optimal conditions in housing units and
+         ensuring that the provision of services is of quality in accordance with HUD
+B3
+         regulations.
+
+
+     •   Track service requests are generated through the resident portal in the
+         Yardi Voyager program and refer them to the Agent or Managing
+         Municipality for appropriate action.
+
+
+     •   Review preventive, routine, and emergency maintenance reports, as well
+         as actions taken to comply with unit lease terms, project accounting,
+         occupancy reports, annual re-examinations, and Enterprise Income
+         Verification (EIV).
+
+
+     •   Verify the activities, findings, and reports submitted by Agents and
+         Managing Municipalities through interviews, project interventions, and
+         inspections of public housing properties.
+
+
+     •   Use the Yardi Voyager program to validate maintenance-related reports
+         submitted by Agents and the Managing Municipality.
+
+
+     •   Coordinate and conduct periodic reviews of public housing properties
+         under the Tax Credit program to ensure compliance with contracts with
+         investors and the Public Housing Administration.
+
+
+
+                                        Page 22 of 74                 form HUD-50075-ST (03/31/2024)
+     •   Train Agents and the Managing Municipality on the laws, regulations,
+         procedures, and public policy applied in the AVP.
+
+
+     •   Workshops     in   the areas   of     Asset     Management    and    Preventive
+         Maintenance.
+
+
+     •   Keep staff trained with work tools that facilitate tasks and focus on
+         achieving all goals.
+
+
+     •   Evaluate the annual Management Plan submitted by the Agent and
+         Managing Municipality, providing follow-up on any findings.
+B3
+
+     •   Complaints – Receive, register, track, evaluate, address, and follow up on
+         complaints from tenants and/or agencies regarding maintenance issues
+         in the projects.
+
+
+     •   Evaluate   and     recommend     routine        maintenance   and   equipment
+         acquisition, according to project needs.
+
+
+     •   Certify payment for completed work and acquired equipment as referred
+         by the Finance Department.
+
+
+     •   Conduct investigations and prepare Incident Reports, as referred by the
+         Finance Department. The Comptroller's Office requires investigations in
+         cases of losses or irregularities in the handling of public funds or assets.
+
+
+     •   VCA – Conduct or assist in the needs assessment audit and the
+         reasonable accommodations audit.
+
+
+     •   VCA – Provide support related to accessible units, organizational charts
+         and special procedures, contingency plans, compliance teams, and
+         workshops. Findings.
+
+
+
+                                         Page 23 of 74                   form HUD-50075-ST (03/31/2024)
+       •   VCA – Monitoring, Evaluation, and Semiannual Validation of the Needs
+           Assessment Report (NAR) and Reasonable Accommodation Report (RAP).
+
+
+       •   Emergency Management: Provide support in emergency situations as
+           directed by the Governor.
+
+
+       •   Evaluate funding requests for equipment acquisition and routine
+           improvements to Public Housing Administration projects, according to the
+           specific needs of each project.
+
+
+     GOALS
+
+B3
+       •   Continue with the rehabilitation plan for vacant units that are not
+           available for occupancy.
+
+
+       •   Monitor Agency personnel, Managing Agents, and the Managing
+           Municipality regarding the service request and inspection module through
+           the Yardi Voyager operating system.
+
+
+       •     Continue training the Bureau of Property Administration personnel on
+           updates to the new inspection method of the National Standards for the
+           Physical Inspection of Real Estate (NSPIRE) from the Real Estate
+           Assessment Center (REAC) and the integration of the inspection module
+           through the Yardi Inspections Mobile™ program.
+
+
+       •   This will impact all public housing complexes through physical aspect
+           monitoring, including regular monitoring such as the 2025 Pre-REAC.
+
+
+       •   Recruit personnel for the position of Contract Monitoring Officer for all
+           areas administered by the Bureau of Real Estate to achieve better
+           oversight of public housing complexes and management agents.
+
+
+       •   Re-evaluate monitoring and inspection methods to optimize the reports
+           necessary for measuring management agent performance indicators.
+
+
+                                         Page 24 of 74                form HUD-50075-ST (03/31/2024)
+       •   Review the lease agreement to establish important parameters regarding
+           deficiencies found due to the resident.
+
+
+     ACTION PLAN - IMPROVE SCORE (REAC)
+
+
+       •   Analyze and monitor all corrective actions submitted by the Managing
+           Agents and the Municipality of Camuy for deficiencies identified in the
+           2023 and 2024 REAC inspections, emphasizing projects that scored less
+           than 80 points.
+
+
+       •   Identify the projects to be inspected in the 2025-2026 REAC to develop
+B3
+           work plans and conduct the 2025-2026 Pre-REAC inspections.
+
+
+       •   Update the tools and equipment for Contract Monitoring Officers to
+           improve their performance and work efficiency.
+
+
+       •   Follow up on the 2023 and 2024 Pre-REAC monitoring to ensure corrective
+           action is taken on deficiencies identified by the Property Bureau staff.
+
+
+       •   Prepare logistics for conducting inside, outside, and unit inspections of the
+           identified projects, beginning in January 2026.
+
+
+       •   Analyze the REAC inspection summary report to prevent or minimize the
+           recurrence of the same deficiencies.
+
+
+       •   In conjunction with the Project Development and Construction Area,
+           analyze the Physical Needs Assessment (PNA) to identify the most
+           pressing and immediate needs that must be addressed.
+
+
+       •   Evaluate and recommend operational budget requests to carry out the
+           necessary work to correct deficiencies that affect the inspection score.
+
+
+
+
+                                          Page 25 of 74                  form HUD-50075-ST (03/31/2024)
+        •   Provide technical assistance to managing agents and the managing
+            municipality regarding updates to HUD regulations, especially the
+            National Standards for the Physical Inspection of Real Estate (NSPIRE) of
+            REAC.
+
+
+        •   Conduct regular meetings with managing agents and the managing
+            municipality to outline the work plan and provide guidance on important
+            aspects during inspections.
+
+
+        •   Support managing agents and the managing municipality in following up
+            on referrals or complaints made to various government agencies such as
+            AAA, AEE, DRNA, and municipalities.
+B3
+
+     IMPLEMENTATION
+
+
+        •   Carbon monoxide (CO) and smoke detectors in the bedrooms of
+            residential buildings under the NSPIRE program must have sealed 10-year
+            batteries.
+
+
+     ACHIEVEMENTS
+
+
+     With the implementation of Yardi Voyager during 2024-2025, a total of 797,609
+     work orders were created, and 778,377 were completed during that period,
+     representing 97.59%.
+
+
+     A total of 49,884 units were inspected during 2024-2025 with the full
+     implementation of the Yardi Inspections Mobile module, representing 99.52% of
+     all units available for inspection.
+
+
+     100% of buildings and 100% of sites in public housing projects were inspected for
+     fiscal year 2024-2025.
+
+
+
+
+                                          Page 26 of 74                form HUD-50075-ST (03/31/2024)
+                       Project Development and Construction Area
+
+
+
+     Projects Funded by FEMA Disaster Assistance Grants DR-4339 and DR-4473
+
+       •   As FEMA funds become available, the Puerto Rico Housing Authority (PRHA)
+           will continue making improvements to residential complexes across the
+           island affected by Hurricane Maria (DR-4339) and the earthquake (DR-
+           4473). For this purpose, the PRHA hired two Program Managers and one
+           Supervision and Monitoring Manager. A total of 320 residential complexes
+           will be repaired, subject to agreements with the private insurers of the
+B3
+           claims filed.
+       •   Projects in progress for roof repairs and exterior painting, among other
+           miscellaneous repairs:
+
+
+
+     Implementation Phase 1:
+
+       •   Projects in Implementation Phase 1: A total of 39 projects with an estimated
+           investment of $230.28 million.
+              o Alturas de Isabela (RQ-5100 and AMP 005001013) - Design-build
+                 contract amount = $5,241,921.00. Project substantially completed on
+                 October 3, 2025. A deductive change order is pending approval to
+                 proceed with the project closure process.
+              o Guarionex (RQ-5129 and AMP 005002023) - Design-build contract
+                 amount = $3,834,165.00. Project substantially completed on May 12,
+                 2025. A deductive change order is pending approval to proceed with
+                 the project closure process.
+              o Las Muñecas (RQ 5162 and AMP 005001011P) - Design-build
+                 contract amount = $5,152,924.00. Project substantially completed
+                 on March 12, 2025. A deductive change order is pending approval to
+                 proceed with the project closure process.
+
+
+
+
+                                            Page 27 of 74               form HUD-50075-ST (03/31/2024)
+     o Rincón Taino (RQ 5144 and AMP 005006031P) – Design-build
+       contract amount = $3,606,500.00. Project completed, with final
+       acceptance date of December 23, 2025. The project is in the closing
+       process.
+     o Manuel Roman Adames (RQ 3038 and AMP 005002010) – Design-
+       build contract amount = $3,141,858.00. Project substantially
+       completed on November 28, 2024. A change order is pending
+       approval to add funds related to additional work and time, to
+       proceed with the project closing process.
+     o Puerta de Tierra II (RQ 5311 and AMP 005010060) – Design-build
+       contract amount = $262,524.00. Painting project only, 60%
+B3     complete, with an estimated completion date of February 24, 2026.
+       A change order is pending approval to add funds related to
+       additional work and time.
+     o Práxedes Santiago (RQ 3041 and AMP 005006008) – Design-build
+       contract amount = $5,900,790.19. Project substantially completed
+       on November 26, 2025. A deductive change order is pending
+       approval to proceed with the project closure process.
+     o La Alhambra (RQ 5096 and AMP 005003008) – Design-build
+       contract amount = $2,150,000.00. Project substantially completed
+       on October 15, 2025. A change order for additional time is pending
+       approval to proceed with the project closure process.
+     o San Agustín Park (RQ 5246 and AMP 005010004) – Design-build
+       contract amount = $1,421,774.00. Project substantially completed on
+       November 26, 2025. A change order for additional time is pending
+       approval to proceed with the project closure process.
+     o Jardines de Country Club (RQ 5013 and AMP 005010024) – Design-
+       build contract amount = $2,789,356.00. Project is 66.1% complete,
+       with an estimated completion date of December 15, 2026. A change
+       order for additional time is pending approval to proceed with the
+       project closeout process.
+
+
+
+
+                               Page 28 of 74                   form HUD-50075-ST (03/31/2024)
+     o Villa Esperanza (RQ 5035 and AMP 005010037) – Design-build
+       contract amount = $7,787,076.35. Project is 72.4% complete, with an
+       estimated completion date of August 18, 2026.
+     o Villa del Caribe (RQ 3062 and AMP 005007009) – Design-build
+       contract amount = $3,000,000.00. Project is 82.2% complete, with an
+       estimated completion date of December 29, 2025. A change order
+       for additional time to complete the project is pending approval.
+     o Juana Matos I (RQ 3102 and AMP 005003018) – Design-build
+       contract amount = $6,203,794.54. Project is 45.2% complete, with an
+       estimated completion date of June 30, 2026. A change order to add
+       funds related to additional work and time to complete the project is
+B3     pending approval.
+     o Bella Vista (RQ 3090 and AMP 005006028) – Design-build contract
+       amount = $4,470,270.79. Project substantially completed on
+       November 8, 2025. Change order approval pending for additional
+       time to proceed with the project closure process.
+     o Carolina Housing (RQ 5217 and AMP 005005015) – Design-build
+       contract amount = $2,422,450.00. Project 81% complete, with an
+       estimated completion date of March 10, 2025. Change order
+       approval pending for additional time to complete the project.
+     o Nemesio R. Canales I & II (RQ 7005 and AMP 005010005 / RQ 7006
+       and AMP 005010006) –              Design-build   contract   amount         =
+       $33,789,222.40. Project is 30.7% complete, with an estimated
+       completion date of March 19, 2027.
+     o Nuestra Señora de Covadonga (RQ 5114 and AMP 005005029) –
+       Design-build contract amount = $6,026,070.22. Project at 38.8%
+       completion, with an estimated completion date of January 5, 2027.
+     o Ext. Sábalos Gardens (RQ 5012 and AMP 005008018) – Design-build
+       contract amount = $10,006,707.00. Project at 8.4% completion, with
+       an estimated completion date of January 13, 2027.
+     o José H. Ramírez (RQ 3066 and AMP 005005026) – Design-build
+       contract amount = $3,467,063.00. Project at 81.2% completion, with
+
+
+
+                               Page 29 of 74                   form HUD-50075-ST (03/31/2024)
+       an estimated completion date of December 1, 2025. A change order
+       for additional time to complete the project is pending approval.
+     o Rafael Hernández (Kennedy) (RQ 4011 and AMP 005008016) –
+       Design-build contract amount = $5,199,002.00. Project is 21.4%
+       complete, with an estimated completion date of April 21, 2026. A
+       change order is pending approval to add funds related to additional
+       work and time to complete the project.
+     o Arístides Chavier (RQ 1014 and AMP 005009017) – Design-build
+       contract amount = $14,950,000.00. Project 61% complete, with an
+       estimated completion date of April 14, 2027.
+     o Jardines de Monte Hatillo I (RQ 7003 and AMP 005010036) –
+B3     Design-build contract amount = $6,544,000.00. Project 46.9%
+       complete, with an estimated completion date of February 3, 2026. A
+       change order for additional time to complete the project is pending
+       approval
+     o Jardines de Monte Hatillo II (RQ 7004 and AMP 005010036) –
+       Design-build contract amount = $10,426,424.00. Project is 25%
+       complete, with an estimated completion date of November 13, 2026.
+     o Padre J. Rivera (RQ 3094 and AMP 005007002) – Design-build
+       contract amount = $4,950,115.55. Project is 64.5% complete, with an
+       estimated completion date of November 13, 2026.
+     o Pedro M. Descartes (RQ 3067 and AMP 005006030) – Design-build
+       contract amount = $4,799,466.03. Project 57% complete, with an
+       estimated completion date of March 11, 2026.
+     o Fernando Sierra Berdecía (RQ 3040 and AMP 005002011) - Design-
+       build contract amount = $5,626,472.80. Project 6.31% complete in the
+       design phase, with an estimated completion date of September 1,
+       2026.
+     o Jardines de Campo Rico (RQ 5031 and AMP 005010037) - Design-
+       build contract amount = $4,956,430.57. Project 5.0% complete in the
+       design phase, with an estimated completion date of December 1,
+
+
+
+
+                               Page 30 of 74                 form HUD-50075-ST (03/31/2024)
+       2026. A change order is pending approval to add funds related to
+       additional work and time to complete the project.
+     o Pedro Regalado Díaz (RQ 3070 and AMP 005005027) - Design-build
+       contract amount = $2,380,820.62. Project is 18.1% complete, with an
+       estimated completion date of March 9, 2026.
+     o Fernando Luis García (RQ 3023 and AMP 005009033) - Design-
+       build contract amount = $7,297,030.92. Project is 2.20% complete in
+       the design stage, with an estimated completion date of June 22,
+       2027.
+     o Juana Matos II (RQ 5002 and AMP 005003019) - Design-build
+       contract amount = $4,186,927.60. Project in the design stage, with an
+B3     estimated completion date of December 22, 2026.
+     o Los Lirios (RQ 5194 and AMP 005010054) - Design-build contract
+       amount = $4,089,219.44. Project at 4.70% completion in the design
+       stage, with an estimated completion date of June 9, 2026.
+     o Bahía (RQ 5173 and AMP 005009005) - Design-build contract
+       amount = $2,145,143.00. Project is 48% complete, with an estimated
+       completion date of December 27, 2025. A change order for
+       additional time to complete the project is pending approval.
+     o Dr. Víctor Berríos (RQ 3028 and AMP 005007010) - Design-build
+       contract amount = $7,262,849.64. Project is 2.78% complete in the
+       design phase, with an estimated completion date of December 8,
+       2026.
+     o Liborio Ortíz (RQ 3020 and AMP 005006001) - Design-build contract
+       amount = $5,148,869.00. Project in the design phase (just started),
+       with an estimated completion date of December 22, 2026.
+     o Juana Matos III (RQ 5008 and AMP 005003020) - Design-build
+       contract amount = $5,965,000.00. Project in the design phase (just
+       started), with an estimated completion date of June 2, 2027.
+     o Jardines de la Nueva Puerta de San Juan II (RQ 5295 and AMP
+       005010057) - Design-build contract amount = $344,124.00. Project
+
+
+
+
+                               Page 31 of 74                 form HUD-50075-ST (03/31/2024)
+                  at 2.17% progress in the design phase, with an estimated completion
+                  date of June 8, 2026.
+               o Las Palmas (RQ 5025 and AMP 005003021) - Design-build contract
+                  amount = $12,786,536.17. The Notice to Proceed for the contract was
+                  issued on January 16, 2026, with an estimated completion date of
+                  July 17, 2028.
+               o Alejandrino (RQ 5016 and AMP 005010026) - Design-build contract
+                  amount = $6,569,814.00. The Notice to Proceed for the contract was
+                  issued on January 23, 2026, with an estimated completion date of
+                  January 23, 2028.
+               o Las Palmas (RQ 3088 and AMP 005006011) - Design-build contract
+B3                amount = $3,984,446.00. Contract recently signed and pending
+                  issuance of the Notice to Proceed.
+
+
+
+     Implementation Phase 2:
+
+        •   Miscellaneous repairs to various recreational areas in the metro region (25
+            recreational areas on 21 properties) - Construction contract amount =
+            $2,117,379.07. The Notice to Proceed for the contract was issued on
+            December 8, 2025, with an estimated completion date of January 7, 2027.
+
+
+
+     Projects Currently in Bidding Process
+
+     The following projects (which also include roof repairs and exterior painting) are
+     in the bidding process for design-build contracts, with an approximate cost of
+     $55.67 million:
+
+               o Jardines de la Nueva Puerta de San Juan I (RQ 5294 and AMP
+                  005010057)
+               o Luis Lloréns Torres (Youth Center) (RQ 7009 and AMP 005010009)
+               o Las Margaritas I (RQ 2014 and AMP 005010016)
+               o Las Margaritas II (RQ 5038 and AMP 005010034)
+               o Alturas de Country Club (RQ 5082 and AMP 005005008)
+
+
+
+                                           Page 32 of 74                form HUD-50075-ST (03/31/2024)
+              o Luis Lloréns Torres (Providencia) (RQ 7007 and AMP 005010007)
+              o Luis Lloréns Torres (El Medio) (RQ 7008 and AMP 005010008)
+              o Valles de Guayama (RQ 5266 and AMP 005006020)
+              o Luis Palés Matos (RQ 3085 and AMP 005006017)
+              o Torres del Río (RQ 5196 and AMP 005007008)
+              o Fernando Calimano (RQ 3014 and AMP 005006016)
+       •   As the second phase of the program, the process of acquiring
+           construction services will begin for eight projects located in seven
+           municipalities. These projects involve partial roof repairs and/or exterior
+           painting. The total budget for these projects is $75.68 million, and because
+           the scope of the repairs is minimal, design plans will not be required.
+B3     •   Finally, the third phase comprises 110 projects identified for design
+           purposes due to insufficient budget for full execution (resulting from
+           anticipated insurance reductions). Subject to funding approval and
+           authorization for program managers to proceed with execution, economic
+           proposals will be solicited from engineering and architectural firms
+           previously qualified by the AVP (AVP-RFQ18-19-01 A/E Design Services). The
+           budget for these projects totals $828.5 million and is distributed among 41
+           municipalities. Design fees are estimated at $61.5 million. Designs must
+           include recreational areas for each residential development as a first step.
+
+
+
+     Dual Line Projects (Hot Water)
+
+       •   Luis Lloréns Torres - Youth Center - (RQ 7009 and AMP 005010009) –
+           Work in progress. The project is 35% complete.
+       •   Vista Hermosa III – Phase 3 [64 units] (RQ 7012 and AMP 005010012) –
+           Auctioned in 2022, but no bids were received. Additional funds were
+           requested to re-auction the project. Funds were approved at the end of
+           2023. A new auction was held in 2024, in which only one bidder submitted
+           an offer. Consultation with HUD was required to proceed with the award
+           (“Sole Source”). After obtaining authorization from HUD to award the
+           auction, the Managing Agent awarded the auction and signed a
+           construction contract. The contractor submitted a claim for extended
+
+                                          Page 33 of 74                 form HUD-50075-ST (03/31/2024)
+         administered expenses. The Managing Agent is currently evaluating the
+         claim to provide recommendations to the agency on how to proceed with
+         the project.
+     •   Santa Rita de Casia (RQ 3027 and AMP 005008003) – Phase 1 [76 units]:
+         Project completed in August 2025.
+     •   Virgilio Dávila (RQ 3017 and AMP 005003001) – Project halted due to
+         construction permit issues and the applicability of the RRP Rule.
+         Termination for convenience was initiated. The contractor is in the process
+         of submitting a revised final invoice for claims expenses and gains. Project
+         is scheduled for bidding. New budget allocated for construction,
+         inspection services, procurement process, and other services: $500,000.00
+B3       (Phase 1) and $796,400.00 (Phase 2) – Total: $1,296,400.00.
+     •   José Celso Barbosa (RQ-3096 / AMP 005003002) – Project in the bidding
+         process – budget allocated for construction, inspection services, and
+         procurement process - $1,362,000.00.
+     •   Gabriel Soler Catalá (RQ-3047 / AMP 005008004) – Phase I [32 units]:
+         Project completed and closed.
+     •   Gabriel Soler Catalá (RQ-3047 / AMP 005008004) – Phase II [32 units]:
+         Bidding documents in preparation.
+     •   Columbus Landing – Phase I [160 units] (RQ-4001 and AMP 005008007)
+         – Work completed in October 2025. Closing process underway.
+     •   Columbus Landing – Phase II [100 units] (RQ-4001 and AMP 005008007)
+         – Planned for fiscal year 2026-2027.
+     •   El Carmen – Phase II [74 units] (RQ-4010 and AMP 005008015) – Planned
+         for fiscal year 2026-2027.
+     •   Jardines de Guaynabo (RQ-3045 / AMP 005003025) – This project was
+         designed during the administration of the residential complex by the
+         Municipality of Guaynabo and did not include the electrical system
+         necessary to power the water heater. The project is currently in the
+         negotiation phase with the designer to include the necessary electrical
+         design.
+
+
+
+
+                                        Page 34 of 74                  form HUD-50075-ST (03/31/2024)
+         •   Zenón Díaz Valcárcel (RQ-3026 / AMP 005003024) – Project was
+             auctioned in November 2023 and no bids were received. Projected to be
+             auctioned again during the first quarter of 2024.
+
+
+     Improvements to the Existing Stormwater System
+
+     •   Felipe Sánchez Osorio Elderly Housing (RQ 5322) – This project was
+         auctioned twice, but both auctions failed to attract any bids. The design
+         contract was amended to review documentation and service time during
+         construction.   The    project   will     be auctioned   in   three   work      orders,
+         corresponding to the three sectors of the site: A, B, and C. These changes aim
+         to encourage the participation of smaller contractors, as notifications will be
+B3
+         given to proceed only for one sector at a time. Once that sector is completed,
+         work will begin on the next, and so on. Currently, the designer is reviewing
+         documents and in the process of renewing endorsements and permits to re-
+         auction the project.
+
+
+
+     Energy Audit
+
+     •   The RFP for the energy audit and physical needs assessment was canceled
+         by the Procurement and Contracting Department because the cost of the
+         submitted proposals exceeded the budget.
+     •   A new RFP for the Energy Audit is being planned with a revised budget.
+
+
+
+     Comprehensive Rehabilitation of the Photovoltaic System with Backup
+     Batteries
+
+         •   Puerta de Tierra II (RQ 5902 and AMP 005010060P)
+                o Cost: $680,000 (Based on 2022 Estimate: $459,146 + $100,000 New
+                   Battery Banks + $50,000 Inflation Cost + $70,854 Private Consultant
+                   and Inspection)
+                o Project Auctioned, Awarded, in the Design and Construction phase,
+                   and in the Net Metering Program (LUMA) phase
+
+
+
+                                                 Page 35 of 74                 form HUD-50075-ST (03/31/2024)
+       •   El Coquí (RQ 5210 and AMP 005003023P)
+              o Cost: $160,000 ($140,000 + $20,000 Private Consultant and
+                 Inspection)
+              o Project 95% complete installation, in process of Net Metering
+                 Program (LUMA).
+
+
+     Structural Assessments for Housing Projects
+
+       •   Scope of Work: A structural assessment is needed to begin analyzing
+           several public housing projects to determine the potential vulnerability of
+           these structures to future seismic events in Puerto Rico. In this phase, we
+           will work with public housing projects that were occupied in or before 1970.
+B3
+           The structural assessment consists of conducting the necessary visual
+           evaluation of the buildings' structural systems (including footings),
+           reviewing available plans and specifications, performing preliminary non-
+           destructive and destructive tests on the concrete and reinforcing steel,
+           and using this information to assess the structural integrity of existing
+           buildings to withstand a seismic event. We will also determine if structural
+           retrofitting is necessary to prevent collapse in the event of a major
+           earthquake.
+       •   Timeline: We propose contracting through the various managing
+           agencies responsible for these projects. Taking into account the
+           contracting processes, the workload of the managing agents, and the
+           shortage of technical personnel to perform this work, we estimate that it
+           can be completed within 36 months once the services are contracted.
+       •   Cost: Considering that we have 153 AVP projects that were occupied in or
+           before 1970 and that the estimated cost for these studies is $45,000, we
+           would need to budget a total of $6,885,000.
+       •   Development of a Guide for Structural Studies – It is necessary to
+           contract a structural engineering firm to develop a guide for structural
+           studies in accordance with applicable structural codes and regulations to
+           provide the managing agents of public housing projects with a basis for
+           requesting the corresponding study for each project. The estimated cost
+
+
+                                          Page 36 of 74                 form HUD-50075-ST (03/31/2024)
+           for this guide is $77,537.60. The documents have been prepared, and the
+           funds and service contract have been requested. The three proposals
+           received were quite different from each other, and the scope of work
+           presented varied from the scope of work requested. Therefore, the
+           Procurement and Contracting Department was asked to coordinate a
+           meeting with the bidders to clarify the scope of work requested. This is
+           pending.
+
+
+     PROJECTS FOR DEMOLITION:
+
+       •   Villa Monserrate (RQ 5154 and AMP 005004002P) - Total demolition: The
+           bidding process for the demolition work was delayed due to additional
+B3
+           environmental requirements. These requirements have excessively high
+           costs. Therefore, the AVP decided to negotiate a development proposal for
+           a mixed-financing project that includes demolition. The AVP contracted
+           architectural and engineering services to update the demolition cost
+           estimate, and the estimate was subsequently updated. The project was
+           included in the 2025-2029 Five-Year Plan, with the demolition design
+           updated for 2025 and the project demolition scheduled for 2026. We are
+           in the process of preparing the documents to request funding and
+           contracting architectural and engineering services to review the design
+           and obtain endorsements and permits.
+       •   Los Cedros (RQ 5106 and AMP 005005028P) – Total Demolition: Project
+           halted. Contractor declared in default.
+       •   Villas del Cafetal (Yauco Housing) (RQ 5191 and AMP 005009036P) –
+           Demolition of Building 8 (9 units): The AVP issued the certification of funds
+           for professional design, permitting, and supervision services for the
+           demolition of Building 8 in the amount of $146,670.00. The Managing Agent
+           will proceed with the process of contracting design services for the
+           demolition due to damage caused by seismic events, including preparing
+           and submitting a demolition request to the Special Request Center (SAC).
+           Environmental assessment documents were submitted to the Bureau of
+           Technical and Environmental Affairs (NATA) for review.
+
+
+                                          Page 37 of 74                  form HUD-50075-ST (03/31/2024)
+       •   Brisas del Mar (RQ- 5045 and AMP 005006029P) – Removed from Total
+           Demolition – The United States Army Corps of Engineers will be making
+           improvements in the Municipality of Salinas that will eliminate the flooding
+           problems in the town, which affect the project.
+       •   Diego Zalduondo (RQ 3055 and AMP 005005023P) – Total Demolition –
+           Project in the process of preparing and submitting the demolition
+           application to HUD for approval.
+       •   Mattei II- DEMO (RQ 5246 and AMP 005009007P) – Total Demolition –
+           Project pending preparation of documents to contract architectural and
+           engineering services to assess physical conditions and design the
+           demolition.
+B3
+
+     DEMOLITION / CONSTRUCTION PROJECTS:
+
+       •   Luis Lloréns Torres (RQ 7008 and AMP 005010008P) Modernization of
+           Commercial Lot A - Commercial building on lot A: The AVP is considering
+           rehabilitation of this building due to “SHPO” requirements. It was
+           determined to create a new contract for the modernization of the building,
+           instead of demolition and new construction. A proposal was requested
+           from the contracting office. Following the corresponding evaluation and
+           negotiation of the submitted proposal, the design contract was ultimately
+           recommended to the Procurement and Contracting Area.
+       •   Bella Vista (RQ 3101 and AMP 005002005P), including the demolition and
+           new construction of Building 2 - The design has been completed in
+           accordance with the 2018 Puerto Rico Building Code, and the construction
+           permit has been obtained. The auction was canceled because the sole
+           bidder submitted a proposal significantly exceeding the estimated cost
+           and the 2023 TDC limits. The 2024 TDC limits have not increased. The 2025
+           TDC limits have not been published. Current costs for other projects
+           submitted for auction are significantly exceeding the TDC limits. Re-
+           evaluation for re-auction is pending.
+       •   Villas del Cafetal (Yauco Housing) (RQ 5191 and AMP 005009036P) – New
+           Construction of Building No. 8 (Units 52 to 60). The AVP requested the
+
+                                          Page 38 of 74                 form HUD-50075-ST (03/31/2024)
+           Managing       Agent     to     initiate           the   contracting   process          for
+           architectural/engineering services for the construction of the new Building
+           No. 8. The evaluation includes a request for funding to cover the design
+           phase, endorsements/permits, and supervision during the construction
+           phase. Funding for the new construction will be requested after the design
+           of the new building is completed.
+
+
+     The following projects will be rehabilitated due to earthquake damage:
+
+        a. Luis Muñoz Rivera – RQ3084 and AMP 005009003P (200 units)
+              o Buildings 17, 18, 19, and 20 (48 units) (Phase I)
+                     •   100% complete and occupied.
+B3
+              o Buildings 3, 4, 5, 6, 7, 8, and 10 (52 units) (Phase 2)
+                     •   100% complete and occupied.
+              o Buildings 1, 2, 9, 11, 12, 13, 14, 15, and 16 (Phase 3 of 100 units)
+                     •   The project began on May 27, 2025. The project is 68%
+                         complete, with an estimated completion date of November 17,
+                         2026.
+        b. Santa Catalina – RQ5028 and AMP 005009035P (18 units)
+           o Funding certification is pending for the design and supervision work to
+              begin on the repairs of the 18 housing units affected by the 2020
+              earthquakes.
+        c. Jardines de Guánica – RQ5183 and AMP 005009004P (14 units)
+              o Funds certified on December 3, 2021, for:
+                     •   Repair work: $466,447.46
+                     •   Design/Supervision: $84,420.00
+                     •   Inspection: $145,000.00
+
+
+     Additional funds are pending certification to conduct a second bidding process
+     for repair work on the affected units.
+
+        d. José Tormos Diego – RQ5163 and AMP 005009027P (29 Vacant Units)
+              o Funds were requested for the seismic reinforcement design.
+                 Negotiations with designers pre-selected by AVP were unsuccessful.
+
+                                              Page 39 of 74                       form HUD-50075-ST (03/31/2024)
+                 Funds were requested to hire a designer. Funding certification is
+                 pending.
+       e. Silver Valley (50 Vacant Units), Cooper View (1 Vacant Unit), and Golden
+           View (19 Vacant Units) – RQ5260, 5259, and 5258 - AMP 005009030P
+           (Total of 70 Vacant Units)
+              o Silver Valley - Construction plans, permits, and auction documents
+                 completed. Funds for construction were requested. Funding
+                 certification for construction is pending.
+              o Cooper View - Construction plans, permits, and auction documents
+                 completed. Funds for construction were requested. Pending receipt
+                 of construction funding certification.
+B3            o Golden View - Construction plans, permits, and auction documents
+                 completed. Construction funding requested. Pending receipt of
+                 construction funding certification.
+       f. Villas del Cafetal (Yauco Housing), RQ 5191 and AMP 005009036P –
+           Building 5 – 9 units
+              o Awaiting funding certification to proceed with the auction for repair
+                 work on Building 5 (units 30 to 39).
+       g. Arístides Chavier (RQ-1014 and AMP 005009017P) – Building 26, Unit 214.
+              o Damage is to the balcony of this unit, and for safety reasons, units
+                 212 (first floor) and 216 (third floor) are also vacant. Awaiting funding
+                 certification.
+
+
+     MODERNIZATION PROJECTS
+
+       •   Bernardino Villanueva (RQ 5024 and AMP 005001007P) - Comprehensive
+           Modernization: Project in the construction phase (Phase I – 132 units and
+           Administration, Maintenance, and Community Services Buildings). It
+           began on April 5, 2021. Project in progress (64.83%).
+       •   Brisas del Turabo II – (RQ 5019 and AMP 005004007P) – Comprehensive
+           Modernization of 122 units – The modernization project began in May 2024
+           (20.50% progress).
+
+
+
+
+                                           Page 40 of 74                   form HUD-50075-ST (03/31/2024)
+     •   Agustín Stahl Phase II (RQ 3100 and AMP 005001007P) - Comprehensive
+         Modernization of 88 units: Third auction awarded, pending reopening of
+         the building permit and signing of the construction contract. Awaiting
+         completion of Phase I relocation (44 units).
+     •   Alturas de Cupey Phase II (RQ 5034 and AMP 005010032P) –
+         Comprehensive Modernization of 152 units: Project commenced on
+         January 13, 2025 (5% complete).
+     •   Bella Vista (RQ 3101 and AMP 005002005P)                    –   Comprehensive
+         Modernization, including demolition and new construction of Building 2:
+         Design completed in accordance with the 2018 Puerto Rico Building Code
+         and construction permit obtained. The auction was canceled because the
+B3       sole bidder submitted a proposal significantly exceeding the estimated
+         cost and the 2023 TDC limits. The 2024 TDC limits were not increased. The
+         2025 TDC limits have not been published. The current costs of other
+         projects submitted in the auction are well above the TDC limits. Re-
+         evaluation for re-auction is pending.
+     •   Rafael Hernández (Kennedy) – Phase III (B) (RQ 4011 and AMP
+         005008016P) – New Construction of Buildings for Administration,
+         Maintenance, and Community Facilities and Demolition of Building 22 –
+         The final phase of construction documents has been completed. The
+         auction was held, but no one submitted a proposal. A second auction was
+         held, and only one bidder submitted a bid well above the estimated
+         amount, so it was canceled. A third auction of the project was requested.
+         The   Procurement     and   Contracting        Office   prepared    the     auction
+         documents and published the announcement. The auction and award
+         process is pending.
+     •   Cuesta Vieja (RQ 5149 and AMP 005008016P) – Comprehensive
+         Modernization – The project is in the Auction Documents, Contract, and
+         Construction phase, pending final review before requesting auction
+         documents. Consideration is being given to auctioning the entire project
+         (Phase I and Phase II).
+
+
+
+
+                                        Page 41 of 74                       form HUD-50075-ST (03/31/2024)
+     •   El   Taíno   (RQ-5202   and   AMP         005006032P)   –   Comprehensive
+         Modernization - Project in the bidding and award stage. Pending
+         preparation of the final bidding documents and publication of the
+         announcement by the Procurement and Contracting Area.
+     •   Rafael Torrech (RQ-5003 and AMP 005003003P) – Modernization,
+         including structural reinforcement - Project in the bidding documents,
+         contract, and construction phase.
+     •   Los Laureles (RQ-5168 and AMP 005003012P) – Comprehensive
+         Modernization - Project in the bidding documents, contract, and
+         construction phase.
+     •   Luis Lloréns Torres (RQ 7008 and AMP 005010008P) Modernization of
+B3       Commercial Lot A - Commercial building on plot A: The AVP is considering
+         the rehabilitation of this building due to “SHPO” requirements. It was
+         decided to create a new contract for the building's modernization, instead
+         of demolition and new construction. A proposal was requested from the
+         contracting office. After the corresponding evaluation and negotiation of
+         the submitted proposal, it was ultimately recommended that the design
+         be contracted out to the Procurement and Contracting Area.
+     •   Agustín Ruíz Miranda (RQ 5054 and AMP5001005P) - Project halted
+         because the market construction cost exceeds the TDC 2024 limits (Total
+         Development Cost). A rehabilitation project is being considered to
+         implement the necessary improvements, with a scope smaller than that
+         of a comprehensive modernization.
+     •   Monte Isleño (RQ 5054 and AMP 005001005P) - Project halted because
+         the market construction cost exceeds the TDC 2024 limits (Total
+         Development Cost). A rehabilitation project is being considered to
+         implement the necessary improvements, with a scope smaller than that
+         of a comprehensive modernization.
+     •   Dr. Víctor Berríos (RQ-3028 and AMP 005007010P) - Project halted
+         because the market construction cost exceeds the TDC 2024 limits (Total
+         Development Cost). A rehabilitation project is being considered to
+
+
+
+
+                                       Page 42 of 74                  form HUD-50075-ST (03/31/2024)
+         implement necessary improvements to the project with a scope smaller
+         than that of comprehensive modernization.
+     •   Tomás Sorolla (RQ 3059 and AMP005006024P) - Project halted because
+         the market construction cost exceeds the TDC 2024 (Total Development
+         Cost) limits. A rehabilitation project is being considered to implement
+         necessary improvements to the project with a scope smaller than that of
+         comprehensive modernization.
+     •   Santa Rosa (RQ 3065 and AMP 005001017P) - Project halted because the
+         market construction cost for a comprehensive modernization exceeds the
+         TDC 2023 (Total Development Cost) and TDC 2024 limits. The design
+         manager visited the project in February 2025 and, after inspecting and
+B3       evaluating the project's condition with the project manager, confirmed
+         that the project was in good standing. He recommended that the project
+         should be addressed by the ordinary and extraordinary maintenance
+         programs.
+     •   Los Laureles (RQ 5069 and AMP 005010039) - Project halted because the
+         market construction cost exceeds the 2024 Total Development Cost (TDC)
+         limits. A rehabilitation project is being considered to make the necessary
+         improvements to the project with a scope smaller than that of a
+         comprehensive modernization.
+     •   Bella   Vista   (RQ   3101   and   AMP         005002005)   -   Comprehensive
+         Modernization - The design has been completed in accordance with the
+         2018 Puerto Rico Building Code, and the construction permit has been
+         obtained. The auction was canceled because the only bidder submitted a
+         proposal well above the estimated cost and the 2023 TDC limits. The 2024
+         TDC limits have not increased. Current costs for other projects submitted
+         in the auction are exceeding the TDC limits. Re-evaluation pending for re-
+         auction.
+     •   El Taíno (RQ 5202 and AMP 005006032) - Comprehensive Modernization
+         – Project in the bidding and award stage. Publication of the bidding
+         announcement is pending.
+
+
+
+
+                                        Page 43 of 74                     form HUD-50075-ST (03/31/2024)
+       •   Cuesta Vieja (RQ 5149 and AMP 005001008) - Comprehensive
+           Modernization – The project is in the bidding documents, contract, and
+           construction   phase,    pending     review      before   requesting    the     final
+           documents to initiate the bidding process.
+
+
+     NEW DEVELOPMENT:
+
+       •   New Development in Ciales, Ciales, PR – The Procurement and Contracts
+           Area were asked to issue a request for proposals for a new 110-unit turnkey
+           housing project. One proposal was received, but the process was
+           canceled by the Procurement and Contracts Area because the proponent
+           indicated that the proposed site did not have the capacity for the
+B3
+           requested units.
+       •   New Development in Vieques, Vieques, PR – The Procurement and
+           Contracts Area were asked to issue a second request for proposals for a
+           new 50-unit turnkey housing project. The proposals were above TDC 2024.
+           The process was canceled.
+
+
+
+     PLANNING:
+
+     Mixed-Financing Developments
+
+       •   Crisantemos II (RQ 5084) (New development - 90 units): The project is
+           pending negotiation of a development proposal for a mixed-financing
+           project.
+       •   Los Álamos (RQ 5056) (New Development – 338 units): The contract with
+           the Developer was terminated by the administration due to lack of
+           progress and failure to use funds on time.
+       •   Las Amapolas (RQ 5068) (New Development – 172 units for seniors): The
+           project is pending negotiation of a development proposal for a mixed-
+           financing project.
+       •   Ponce de León #55 (New Development – 222 units): The Puerto Rico
+           Department of Housing and the Public Housing Administration signed a
+           Master     Development    Agreement            with   PENNROSE,   LLC     for     the
+
+
+                                          Page 44 of 74                      form HUD-50075-ST (03/31/2024)
+           redevelopment and transformation of the Ponce de León #55 site. The
+           project is in the final planning and design stage.
+       •   Los Cedros (RQ 5106 and AMP 005005028P) (New development – 86
+           units for seniors): The project is pending negotiation of a development
+           proposal for a mixed-financing project and the demolition of the existing
+           project.
+       •   Torres de Sabana (RQ 5103 and AMP 005005011P) (New development –
+           166 units): The Puerto Rico Department of Housing and the Public Housing
+           Administration signed a Master Development Agreement with Pathstone
+           Community Development Corporation of Puerto Rico for a single-phase,
+           mixed-income housing development on the Torres de Sabana site. The
+B3         project is in the final planning and design stage.
+       •   Los Peña (RQ 5149 and AMP 005010049P) (New development – 144 units):
+           The project is pending negotiation of a development proposal for a
+           mixed-financing project.
+       •   Villa Monserrate (RQ 5154 and AMP 005004002P) (Demolition and New
+           Development – 72 units): The project is pending negotiation of a
+           development proposal for a mixed-financing project.
+
+
+
+     Demolition Projects
+
+       •   Alturas de Ciales and Dos Rios (RQ005200 & RQ005119 and AMP
+           005002013P & AMP 005002012P) - Total Demolition (FEMA FUNDS): Fund
+           certification pending to request auction.
+       •   Los Peña (RQ 5159 and AMP 005010049P) - Total Demolition - Project
+           awarded, pending signing of the demolition contract with the winning
+           bidder and establishment of a start date.
+       •   Nuestra Señora de Covadonga – Demolition 56 units (RQ 5114 and AMP
+           005005029P) - Project pending completion of final demolition design,
+           including additional studies, endorsements and permits.
+       •   Padre Nazario (RQ-3044 and AMP 005009005P) - Total Demolition -
+           Plans for the total demolition of this project have been halted, and the
+
+
+
+                                          Page 45 of 74               form HUD-50075-ST (03/31/2024)
+            PRPHA will continue the evaluation to make improvements to the buildings
+            affected by the earthquakes.
+       •    Brisas del Mar (RQ-5045 and AMP 005006029P) - Total Demolition
+            Withdrawn - The United States Army Corps of Engineers will be making
+            improvements in the Municipality of Salinas that will eliminate the flooding
+            problems in the town, which affect the project.
+
+
+
+     Modernization Projects
+
+        •   Jardines de Montellano (RQ 5027 and AMP 005004002P) - Building A -
+            Conversion Project to Senior Housing - The feasibility study has been
+
+B3          completed. Certification of Funds is pending to manage the contracting
+            of design services for the selected alternative.
+        •   El   Taíno   (RQ    5202   and    AMP            005006032P)   -   Comprehensive
+            Modernization – Project in the bidding and award stage. Publication of
+            the bidding announcement is pending.
+        •   Rafael Torrech (RQ 5003 and AMP 005004002P) - Modernization,
+            including structural reinforcement – Project in the final design stage,
+            bidding document phase, contract, and construction phase.
+        •   Los Laureles (RQ 5168 and AMP 005003012P) - Comprehensive
+            Modernization – Project in the final design stage, bidding document
+            phase, contract, and construction phase, pending the acquisition of
+            endorsements and permits.
+        •   El Flamboyán (RQ 5081 and AMP 005005007P) – In the process of
+            evaluating    the    MOU/schematic               drawings   and    obtaining         the
+            corresponding environmental endorsements. Pending additional services
+            to define the existing condition of the stormwater system in order to
+            complete the additional hydrological and hydraulic study services.
+        •   Diego Zalduondo (RQ 3055 and AMP 005005023P) – Total Demolition –
+            Project at the MOU and Schematic Drawings stage. Documentation for the
+            project demolition request is pending.
+        •   Pedro J. Rosaly (RQ 1009 and AMP 005009015P) – Comprehensive
+            Modernization – The project is in the MOU/Schematic Drawings phase
+
+                                             Page 46 of 74                       form HUD-50075-ST (03/31/2024)
+            evaluation process, pending the completion of additional structural
+            testing services and approval of a change order for foundation
+            explorations of the interior walls of the residential buildings.
+        •   Agustín Ruiz Miranda (RQ 5054 and AMP 5001005P) – Project halted
+            because the market construction cost exceeds the TDC 2024 (Total
+            Development Cost) limits. A rehabilitation project is being considered to
+            implement necessary improvements to the project with a scope smaller
+            than that of comprehensive modernization.
+        •   Monte Isleño (RQ 5054 and AMP 005001005P) - Project halted because
+            the market construction cost exceeds the TDC 2024 (Total Development
+            Cost) limits. A rehabilitation project is being considered to implement
+B3          necessary improvements to the project with a scope smaller than that of
+            comprehensive modernization.
+        •   Dr. Víctor Berrios (RQ-3028 and AMP 005007010P) - Project halted
+            because the market construction cost exceeds the TDC 2024 (Total
+            Development Cost) limits. A rehabilitation project is being considered to
+            implement necessary improvements to the project with a scope smaller
+            than that of comprehensive modernization.
+
+
+
+     Proposed Development for Fiscal Year 2026.
+
+     Design:
+
+        •   José Castillo Mercado (RQ 3032 and AMP 005009032P) – Rehabilitation
+        •   Francisco Figueroa (RQ 3024 and AMP 005008001P) – Rehabilitation
+        •   El Flamboyán (RQ 5081 and AMP 005005007P) – Stormwater Management
+            Project for Flood Control.
+
+
+     Construction and/or Demolition:
+
+        •   Los   Laureles   (RQ   5168   and     AMP       005003012)   –   Comprehensive
+            Modernization
+        •   El Flamboyán (RQ 5081 and AMP 005005007P) – Stormwater Management
+            Project for Flood Control
+
+
+                                            Page 47 of 74                     form HUD-50075-ST (03/31/2024)
+        •   Rafael Torrech (RQ 5003 and AMP 005003003P) – Modernization including
+            Seismic Reinforcement
+
+
+     Accessible Unit Plan (UFAS):
+
+        •   Construction activities for the accessibility certification of 350 partial and
+            full units located in various public housing developments for compliance
+            with ADA standards, as established in the AVP Voluntary Compliance
+            Agreement.
+
+
+     Capital Improvements / Extraordinary Maintenance
+
+B3      •   An investment of $28.98 million in various projects.
+
+
+
+     Projects Funded by FEMA Disaster Assistance Grants DR-4339 and DR-4473
+
+        •   This fiscal year, we will complete the awarding of 11 projects (out of the 51
+            previously identified) under the first phase of the Disaster Recovery
+            Program. These projects will impact 28 municipalities with a total budget
+            of $582.1 million. Construction is expected to be completed on 19 of these
+            projects.
+        •   The bidding process for the second phase of recovery efforts will begin.
+            This phase consists of 34 projects distributed among 22 municipalities,
+            with an estimated implementation cost of $55.7 million.
+        •   We also project the allocation of 110 additional projects to the design
+            phase, distributed among 41 municipalities, with an investment of $61.5
+            million (in design fees).
+
+
+     Environmental Compliance – Lead-Based Paint (LBP) Compliance – 40 CFR
+     745 / 24 CFR 35 (“Lead-Based Paint Poisoning Prevention in Certain
+     Residential Structures”) and Asbestos-Containing Materials.
+
+        •   Lead-Based Paint (LBP) detection studies and/or visual inspections and
+            asbestos studies in 9,763 units – first phase of implementation.
+
+
+
+                                            Page 48 of 74                  form HUD-50075-ST (03/31/2024)
+        •   Visual inspections and asbestos studies in 9,763 units • Conducting Low-
+            Profile Potential (LBP) Risk Assessments in 1,704 housing units and/or
+            screening children under 6 years of age for blood lead levels, as defined
+            in federal regulations 40 CFR 745 and/or 24 CFR 35.
+
+
+     Energy Issues
+
+        •   A pilot program for installing solar-powered security lighting in
+            communities is planned, beginning in senior living facilities and several
+            public housing complexes. This will provide our communities with
+            resilience and a safe environment during power outages and reduce
+            energy consumption on the electricity bill for common areas.
+B3
+
+
+                            Information Technology Area (MIS)
+
+
+     For 2026, the Information Technology Area plans to implement a series of
+     network changes to improve communications and enhance the security of the
+     applications used by the agency.
+
+
+       •    We will continue monitoring the agency's network to prevent potential
+            cyberattacks, both internal and external.
+       •    We will continue preventive maintenance of the operating systems on the
+            central office servers and computers in the central office and regional
+            offices across all operational areas.
+       •    We will continue providing technical support to agency employees.
+       •    We will configure a platform to provide technical support to employees
+            working remotely and to manage security patches.
+       •    We will implement improvements to the Yardi Voyager application in the
+            agency's various operational areas. • Update the online payment portal
+            for public housing residents with new features and security improvements
+            for residents and administrative enhancements for agency finance staff.
+
+
+
+
+                                           Page 49 of 74               form HUD-50075-ST (03/31/2024)
+        •   Continue developing the Technology Education Centers (CETs) to provide
+            residents with access to current technology and foster their holistic
+            development from early childhood to adulthood.
+        •   Continue providing Community Internet services in common areas and
+            strengthen communication security measures for all public housing
+            projects.
+        •   We will work in conjunction with the Administrative Services office on the
+            development or acquisition of several applications:
+               o Document file management
+               o Document digitization
+        •   Creation of procedure manuals with the new security policies for the
+B3          network, voice and data servers, and the use of computers by users in the
+            Information Technology Systems Area. These will be in accordance with
+            the procedural guidelines of the Puerto Rico Office of Innovation and
+            Technology (PRITS) and the Puerto Rico Comptroller's Office and approved
+            by the Administrator and the Board of Governors of the AVP.
+               o Implementation of the NIST Cybersecurity Framework (CSF).
+               o Development of a Business Continuity and Disaster Recovery Plan.
+               o Preparation of an Alternate Operations Center for the agency in
+                  case the main building is unable to operate the information
+                  systems.
+        •   Continue seeking new technologies for the benefit of the agency and
+            public housing residents.
+
+
+                                        Security Office
+
+
+     Primary Mission of the Security Area
+
+
+     To provide effective security services through interagency coordination and
+     community collaboration in order to prevent and mitigate incidents of criminal
+     activity within the projects of Puerto Rico Public Housing Administration.
+
+     As part of ongoing efforts, the following actions will be implemented:
+
+
+
+                                            Page 50 of 74               form HUD-50075-ST (03/31/2024)
+     •   Security fairs will be conducted focusing on crime prevention and
+         community development aimed at fostering an improved quality of life
+         and impacting the 328 projects of the Public Housing Administration.
+     •   The number of impact operations conducted in collaboration with state
+         and federal law enforcement agencies will be increased in high crime
+         areas within Public Housing Administration Projects, with the purpose of
+         reducing the sale and trafficking of control substances and firearms,
+         thereby enhancing the safety of residents and Public Housing
+         Administration properties.
+     •   Strategic plan will be implemented in coordination with state and federal
+         law enforcement agencies to identify convicted sexual offenders in the
+B3       United States to monitor their illegal movement within Public Housing
+         Administration projects and ensure compliance with establish Housing
+         regulations.
+     •   The number of inoperable and/or abandoned vehicles within projects
+         areas will significantly reduce through collaborative efforts with the
+         Property Management Division, facilitating the identification and removal
+         of such vehicles to improve the physical appearance of the projects and
+         increase federal inspections scores.
+     •   Communication will be maintained with security personnel and
+         Management Agents to address and properly channel transfer requests
+         due to internal changes, in compliance with established transfer request
+         procedures.
+     •   New collaborative agreements will be established with federal law
+         enforcement agencies such as the Buerau of Alcohol Tobbaco, Firearms
+         and explosives (ATF), Drug Enforcement Administration (DEA), Border
+         Patrol (BPC), Homeland Security Investigations (HSI), United States
+         Marshalls   Services   (USMS).      Expanding    the   existing   collaborative
+         agreement with the Federal Bureau of Investigation (FBI) to impact high
+         crime areas and federal offenders within Public Housing Administration
+         Projects.
+
+
+
+
+                                          Page 51 of 74                    form HUD-50075-ST (03/31/2024)
+        •   Verification operations of vacant units will be conducted across all the
+            Public Housing Administration projects in coordination with state and
+            federal law enforcement agencies to identify illegally occupy units,
+            usurped units or units used for criminal activities. This effort will increase
+            the number of available vacant units for assignment to new applicants.
+        •   Additional Security Coordinators will be hired to ensure personnel
+            coverage across all areas and regions of the Public Housing
+            Administration,    enabling   immediate        response   to   security-related
+            situations.
+        •   Security and tactical equipment will be acquired for the execution of
+            interventions within Public Housing Administration projects including
+B3          body cameras among other equipment.
+        •   Periodic meetings will be held with resident councils to address security
+            concerns firsthand and respond promptly to situation affecting their
+            projects.
+        •   Participation in in-person trainings sessions in different subjects provided
+            by federal law enforcement agencies such as the United States Marshalls
+            Services and the Federal Bureau of Investigation.
+        •   We will develop a new Security Office Internal Protocol and Regulation
+            aligned with actual and current function and activities of the Security
+            Office.
+        •   We will start regulatory and Legal procedures analysis to obtain the
+            classification of Law Enforcement Agent. In accordance with the laws of
+            Puerto Rico.
+
+
+                           Community and Resident Programs Area
+
+
+     We present the progress of the AVP in compliance with the mission and
+     objectives described in the Annual Plan and the 5-year Plan of the Agency.
+
+     Our Mission
+
+
+
+
+                                           Page 52 of 74                     form HUD-50075-ST (03/31/2024)
+     ► Guarantee the offer of the necessary services to residents of public housing,
+     aimed at improving their quality of life.
+
+     ► Services must be framed within a comprehensive approach to strengthening
+     the infrastructure of economic and social development.
+
+     ►The planning of these services must respond to the needs, interests, goals,
+     values and expectations of each public housing project.
+
+
+
+     Our Function:
+
+     We implement Economic Self-Sufficiency and Social Self-Sufficiency Programs,
+     Support and Prevention Programs, which stimulate personal responsibility,
+B3   economic and social self-sufficiency, a sense of solidarity, inclusion and
+     community cooperation.
+     We promote self-sufficiency, in collaboration with residents and Resident
+     Councils, in compliance with 24 CFR Section 964.
+     We encourage the proactive participation of residents in the community and
+     administrative affairs of their communities.
+
+
+     Quality of Life Services Bureau:
+
+
+     THE LOGICAL MODEL: A NEW VISION FOR DEVELOPMENT IN PUERTO RICO'S PUBLIC
+     HOUSING ADMINISTRATION
+
+     The Logic Model is established as the implementation framework and the main
+     measurement instrument to evidence, in a structured and objective manner, the
+     efforts made in the provision of services aimed at meeting the needs identified
+     in the families and communities of public housing residents. This model allows
+     organizing and monitoring of assigned resources, the execution of programs,
+     the establishment of collaborative agreements and strategic alliances, as well
+     as the planning and delivery of training. For a period of one (1) year, the model
+     will serve as a guide to document and analyze the inputs, activities, outputs,
+     results, and impacts of the services offered, ensuring that each action is aligned
+     with specific, measurable, achievable, realistic, and time-bound goals.
+
+
+
+                                           Page 53 of 74                form HUD-50075-ST (03/31/2024)
+     GOAL
+
+
+     Achieve that 100% of all the objectives programmed in the Long Range are met.
+
+
+     OBJECTIVE
+
+
+     During the 2026-2027 Annual Plan, 16 training courses on the Program and
+     Services Guide and the redesign of the Logic Model will be offered to Resident
+     Services coordinators and directors.
+
+
+     ECONOMIC SELF-SUFFICIENCY PROGRAM
+
+B3   The Economic Self-Sufficiency Program is designed to motivate, support, train,
+     assist, direct, or facilitate the economic independence of families and
+     communities assisted by the Department of Housing and Urban Development
+     (HUD). This program includes the following components: Education, Training,
+     Employment, Section 3, Business Development, and Homeownership.
+
+
+     For the fiscal year 2026-2027, goals were developed in each of the Bureaus of
+     the Community and Resident Programs Area. We work consistently on new
+     strategies and activities to promote, serve, and deliver services to meet the
+     needs and interests of the families served.
+
+
+     Projections for Economic Self-Sufficiency and Social Self-Sufficiency Programs
+     and Services include all PRPHA communities and their residents as set forth in
+     the Code of Federal Regulations, Title 24, Sub-part, 5.603.
+
+
+     The Community Programs and Resident Services Area were working during the
+     fiscal years 2024-2025 and 2025-2026 on the revision of the Guide for the
+     Assembly of Files and the Implementation Plan of the Self-Sufficiency Programs.
+     These instruments validate the work that is carried out in the projects in relation
+     to the programs and services. For the 2026-2027 fiscal year, new changes will be
+     introduced to both the Assembly Guide and the forms documenting the services
+     offered to families and communities by The Management Agents.
+
+     Projections for Fiscal Year 2026-2027:
+
+
+
+                                           Page 54 of 74                 form HUD-50075-ST (03/31/2024)
+     •   For the fiscal year 2026-2027, a total of 26,000 residents is projected to
+         participate in the Economic Self-Sufficiency Program.
+     •   One hundred percent (100%) of the newly admitted families will be oriented
+         about the programs.
+ •       A total of 350 economic self-sufficiency service fairs will be held for 4,000
+         participants and one hundred percent (100%) of the residents who request
+         services will be attended, with the support of the Management Agents.
+
+
+     Educational Component
+
+         •   By 2026-2027, it is projected that 250 residents will graduate from high
+             school and that 300 residents will continue or begin their higher education.
+     Training Component
+B3
+         •   By 2026-2027, it is planned to offer 500 training courses to 850 residents.
+
+
+     Employment Component
+
+         •   For the fiscal year 2026-2027, it is projected that 320 residents will be
+             located in different jobs and that 9,500 residents will receive technical
+             assistance and training related to the labor market.
+
+
+     Section 3 Component
+
+         •   For the fiscal year 2026-2027, it is projected that 650 residents will be
+             recruited into jobs, that 2,250 residents will participate in different training
+             courses and 400 service contracts will be granted to resident
+             entrepreneurs.
+
+
+     Business Development Component
+
+     Resident Businesses
+
+         •   A total of 200 companies are projected to be created and developed.
+         •   We currently have 180 resident businesses.
+
+
+
+
+                                              Page 55 of 74                  form HUD-50075-ST (03/31/2024)
+     Projections 2026-2027
+           •   Increase companies by 10%.
+           •   To offer innovative advice and training that includes trends and
+               technological tools to make the product profitable and our entrepreneurs
+               are suitable for the demands of the market.
+           •   Business Development Guide Guidance (Amended July 2025)
+
+
+     Homeownership Component
+
+     By 2026-2027, it is planned to offer 300 workshops, 600 orientations and 200
+     assistance and support sessions, aimed at promoting the purchase and sale of
+     34 households.
+
+B3   Section 3 HUD Annual Report
+
+     The Fair Housing and Equal Opportunity Act of 1968: New Regulation 24 CFR Part
+     75.
+
+     On September 29, 2020, the New Section 3 Regulation in 24 CFR Part 75 went into
+     effect. According to the new instructions sent by HUD under November 18, 2025
+     Notice (Notice PIH 2025-29/FPM-01-2025), the new Portal Section 3 Reporting
+     System (S3R) will be available beginning January 1, 2026. The AVP Section 3
+     Report will be submitted on or before August 29, 2026. The report will cover the
+     Fiscal Year from July 1, 2025, to June 30, 2026.
+
+     In 2026, training will be offered to all AVP contractors about the Section 3 and the
+     process of filing the Annual Report.
+
+
+     Fiscal Year 2026-2027 Projections
+
+
+     •     Submit the Section 3 Annual Report under the New Regulations.
+     •     Trainings and technical assistance will continue to be provided to
+           contractors, AVP employees, and public housing residents.
+
+
+
+     SOCIAL SELF-SUFFICIENCY PROGRAM
+
+     The Programs are established and implemented in accordance with the data
+     collected in the Consolidated Profile and Identification of Interests of Families
+
+
+                                             Page 56 of 74                form HUD-50075-ST (03/31/2024)
+     and Community. They are justified and established, considering consideration
+     all the social aspects of the community that affect the improvement of the
+     quality of life of the residents. They must be aimed at serving all populations.
+     Through the Program and the services, it contains, it is possible to increase the
+     capacity to serve a greater number of families and communities each year to
+     promote a better quality of life.
+
+     This program includes the following components:
+
+     •   Fine Arts
+     •   Environnemental Conservation
+     •   Educational
+     •   Sports
+B3   •   Technological Educational Centers
+     •   Elderly Adults (Housekeeper, Home Aides)
+
+
+     For the 2026-2027 fiscal year, a total of 95,000 services are projected to 20,000
+     families and communities participating in the Social Self-Sufficiency Program
+     and/or Services, with the purpose of offering them the support services they
+     need. In addition, one hundred percent (100%) of the new families will be oriented
+     on the established programs.
+
+
+     Home Aides Component
+
+
+     Through this Component, it is intended to serve the elderly and people with
+     functional diversity. In each of the phases involved in the contracting and
+     training of these resources, the extension of the services by geographical area
+     is contemplated. The intention is to be able to impact one of the most vulnerable
+     populations in our communities and cover all regions of the Island.
+
+
+     The placement of the resources is carried out through the 16 Administrative
+     Agents and the Municipality of Camuy, which serves as Administrator of the
+     Manuel Román Adames Public Housing Project. We currently have one hundred
+     and sixty-three (163) Household Assistants with two hundred and eighty-nine
+     (289) beneficiaries
+
+
+
+                                          Page 57 of 74                 form HUD-50075-ST (03/31/2024)
+   Projections for Fiscal Year 2026-2027:
+
+   •   Train and certify 300 residents to serve as Household Assistance under
+       Section 3.
+   •   To expand the service to more public housing communities by understanding
+       the needs in-home assistance in the country for the elderly and people with
+       functional diversity.
+
+
+   Professional Services
+
+
+   In order to offer residents varied programs and workshops for the strengthening
+   of families, community leaders and residents in general, the Community
+   Programs and Resident Services Area have under professional services
+B3 contracts the following organizations during this fiscal year 2025-2026.
+
+
+   Olympic Performance LLC:
+
+
+   One of their responsibilities is to inspect the physical condition of the different
+   sports facilities in each residential complex, with the purpose of making them
+   suitable for use. To promote that each Management Agent has a sports
+   coordinator and recreational leaders serving the population. These personnel
+   will receive training relevant to their functions with their respective certificates.
+   It organizes initiatives at island level in different disciplines. In basketball, they
+   has achieved five (5) editions of the "Hoops of Hope" Tournament (for young
+   men from 16 to 26 years old), three (3) editions of the San Juan Hoops 3x3"
+   Tournament ( for young men from 15 to 16 years old, 17 to 18 years old and 19
+   open); in women's volleyball, three (3) editions of the "Volleyball Empowering
+   Women" Tournament (for young women from 15 to 25 years old) and the first
+   edition of the "Men’s Volleyball Championship" (for young men and adults from
+   16 years to open). They have designed, developed and implemented initiatives
+   such as: "100 x 35 Volleyball Tour" and "Impacting your Residence" to provide
+   volleyball and other sports clinics in all public housing projects.
+
+
+   Luis Zayas Martínez, LCSW, Ed. D.(c)
+
+   He works as a consultant on social work matters performing a series of key tasks
+   to strengthen programs and services for the Community Programs and Resident
+   Services Area of the Puerto Rico Public Housing Administration.
+
+
+                                          Page 58 of 74                   form HUD-50075-ST (03/31/2024)
+     Its main functions are to standardize the services and tasks of social workers
+     under law number (171 of May 1, 1940) that regulates the Professional Practice of
+     Social Workers in Puerto Rico and the Code of Professional Ethics of Social
+     Workers (2017).
+     He collaborates in meetings for the revision of the Economic and Social Self-
+     Sufficiency Programmatic and Services Guide. He contributed to the redesign of
+     the application of the Logic Model and the instruments for the provision of
+     services in the projects. He also collaborated in the review of the objectives and
+     strategies of the Implementation Plans to turn them into the Program Evaluation
+     Instrument under the Logic Model.
+     The commitment of the PRPHA and those who have the right to represent the
+     agency in professional practices such as social work, is to ensure the defense of
+B3   human rights, the social justice of the residents of public housing projects, and
+     that the services they receive are of the highest quality.
+
+
+     Andrés Waldemar Volmar Méndez
+       • He offers Animation and Advisory services at mass events.
+
+
+     Rafael Tejera O’Farrill
+        •   Fine Arts Coordinator of the Street Sound Initiative, manages and
+            produces community activities for public housing residents.
+
+
+     Brenda Hernández Santiago
+        • Director of "Fast Pass Promotion", she provides Advertising and Artistic
+            Representation Services.
+
+
+     Municipality of Coamo
+
+
+     "Educating for the Future" Proposal. Educational services for 80 residents of the
+     3 public housing projects in Coamo.              Support services are offered with
+     assignments in all subjects and tutoring in the core subjects; Spanish, English and
+     Mathematics. Participants receive educational talks, and integration activities are
+     provided in dance, theater, fine arts and sports. Creativity is stimulated and activities
+     are carried out where the residents expose their talents and skills. Participate in
+
+
+
+
+                                             Page 59 of 74                    form HUD-50075-ST (03/31/2024)
+     awareness-raising activities in various situations and conditions that affect or could
+     affect the community.
+
+
+     INTERAGENCY AGREEMENTS
+
+
+     Head Start and Early Head Start Programs
+
+     Within the public residential projects there are 88 "Head Start and Early Head
+     Start" centers. Families with children benefit from them through services that
+     promote cognitive, social and emotional development, while working with their
+     needs. Currently, Collaborative Agreements have been signed with seven (7)
+     municipalities to manage thirty-seven (37) centers and four (4) private
+     institutions to manage twenty-two (22) centers. We have 9 Early Head Start
+B3   centers that provide services to the population of infants up to 5 years of age.
+
+     The PRPHA continues to promote the integration of municipalities and private
+     institutions to create Collaborative Agreements to bring these services to all
+     public housing projects.
+
+
+
+     University of Puerto Rico Medical Sciences Campus
+
+     For thirty (30) years, the Puerto Rico Public Housing Administration has renewed
+     its contractual agreement with the University of Puerto Rico (Medical Sciences
+     Faculty). This agreement allows for the establishment of the Comprehensive
+     Health Prevention and Maintenance Center known as MAP Nursing Center. This
+     joint effort aims to promote primary care, reduce risk factors, and education and
+     research in the area of comprehensive health. It serves as a practice center for
+     the campus’ graduate and undergraduate students.
+
+     It is located on the grounds of the Manuel A. Pérez 3-105 Public Housing Project
+     and serves the residents, family and community of the three (3) public housing
+     Manuel A. Pérez projects.
+
+
+
+     ORGANIZATION AND TRAINING BUREAU (NOA (BY ITS SPANISH ACRONYM))
+
+
+
+
+                                            Page 60 of 74                  form HUD-50075-ST (03/31/2024)
+     The Organization and Training Bureau (NOA) are the division in charge of
+
+     creating, organizing and strengthening the functioning of the Resident Councils,
+
+     ensuring compliance with the applicable regulations and promoting the
+
+     participation of the communities.
+
+
+
+     LEGAL BASIS AND FEDERAL COMPLIANCE
+
+
+
+     This Annual Plan is developed in accordance with the Code of Federal
+
+     Regulations, 24 CFR Part 964 – Tenant Participation and Tenant Opportunities in
+B3
+     Public Housing and applicable HUD provisions and policies.
+
+
+
+     FUNCTIONS OF THE ORGANIZATION AND TRAINING BUREAU
+
+     •      Provide technical assistance and training to the Resident Councils and the
+
+            staff of the Managing Agents.
+
+     •      To promote the creation, organization and effective functioning of the
+
+            Resident Councils.
+
+     •      Certify, coordinate, evaluate and offer continuous monitoring to the
+
+            Resident Councils.
+
+     •      Evaluate and certify the election processes in accordance with the current
+
+            regulations, both federal and state.
+
+     •      Review of compliance according to the reports required by the Bureau.
+
+
+
+     RESULTS FOR FISCAL YEAR 2025 – 2026
+
+     •   137 Active Resident Councils.
+
+
+
+
+                                            Page 61 of 74               form HUD-50075-ST (03/31/2024)
+ •       Monthly senior management meetings with residents, board members and
+
+         company staff.
+
+         o Fulfillment of duties and responsibilities.
+
+         o Regulatory amendments and changes according to the CFR.
+
+         o Rules of Procedure of the Community
+
+         o Monthly and monitoring reports.
+
+     •   Documented monthly technical assistance.
+
+     •   Community events with active collaboration of the Councils.
+
+     •   The Regulation for the Creation, Organization and Operation of Resident
+B3
+     Councils (2009) is in draft.
+
+     •   Review of all forms tempered with the changes provided and compliance
+
+         projections.
+
+
+
+     PROJECTIONS AND GOALS FOR FISCAL YEAR 2026 – 2027
+
+     •   Organization of 30 additional resident councils.
+
+     •   Monitoring of 30% of active files.
+
+     •   Technical assistance and evaluations in communities without advice.
+
+ •       Continuous evaluation of monthly reports and review of achievements after
+
+         amendments made to the forms.
+
+ •       Approval of the new Regulation for the Organization and Training Bureau
+
+         (NOA) with their respective amendments.
+
+ •       Offer training on election processes and responsibilities:
+
+               o Topics: Financial matters, regulations, work plans, compliance.
+
+ •       Monitoring of election processes in accordance with the Regulations and
+
+         compliance with the CFR.
+
+
+
+                                              Page 62 of 74            form HUD-50075-ST (03/31/2024)
+    Service Proposals ("RFP-23/24/03")
+
+    Introduction:
+
+    The Puerto Rico Public Housing Administration (PRPHA), pursuant to "RFP-23-24-
+    03" has identified the need to continue and strengthen the contracting of entities
+    that provide specialized services aimed at Bonafide residents of public housing
+    projects.
+
+
+    The purpose of our work plan is to detail the actions, goals and strategies that
+   will allow the fulfillment of the mission of social transformation, provide social
+   and economic self-sufficiency to improve the quality of life of the communities
+B3 served.
+
+    The proposals with current contracts are:
+
+    •   Boys & Girls Clubs of Puerto Rico, Inc.
+    •   Sor Isolina Ferré Centers, Inc.
+    •   Comprehensive Human Services Corporation
+    •   Crearte, Inc.
+    •   E & F Development, Inc.
+    •   Families Capaces, Inc.
+    •   Forjando un Nuevo Comienzo, Corp.
+    •   Institute of Puerto Rican Entrepreneurship and Entrepreneurship
+    •   Job Connection Center, Inc.
+    •   Ortiz, Lord, Hope & Associates, Inc.
+    •   Professional Consulting Psychoeducational Services
+    •   Vanguard Asset Management Group, Inc.
+
+
+    General Objective:
+
+    Guarantee the efficient, fiscally, responsible, and high-quality provision of
+    educational, social, recreational, and community support services, ensuring
+    compliance with the programmatic goals established by the PRPHA and
+    applicable state and federal regulations.
+
+
+
+
+                                           Page 63 of 74               form HUD-50075-ST (03/31/2024)
+     Target Population:
+
+     Children, pre-teens, teens, youth, adults (families) and seniors (seniors)
+     Bonafide residents of public housing projects.
+
+
+     General Services:
+
+     Education and prevention, recreational, sports, artistic and cultural activities,
+     social events, management of psychologists, training and economic self-
+     sufficiency; summer camps, family support workshops.
+
+
+     Specific Objectives:
+
+          1. Achieve at least 90% of the goals established in all programs and
+B3
+            components.
+     2.     To impact and train eighty thousand (80,000) Bonafide residents of public
+            housing projects of all ages through various programs and services.
+     3.     Strengthen the processes of monitoring, visits, and fiscal audits to ensure
+            the proper functioning of the services.
+     4.     Continuously evaluate the performance of contracted service providers.
+
+
+     Continuity of services:
+
+
+     The PRPHA determined to extend the contracts until March 31, 2026, in
+     accordance with the allocation of funds recommended by the Federal
+     Government, while the processes of evaluation, negotiation and approval of new
+     bidders under the auction "RFP-AVP-25-26-02” are completed.
+
+     Regulatory Compliance:
+
+     All actions will be carried out in accordance with the applicable laws, and the
+     PRPHA and Federal Government regulations.
+
+
+     Property Acquisition and Sale Bureau
+
+     Results for fiscal year 2024-2025:
+
+
+
+
+                                           Page 64 of 74                form HUD-50075-ST (03/31/2024)
+•        23 housing units were disposed of through sale, which generated an
+         income of $839,553.00 dollars. The average sale price was $35,000.00.
+The tables below, corresponding to the Section 5h, Section 32 and Turnkey III
+Programs, show the remainder of the units for sale per project until December
+31, 2025. Also, sales planned for Fiscal Year 2025-2026.
+
+
+                           Home Ownership Sales Program
+                                   Section 5H
+
+                           PROJECT                     UNITS          PLANNED
+PROJECT                                 MUNICIPALITY
+                           NUMBER                      FOR SALE       SALES
+
+Alturas de Cibuco          RQ005182     Corozal        12             1
+Villa de los Santos I      RQ005199     Arecibo        8              1
+Villa de los Santos II     RQ005175     Arecibo        5              1
+Las Delicias               RQ005160     Ponce          0              1
+Alturas de Vega Baja       RQ005190     Vega Baja      10             2
+Cidra Housing              RQ005249     Cidra          3              1
+Antigua Vía                RQ005192     San Juan       5              1
+Campo Verde                RQ005240     Bayamón        6              1
+Reparto Valencia           RQ005215A    Bayamón        3              0
+ Villa Evangelina IV       RQ005147     Manatí         5              1
+ Villa Evangelina II*      RQ005121     Manatí         1*             0
+ TOTALS                                                58             10
+*Abandoned unit
+
+
+
+                           Home Ownership Sales Program
+                                   Section 32
+                          PROJECT
+                                                       UNITS
+    PROJECT               NUMBER        MUNICIPALITY              PLANNED SALES
+                                                       FOR SALE
+
+    Caguax                RQ005051      Caguas         3          0
+    Extensión La Granja   RQ005256      Caguas         2          0
+    Alturas          de                                           2
+    Montellano            RQ005201      Cayey          7
+    Villa Navarro         RQ005126      Maunabo        28         4
+    Canas Housing         RQ005248      Ponce          12         4
+
+
+
+                                       Page 65 of 74                      form HUD-50075-ST (03/31/2024)
+    Estancias de Santa                                  Santa Isabel
+    Isabel             RQ005255                                             6            1
+    Extensión         Santa
+    Elena                        RQ005109               Yabucoa             17           4
+    Reparto Horizonte*           RQ005235               Yabucoa             28           5
+    TOTALS                                                                  103          20
+* Reparto Horizonte has a legal situation waiting to be resolved
+
+
+
+
+                                            Rent-to-own program
+
+                                              TURNKEY III Projects
+
+
+                PROJECT
+    PROJECT                                     MUNICIPALITY           UNITS FOR SALE PLANNED SALES
+                NUMBER
+    Ramírez de RQ005053                         Mayagüez               14            4
+    Arellano
+    Jardines de RQ005030                        San Juan               2             0
+    Quintana
+    TOTALS                                                             16            4
+
+
+Projections for Fiscal Year 2025-2026:
+
+•        34 housing units are available for sale.
+•        Until December 2025, 14 sales closures were achieved.
+•        Total sales projected in FY 2025-2026 = 34 units
+•        Revenue calculated for Fiscal Year 2025-2026:
+
+                      Section 5H                               $350,000.00
+                      Section 32                               $700,000.00
+                      Turnkey III                              $80,000.00
+                      TOTAL                                    $1,130,000.00
+
+
+Estimated Housing Unit Sales Projection for Fiscal Year 2026-2027:
+
+
+•        The Homeownership Sales Program projected for FY 2026-2027; an
+         average of 34 housing units sold for our public housing residents.
+•        Revenue equal to or close to the current fiscal year is projected for fiscal
+         year 2026-2027 based on an average price per unit sold of $35,000.00.
+
+
+                                                       Page 66 of 74                          form HUD-50075-ST (03/31/2024)
+•     The Property Acquisitions and Sales Bureau (PASB) attend to another very
+      important process for the owners of the properties acquired with the
+      support and assistance of the Puerto Rico Public Housing Administration;
+      the elimination of the restrictive conditions of non-sale or transfer until 10
+      years since the purchase, established in the original deed. Personnel of the
+      PASB will track this term and proceed with the documentation required in
+      each case, then, they are summoned for the signature of the endorsement
+      by the parties, lawyers and the Administrator of the PRPHA.
+
+
+Technological Educational Centers (TEC)
+
+The PRPHA has established the Technological Educational Centers (TEC), in
+different residential areas throughout the island. The purpose is to provide
+Bonafide residents with access to computers, networks, internal electronic
+services and the Internet.    The established Centers provide the necessary
+resources for residents to acquire and strengthen certain technology-related
+skills, which result in learning, and promote the education of participants. The
+service provided promotes individual growth, according to the capacity and
+interest of the participants, generating an improvement of their quality of life.
+
+
+
+MISSION
+
+To facilitate the opportunity to acquire educational and technological
+knowledge, which supports the improvement of social conditions, community
+activity and the integral development of our residents.
+
+
+
+SERVICES
+
+The skills of preparing documents, resumes, letters, and searching for
+information are complemented. Programs for self-fulfillment have been
+developed, promoting education, training and employment. In addition, help is
+provided to students with school assignments, supervised studying, and
+tutoring.
+
+
+
+
+                                      Page 67 of 74                  form HUD-50075-ST (03/31/2024)
+ACHIEVEMENTS
+
+Fifty-three (53) TEC have been established in the fiscal year 2025-2026.
+
+Projections for the next Fiscal Year, 2026-2027:
+
+   •   Remodeling and the inauguration of 12 additional Technological
+       Educational Centers: painting works, change of signage and equipment
+       for the education of our young people.
+   •   Continue to update the facilities that currently operate as "Learning
+       Centers" and/or Digital Libraries to convert them into Technological
+       Educational Centers (TEC).
+   •   Creating new TEC for all communities to enjoy the experience of access to
+       knowledge.
+   •   Continue to work with the Management Agents to create new TEC in
+       communities that do not have these services.
+   •   Offer   technical   assistance    to     the     Management   Agents    for     the
+       maintenance of all existing equipment.
+
+
+The “Traveling the World Project”
+
+
+The “Traveling the World Project” is advanced technology that allows residents
+to visit different countries, cities, planets, the inner and outer world, through
+digital glasses. This project is of utmost importance because it facilitates the
+cultural and educational heritage of our residents.
+
+
+The total investment of Technological Educational Centers between Fiscal Years
+2017-2018 to 2025-2026 is $4,462,584.44.
+
+
+
+                  Housing Choice Voucher Program (Section 8)
+
+Mission:
+
+The AVP promotes affordable housing opportunities for low-income individuals
+and/or families experiencing homelessness. Part of the Section 8 Program's
+initiatives is to promote the independence of assisted families through the
+
+
+
+                                        Page 68 of 74                  form HUD-50075-ST (03/31/2024)
+Family Self-Sufficiency (FSS), Family Reunification, and Home Ownership
+programs.
+
+
+
+Objectives:
+
+   •   Achieve 95% or higher program occupancy.
+   •   Award the highest number of vouchers across the nine (9) Regional
+       Offices.
+   •   Achieve a "High Performance" rating in the Section Eight Management
+       Assessment Program (SEMAP) evaluation at the close of the fiscal year,
+       ensuring efficient compliance with all key indicators, including voucher
+       utilization rate, timeliness of HQS inspections, accuracy of eligibility and
+       income calculations, and the implementation of effective policies and
+       quality controls.
+   •   • Maintain occupancy levels in the Projects (PBV), Moderate Rehabilitation,
+       and Single Room Occupancy (SRO) programs.
+   •   Carefully evaluate and monitor the funds allocated to the program to
+       assess the possibility of opening the program's waiting list.
+   •   Develop strategies to ensure that more families receiving assistance from
+       the Section 8 Program participate in the Home Ownership Program and
+       are able to acquire their own homes.
+   •   Complete and maintain occupancy of the 183 vouchers allocated to the
+       HUD-VASH Program. By using all the vouchers, the AVP would be helping
+       to reduce the homeless veteran population in Puerto Rico.
+   •   Maintain   compliance     with    the      Housing   Quality   Standard       (HQS)
+       requirements.
+   •   Develop marketing strategies for the Projects (PBV) to increase program
+       occupancy and provide better service to the public.
+   •   Actively participate in Service Fairs held in the municipalities of the island
+       to raise public awareness of the Section 8 Program.
+
+
+
+
+                                        Page 69 of 74                    form HUD-50075-ST (03/31/2024)
+           •   Develop strategies to make services to the public more accessible and
+               efficient, utilizing available tools such as the Online Access Electronic
+               Identification System (IDEAL*) and the Landlord Portal.
+           •   Identify and assign human resources to work on and direct efforts toward
+               fulfilling the mission and objectives of the Section 8 Program.
+           •   Continue providing training to Section 8 Program staff.
+           •   Implement new changes to the Housing Opportunity Act through the 2016
+               Modernization Act (HOTMA).
+           •   Implementation of the National Standards for Physical Inspection of Real
+               Estate (NSPIRE).
+           •   Review and update the Section 8 Administrative Plan, ensuring
+               compliance with current regulations and continuous improvement of
+               operational processes.
+           •   Ensure full compliance with HUD quality control requirements to
+               guarantee efficient, fair, and transparent administration of the Section 8
+               Program.
+           •   Keep the Landlord Portal available for landlords to register and list their
+               properties within the Section 8 Program, simplifying the participation
+               process and increasing the housing supply.
+
+
+
+
+     Capital Improvements. Include a reference here to the most recent HUD-approved 5-
+B4   Year Action Plan in EPIC and the date that it was approved.
+
+     See attached # 4
+     Most Recent Fiscal Year Audit.
+B5
+     (a)       Were there any findings in the most recent FY Audit?
+
+     Y     N
+
+
+
+           (b) If yes, please describe:
+
+
+
+
+                                                Page 70 of 74               form HUD-50075-ST (03/31/2024)
+     Most Recent Audits
+
+B5   2023-01 – Finding: Section 8 Program Status
+
+
+     There were no formal written procedures describing the processes and control
+     activities specific to the eligibility compliance requirement.
+
+
+     No questioned costs were identified.
+
+
+     Internal control measures were not documented that would enable
+     management to timely prevent and/or detect non-compliance with the
+     eligibility requirement and avoid potential sanctions or restrictions on the use
+     of funds by the federal awarding agency. There were no formal written
+     procedures describing the processes and control activities specific to the
+     eligibility compliance requirement.
+
+
+     2023-03 – Finding: Public Housing Capital Fund (CFP)
+
+
+     Upon verifying compliance with the cash management requirement—
+     specifically to determine whether the required timeframe elapsed between the
+     receipt of the request for federal funds and the disbursement of those funds—it
+     was observed that two (2) of the sixty (60) Capital Fund requests did not meet
+     the three-day disbursement limit. In two instances, the limit was exceeded by
+     four days.
+
+
+     No questioned costs were identified.
+
+
+
+C.   Other Document and/or Certification Requirements.
+
+C.1 Resident Advisory Board (RAB) Comments.
+
+
+     (a) Did the RAB(s) have comments to the PHA Plan?
+
+
+     Y   N
+
+
+
+
+                                            Page 71 of 74               form HUD-50075-ST (03/31/2024)
+        (b)      If yes, comments must be submitted by the PHA as an attachment
+           to the PHA Plan. PHAs must also include a narrative describing their
+           analysis of the RAB recommendations and the decisions made on these
+           recommendations.
+
+
+     See Attachment # 5
+
+
+
+C2
+
+     Certification by State or Local Officials.
+
+
+     Form HUD 50077-SL, Certification by State or Local Officials of PHA Plans
+     Consistency with the Consolidated Plan, must be submitted by the PHA as an
+     electronic attachment to the PHA Plan.
+
+
+     See attached # 6
+
+
+
+C3
+
+     Civil Rights Certification/ Certification Listing Policies and Programs that the
+     PHA has Revised since Submission of its Last Annual Plan.
+
+
+     Form HUD-50077-ST-HCV-HP, PHA Certifications of Compliance with PHA Plan,
+     Civil Rights, and Related Laws and Regulations
+     Including PHA Plan Elements that Have Changed, must be submitted by the
+     PHA as an electronic attachment to the PHA Plan.
+
+
+
+     See attached # 7
+
+
+
+C4
+     Challenged Elements. If any element of the PHA Plan is challenged, a PHA must
+     include such information as an attachment with a description of any
+     challenges to Plan elements, the source of the challenge, and the PHA’s
+     response to the public.
+
+
+                                           Page 72 of 74               form HUD-50075-ST (03/31/2024)
+          (a)        Did the public challenge any elements of the Plan?
+
+
+             Y   N
+
+
+
+                 If yes, include Challenged Elements.
+C5
+      Troubled PHA.
+
+
+      (a)    Does the PHA have any current Memorandum of Agreement,
+             Performance Improvement Plan, or Recovery Plan in place?
+
+
+      Y     N N/A
+
+
+
+
+      (b) If yes, please describe:
+
+
+
+
+D.    Affirmatively Furthering Fair Housing (AFFH).
+
+
+D.1   Affirmatively Furthering Fair Housing (AFFH).
+
+      Provide a statement of the PHA’s strategies and actions to achieve fair
+      housing goals outlined in an accepted Assessment of Fair Housing (AFH)
+      consistent with 24 CFR § 5.154(d)(5). Use the chart provided below. (PHAs
+      should add as many goals as necessary to overcome fair housing issues and
+      contributing factors.) Until such time as the PHA is required to submit an
+      AFH, the PHA is not obligated to complete this chart. The PHA will fulfill,
+      nevertheless, the requirements at 24 CFR § 903.7(o) enacted prior to August
+      17, 2015. See Instructions for further detail on completing this item.
+
+D.1
+
+
+
+
+                                             Page 73 of 74                form HUD-50075-ST (03/31/2024)
+Fair Housing Goal:
+Describe fair housing strategies and actions to achieve the goal
+
+
+Describe fair housing strategies and actions to achieve the goal
+
+
+Our strategies to achieve the goal of zero discrimination against public
+housing residents—based on race, color, religion, sex, national origin, familial
+status, or disability—include conducting training workshops for relevant staff
+who interact with residents.
+Addressing complaints promptly, sensitively, and empathetically.
+Improving public housing infrastructure by eliminating architectural barriers
+to ensure free access for individuals with physical disabilities.
+
+
+
+
+Fair Housing Goal:
+Describe fair housing strategies and actions to achieve the goal
+
+
+
+
+                                     Page 74 of 74                  form HUD-50075-ST (03/31/2024)
+
