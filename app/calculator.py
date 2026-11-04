@@ -596,7 +596,7 @@ with st.sidebar:
         ui.t("nav", L),
         list(VIEWS),
         format_func=lambda v: ui.t(VIEWS[v], L),
-        horizontal=True,
+        horizontal=False,
         label_visibility="collapsed",
         key="view",
     )
