@@ -64,6 +64,25 @@ La página pasa a modo de comparación:
 
 Para volver a la ley vigente, restaure el valor original del parámetro.
 
+## 4. CliffWatch
+
+Arriba de la barra lateral, cambie *Calculadora* por *CliffWatch*. Con el
+mismo hogar, la página muestra:
+
+- **Ingreso neto frente a ingreso de mercado**, con los salarios del
+  contribuyente de $0 a $150,000 en pasos de $500; los precipicios se marcan
+  con una X roja.
+- **Contribuciones y créditos por nivel de salarios**: Crédito por Trabajo y
+  crédito federal por hijos arriba del cero; contribución de PR y Seguro
+  Social/Medicare debajo.
+- **Tasa marginal efectiva**: de cada $100 adicionales, cuánto se va en
+  contribuciones y créditos perdidos. Las zonas al 50% o más se sombrean.
+- **Precipicios detectados** (salarios, pérdida de ingreso neto y causa
+  principal) y **zonas de tasa marginal alta** (desde, hasta, tasa media).
+
+Con una reforma activa se comparan las curvas de la ley vigente y de la
+reforma, y los precipicios se calculan sobre la reforma.
+
 ## Ejemplos
 
 1. **Exención para jóvenes.** Edad 22, salarios $30,000: contribución cero,
@@ -114,6 +133,12 @@ from $0 to $150,000, with *Table view* adding the effective marginal rate.
 **3. Try a reform.** *Reform* at the bottom of the sidebar lists the
 levers a proposal is likely to move. Change any of them and the page shows
 deltas against current law plus a *Change in net income* chart.
+
+**4. CliffWatch.** Switch *Calculator* to *CliffWatch* at the top of the
+sidebar: net income vs market income in $500 steps to $150,000, taxes and
+credits by wage level, the effective marginal rate, and tables of cliffs
+(where $500 more in wages lowers net income) and high-rate zones (≥ 50%).
+With a reform active, both curves are compared.
 
 **Examples:** age 22 and $30,000 wages (zero tax, EITC kept); two children
 at $44,000 vs $45,000 (the EITC cliff); *Bracket 2 starts* at $12,000 (tax

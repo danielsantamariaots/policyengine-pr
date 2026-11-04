@@ -3,6 +3,7 @@
 Run with:  streamlit run app/calculator.py
 """
 
+import cliffwatch
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -31,6 +32,9 @@ TEXT = {
         "cited to a Hacienda or IRS document in docs/statutes/",
     ),
     "language": ("Idioma / Language", "Idioma / Language"),
+    "view": ("Página", "Page"),
+    "view_calc": ("Calculadora", "Calculator"),
+    "view_cliff": ("CliffWatch", "CliffWatch"),
     "household": ("Hogar", "Household"),
     "joint": (
         "Casados que rinden planilla conjunta",
@@ -338,6 +342,13 @@ para jóvenes). La página pasa a modo de comparación: cada cifra muestra la
 diferencia frente a la ley vigente y aparece una gráfica de *Cambio en
 ingreso neto*. Para volver a la ley vigente, restaure el valor original.
 
+**4. CliffWatch.** Arriba de la barra lateral, cambie *Calculadora* por
+*CliffWatch* para ver, con el mismo hogar, cómo cambian contribuciones,
+créditos e ingreso neto en pasos de $500 hasta $150,000, la tasa marginal
+efectiva en cada paso, y una lista de los *precipicios* (puntos donde ganar
+$500 más deja al hogar con menos ingreso neto) y de las zonas donde la tasa
+marginal llega al 50% o más. Con una reforma activa se comparan las dos curvas.
+
 **Ejemplos para empezar:** edad 22 y salarios $30,000 (exención para jóvenes:
 contribución cero); dos dependientes y salarios de $44,000 frente a $45,000
 (se pierde todo el Crédito por Trabajo); *Inicio del tramo 2* en $12,000
@@ -369,6 +380,13 @@ exemptions, the 92%/95% factor, the Crédito por Trabajo, the youth
 exemption). The page switches to comparison mode: every figure shows its
 difference from current law and a *Change in net income* chart appears. To
 return to current law, restore the original value.
+
+**4. CliffWatch.** At the top of the sidebar, switch *Calculator* to
+*CliffWatch* to see, for the same household, how taxes, credits and net
+income change in $500 steps up to $150,000, the effective marginal rate at
+each step, and a list of *cliffs* (points where earning $500 more leaves the
+household with less net income) and of zones where the marginal rate reaches
+50% or more. With a reform active, both curves are compared.
 
 **Examples to start with:** age 22 and $30,000 wages (youth exemption: zero
 tax); two dependents at $44,000 vs $45,000 wages (the whole Crédito por
@@ -460,6 +478,16 @@ def t(key, *args):
     return s.format(*args) if args else s
 
 
+with st.sidebar:
+    view = st.radio(
+        t("view"),
+        [t("view_calc"), t("view_cliff")],
+        horizontal=True,
+        label_visibility="collapsed",
+    )
+show_cliffwatch = view == t("view_cliff")
+
+
 def person_inputs(prefix_key):
     with st.expander(t("other_income", t(prefix_key))):
         return {
@@ -476,10 +504,11 @@ def person_inputs(prefix_key):
         }
 
 
-st.title(t("title"))
-st.caption(t("caption"))
-with st.expander(t("tutorial_title"), expanded=False):
-    st.markdown(TUTORIAL["es" if L == 0 else "en"])
+if not show_cliffwatch:
+    st.title(t("title"))
+    st.caption(t("caption"))
+    with st.expander(t("tutorial_title"), expanded=False):
+        st.markdown(TUTORIAL["es" if L == 0 else "en"])
 
 hh = {}
 with st.sidebar:
@@ -567,6 +596,12 @@ with st.sidebar:
         if abs(new - base_value) > 1e-9:
             changes[path] = new
     reform = parametric_reform(changes) if changes else None
+
+if show_cliffwatch:
+    if reform:
+        st.info(t("reform_active", len(changes)))
+    cliffwatch.render(build_situation(hh, 0), filer_wages, reform, L)
+    st.stop()
 
 situation = build_situation(hh, filer_wages)
 extra = ["pr_refundable_credits", "household_market_income", "household_tax"]
