@@ -97,17 +97,25 @@ TEXT = {
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
     "you": ("Su hogar", "Your household"),
     "chart_net_sub": (
-        "Salarios del contribuyente de $0 a $150,000 en pasos de $500; las X rojas marcan precipicios",
-        "Filer wages from $0 to $150,000 in $500 steps; red Xs mark cliffs",
+        "Salarios del contribuyente de $0 a $150,000 en pasos de $500; cada etiqueta roja es un precipicio",
+        "Filer wages from $0 to $150,000 in $500 steps; each red label is a cliff",
     ),
     "chart_components_sub": (
         "Créditos y beneficios por encima de cero; contribuciones por debajo",
         "Credits and benefits above zero; taxes below",
     ),
     "chart_emtr_sub": (
-        "De cada $100 adicionales de salario, la parte que se va en contribuciones y créditos perdidos; sombreado = 50% o más",
-        "Of each additional $100 in wages, the share lost to taxes and withdrawn credits; shaded = 50% or more",
+        "Sombreado: tramos al 50% o más; triángulos: precipicios, con su pérdida",
+        "Shaded: ranges at 50% or more; triangles: cliffs, with their loss",
     ),
+    "y_net": ("Ingreso neto anual", "Annual net income"),
+    "y_components": ("Al año", "Per year"),
+    "y_emtr": (
+        "Parte de cada $100 adicionales que se pierde",
+        "Share of each extra $100 lost",
+    ),
+    "zone_label": ("Zona de tasa alta: {:.0%}", "High-rate zone: {:.0%}"),
+    "cliff_label": ("{} · {}", "{} · {}"),
     "cliffs_title": ("Precipicios detectados", "Cliffs detected"),
     "no_cliffs": (
         "No hay precipicios para este hogar: el ingreso neto nunca baja al "
@@ -516,7 +524,7 @@ def render(
     )
 
     def marker_lines(fig):
-        fig.update_xaxes(tickprefix="$", tickformat=",")
+        fig.update_xaxes(tickformat="$,.3~s")
         charts.vline(
             fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
         )
@@ -554,6 +562,18 @@ def render(
         charts.line(
             fig, ref["wages"], ref["net"], reform_name, charts.SERIES["reform"]
         )
+    wide_zones = zones[(zones["to"] - zones["from"]) > STEP]
+    for _, z in wide_zones.iterrows():
+        fig.add_vrect(
+            x0=z["from"],
+            x1=z["to"],
+            fillcolor=charts.SERIES["cliff"],
+            opacity=0.06,
+            line_width=0,
+            annotation_text=TEXT["zone_label"][L].format(z["emtr"]),
+            annotation_position="top left",
+            annotation_font=dict(size=11, color=charts.MUTED),
+        )
     if len(cliffs):
         at = shown[shown["wages"].isin(cliffs["wages"])]
         fig.add_trace(
@@ -562,15 +582,25 @@ def render(
                 y=at["net"],
                 name=t("s_cliff"),
                 mode="markers",
-                marker=dict(
-                    color=charts.SERIES["cliff"],
-                    size=10,
-                    symbol="x",
-                    line=dict(width=2),
-                ),
+                marker=dict(color=charts.SERIES["cliff"], size=9),
                 hovertemplate="%{y:$,.0f}<extra>" + t("s_cliff") + "</extra>",
             )
         )
+        for i, (_, c) in enumerate(cliffs.iterrows()):
+            y_at = float(
+                shown.loc[shown["wages"] == c["wages"], "net"].iloc[0]
+            )
+            charts.annotate(
+                fig,
+                c["wages"],
+                y_at,
+                TEXT["cliff_label"][L].format(
+                    "-" + money(c["loss"]), c["cause"]
+                ),
+                charts.SERIES["cliff"],
+                above=(i % 2 == 0),
+            )
+    fig.update_yaxes(title_text=t("y_net"))
     last = shown.iloc[-1]
     charts.end_label(
         fig,
@@ -599,16 +629,17 @@ def render(
         ("tax", "s_tax", -1),
         ("payroll", "s_payroll", -1),
     ):
-        charts.bars(
+        charts.area(
             fig,
             shown["wages"],
             sign * shown[key],
             t(label),
             charts.SERIES[key],
+            "pos" if sign > 0 else "neg",
         )
     charts.hline(fig, 0, color=charts.ZERO)
+    fig.update_yaxes(title_text=t("y_components"))
     marker_lines(fig)
-    fig.update_layout(barmode="relative", bargap=0.15)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
     if not assisted:
         st.caption(md("section8_hint"))
@@ -629,11 +660,14 @@ def render(
             opacity=0.08,
             line_width=0,
         )
+    # the line is clipped at 100%: a cliff's one-step rate can be several
+    # hundred per cent and would flatten everything else; cliffs are marked
+    # at the top with their dollar loss instead
     if ref is None:
         charts.line(
             fig,
             base["wages"],
-            base["emtr"],
+            np.minimum(base["emtr"], 1.0),
             t("s_emtr"),
             charts.SERIES["tax"],
             money=False,
@@ -643,7 +677,7 @@ def render(
         charts.line(
             fig,
             base["wages"],
-            base["emtr"],
+            np.minimum(base["emtr"], 1.0),
             t("s_emtr"),
             charts.SERIES["baseline"],
             money=False,
@@ -652,20 +686,36 @@ def render(
         charts.line(
             fig,
             ref["wages"],
-            ref["emtr"],
+            np.minimum(ref["emtr"], 1.0),
             reform_name,
             charts.SERIES["reform"],
             money=False,
             shape="hv",
         )
     charts.hline(fig, HIGH_EMTR, color=charts.MUTED, dash="dot", label="50%")
-    charts.hline(
-        fig, 1, color=charts.SERIES["cliff"], dash="dot", label="100%"
+    if len(cliffs):
+        fig.add_trace(
+            go.Scatter(
+                x=cliffs["wages"],
+                y=[1.0] * len(cliffs),
+                name=t("s_cliff"),
+                mode="markers+text",
+                marker=dict(
+                    color=charts.SERIES["cliff"],
+                    size=10,
+                    symbol="triangle-down",
+                ),
+                text=["-" + money(v) for v in cliffs["loss"]],
+                textposition="top center",
+                textfont=dict(size=11, color=charts.SERIES["cliff"]),
+                hovertemplate="%{text}<extra>" + t("s_cliff") + "</extra>",
+            )
+        )
+    fig.update_yaxes(
+        title_text=t("y_emtr"),
+        range=[min(-0.1, float(shown["emtr"].min()) - 0.05), 1.12],
     )
     marker_lines(fig)
-    # cap the axis at 150%: a cliff's one-step rate can be several hundred
-    # per cent and would flatten everything else (cliffs are listed below)
-    fig.update_yaxes(range=[min(-0.1, shown["emtr"].min() - 0.05), 1.5])
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     # --- tables

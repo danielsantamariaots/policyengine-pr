@@ -151,7 +151,7 @@ def figure(
     if x_title:
         fig.update_xaxes(title_text=x_title)
     if y_money:
-        fig.update_yaxes(tickprefix="$", tickformat=",")
+        fig.update_yaxes(tickformat="$,.3~s")  # $10k, -$10k
     if y_percent:
         fig.update_yaxes(tickformat=".0%")
     return fig
@@ -181,6 +181,44 @@ def bars(fig, x, y, name, color, money=True):
             marker=dict(color=color, line=dict(width=0)),
             hovertemplate=fmt + "<extra>" + name + "</extra>",
         )
+    )
+
+
+def area(fig, x, y, name, color, group, money=True):
+    """A stacked area; `group` separates the stack above zero ("pos") from
+    the stack below ("neg"). A thin white edge keeps adjacent bands apart."""
+    fmt = "%{y:$,.0f}" if money else "%{y:.0%}"
+    fig.add_trace(
+        go.Scatter(
+            x=x,
+            y=y,
+            name=name,
+            mode="lines",
+            line=dict(color="white", width=1),
+            fillcolor=color,
+            stackgroup=group,
+            hovertemplate=fmt + "<extra>" + name + "</extra>",
+        )
+    )
+
+
+def annotate(fig, x, y, text, color, above=True):
+    """A short label with a leader line, for cliffs and zones."""
+    fig.add_annotation(
+        x=x,
+        y=y,
+        text=f"<span style='color:{color}'><b>{text}</b></span>",
+        showarrow=True,
+        arrowhead=0,
+        arrowcolor=color,
+        arrowwidth=1,
+        ax=0,
+        ay=-38 if above else 38,
+        font=dict(size=11),
+        bgcolor="rgba(255,255,255,0.9)",
+        bordercolor=color,
+        borderwidth=1,
+        borderpad=3,
     )
 
 
