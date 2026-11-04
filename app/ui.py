@@ -640,6 +640,7 @@ def sync_query_params(lever_defaults):
     )
     if alias:
         out["reform"] = alias
+        out.pop("reform_name", None)  # the alias sets the name on load
     else:
         out.update(levers)
     for k in SHARED_KEYS:
