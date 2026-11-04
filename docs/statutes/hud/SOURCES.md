@@ -52,3 +52,18 @@ allowance schedule; both are flagged `gap:` in
    plan text still says $400).
 
 The data request letter for these gaps is `docs/solicitud_datos_vivienda.md` (.docx alongside).
+
+## Official statistics sources for Sección 8 in Puerto Rico (surveyed 2026-11-04)
+
+| Source | What it gives | Access |
+|---|---|---|
+| HUD, Picture of Subsidized Households (huduser.gov/portal/datasets/assthsg.html) | Annual (2024 latest), by PHA / county / place / tract: subsidized units, people, average HUD expenditure per unit per month, average household income, income as % of area median, household composition, race, age of head, months on assistance. Separate rows for HCV, public housing, PBRA. | Public .xlsx; the server refuses scripted requests, download in a browser (`PHA_2024_2020census.xlsx`). |
+| HUD PIH, Housing Choice Voucher Data Dashboard (hud.gov/helping-americans/public-indian-housing-hcv-dashboard) | Monthly, from the Voucher Management System: vouchers authorised and leased, HAP expenditure, per-unit cost, reserves, leasing potential, admissions and attrition; drill-down to state and PHA (RQ005 PRPHA, RQ006 San Juan, …). Two-month lag. | Tableau dashboard; data dictionary PDF (HCVDashboard_User_Guide_Data_Dictionary.pdf). |
+| HUD PIH, Resident Characteristics Report (PIC/IMS) | Household income distribution, income sources, family type and bedroom size for HCV and public housing residents by PHA. | Public query page on hud.gov (PIH data systems); confirm current URL. |
+| HUD, HCV funding and renewal tables (PIH Notices, annual "HCV Funding Awards" by PHA) | Annual budget authority and administrative fees per PHA. | Public spreadsheets on hud.gov. |
+| HUD, FMRs and income limits (huduser.gov datasets) | Fair market rents (FY2025 PR areas) and Section 8 income limits by FMR area and size. | Public; the HOME tables saved here carry the same rows. |
+| PRPHA, PHA Annual Plan (avp.pr.gov → Reglamentación) | Vouchers under ACC (12,863 on the 2026 form; 12,896 in the text), regional offices, PBV projects, goals. | Public PDF (PRPHA_Annual_Plan_2026.pdf). |
+| PRPHA, Administrative Plan (June 2025) | Rules: occupancy standard, payment-standard band, minimum rent, deductions, preferences. | Public PDF (saved here). |
+| AVP, Informe de Transición 2024, Sección 8 (transicion2024.pr.gov) | HUD-authorised vouchers 12,332; new vouchers issued 2021–2024 (636, 1,072, 523, 478); 104 Mainstream and 203 Emergency Housing Vouchers; landlord incentive programme (2,072 landlords, $4.0 M); 12 PBV elderly projects. | Public PDF (AVP_Informe_Transicion_2024_Seccion8.pdf, saved here). |
+| Press (Primera Hora, AVP administrator) | 12,875 vouchers, 11,431 contracts; most contracts in San Juan, Bayamón and Carolina. | Secondary; date to be confirmed. |
+| Not found | Instituto de Estadísticas de PR, Junta de Planificación and Oficina del Contralor publish nothing specific to the voucher programme; the Contralor's audits of AVP cover public housing. | — |
