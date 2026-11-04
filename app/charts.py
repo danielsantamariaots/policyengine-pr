@@ -311,6 +311,15 @@ def _fontface():
     return path.read_text() if path.exists() else ""
 
 
+EXPLAIN_TITLE = ("¿Qué muestra esta gráfica?", "What does this chart show?")
+
+
+def explain(L, text):
+    """A folded note under a chart saying what it shows and how to read it."""
+    with st.expander(EXPLAIN_TITLE[L]):
+        st.markdown(text.replace("$", "\\$"))
+
+
 def mobile_hint(text):
     """A one-line hint shown only on narrow screens (the sidebar with the
     household inputs is hidden behind the » button there)."""

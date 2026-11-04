@@ -228,6 +228,14 @@ TEXT = {
         "Espacios Abiertos · policyengine-pr versión {} · año contributivo 2025 · policyengine-pr.streamlit.app",
         "Espacios Abiertos · policyengine-pr version {} · tax year 2025 · policyengine-pr.streamlit.app",
     ),
+    "explain_change": (
+        "Cómo cambia el ingreso neto del hogar a medida que suben los salarios del contribuyente, con la reforma frente a la ley vigente. Por encima de cero, el hogar sale ganando con la reforma a ese nivel de salario; por debajo, pierde. La línea punteada marca el salario de su hogar.",
+        "How the household's net income changes as the filer's wages rise, reform versus current law. Above zero, the household is better off under the reform at that wage; below, worse off. The dotted line marks your household's wages.",
+    ),
+    "explain_range": (
+        "Cada línea es una partida a lo largo de la escala de salarios, con los demás datos del hogar fijos: la contribución de Puerto Rico y el Seguro Social y Medicare suben con el salario; el Crédito por Trabajo y el crédito federal por hijos suben primero y luego bajan hasta desaparecer; el PAN y el TANF se pierden al superar su límite. La línea punteada marca el salario de su hogar. Pase el cursor por un punto para ver cada cantidad; *Ver tabla* las muestra en números.",
+        "Each line is one item across the wage scale, with everything else about the household fixed: Puerto Rico tax and Social Security and Medicare rise with wages; the Crédito por Trabajo and the federal child credit rise first and then fall to zero; PAN and TANF are lost above their limits. The dotted line marks your household's wages. Hover a point to see each amount; *Table view* lists them.",
+    ),
     "range_expander": (
         "Ver cómo cambia con el salario",
         "See how it changes with wages",
@@ -1039,7 +1047,7 @@ st.download_button(
 )
 
 # chart (collapsed by default), line-by-line table underneath
-left, right = st.expander(t("range_expander")), st.container()
+left, right = st.container(), st.container()
 
 with left:
     rows = []
@@ -1095,6 +1103,7 @@ with left:
         fig.update_layout(showlegend=False)
         fig.update_xaxes(tickprefix="$", tickformat=",")
         st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+        charts.explain(L, t("explain_change"))
 
     fig = charts.figure(
         t("range_title"),
@@ -1138,6 +1147,7 @@ with left:
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
     if not reform and not hh["housing_assisted"]:
         st.caption(t("section8_hint"))
+    charts.explain(L, t("explain_range"))
 
     df[t("marginal")] = (1 - df[t("s_net")].diff() / df[xcol].diff()) * 100
     with st.expander(t("table_view")):

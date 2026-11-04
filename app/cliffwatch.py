@@ -87,6 +87,26 @@ TEXT = {
         "¿Con cuánto se queda de cada $100 más?",
         "How much of each extra $100 does it keep?",
     ),
+    "explain_net": (
+        "La línea continua es el ingreso neto del hogar (lo que le queda tras contribuciones, créditos y ayudas) para cada nivel de salario del contribuyente; la línea de rayas es el ingreso de mercado, lo que ganaría sin contribuciones ni ayudas. Donde la línea continua baja al subir el salario hay un precipicio: ganar $500 más deja menos dinero. Cada etiqueta roja dice cuánto se pierde y por qué; la banda sombreada es un tramo donde el hogar se queda con $50 o menos de cada $100 adicionales.",
+        "The solid line is the household's net income (what is left after taxes, credits and benefits) at each level of the filer's wages; the dashed line is market income, what it would earn with no taxes or benefits. Where the solid line drops as wages rise there is a cliff: earning $500 more leaves less money. Each red label says how much is lost and why; the shaded band is a range where the household keeps $50 or less of each extra $100.",
+    ),
+    "explain_components": (
+        "Las franjas de arriba son lo que el hogar recibe a cada nivel de salario (Crédito por Trabajo, crédito federal por hijos, PAN, TANF y, si tiene vale, Sección 8); las de abajo, lo que paga (contribución de Puerto Rico, Seguro Social y Medicare). La altura de cada franja es su cantidad anual. Donde una franja de arriba se estrecha de golpe, esa ayuda se pierde.",
+        "The bands above zero are what the household receives at each wage level (Crédito por Trabajo, federal child credit, PAN, TANF and, with a voucher, Section 8); the bands below are what it pays (Puerto Rico tax, Social Security and Medicare). Each band's height is its annual amount. Where a band above narrows abruptly, that benefit is lost.",
+    ),
+    "explain_kept": (
+        "De cada $100 adicionales de salario, cuántos dólares se queda el hogar después de pagar más contribución y de perder parte de los créditos y ayudas. $100 significa que se queda con todo; $50 o menos (sombreado) es un tramo de tasa alta; un triángulo rojo en el suelo es un precipicio, con la pérdida de ese paso de $500.",
+        "Of each extra $100 in wages, how many dollars the household keeps after paying more tax and losing part of its credits and benefits. $100 means it keeps everything; $50 or less (shaded) is a high-rate range; a red triangle at the floor is a cliff, with the loss over that $500 step.",
+    ),
+    "explain_compare_net": (
+        "Ingreso neto de su hogar y del hogar elegido, con los mismos salarios del contribuyente en el eje. Si compara con *los mismos adultos sin casarse*, la segunda línea suma los dos hogares por separado; la diferencia entre líneas es la penalidad (o el bono) por matrimonio a cada nivel de salario.",
+        "Net income of your household and of the chosen household, with the same filer wages on the axis. When comparing with *the same adults unmarried*, the second line adds the two separate households; the gap between the lines is the marriage penalty (or bonus) at each wage level.",
+    ),
+    "explain_compare_emtr": (
+        "Tasa marginal efectiva de los dos hogares: de cada $100 adicionales, la parte que se pierde en contribuciones y ayudas reducidas. Por encima del 50% (línea punteada) el hogar se queda con menos de la mitad.",
+        "Effective marginal rate of both households: of each extra $100, the share lost to taxes and reduced benefits. Above 50% (dotted line) the household keeps less than half.",
+    ),
     "tables_expander": (
         "Ver precipicios y zonas en tabla",
         "See cliffs and zones as tables",
@@ -669,6 +689,7 @@ def render(
     fig.update_layout(showlegend=False, margin=dict(r=170))
     marker_lines(fig)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    charts.explain(L, t("explain_net"))
 
     # --- components and kept-share charts, full width, one after the other
     col_components, col_emtr = st.container(), st.container()
@@ -703,6 +724,7 @@ def render(
         st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
         if not assisted:
             st.caption(md("section8_hint"))
+        charts.explain(L, t("explain_components"))
     with col_emtr:
         # --- kept share of each extra $100 (1 - EMTR), clipped at 0
         fig = charts.figure(
@@ -781,6 +803,7 @@ def render(
             fig.update_layout(showlegend=False)
         marker_lines(fig)
         st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+        charts.explain(L, t("explain_kept"))
 
         # --- tables, folded
         tables = st.expander(t("tables_expander"))
