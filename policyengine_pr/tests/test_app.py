@@ -87,3 +87,51 @@ def test_reforms_page_scores(app):
     _no_errors(at)
     assert any("Reformas" in t.value or "Reforms" in t.value for t in at.title)
     assert at.dataframe  # the scored table
+
+
+def test_cliffwatch_marriage_penalty_comparison(app):
+    at = app
+    _radio(at, "view").set_value("cliff").run()
+    at.sidebar.selectbox(key="preset").set_value("couple").run()
+    at.selectbox(key="compare_with").set_value("unmarried").run()
+    _no_errors(at)
+    assert any(
+        "atrimonio" in m.label or "arriage" in m.label for m in at.metric
+    )
+
+
+def test_voucher_preset_pays_section8(app):
+    at = app
+    _radio(at, "view").set_value("calc").run()
+    at.sidebar.selectbox(key="preset").set_value("voucher").run()
+    _no_errors(at)
+    assert at.sidebar.checkbox(key="housing_assisted").value is True
+    table = next(
+        d.value
+        for d in at.dataframe
+        if d.value.columns[0] in ("Partida", "Item")
+    )
+    row = table[table.iloc[:, 0].str.contains("Sección 8|Section 8")]
+    assert len(row) == 1 and float(row.iloc[0, 1]) > 0
+
+
+def test_shared_link_restores_household_and_reform():
+    from streamlit.testing.v1 import AppTest
+
+    at = AppTest.from_file(str(APP), default_timeout=120)
+    at.query_params["view"] = "calc"
+    at.query_params["filer_wages"] = "42000"
+    at.query_params["joint"] = "1"
+    at.query_params["r.gov.hacienda.income.rates[1].threshold"] = "12000"
+    at.run()
+    _no_errors(at)
+    assert at.sidebar.number_input(key="filer_wages").value == 42_000
+    assert at.sidebar.toggle(key="joint").value is True
+    assert (
+        at.sidebar.number_input(
+            key="r_gov.hacienda.income.rates[1].threshold"
+        ).value
+        == 12_000
+    )
+    assert at.info  # reform notice
+    assert at.query_params["filer_wages"] == "42000"

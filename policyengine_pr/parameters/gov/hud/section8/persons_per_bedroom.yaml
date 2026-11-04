@@ -1,0 +1,10 @@
+description: Occupants per bedroom used to assign the voucher bedroom size (subsidy standard).
+metadata:
+  unit: /1
+  label: Section 8 persons per bedroom
+  reference:
+    - title: "24 CFR 982.402(b)(1): the PHA subsidy standard must provide for the smallest number of bedrooms needed without more than two persons per bedroom"
+      href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
+  gap: Vivienda's own subsidy standard (which may give a separate bedroom to the head of household) is not published; two per bedroom, rounded up, is applied.
+values:
+  2025-01-01: 2

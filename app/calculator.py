@@ -70,6 +70,27 @@ TEXT = {
         "Casualty losses and items not computed",
     ),
     "advanced": ("Avanzado", "Advanced"),
+    "housing": ("Vivienda (Sección 8)", "Housing (Section 8)"),
+    "housing_assisted": (
+        "El hogar tiene un vale de Sección 8",
+        "Household holds a Section 8 voucher",
+    ),
+    "housing_assisted_help": (
+        "Vale de elección de vivienda del Departamento de la Vivienda. El "
+        "subsidio es la renta justa de mercado de San Juan menos el 30% del "
+        "ingreso ajustado (24 CFR 982.505).",
+        "Housing Choice Voucher from the Departamento de la Vivienda. The "
+        "subsidy is the San Juan fair market rent less 30% of adjusted "
+        "income (24 CFR 982.505).",
+    ),
+    "housing_rent": (
+        "Renta mensual, con utilidades ($)",
+        "Monthly rent incl. utilities ($)",
+    ),
+    "housing_rent_help": (
+        "Tope del subsidio. Deje 0 si la renta iguala la renta justa de mercado.",
+        "Caps the subsidy. Leave 0 if the rent equals the fair market rent.",
+    ),
     "abt_other": (
         "Otros ingresos sujetos a contribución básica alterna ($)",
         "Other income subject to alternate basic tax ($)",
@@ -108,6 +129,7 @@ TEXT = {
     "s_credits": ("Créditos reembolsables", "Refundable credits"),
     "s_pan": ("PAN", "PAN"),
     "s_tanf": ("TANF", "TANF"),
+    "s_section8": ("Sección 8", "Section 8"),
     "s_net": ("Ingreso neto", "Net income"),
     "s_change": ("Cambio en ingreso neto", "Change in net income"),
     "s_net_current": ("Ingreso neto, ley vigente", "Net income, current law"),
@@ -248,6 +270,13 @@ OUTPUTS = [
         "Cash aid to single parents with minor children: $584 a month less countable income",
     ),
     (
+        "section8",
+        "Sección 8, subsidio anual (Vivienda)",
+        "Section 8, annual subsidy (Vivienda)",
+        "Vale de vivienda: renta justa de mercado de San Juan menos el 30% del ingreso ajustado; solo si el hogar indica que tiene vale",
+        "Housing voucher: San Juan fair market rent less 30% of adjusted income; only if the household says it holds a voucher",
+    ),
+    (
         "vital_eligible_count",
         "Plan Vital: miembros elegibles",
         "Plan Vital: eligible members",
@@ -258,8 +287,8 @@ OUTPUTS = [
         "household_net_income",
         "Ingreso neto del hogar",
         "Household net income",
-        "Ingresos menos contribuciones más créditos reembolsables, PAN y TANF",
-        "Income minus taxes plus refundable credits, PAN and TANF",
+        "Ingresos menos contribuciones más créditos reembolsables, PAN, TANF y Sección 8",
+        "Income minus taxes plus refundable credits, PAN, TANF and Section 8",
     ),
 ]
 RANGE_VARS = [
@@ -270,6 +299,7 @@ RANGE_VARS = [
     "pr_refundable_credits",
     "pan",
     "tanf",
+    "section8",
     "household_net_income",
 ]
 PERSON_INPUTS = [
@@ -449,7 +479,13 @@ def build_situation(hh, filer_wages):
     return {
         "people": people,
         "tax_units": {"tax_unit": tax_unit},
-        "households": {"household": {"members": members}},
+        "households": {
+            "household": {
+                "members": members,
+                "housing_assisted": {YEAR: hh["housing_assisted"]},
+                "housing_rent": {YEAR: hh["housing_rent"]},
+            }
+        },
     }
 
 
@@ -475,6 +511,7 @@ with st.sidebar:
         ["Español", "English"],
         horizontal=True,
         label_visibility="collapsed",
+        key="lang",
     )
 L = 0 if lang == "Español" else 1
 st.session_state["L"] = L
@@ -573,6 +610,20 @@ with st.sidebar:
             help=t("other_deductions_help"),
             key="other_deductions",
         )
+    with st.expander(t("housing")):
+        hh["housing_assisted"] = st.checkbox(
+            t("housing_assisted"),
+            key="housing_assisted",
+            help=t("housing_assisted_help"),
+        )
+        hh["housing_rent"] = st.number_input(
+            t("housing_rent"),
+            0,
+            10_000,
+            step=50,
+            key="housing_rent",
+            help=t("housing_rent_help"),
+        )
     with st.expander(t("advanced")):
         hh["abt_other_income"] = st.number_input(
             t("abt_other"),
@@ -624,6 +675,12 @@ with st.sidebar:
     reform_name = st.session_state["reform_name"] or ui.t(
         "reform_default_name", L
     )
+    ui.sync_query_params(CURRENT)
+    with st.expander(ui.t("share_title", L)):
+        st.caption(ui.t("share_help", L))
+        link = ui.share_link()
+        if link:
+            st.code(link, language=None, wrap_lines=True)
 
 # ---------------------------------------------------------------------------
 # Pages
@@ -646,6 +703,25 @@ ref = compute(situation, variables, reform) if reform else None
 shown = ref or base
 
 if view == "cliff":
+    compare = []
+    if hh["joint"]:
+        a, b = ui.unmarried_split(hh)
+        compare.append(
+            (
+                "unmarried",
+                cliffwatch.TEXT["compare_unmarried"][L],
+                [
+                    (build_situation(a, 0), None),
+                    (build_situation(b, 0), hh["spouse_wages"]),
+                ],
+            )
+        )
+    for key, es, en, _ in ui.PRESETS:
+        if key != "custom":
+            p_hh, p_wages = ui.preset_hh(key)
+            compare.append(
+                (key, (es, en)[L], [(build_situation(p_hh, 0), None)])
+            )
     cliffwatch.render(
         build_situation(hh, 0),
         filer_wages,
@@ -657,6 +733,7 @@ if view == "cliff":
         reform_notice=t("reform_active", reform_name, len(changes))
         if reform
         else None,
+        compare=compare,
     )
     ui.not_included(L)
     ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
@@ -688,6 +765,7 @@ with left:
             t("s_credits"): x["pr_refundable_credits"],
             t("s_pan"): x["pan"],
             t("s_tanf"): x["tanf"],
+            t("s_section8"): x["section8"],
             t("s_net"): x["household_net_income"],
         }
         if reform:
@@ -752,6 +830,7 @@ with left:
             ("s_credits", "eitc"),
             ("s_pan", "pan"),
             ("s_tanf", "tanf"),
+            ("s_section8", "section8"),
         ):
             charts.line(fig, df[xcol], df[t(col)], t(col), charts.SERIES[key])
     charts.vline(

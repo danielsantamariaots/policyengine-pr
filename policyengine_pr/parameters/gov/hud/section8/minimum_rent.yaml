@@ -1,0 +1,11 @@
+description: Minimum monthly rent set by the PHA.
+metadata:
+  unit: currency-USD
+  period: month
+  label: Section 8 minimum rent
+  reference:
+    - title: "24 CFR 5.630(a): the PHA sets a minimum rent of $0 to $50 a month (with hardship exemptions)"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+  gap: Vivienda's minimum rent is not published; $0 is assumed. $50 is the statutory maximum.
+values:
+  2025-01-01: 0

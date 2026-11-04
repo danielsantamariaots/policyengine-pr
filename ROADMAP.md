@@ -89,17 +89,32 @@ late: ship the household calculator first; aggregate estimates follow.
   projection as a check, not a constraint. `tests/test_app.py` renders
   every page headlessly (Streamlit AppTest) in both languages.
 
+- **Sección 8, comparison, shareable links (2026-11-04).** Housing Choice
+  Vouchers are modelled under `gov/hud/section8/` from 24 CFR parts 5 and
+  982 and HUD's FY2025 Puerto Rico tables (`docs/statutes/hud/`): annual and
+  adjusted income (HOTMA $480 dependent / $525 elderly deductions), total
+  tenant payment (30% adjusted, 10% gross floor), subsidy = min(payment
+  standard, gross rent) − TTP, bedrooms at two per room. Only households
+  flagged `housing_assisted` (an app input; the "voucher" preset) receive it,
+  so Section 8 is not in reform scoring. GAPS: San Juan-Guaynabo income
+  limits and FMRs applied island-wide; Vivienda's payment standards,
+  subsidy standard and minimum rent unpublished; no medical, disability or
+  child-care deductions. CliffWatch gains a two-household comparison
+  (presets, or the same adults unmarried → marriage penalty). The URL
+  carries every non-default input and lever (`ui.sync_query_params`), so a
+  calculator or CliffWatch view can be shared as a link.
+
 ## Launch checklist (target: March–April 2027)
 
 | When | Step | Status |
 |---|---|---|
 | Nov 2026 | Send the three data requests (Hacienda, ADSEF, Salud) | letters drafted |
 | Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | live at https://policyengine-pr.streamlit.app (4 Nov 2026); custom domain pending |
-| Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI green, guide done, repo public (4 Nov 2026); licence pending EA |
+| Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI green, guide done, repo public (4 Nov 2026); AGPL-3.0 (4 Nov 2026) |
 | Nov–Dec 2026 | CPA validation of 10–15 real anonymised 2025 returns | workbook prepared |
 | Dec 2026 | Calibration review (weights, tax-unit construction) | pending |
 | Dec 2026 | Reform report template, dry-run on a dummy reform | generator done |
-| Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | pending |
+| Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | Section 8 done (4 Nov 2026, San Juan tables); PAN resources test pending |
 | Jan 2027 | Behavioural response switch (ETI) on top brackets | done |
 | Jan 2027 | Mobile layout and accessibility pass | pending |
 | Feb–Mar 2027 | Tax year 2026 parameters (instructions + BI RI EITC adjustment) | waits on Hacienda |

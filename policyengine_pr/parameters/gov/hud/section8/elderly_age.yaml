@@ -1,0 +1,9 @@
+description: Age from which a head of household, spouse or sole member makes the family an elderly family.
+metadata:
+  unit: year
+  label: Section 8 elderly family age
+  reference:
+    - title: "24 CFR 5.403, definition of 'elderly family': whose head, spouse, or sole member is a person who is at least 62 years of age"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+values:
+  2025-01-01: 62

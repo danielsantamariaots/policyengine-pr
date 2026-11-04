@@ -44,6 +44,7 @@ SERIES = {
     "actc": "#0d7a52",
     "pan": "#c9a227",
     "tanf": "#8e44ad",
+    "section8": "#0b8ba6",
     "net": INK,
     "market": "#9aa7b4",
     "reform": "#eb6834",
@@ -111,6 +112,7 @@ TEMPLATE = go.layout.Template(
             SERIES["actc"],
             SERIES["pan"],
             SERIES["tanf"],
+            SERIES["section8"],
         ],
     ),
     data=dict(

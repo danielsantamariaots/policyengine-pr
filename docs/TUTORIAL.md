@@ -104,6 +104,25 @@ mismo hogar, la página muestra:
 Con una reforma activa se comparan las curvas de la ley vigente y de la
 reforma, y los precipicios se calculan sobre la reforma.
 
+**Comparar con otro hogar.** Al final de la página, *Comparar con* dibuja
+el ingreso neto y la tasa marginal de otro hogar tipo sobre el mismo eje de
+salarios. Si el hogar presenta planilla conjunta, la opción *Los mismos
+adultos sin casarse* calcula la penalidad (o bono) por matrimonio: el
+ingreso neto de la pareja menos la suma de los dos hogares por separado,
+con el contribuyente a cargo de los hijos y el cónyuge solo con sus
+propios ingresos.
+
+**Vivienda (Sección 8).** En la barra lateral, marque *El hogar tiene un
+vale de Sección 8* para añadir el subsidio de vivienda: la renta justa de
+mercado de San Juan-Guaynabo (FY2025) para el tamaño del hogar menos el
+30% del ingreso ajustado ($480 por cada menor de 18, $525 si hay una
+persona de 62 años o más), según 24 CFR 5.611, 5.628 y 982.505. Si indica
+la renta mensual, el subsidio no supera la renta.
+
+**Compartir.** La dirección de la página incluye el hogar, la reforma y la
+página abierta; el desplegable *Compartir* de la barra lateral muestra el
+enlace. Quien lo abra verá exactamente lo mismo.
+
 ## 5. Reformas
 
 La tercera página simula cada reforma sobre los microdatos de la Encuesta
@@ -138,8 +157,8 @@ cifra útil. Requiere `data/prcs_2023.h5` (véase `policyengine_pr/data/`).
 **No incluido:** tasas preferenciales distintas del 10% (intereses
 bancarios) y 15% (dividendos y ganancias de capital), es decir, las
 columnas de 4% y 20% del Anejo A2, y el arrastre de pérdidas de capital;
-créditos no reembolsables por inversión (Anejo B); Sección 8; las
-categorías A, B, D, G y T del TANF; efectos de comportamiento (el modelo
+créditos no reembolsables por inversión (Anejo B); las categorías A, B,
+D, G y T del TANF; efectos de comportamiento (el modelo
 es estático).
 
 **Incluido con salvedades:**
@@ -159,6 +178,11 @@ es estático).
   trabajo.
 - **Plan Vital**: miembros elegibles según los niveles de ingreso de CMS
   (tabla de abril de 2026), sin asignarle valor en dólares.
+- **Sección 8**: solo si usted indica que el hogar tiene vale (no se imputa
+  en los microdatos); los límites de ingreso y las rentas justas de mercado
+  de San Juan-Guaynabo se aplican a toda la isla, y el estándar de pago, el
+  estándar de subsidio y la renta mínima de Vivienda no están publicados
+  (`docs/statutes/hud/SOURCES.md`).
 
 Los resultados son estimaciones y no sustituyen asesoría profesional.
 
@@ -193,13 +217,30 @@ deltas against current law plus a *Change in net income* chart.
 sidebar: net income vs market income in $500 steps to $150,000, taxes and
 credits by wage level, the effective marginal rate, and tables of cliffs
 (where $500 more in wages lowers net income) and high-rate zones (≥ 50%).
-With a reform active, both curves are compared.
+With a reform active, both curves are compared. *Compare with*, at the
+bottom, overlays another preset household on the same wage axis; for a
+joint return, *The same adults unmarried* gives the marriage penalty or
+bonus (the couple's net income minus the two separate households, filer
+with the children, spouse alone).
+
+**Housing (Section 8).** Tick *Household holds a Section 8 voucher* in the
+sidebar to add the housing subsidy: the FY2025 San Juan-Guaynabo fair
+market rent for the household's size less 30% of adjusted income ($480 per
+member under 18, $525 for a member aged 62+), per 24 CFR 5.611, 5.628 and
+982.505; a monthly rent, if given, caps the subsidy.
+
+**Share.** The page address carries the household, the reform and the open
+page; the *Share* expander in the sidebar shows the link.
 
 **Examples:** age 22 and $30,000 wages (zero tax, EITC kept); two children
 at $44,000 vs $45,000 (the EITC cliff); *Bracket 2 starts* at $12,000 (tax
 falls $193 for a $30,000 household).
 
 **Not yet included:** preferential rates other than 10%/15% (Anejo A2
-columns at 4%/20%), Anejo B investment credits,
-benefits (PAN, Medicaid), behavioural responses. Results are estimates, not
+columns at 4%/20%), Anejo B investment credits, TANF categories other than
+C, behavioural responses. **With caveats:** PAN pays the maximum to every
+eligible household (ADSEF's benefit schedule is unpublished); TANF uses the
+three-person maximum for every size; Plan Vital is eligibility only;
+Section 8 only when the household says it holds a voucher, with San
+Juan-Guaynabo limits and rents island-wide. Results are estimates, not
 professional advice.

@@ -1,0 +1,28 @@
+description: Monthly voucher payment standard by number of bedrooms, set equal to the FY2025 Fair Market Rent for the San Juan-Guaynabo HUD Metro FMR Area.
+metadata:
+  unit: currency-USD
+  period: month
+  label: Section 8 payment standard by bedrooms
+  reference:
+    - title: "HUD, FY2025 HOME Program Rents, State of Puerto Rico, San Juan-Guaynabo, PR HUD Metro FMR Area, 'For Information Only: FAIR MARKET RENT' row (efficiency $552, 1 BR $569, 2 BR $656, 3 BR $861, 4 BR $1,033, 5 BR $1,188)"
+      href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=RentLimits&program=HOME
+    - title: "24 CFR 982.503(b): the PHA sets a payment standard between 90% and 110% of the FMR for each bedroom size"
+      href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
+  gap: >-
+    HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them.
+    The payment standards adopted by the Departamento de la Vivienda /
+    Administración de Vivienda Pública for its voucher programme are not
+    published online; 100% of the San Juan FMR is used for every area until
+    Vivienda provides its schedule.
+0:
+  2025-01-01: 552
+1:
+  2025-01-01: 569
+2:
+  2025-01-01: 656
+3:
+  2025-01-01: 861
+4:
+  2025-01-01: 1033
+5:
+  2025-01-01: 1188

@@ -1,0 +1,25 @@
+description: Extremely low income limit (30% of area median income, floored at the poverty guideline) by household size, San Juan-Guaynabo HUD Metro FMR Area, FY2025. Reported for the 75% targeting rule; not used in the benefit formula.
+metadata:
+  unit: currency-USD
+  period: year
+  label: Section 8 extremely low income limit (San Juan-Guaynabo)
+  reference:
+    - title: "HUD, FY2025 HOME Program Income Limits, State of Puerto Rico, San Juan-Guaynabo, PR HUD Metro FMR Area, 30% LIMITS row (effective 1 April 2025)"
+      href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=IncomeLmts&program=HOME
+  gap: HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them. San Juan-Guaynabo limits applied to every household; sizes above 8 use the size-8 value.
+1:
+  2025-01-01: 8200
+2:
+  2025-01-01: 9350
+3:
+  2025-01-01: 10500
+4:
+  2025-01-01: 11650
+5:
+  2025-01-01: 12600
+6:
+  2025-01-01: 13550
+7:
+  2025-01-01: 14450
+8:
+  2025-01-01: 15400

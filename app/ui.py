@@ -44,6 +44,8 @@ DEFAULTS = {
     "n_children": 2,
     "other_deductions": 0,
     "abt_other_income": 0,
+    "housing_assisted": False,
+    "housing_rent": 0,
     **{f"c{i}": min(4 + 4 * i, 25) for i in range(8)},
     **{f"filer_{v}": 0 for v in PERSON_VARS},
     **{f"spouse_{v}": 0 for v in PERSON_VARS},
@@ -100,6 +102,18 @@ PRESETS = [
             "filer_pension_income": 24_000,
             "filer_social_security": 14_000,
             "n_children": 0,
+        },
+    ),
+    (
+        "voucher",
+        "Madre o padre con un hijo y vale de Sección 8, $18,000",
+        "Single parent with one child and a Section 8 voucher, $18,000",
+        {
+            "filer_age": 28,
+            "filer_wages": 18_000,
+            "n_children": 1,
+            "c0": 3,
+            "housing_assisted": True,
         },
     ),
     (
@@ -225,6 +239,7 @@ TEXT = {
     "summary_se": ("cuenta propia {}", "self-employment {}"),
     "summary_pension": ("pensión {}", "pension {}"),
     "summary_ss": ("Seguro Social {}", "Social Security {}"),
+    "summary_voucher": ("vale de Sección 8", "Section 8 voucher"),
     "summary_children_0": ("sin dependientes", "no dependents"),
     "summary_children_1": ("1 dependiente ({} años)", "1 dependent (age {})"),
     "summary_children_n": (
@@ -280,26 +295,31 @@ TEXT = {
     "not_included": (
         "**No incluido:** tasas preferenciales distintas del 10% y 15% "
         "(columnas de 4% y 20% del Anejo A2) y arrastre de pérdidas de "
-        "capital; créditos por inversión (Anejo B); Sección 8; categorías "
-        "A, B, D, G y T del TANF; efectos de comportamiento. "
+        "capital; créditos por inversión (Anejo B); categorías A, B, D, G y T "
+        "del TANF; efectos de comportamiento. "
         "**Incluido con salvedades:** el PAN paga el beneficio máximo a todo "
         "hogar elegible, porque ADSEF no publica la tabla que lo reduce según "
         "el ingreso neto, usa los límites de octubre de 2021 para hogares de 2 "
         "o más personas y no aplica prueba de recursos; el TANF (categoría C, "
         "madre o padre solo con hijos menores) usa el máximo de una familia de "
-        "tres ($584) para todo tamaño; el Plan Vital se evalúa como "
-        "elegibilidad, sin valor en dólares. La exención para jóvenes (Ley "
+        "tres ($584) para todo tamaño; la Sección 8 solo se calcula si usted "
+        "indica que el hogar tiene un vale, con los límites y rentas justas "
+        "de mercado de San Juan-Guaynabo para toda la isla; el Plan Vital se "
+        "evalúa como elegibilidad, sin valor en dólares. La exención para jóvenes (Ley "
         "135-2014) se aplica automáticamente entre los 16 y 26 años.",
         "**Not included:** preferential rates other than 10% and 15% (Anejo "
         "A2 columns at 4% and 20%) and capital-loss carryovers; investment "
-        "credits (Anejo B); Section 8; TANF categories A, B, D, G and T; "
-        "behavioural responses. **Included with caveats:** PAN pays the "
+        "credits (Anejo B); TANF categories A, B, D, G and T; behavioural "
+        "responses. **Included with caveats:** PAN pays the "
         "maximum benefit to every eligible household because ADSEF does not "
         "publish the schedule that reduces it with net income, uses the "
         "October 2021 limits for households of 2 or more, and applies no "
         "resources test; TANF (category C, single parent with minor "
-        "children) uses the three-person maximum ($584) for every size; Plan "
-        "Vital is assessed as eligibility only, with no dollar value. The "
+        "children) uses the three-person maximum ($584) for every size; "
+        "Section 8 is computed only if you say the household holds a voucher, "
+        "with the San Juan-Guaynabo income limits and fair market rents applied "
+        "island-wide; Plan Vital is assessed as eligibility only, with no "
+        "dollar value. The "
         "youth exemption (Ley 135-2014) applies automatically at ages 16–26.",
     ),
     "assumptions_title": ("Ver supuestos", "See assumptions"),
@@ -315,6 +335,13 @@ TEXT = {
     "col_current": ("Ley vigente", "Current law"),
     "col_reform": ("Reforma", "Reform"),
     "col_source": ("Archivo", "File"),
+    "share_title": ("Compartir", "Share"),
+    "share_help": (
+        "La dirección de esta página incluye el hogar, la reforma y la "
+        "página abierta. Copie el enlace para compartir exactamente lo que ve.",
+        "This page's address includes the household, the reform and the open "
+        "page. Copy the link to share exactly what you see.",
+    ),
     "tutorial_title": ("Cómo usar estas páginas", "How to use these pages"),
     "tab_calc": ("Calculadora", "Calculator"),
     "tab_cliff": ("CliffWatch", "CliffWatch"),
@@ -362,7 +389,9 @@ pasos de \\$500 hasta \\$150,000.
 - El párrafo bajo el título resume lo anterior en palabras.
 
 Con una reforma activa se dibujan las dos curvas y los precipicios se
-calculan sobre la reforma.
+calculan sobre la reforma. Al final, *Comparar con* superpone otro hogar
+tipo; para una planilla conjunta, *Los mismos adultos sin casarse* calcula
+la penalidad o el bono por matrimonio.
 """,
     """
 **CliffWatch** takes the same household and raises the filer's wages in
@@ -376,7 +405,9 @@ calculan sobre la reforma.
 - The paragraph under the title says the same in words.
 
 With a reform active, both curves are drawn and cliffs are computed on the
-reform.
+reform. At the bottom, *Compare with* overlays another preset household;
+for a joint return, *The same adults unmarried* gives the marriage penalty
+or bonus.
 """,
 )
 TUTORIAL_REFORM = (
@@ -417,13 +448,131 @@ def money(x):
 # ---------------------------------------------------------------------------
 # Session-state helpers for presets and example reforms
 # ---------------------------------------------------------------------------
+def hh_from_state(state):
+    """The household dict the calculator builds from the sidebar, from any
+    mapping with the sidebar's keys (session state or DEFAULTS + overrides)."""
+    g = state.get
+    hh = {
+        "joint": bool(g("joint", False)),
+        "filer_age": g("filer_age", 35),
+        "filer_veteran": bool(g("filer_veteran", False)),
+        "filer": {v: g(f"filer_{v}", 0) for v in PERSON_VARS},
+        "spouse_age": g("spouse_age", 35),
+        "spouse_wages": g("spouse_wages", 0),
+        "spouse_veteran": bool(g("spouse_veteran", False)),
+        "spouse": {v: g(f"spouse_{v}", 0) for v in PERSON_VARS},
+        "child_ages": [g(f"c{i}", 0) for i in range(int(g("n_children", 0)))],
+        "deductions": {v: g(f"d_{v}", 0) for v in DEDUCTION_VARS},
+        "other_deductions": g("other_deductions", 0),
+        "abt_other_income": g("abt_other_income", 0),
+        "housing_assisted": bool(g("housing_assisted", False)),
+        "housing_rent": g("housing_rent", 0),
+    }
+    if not hh["joint"]:
+        hh["spouse_wages"], hh["spouse"] = 0, {}
+    return hh, g("filer_wages", 0)
+
+
+def preset_hh(key):
+    """(hh, filer_wages) for a preset household."""
+    row = _lookup(PRESETS, key)
+    return hh_from_state({**DEFAULTS, **(row[3] if row else {})})
+
+
+def unmarried_split(hh):
+    """The same two adults as two unmarried households: the filer keeps the
+    children, deductions and housing; the spouse lives alone on their own
+    wages and other income. Returns (hh_filer, hh_spouse)."""
+    a = dict(hh, joint=False, spouse_wages=0, spouse={})
+    b, _ = hh_from_state(
+        {
+            **DEFAULTS,
+            "filer_age": hh["spouse_age"],
+            "filer_veteran": hh["spouse_veteran"],
+            "n_children": 0,
+            **{f"filer_{v}": hh["spouse"].get(v, 0) for v in PERSON_VARS},
+        }
+    )
+    return a, b
+
+
+SHARED_KEYS = ("view", "lang", "reform_name", "compare_with")
+
+
+def _coerce(value, like):
+    if isinstance(like, bool):
+        return value in ("1", "true", "True")
+    if isinstance(like, int):
+        return int(float(value))
+    if isinstance(like, float):
+        return float(value)
+    return value
+
+
+def apply_query_params(lever_defaults):
+    """Load a shared link (?filer_wages=30000&joint=1&r.gov...=12000) into
+    the session state, once, before the widgets are created."""
+    if st.session_state.get("_qp_applied"):
+        return
+    st.session_state["_qp_applied"] = True
+    for k, v in st.query_params.to_dict().items():
+        try:
+            if k.startswith("r."):
+                path = k[2:]
+                if path in lever_defaults:
+                    st.session_state[f"r_{path}"] = float(v)
+            elif k in DEFAULTS:
+                st.session_state[k] = _coerce(v, DEFAULTS[k])
+            elif k in SHARED_KEYS:
+                st.session_state[k] = v
+        except (TypeError, ValueError):
+            continue
+
+
+def sync_query_params(lever_defaults):
+    """Write every non-default input to the URL so the page can be shared.
+    Call after the sidebar has been built."""
+    s = st.session_state
+    out = {}
+    for k, default in DEFAULTS.items():
+        v = s.get(k, default)
+        if v != default:
+            out[k] = str(int(v)) if isinstance(v, bool) else str(v)
+    for path, default in lever_defaults.items():
+        v = s.get(f"r_{path}", default)
+        if abs(float(v) - float(default)) > 1e-9:
+            out[f"r.{path}"] = f"{v:g}"
+    for k in SHARED_KEYS:
+        v = s.get(k)
+        if v and v not in ("home", "none", "Español"):
+            out[k] = str(v)
+    if st.query_params.to_dict() != out:
+        st.query_params.from_dict(out)
+
+
+def share_link():
+    """The full URL of the current page, from st.context when available."""
+    try:
+        url = st.context.url
+    except Exception:
+        return None
+    if not url:
+        return None
+    url = str(url)
+    query = "&".join(f"{k}={v}" for k, v in st.query_params.to_dict().items())
+    base = url.split("?")[0]
+    return f"{base}?{query}" if query else base
+
+
 def init_state(lever_defaults):
     for k, v in DEFAULTS.items():
         st.session_state.setdefault(k, v)
     for path, v in lever_defaults.items():
         st.session_state.setdefault(f"r_{path}", v)
     st.session_state.setdefault("view", "home")
+    st.session_state.setdefault("lang", "Español")
     st.session_state.setdefault("reform_name", "")
+    apply_query_params(lever_defaults)
 
 
 def _lookup(table, value):
@@ -496,6 +645,8 @@ def household_summary(hh, filer_wages, L):
         )
         if total:
             parts.append(t(key, L, money(total)))
+    if hh.get("housing_assisted"):
+        parts.append(t("summary_voucher", L))
     text = "; ".join(parts)
     # shown with st.markdown, where "$…$" would be read as LaTeX
     return (text[0].upper() + text[1:] + ".").replace("$", "\\$")

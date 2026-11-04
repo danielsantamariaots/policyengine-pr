@@ -1,0 +1,107 @@
+# Expected values computed by hand from 24 CFR 5.611 / 5.628 / 982.505 with
+# the FY2025 San Juan-Guaynabo FMRs and very low income limits in
+# docs/statutes/hud/ (HOME_RentLimits / HOME_IncomeLmts, State of Puerto Rico).
+
+- name: "Single parent, two children, $1,000 a month in wages, voucher: HAP = 656 - 276"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+        housing_assisted: true
+  output:
+    # TANF: countable 12,000 - 1,080 = 10,920 -> 910/month > 584, so none
+    section8_annual_income: 12_000
+    # 12,000 - 2 x 480
+    section8_adjusted_income: 11_040
+    section8_bedrooms: 2
+    section8_payment_standard: 656
+    # max(0.30 x 920, 0.10 x 1,000, 0)
+    section8_total_tenant_payment: 276
+    # 12,000 <= 17,550 (three persons)
+    section8_income_eligible: true
+    # (656 - 276) x 12
+    section8: 4_560
+
+- name: Same household without a voucher receives nothing
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    section8: 0
+
+- name: "Retiree aged 65 alone on $20,000 of Social Security: elderly deduction, one bedroom"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 65
+        social_security: 20_000
+    households:
+      household:
+        members: [p]
+        housing_assisted: true
+  output:
+    # 20,000 - 525
+    section8_adjusted_income: 19_475
+    section8_bedrooms: 1
+    section8_payment_standard: 569
+    # max(0.30 x 1,622.9167, 0.10 x 1,666.67) = 486.875
+    section8_total_tenant_payment: 486.875
+    # (569 - 486.875) x 12
+    section8: 985.5
+
+- name: "Three persons on $40,000: subsidy exhausted and over the admission limit"
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 40_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+        housing_assisted: true
+  output:
+    # 0.30 x (40,000 - 960) / 12 = 976 > 656
+    section8: 0
+    section8_income_eligible: false
+
+- name: "Gross rent below the payment standard caps the subsidy: $500 rent, zero income"
+  period: 2025
+  input:
+    people:
+      p:
+        age: 40
+    households:
+      household:
+        members: [p]
+        housing_assisted: true
+        housing_rent: 500
+  output:
+    # min(569, 500) - 0, x 12
+    section8: 6_000

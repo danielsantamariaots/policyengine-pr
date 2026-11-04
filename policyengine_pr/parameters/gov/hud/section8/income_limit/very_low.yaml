@@ -1,0 +1,32 @@
+description: Very low income limit (50% of area median income) for admission to the Housing Choice Voucher programme, by household size, San Juan-Guaynabo HUD Metro FMR Area, FY2025.
+metadata:
+  unit: currency-USD
+  period: year
+  label: Section 8 very low income limit (San Juan-Guaynabo)
+  reference:
+    - title: "HUD, FY2025 HOME Program Income Limits, State of Puerto Rico, San Juan-Guaynabo, PR HUD Metro FMR Area, VERY LOW INCOME row (effective 1 April 2025)"
+      href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=IncomeLmts&program=HOME
+    - title: "24 CFR 982.201(b)(1): initial eligibility limited to very low-income families (with 75% of admissions reserved for extremely low-income families)"
+      href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
+  gap: >-
+    HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them.
+    San Juan-Guaynabo limits are applied to every household; the other
+    seven Puerto Rico FMR areas (docs/statutes/hud/HOME_IncomeLmts_State_PR_2025.txt)
+    are lower. Households larger than 8 use the size-8 value (HUD adds 8% of
+    the four-person limit per extra person).
+1:
+  2025-01-01: 13650
+2:
+  2025-01-01: 15600
+3:
+  2025-01-01: 17550
+4:
+  2025-01-01: 19450
+5:
+  2025-01-01: 21050
+6:
+  2025-01-01: 22600
+7:
+  2025-01-01: 24150
+8:
+  2025-01-01: 25700

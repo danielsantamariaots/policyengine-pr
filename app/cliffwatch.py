@@ -90,6 +90,7 @@ TEXT = {
     "s_actc": ("Crédito federal por hijos", "Federal child credit (ACTC)"),
     "s_pan": ("PAN", "PAN (nutrition assistance)"),
     "s_tanf": ("TANF", "TANF (cash assistance)"),
+    "s_section8": ("Sección 8", "Section 8 (housing voucher)"),
     "s_cliff": ("Precipicio", "Cliff"),
     "s_emtr": ("Ley vigente", "Current law"),
     "s_emtr_reform": ("Reforma", "Reform"),
@@ -144,6 +145,10 @@ TEXT = {
     "cause_payroll": ("Suben Seguro Social y Medicare", "Payroll taxes rise"),
     "cause_pan": ("Se pierde el PAN", "PAN lost"),
     "cause_tanf": ("Se reduce o se pierde el TANF", "TANF reduced or lost"),
+    "cause_section8": (
+        "Se reduce el subsidio de Sección 8",
+        "Section 8 subsidy falls",
+    ),
     "narr_none": (
         "Para este hogar no hay precipicios: el ingreso neto sube siempre que "
         "suben los salarios, y en ningún tramo se pierde la mitad o más de "
@@ -199,20 +204,87 @@ TEXT = {
         "se reduce o se pierde el TANF",
         "TANF is reduced or lost",
     ),
+    "narr_cause_section8": (
+        "se reduce el subsidio de Sección 8",
+        "the Section 8 subsidy falls",
+    ),
+    "compare_title": (
+        "Comparar con otro hogar",
+        "Compare with another household",
+    ),
+    "compare_sub": (
+        "Mismos salarios del contribuyente en el eje; el otro hogar se "
+        "calcula con la misma ley (y la misma reforma, si hay una).",
+        "Same filer wages on the axis; the other household is computed under "
+        "the same law (and the same reform, if any).",
+    ),
+    "compare_pick": ("Comparar con", "Compare with"),
+    "compare_none": ("Sin comparación", "No comparison"),
+    "compare_unmarried": (
+        "Los mismos adultos sin casarse (penalidad por matrimonio)",
+        "The same adults unmarried (marriage penalty)",
+    ),
+    "compare_net": (
+        "Ingreso neto de los dos hogares",
+        "Net income of both households",
+    ),
+    "compare_emtr": (
+        "Tasa marginal efectiva de los dos hogares",
+        "Effective marginal rate of both households",
+    ),
+    "compare_this": ("Este hogar", "This household"),
+    "m_compare_net": (
+        "Ingreso neto del otro hogar, a sus salarios",
+        "Other household's net income at your wages",
+    ),
+    "m_compare_diff": (
+        "Diferencia frente a este hogar",
+        "Difference from this household",
+    ),
+    "m_marriage": (
+        "Penalidad por matrimonio, a sus salarios",
+        "Marriage penalty at your wages",
+    ),
+    "m_marriage_help": (
+        "Ingreso neto de la pareja casada menos la suma de los dos hogares "
+        "por separado (el contribuyente con los hijos; el cónyuge solo). "
+        "Negativo: casarse cuesta dinero; positivo: bono por matrimonio.",
+        "Net income of the married couple minus the sum of the two separate "
+        "households (filer with the children; spouse alone). Negative: "
+        "marriage costs money; positive: a marriage bonus.",
+    ),
+    "narr_marriage_penalty": (
+        "A sus salarios, casarse **cuesta {}** al año frente a vivir como dos "
+        "hogares separados.",
+        "At your wages, marriage **costs {}** a year compared with two "
+        "separate households.",
+    ),
+    "narr_marriage_bonus": (
+        "A sus salarios, casarse **rinde {}** más al año que vivir como dos "
+        "hogares separados.",
+        "At your wages, marriage **yields {}** more a year than two separate "
+        "households.",
+    ),
+    "narr_marriage_none": (
+        "A sus salarios no hay penalidad ni bono por matrimonio.",
+        "At your wages there is neither a marriage penalty nor a bonus.",
+    ),
     "note": (
         "La tasa marginal efectiva se calcula sobre pasos de $500. El PAN se "
         "modela con el beneficio máximo para todo hogar elegible, porque ADSEF "
         "no publica la tabla de beneficios por nivel de ingreso neto: el "
         "precipicio al superar el límite es, en parte, un artefacto de esa "
         "laguna. El TANF usa el máximo de una familia de tres ($584) para todo "
-        "tamaño. Plan Vital se evalúa pero no tiene valor en dólares; Sección 8 "
-        "no está incluida.",
+        "tamaño. La Sección 8 solo aparece si el hogar tiene vale y usa la "
+        "renta justa de mercado de San Juan. Plan Vital se evalúa pero no "
+        "tiene valor en dólares.",
         "The effective marginal rate is computed over $500 steps. PAN is "
         "modelled at the maximum benefit for every eligible household because "
         "ADSEF does not publish the benefit schedule by net income: the cliff "
         "at the limit is partly an artefact of that gap. TANF uses the "
-        "three-person maximum ($584) for every size. Plan Vital is assessed "
-        "but carries no dollar value; Section 8 is not included.",
+        "three-person maximum ($584) for every size. Section 8 appears only if "
+        "the household holds a voucher and uses the San Juan fair market "
+        "rent. Plan Vital is assessed but carries no dollar value.",
     ),
 }
 
@@ -228,6 +300,7 @@ VARS = {
     "actc": "federal_actc",
     "pan": "pan",
     "tanf": "tanf",
+    "section8": "section8",
 }
 
 
@@ -261,6 +334,24 @@ def earnings_range(situation, reform=None):
     return df
 
 
+def combined_range(parts, reform=None):
+    """Net income over the wage axis for a household made of several
+    simulated parts: (situation, None) rides the axis; (situation, wages)
+    is held at those wages (an unmarried spouse on their own income)."""
+    out = None
+    for situation, fixed in parts:
+        df = earnings_range(situation, reform)
+        if out is None:
+            out = df[["wages"]].copy()
+            out["net"] = 0.0
+        if fixed is None:
+            out["net"] += df["net"].values
+        else:
+            out["net"] += df.loc[round(min(fixed, MAX_WAGES) / STEP), "net"]
+    out["emtr"] = 1 - out["net"].diff() / out["wages"].diff()
+    return out
+
+
 def find_cliffs(df, L):
     """Steps where net income falls. Cause = component with the largest
     adverse change over that step."""
@@ -274,6 +365,7 @@ def find_cliffs(df, L):
             "cause_payroll": d.loc[i, "payroll"],
             "cause_pan": -d.loc[i, "pan"],
             "cause_tanf": -d.loc[i, "tanf"],
+            "cause_section8": -d.loc[i, "section8"],
         }
         cause = max(adverse, key=adverse.get)
         rows.append(
@@ -357,7 +449,12 @@ def render(
     reform_name=None,
     metric_row=None,
     reform_notice=None,
+    compare=None,
 ):
+    """compare: list of (key, label, parts) options for the comparison
+    section; parts as in combined_range. key "unmarried" adds the marriage
+    penalty reading."""
+
     def t(key):
         return TEXT[key][L]
 
@@ -483,6 +580,7 @@ def render(
         ("actc", "s_actc", 1),
         ("pan", "s_pan", 1),
         ("tanf", "s_tanf", 1),
+        ("section8", "s_section8", 1),
         ("tax", "s_tax", -1),
         ("payroll", "s_payroll", -1),
     ):
@@ -612,6 +710,7 @@ def render(
                 "actc",
                 "pan",
                 "tanf",
+                "section8",
                 "net",
                 "emtr",
             ]
@@ -625,6 +724,7 @@ def render(
                 "actc": t("s_actc"),
                 "pan": t("s_pan"),
                 "tanf": t("s_tanf"),
+                "section8": t("s_section8"),
                 "net": t("s_net"),
                 "emtr": t("col_emtr"),
             }
@@ -638,4 +738,112 @@ def render(
             hide_index=True,
             height=360,
         )
+    if compare:
+        st.subheader(t("compare_title"))
+        st.caption(md("compare_sub"))
+        keys = ["none"] + [k for k, *_ in compare]
+        labels = {"none": t("compare_none")} | {
+            k: lab for k, lab, _ in compare
+        }
+        pick = st.selectbox(
+            t("compare_pick"),
+            keys,
+            format_func=lambda k: labels[k],
+            key="compare_with",
+        )
+        if pick != "none":
+            parts = next(parts for k, _, parts in compare if k == pick)
+            other = combined_range(parts, reform)
+            idx = min(here, len(other) - 1)
+            net_here, other_here = shown.loc[idx, "net"], other.loc[idx, "net"]
+            if pick == "unmarried":
+                diff = net_here - other_here
+                st.metric(
+                    t("m_marriage"), money(diff), help=md("m_marriage_help")
+                )
+                if diff < -0.5:
+                    st.markdown(
+                        md("narr_marriage_penalty").format(
+                            money(-diff).replace("$", "\\$")
+                        )
+                    )
+                elif diff > 0.5:
+                    st.markdown(
+                        md("narr_marriage_bonus").format(
+                            money(diff).replace("$", "\\$")
+                        )
+                    )
+                else:
+                    st.markdown(md("narr_marriage_none"))
+            else:
+                c1, c2 = st.columns(2)
+                c1.metric(t("m_compare_net"), money(other_here))
+                c2.metric(t("m_compare_diff"), money(other_here - net_here))
+            fig = charts.figure(
+                t("compare_net"), x_title=t("x_axis"), y_money=True, height=380
+            )
+            charts.line(
+                fig,
+                shown["wages"],
+                shown["net"],
+                t("compare_this"),
+                charts.SERIES["net"],
+            )
+            charts.line(
+                fig,
+                other["wages"],
+                other["net"],
+                labels[pick],
+                charts.SERIES["reform"],
+            )
+            charts.end_label(
+                fig,
+                shown.iloc[-1]["wages"],
+                shown.iloc[-1]["net"],
+                money(shown.iloc[-1]["net"]),
+                charts.SERIES["net"],
+            )
+            charts.end_label(
+                fig,
+                other.iloc[-1]["wages"],
+                other.iloc[-1]["net"],
+                money(other.iloc[-1]["net"]),
+                charts.SERIES["reform"],
+            )
+            marker_lines(fig)
+            st.plotly_chart(
+                fig, use_container_width=True, config=charts.CONFIG
+            )
+            fig = charts.figure(
+                t("compare_emtr"),
+                x_title=t("x_axis"),
+                y_percent=True,
+                height=340,
+            )
+            charts.line(
+                fig,
+                shown["wages"],
+                shown["emtr"],
+                t("compare_this"),
+                charts.SERIES["net"],
+                money=False,
+                shape="hv",
+            )
+            charts.line(
+                fig,
+                other["wages"],
+                other["emtr"],
+                labels[pick],
+                charts.SERIES["reform"],
+                money=False,
+                shape="hv",
+            )
+            charts.hline(
+                fig, HIGH_EMTR, color=charts.MUTED, dash="dot", label="50%"
+            )
+            fig.update_yaxes(range=[-0.5, 1.5])
+            marker_lines(fig)
+            st.plotly_chart(
+                fig, use_container_width=True, config=charts.CONFIG
+            )
     st.caption(md("note"))

@@ -1,0 +1,13 @@
+description: Annual deduction for an elderly or disabled family (head, spouse or sole member aged 62 or over, or with a disability).
+metadata:
+  unit: currency-USD
+  period: year
+  label: Section 8 elderly or disabled family deduction
+  reference:
+    - title: "24 CFR 5.611(a)(2), as amended by the HOTMA final rule (88 FR 9600, 14 Feb 2023): $525 for any elderly family or disabled family, adjusted annually for inflation (previously $400)"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+    - title: "Arizona Department of Housing, IB-67-24 (Oct 2024): 2025 elderly/disabled family deduction remains $525"
+      href: https://housing.az.gov/sites/default/files/2024-10/IB-67-24-HOTMA-Implementation-Date-Extended.pdf
+  gap: Disability is not an input; only age 62+ qualifies in the model. 2025 amount from a secondary source (see dependent.yaml).
+values:
+  2024-01-01: 525

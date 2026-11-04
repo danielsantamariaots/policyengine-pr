@@ -1,0 +1,9 @@
+description: Share of monthly (unadjusted) income that sets a floor on the total tenant payment.
+metadata:
+  unit: /1
+  label: Section 8 total tenant payment rate on gross income
+  reference:
+    - title: "24 CFR 5.628(a)(2): 10 percent of the family's monthly income"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+values:
+  2025-01-01: 0.10

@@ -1,0 +1,15 @@
+description: Annual deduction from income for each dependent (member under 18, or a student or person with a disability other than the head or spouse).
+metadata:
+  unit: currency-USD
+  period: year
+  label: Section 8 dependent deduction
+  reference:
+    - title: "24 CFR 5.611(a)(1), as amended by the HOTMA final rule (88 FR 9600, 14 Feb 2023): $480 for each dependent, adjusted annually for inflation"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+    - title: "HUD, Methodology for Annual Inflationary Adjustments to Income Calculations in HUD Subsidized Housing Programs, 89 FR 27377 (17 Apr 2024): 2024 dependent deduction $480"
+      href: https://www.govinfo.gov/content/pkg/FR-2024-04-17/html/2024-08133.htm
+    - title: "Arizona Department of Housing, IB-67-24 (Oct 2024): 2025 dependent deduction remains $480"
+      href: https://housing.az.gov/sites/default/files/2024-10/IB-67-24-HOTMA-Implementation-Date-Extended.pdf
+  gap: The 2025 amount rests on HUD's 2024 notice and a state housing bulletin; the 2025 Federal Register notice itself has not been saved. Students aged 18+ and members with disabilities are not identified in the model, so only members under 18 count.
+values:
+  2024-01-01: 480

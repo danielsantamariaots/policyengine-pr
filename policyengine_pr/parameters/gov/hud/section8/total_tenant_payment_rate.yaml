@@ -1,0 +1,9 @@
+description: Share of monthly adjusted income the family pays towards rent (total tenant payment).
+metadata:
+  unit: /1
+  label: Section 8 total tenant payment rate on adjusted income
+  reference:
+    - title: "24 CFR 5.628(a)(1): total tenant payment is the highest of 30% of monthly adjusted income, 10% of monthly income, welfare rent, or the minimum rent"
+      href: https://www.ecfr.gov/current/title-24/subtitle-A/part-5/subpart-F
+values:
+  2025-01-01: 0.30
