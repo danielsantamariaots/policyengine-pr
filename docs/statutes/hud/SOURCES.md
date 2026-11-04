@@ -37,3 +37,5 @@ online. Those three are flagged `gap:` in `policyengine_pr/parameters/gov/hud/se
 3. Share of vouchers outside the San Juan-Guaynabo area, to apply the
    other seven areas' income limits and FMRs.
 4. Medical, disability-assistance and child-care deductions (§5.611(a)(3)–(4)).
+
+The data request letter for these gaps is `docs/solicitud_datos_vivienda.md` (.docx alongside).
