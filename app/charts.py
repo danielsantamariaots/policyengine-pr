@@ -103,7 +103,7 @@ TEMPLATE = go.layout.Template(
         legend=dict(
             orientation="h",
             yanchor="top",
-            y=-0.22,
+            y=-0.3,
             x=0,
             font=dict(size=12, color=MUTED),
             itemclick="toggleothers",
@@ -177,12 +177,14 @@ def figure(
     # attribution, baked into every PNG export
     fig.add_annotation(
         x=1,
-        y=-0.26 if x_title else -0.18,
+        y=1.0,
         xref="paper",
         yref="paper",
         text=SOURCE_LINE,
         showarrow=False,
         xanchor="right",
+        yanchor="bottom",
+        yshift=4,
         font=dict(size=10, color=MUTED),
     )
     if y_money:
