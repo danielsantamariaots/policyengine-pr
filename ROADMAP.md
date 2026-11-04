@@ -80,8 +80,8 @@ late: ship the household calculator first; aggregate estimates follow.
 | When | Step | Status |
 |---|---|---|
 | Nov 2026 | Send the three data requests (Hacienda, ADSEF, Salud) | letters drafted |
-| Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | files prepared |
-| Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI + guide done; licence pending EA |
+| Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | live at https://policyengine-pr.streamlit.app (4 Nov 2026); custom domain pending |
+| Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI green, guide done, repo public (4 Nov 2026); licence pending EA |
 | Nov–Dec 2026 | CPA validation of 10–15 real anonymised 2025 returns | workbook prepared |
 | Dec 2026 | Calibration review (weights, tax-unit construction) | pending |
 | Dec 2026 | Reform report template, dry-run on a dummy reform | generator done |
