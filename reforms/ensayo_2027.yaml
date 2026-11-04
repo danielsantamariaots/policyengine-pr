@@ -1,0 +1,18 @@
+name: Ensayo 2027 - tramo de 0% a $15,000, tasa del 7% al 5%, Crédito por Trabajo +15%
+name_en: 2027 rehearsal - 0% bracket to $15,000, 7% rate to 5%, Crédito por Trabajo +15%
+description: >-
+  Propuesta ficticia para ensayar la respuesta rápida: el tramo de 0% de la
+  tabla de la Sección 1021.01 pasa de $9,000 a $15,000, la tasa del segundo
+  tramo baja del 7% al 5%, la exención por dependiente sube de $2,500 a
+  $3,000 y los cuatro máximos del Crédito por Trabajo (Sección 1052.01)
+  suben un 15%. No corresponde a ningún proyecto de ley.
+source: Ensayo interno (policyengine-pr), 4 de noviembre de 2026
+start: 2025-01-01
+levers:
+  gov.hacienda.income.rates[1].threshold: 15000
+  gov.hacienda.income.rates[1].rate: 0.05
+  gov.hacienda.income.exemptions.dependent: 3000
+  gov.hacienda.credits.eitc.max.0: "+15%"
+  gov.hacienda.credits.eitc.max.1: "+15%"
+  gov.hacienda.credits.eitc.max.2: "+15%"
+  gov.hacienda.credits.eitc.max.3: "+15%"

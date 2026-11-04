@@ -23,7 +23,11 @@ import ui
 
 from policyengine_pr import Simulation, system
 from policyengine_pr.data.hud_areas import MUNICIPIOS
-from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
+from policyengine_pr.reforms.parametric import (
+    LEVER_LABELS_ES,
+    LEVERS,
+    parametric_reform,
+)
 
 YEAR = 2025
 BASELINE_COLOR = "#2a78d6"
@@ -463,32 +467,6 @@ DEDUCTION_INPUTS = [
         "Interest and principal, university level",
     ),
 ]
-LEVER_LABELS_ES = {
-    "Bracket 2 starts (7%)": "Inicio del tramo 2 (7%)",
-    "Bracket 2 rate": "Tasa del tramo 2",
-    "Bracket 3 starts (14%)": "Inicio del tramo 3 (14%)",
-    "Bracket 3 rate": "Tasa del tramo 3",
-    "Bracket 4 starts (25%)": "Inicio del tramo 4 (25%)",
-    "Bracket 4 rate": "Tasa del tramo 4",
-    "Top bracket starts (33%)": "Inicio del tramo superior (33%)",
-    "Top bracket rate": "Tasa del tramo superior",
-    "Personal exemption, single": "Exención personal, individual",
-    "Personal exemption, joint": "Exención personal, conjunta",
-    "Exemption per dependent": "Exención por dependiente",
-    "Tax factor, gross income ≤ threshold": "Factor (92%) si ingreso bruto ≤ umbral",
-    "Tax factor, above threshold": "Factor (95%) sobre el umbral",
-    "Tax factor income threshold": "Umbral de ingreso bruto del factor",
-    "EITC maximum, no children": "Crédito por Trabajo máximo, sin dependientes",
-    "EITC maximum, 1 child": "Crédito por Trabajo máximo, 1 dependiente",
-    "EITC maximum, 2 children": "Crédito por Trabajo máximo, 2 dependientes",
-    "EITC maximum, 3+ children": "Crédito por Trabajo máximo, 3+ dependientes",
-    "EITC phase-out start, 2 children, single": "Inicio de reducción del crédito, 2 dep., individual",
-    "EITC phase-out start, 2 children, joint": "Inicio de reducción del crédito, 2 dep., conjunta",
-    "EITC income limit, 2 children, single": "Límite de ingreso del crédito, 2 dep., individual",
-    "EITC income limit, 2 children, joint": "Límite de ingreso del crédito, 2 dep., conjunta",
-    "Youth exemption (Ley 135)": "Exención para jóvenes (Ley 135)",
-    "Youth exemption maximum age": "Edad máxima de la exención para jóvenes",
-}
 
 
 def current_value(path):

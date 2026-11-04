@@ -14,7 +14,11 @@ from pathlib import Path
 
 from policyengine_pr import Simulation
 from policyengine_pr.analysis.scoring import score
-from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
+from policyengine_pr.reforms.parametric import (
+    LEVER_LABELS_ES,
+    LEVERS,
+    parametric_reform,
+)
 
 YEAR = 2025
 HOUSEHOLDS = [
@@ -48,7 +52,7 @@ HOUSEHOLDS = [
         "SINGLE",
     ),
 ]
-LABELS = {path: label for path, label, _ in LEVERS}
+LABELS = {path: LEVER_LABELS_ES.get(label, label) for path, label, _ in LEVERS}
 
 
 def _situation(people, status):
