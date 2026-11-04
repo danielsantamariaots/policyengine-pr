@@ -35,11 +35,18 @@ jobs:
               page = browser.new_page()
               page.goto(URL, wait_until="load", timeout=180_000)
               # wait for the Streamlit app (or its wake-up button) to render
+              text = ""
               for _ in range(12):
                   page.wait_for_timeout(10_000)
-                  text = page.inner_text("body")
+                  # Community Cloud renders the app inside an iframe
+                  text = " ".join(
+                      f.inner_text("body") for f in page.frames if f.url
+                  )
                   if "get this app back up" in text.lower():
-                      page.get_by_role("button").first.click()
+                      for f in page.frames:
+                          btn = f.get_by_role("button", name="Yes, get this app back up!")
+                          if btn.count():
+                              btn.first.click()
                   if "Modelo contributivo" in text or "contributiva" in text:
                       print("app rendered")
                       browser.close()
