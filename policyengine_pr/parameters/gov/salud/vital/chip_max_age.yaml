@@ -1,0 +1,10 @@
+description: Children are evaluated under the CHIP limit while under this age.
+metadata:
+  unit: year
+  label: CHIP maximum age
+  reference:
+    - title: "CMS, Medicaid & CHIP in Puerto Rico (CHIP covers children under 19)"
+      href: https://www.medicaid.gov/state-overviews/puerto-rico.html
+values:
+  # CMS effective date 1 April 2026; applied from 2025-01-01 so the 2025 tax year uses the latest published table (see gap note)
+  2025-01-01: 19

@@ -1,0 +1,53 @@
+# Expected values from the CMS Puerto Rico table effective 1 April 2026
+# (docs/statutes/vital/): Medicaid $1,835 + $653.44 per extra member;
+# CHIP $3,604 + $1,282.73 per extra member; CHIP under age 19.
+
+- name: Single adult at $21,000 is under the Medicaid limit ($1,835 x 12 = $22,020)
+  period: 2025
+  input:
+    people:
+      p:
+        age: 40
+        employment_income: 21_000
+    households:
+      household:
+        members: [p]
+  output:
+    is_vital_eligible: [true]
+    vital_eligible_count: 1
+
+- name: Single adult at $23,000 is over the limit
+  period: 2025
+  input:
+    people:
+      p:
+        age: 40
+        employment_income: 23_000
+    households:
+      household:
+        members: [p]
+  output:
+    is_vital_eligible: [false]
+
+- name: "Parent with two children at $45,000: children covered by CHIP, parent not"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 35
+        employment_income: 45_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    # 1,835 + 2 x 653.44 = 3,141.88 a month = 37,702.56 a year < 45,000
+    vital_medicaid_income_limit: 3_141.88
+    # 3,604 + 2 x 1,282.73 = 6,169.46 a month = 74,033.52 a year > 45,000
+    vital_chip_income_limit: 6_169.46
+    is_vital_eligible: [false, true, true]
+    vital_eligible_count: 2

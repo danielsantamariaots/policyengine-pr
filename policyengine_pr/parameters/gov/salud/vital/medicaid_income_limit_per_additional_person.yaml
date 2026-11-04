@@ -1,0 +1,11 @@
+description: Increase in the monthly Medicaid income limit per household member beyond the first.
+metadata:
+  unit: currency-USD
+  period: month
+  label: Vital Medicaid income limit increment
+  reference:
+    - title: "CMS, Medicaid & CHIP in Puerto Rico, 2026 table: $2,489 (2), $3,142 (3), $3,795 (4), i.e. $653-654 per person"
+      href: https://www.medicaid.gov/state-overviews/puerto-rico.html
+values:
+  # CMS effective date 1 April 2026; applied from 2025-01-01 so the 2025 tax year uses the latest published table (see gap note)
+  2025-01-01: 653.44

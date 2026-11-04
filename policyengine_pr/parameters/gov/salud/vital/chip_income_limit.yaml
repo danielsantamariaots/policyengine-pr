@@ -1,0 +1,11 @@
+description: Monthly MAGI income limit for CHIP (children under 19) for a one-person household.
+metadata:
+  unit: currency-USD
+  period: month
+  label: Vital CHIP income limit, one person
+  reference:
+    - title: "CMS, Medicaid & CHIP in Puerto Rico, 2026 table, CHIP column (household size 1: $3,604.00)"
+      href: https://www.medicaid.gov/state-overviews/puerto-rico.html
+values:
+  # CMS effective date 1 April 2026; applied from 2025-01-01 so the 2025 tax year uses the latest published table (see gap note)
+  2025-01-01: 3_604

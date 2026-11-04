@@ -1,0 +1,14 @@
+description: Monthly MAGI income limit for Medicaid (Plan Vital) for a one-person household.
+metadata:
+  unit: currency-USD
+  period: month
+  label: Vital Medicaid income limit, one person
+  reference:
+    - title: "CMS, Medicaid & CHIP in Puerto Rico: Medicaid and CHIP Standard Monthly Income Eligibility Levels effective April 1, 2026 to April 2027 (household size 1: $1,835.00)"
+      href: https://www.medicaid.gov/state-overviews/puerto-rico.html
+  gap: >-
+    The April 2025 - March 2026 levels are not published on the page; the
+    2026 table is applied to the 2025 tax year (docs/statutes/vital/SOURCES.md).
+values:
+  # CMS effective date 1 April 2026; applied from 2025-01-01 so the 2025 tax year uses the latest published table (see gap note)
+  2025-01-01: 1_835

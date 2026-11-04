@@ -1,0 +1,14 @@
+description: Maximum monthly earnings for initial TANF (Category C) eligibility.
+metadata:
+  unit: currency-USD
+  period: month
+  label: TANF initial-eligibility earnings ceiling
+  reference:
+    - title: "Urban Institute / ACF OPRE, Graphical Overview of State and Territory TANF Policies as of July 2023, Figure 2: Puerto Rico $1,620 (family of three)"
+      href: https://www.urban.org/sites/default/files/2025-05/Graphical-Overview-of-State-and-Territory-TANF-Policies-as-of-July-2023.pdf#page=6
+    - title: "ADSEF, Reglamento 7653 (2008), Sec. 4.16: gross income compared with the total of needs inflated by 185%"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/2.ReglamentoTANF.pdf
+  gap: >-
+    Three-person value applied to every family size (see max_benefit.yaml).
+values:
+  2023-07-01: 1_620

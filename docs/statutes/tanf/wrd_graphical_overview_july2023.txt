@@ -1,0 +1,844 @@
+                                            WELFARE RULES DATABASE
+
+
+
+
+Graphical Overview of State and
+Territory TANF Policies as of July
+2023
+Kevin Moclair, Sarah Knowles, Lauren Simpson, and Ilham Dehry
+OPRE Report 2024-358
+December 2024
+
+If a family needs help covering their expenses during a period of financial hardship, what requirements must
+they meet to be eligible for cash assistance? If they qualify for assistance, how much can they receive each
+month, and for how long can they receive it? The answers to these questions depend not only on the family’s
+circumstances but also on where they live.
+
+    The primary program that provides cash aid to families in need is called Temporary Assistance for
+Needy Families, or TANF. 1 TANF is a block grant, meaning the federal government provides each
+state/territory with a set amount of money that the state/territory combines with its own funding to meet
+
+
+
+
+1 The TANF program provides cash and noncash aid (e.g., transportation assistance and child care assistance). In this
+
+brief, we focus on policies regarding cash aid.
+the program’s goals. 2 In the average month of Federal Fiscal Year (FFY) 2023, about 826,000 families
+received cash aid from TANF; across the states/territories, the average monthly benefit for a family of three
+with no other income was $545. 3 Each state/territory sets its own policies for exactly who can get help, how
+much they can receive, and for how long. 4 These policies can vary greatly across states/territories.
+
+    In this brief, we present selected state/territory policy differences for TANF cash aid, focusing primarily
+on the states’/territories’ standard policies, and not including temporary policies that were enacted in some
+states/territories during portions of the COVID-19 pandemic. The policies are taken from the Welfare Rules
+Database (WRD), a publicly accessible resource maintained by the Urban Institute and funded by the Office
+of Planning, Research, and Evaluation within the Administration for Children and Families in the U.S.
+Department of Health and Human Services. The WRD tracks state policies over time, from 1996 to the
+present, and territory policies beginning in 2022. 5 The database includes hundreds of variables related to
+
+           initial eligibility,
+
+           benefit amounts,
+
+           work and activity requirements, and
+
+           ongoing eligibility and time limits.
+
+    This brief is a companion to the 2023 Welfare Rules Databook and provides a graphical overview of
+some of the policy differences across states/territories. We also provide information about additional
+resources available from the WRD.
+
+
+2 Throughout this brief, the term “states” refers to the 50 states and the District of Columbia and ”territories” refers to
+
+Guam, Puerto Rico, and the Virgin Islands. American Samoa and the Commonwealth of the Northern Mariana Islands do
+not operate TANF programs. The Welfare Rules Database does not track information on the TANF programs
+administered by federally recognized tribes within a state.
+3 For more information about the number of families receiving TANF in FFY 2023 (October 2022 through September
+
+2023) and other caseload data, see “TANF Caseload Data 2023,” Administration for Children and Families, (accessed
+August 23, 2024): https://www.acf.hhs.gov/ofa/data/tanf-caseload-data-2023. The number of participating families
+cited here does not include those who receive benefits paid through separate state/territory programs funded with
+maintenance-of-effort dollars (SSP-MOE) or solely-state-funded (SSF) programs. For more information on benefit
+amounts, see table II.A.4 in the 2023 Welfare Rules Databook. The average of $545 is calculated using one value per
+state/territory (the policy affecting the largest portion of the caseload).
+4 Some states’ cash assistance policies incorporate a separate state program (SSP), and other states/territories may use
+
+a solely state funded (SSF) program. States/territories may choose to use different types of funding for families in
+different situations, although the materials used by caseworkers—which are generally the source materials for this
+project—do not typically indicate what funding is used in what circumstance. Thus, if a state/territory funds benefits to
+two-parent families under an SSF program, or funds benefits to certain immigrant families under SSP funding, those
+benefits policies are included in the WRD to the extent they are described in the TANF caseworker materials, but the
+WRD does not separately identify which policies use SSP or SSF funds.
+5 Policy data for the territories were added to the Welfare Rules Database beginning with the data for 2022.
+
+
+
+
+        2                                                                                2023 STATE TANF POLICIES
+2023 COVID-19 Policy Context
+During the COVID-19 pandemic, many states/territories took advantage of existing flexibilities to modify
+aspects of their policies to better support families. While many of those special policies had returned to
+standard policies by July 2023, some policies implemented in response to COVID-19 remained in place. This
+brief describes the standard policies in each state/territory and footnotes which standard policies may differ
+from the policies temporarily instituted during the COVID-19 pandemic. For more detailed information
+about the policies shown here, see the 2023 Welfare Rules Databook. 6 For more information on the policies
+states/territories temporarily adopted in response to the pandemic, see the special project report “State
+TANF Policies During the COVID-19 Pandemic: An Updated Look at Changes in TANF Policies as of July
+2021” and the full underlying database. 7
+
+
+
+
+Diversion and Initial Eligibility Requirements
+Families must satisfy several requirements before they can qualify for TANF cash assistance for the first
+time or qualify again after a period of not receiving assistance. 8 There are also eligibility requirements for
+families who choose to receive lump-sum diversion payments in lieu of monthly cash benefits. To be eligible
+for TANF cash assistance or diversion, an applicant family must pass both financial and nonfinancial tests. A
+key financial test is that the family’s countable income must be under the state/territory’s eligibility limit.
+Nonfinancial tests include special requirements for noncitizens and, in some states/territories,
+requirements to look for a job.
+
+
+
+
+6 For the 2023 Welfare Rules Databook, see Simpson, Lauren, Ilham Dehry, Sarah Knowles, and Kevin Moclair (2024).
+
+Welfare Rules Databook: State and Territory TANF Policies as of July 2023, OPRE Report 2024-357, Washington, DC:
+Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and
+Human Services. Both the 2023 Welfare Rules Databook and this graphical overview present the policies that were in
+place as of July 1, 2023.
+7 For more information about states’ policies in response to the pandemic from the start of the pandemic to July 1, 2021,
+
+see Shantz, Katie, Sarah Knowles, Ilham Dehry, and Linda Giannarelli (2023). State TANF Policies During the COVID-19
+Pandemic: An Updated Look at Changes in TANF Policies as of July 2021. OPRE Report 2023-003, Washington, DC:
+Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and
+Human Services. The full underlying database is available at https://wrd.urban.org.
+8 The group of people whose needs are considered in establishing the TANF benefit—often termed the “assistance
+
+unit”—is determined based on state/territory-specific policies that are described in the Welfare Rules Database. The
+assistance unit might not include all members of a family who live together, and in some circumstances may include
+nonrelatives. For simplicity, this brief uses the term “family” to refer to the assistance unit.
+
+
+
+   2023 STATE TANF POLICIES                                                                                      3
+Do States and Territories Try to Divert Some Families from Becoming TANF Recipients?
+
+Sometimes, a family that comes to apply for monthly cash aid will be “diverted.” Under formal diversion
+programs, states/territories may offer families the choice to receive a lump-sum cash payment to help meet
+their immediate needs rather than starting to receive a monthly TANF benefit. The lump-sum cash payment
+may be paid directly to the family or to a vendor for the family’s expenses. Families that accept diversion
+payments are usually not allowed to apply for monthly TANF benefits for some period (or if they apply
+during that time, the state may impose some penalty, such as subtracting the diversion payment from their
+initial TANF benefits). Thirty-three states and the District of Columbia used formal diversion programs in
+2023 (figure 1).
+
+FIGURE 1
+Formal TANF Diversion Programs, 2023
+
+
+                                          AK                                                                ME
+
+                                                                           WI                       VT      NH
+
+                                          WA     ID    MT    ND     MN     IL    MI           NY    MA
+
+                                          OR     NV    WY     SD    IA     IN    OH     PA    NJ    CT        RI
+
+
+                                          CA     UT    CO     NE    MO     KY    WV    VA     MD    DE
+
+          34
+                                                 AZ    NM     KS    AR     TN    NC     SC    DC
+
+                          20
+                                                              OK    LA    MS     AL    GA
+
+
+      Formal         No formal             HI                 TX                              FL            PR
+     diversion       diversion
+     program         program        GU                                                                        VI
+
+Source: Welfare Rules Database.
+
+
+
+
+How Much Income Can Families Have and Still Be Eligible for TANF?
+
+Families must have very low income to be eligible for TANF. Specifically, they must have countable income
+below their state/territory’s income threshold for a family of their size. Those income thresholds vary
+widely; however, the income thresholds alone do not allow a clear comparison of states’/territories’
+eligibility policies, because states/territories also vary in the types of income they count and how they
+measure income, particularly how much of a family’s earnings are disregarded when determining countable
+
+
+      4                                                                         2023 STATE TANF POLICIES
+income. 9 To compare states’/territories’ eligibility limits consistently, we compute the maximum amount of
+earnings an applicant can have and still be technically eligible for cash assistance in each state/territory. 10 In
+2023, the maximum monthly earnings that a family of three could have and still be initially eligible for TANF
+ranged from $307 in Alabama to $2,935 in Minnesota (figure 2).
+
+
+
+
+9 For example, in 2023 in Montana, a three-person family could have been eligible for TANF if their countable income
+
+was no greater than $622. Because Montana’s 2023 eligibility determination process disregarded the first $200 of
+earnings and 25 percent of remaining earnings, a three-person family in Montana could have had earnings as high as
+$1,029 and still been technically eligible for TANF.
+10 Technical eligibility does not mean the family will necessarily receive a cash benefit; it means they will have passed all
+
+the eligibility tests and the result of the benefit computation formula is a positive amount that meets the
+state’s/territory’s minimum amount, if any, for technical eligibility. Most states/territories distribute a cash benefit only
+if it is at least $10. The calculation assumes the assistance unit includes one parent and two children, has only earned
+income, has no child care expenses, contains no children subject to a family cap, has no special needs, pays for all shelter
+costs with no subsidies, and, if standards vary by county or region, is subject to the benefit standard that applies to the
+sub-area with the largest population in the state/territory.
+
+
+
+   2023 STATE TANF POLICIES                                                                                           5
+FIGURE 2
+Maximum Monthly Earnings for Initial TANF Eligibility for a Family of Three, 2023
+
+
+
+
+Source: Welfare Rules Database.
+*Notes: If the amounts vary by county or region within a state/territory, the amount shown applies to the sub-area with the largest
+population. Wisconsin provides cash assistance to families with earned income in limited circumstances. Other applicants may earn as
+much as $2,382 monthly and still be eligible for nonfinancial assistance. See the WRD for more information.
+
+
+
+
+      6                                                                                        2023 STATE TANF POLICIES
+Are Unemployed TANF Applicants Required to Look for a Job?
+
+Figure 3 shows states’/territories’ standard job search requirements as of July 1, 2023. 11 When an applicant
+parent who is out of work applies for TANF, some states require that the applicant look for a job either
+before the application is processed or while the application is processed. Policies may vary if the applicant is
+a parent or caregiver; not all parents are expected to work, and non-parent caretakers may also be expected
+to work under some circumstances. In states with this requirement, the parents or caretakers who are
+subject to the policy must prove they searched for jobs at a certain number of businesses or participated in
+the state’s job-related programs. The goal of these requirements is for applicants to find jobs so that they
+will either no longer need assistance or be employed by the time they begin receiving assistance (meaning
+that they might need less assistance or need assistance for a shorter period). In 2023, 16 states required
+that applicants search for a job as a condition of TANF application.
+
+FIGURE 3
+States/Territories Requiring Job Search at TANF Application, 2023 (Standard Policies)
+
+                                                 AK                                                                           ME
+
+                                                                                       WI                            VT       NH
+
+                                                 WA      ID     MT     ND      MN      IL     MI             NY     MA
+
+                                                 OR     NV      WY      SD      IA     IN     OH      PA     NJ      CT       RI
+
+
+                                                 CA      UT     CO      NE     MO      KY     WV     VA      MD     DE
+                            38
+                                                        AZ     NM     KS       AR     TN      NC      SC     DC
+
+               16
+                                                                       OK      LA     MS      AL     GA
+
+          Job search No job
+                                                 HI                     TX                                   FL               PR
+           required search
+                     required
+                                         GU                                                                                   VI
+
+Source: Welfare Rules Database.
+Notes: Information on specific job search requirements and exemptions from these requirements can be found in the 2023 Welfare
+Rules Databook.
+
+
+
+
+11 Standard job search requirements are the policies that were in place prior to any temporary changes implemented in
+
+response to the COVID-19 pandemic. Two of the states that suspended job search as a condition of eligibility for
+applicants due to the COVID-19 pandemic continued that policy in at least some portions of the state during 2023. For
+more detailed information, see the full underlying database.
+
+
+
+   2023 STATE TANF POLICIES                                                                                               7
+Can Lawful Permanent Residents Receive TANF?
+
+If a family immigrates to the U.S. and needs cash aid before they become citizens, they will sometimes be
+eligible for TANF benefits, but not always. Complex rules govern whether noncitizens are eligible for TANF.
+Some rules are consistent across the U.S.: in all states/territories, unauthorized immigrants are never
+personally eligible, but refugees or asylees can be eligible for at least their first five years in the U.S., and
+noncitizens who currently or previously served in the military can be eligible at any point. 12
+
+    For lawful permanent residents (often referred to as holders of “green cards”), eligibility depends in part
+on where they live. Under federal law, most lawful permanent residents must live in the U.S. for five years
+before they can be eligible for federal TANF benefits. States/territories, though, can use their own funding
+to provide assistance to some lawful permanent residents before they have met the five-year residency
+requirement. 13 Separately, states/territories may choose to use federal money to provide cash aid to lawful
+permanent residents after they have lived in the U.S. for five years, but they do not have to do so.
+
+
+
+
+12 Eligibility restrictions related to immigrant status are applied on a person-by-person basis. For example, a parent who
+
+is an unauthorized immigrant would not be individually eligible for benefits, but the parent’s citizen children could be
+eligible as a child-only unit.
+13 More information about the federal guidelines and complex rules regarding noncitizens can be found in the 2023
+
+Welfare Rules Databook.
+
+
+      8                                                                                 2023 STATE TANF POLICIES
+FIGURE 4
+TANF Eligibility for Lawful Permanent Residents, 2023
+       All eligible
+       (13 states during first ﬁve years, 47 states/territories after ﬁrst ﬁve years)
+       Some eligible
+       (3 states during ﬁrst ﬁve years, 6 states after ﬁrst ﬁve years)
+       None eligible
+       (37 states/territories during ﬁrst ﬁve years, 1 territory after ﬁrst ﬁve years)
+       n.a., data not available
+       (1 territory during first ﬁve years, 0 states/territories after ﬁrst ﬁve years)
+
+
+
+                                                  AL      AK     AZ      AR                   AL    AK    AZ    AR
+
+                                           CA     CO      CT     DE      DC              CA   CO    CT    DE    DC
+
+                                           FL     GA      GU     HI      ID              FL   GA    GU    HI    ID
+
+                                            IL     IN     IA     KS      KY              IL   IN    IA    KS    KY
+
+                                           LA     ME     MD     MA       MI              LA   ME    MD    MA    MI
+
+                                           MN     MS     MO      MT      NE              MN   MS    MO    MT    NE
+
+                                           NV     NH      NJ    NM       NY              NV   NH    NJ    NM    NY
+
+                                           NC     ND     OH      OK      OR              NC   ND    OH    OK    OR
+
+                                           PA     PR      RI     SC      SD              PA   PR    RI    SC    SD
+
+                                           TN     TX      UT     VT      VI              TN   TX    UT    VT    VI
+
+                                           VA     WA     WV      WI      WY              VA   WA   WV     WI    WY
+
+                                             During ﬁrst ﬁve years in                     After ﬁve years in the US
+                                                     the US
+
+Source: Welfare Rules Database.
+Notes: Lawful permanent residents who meet certain exemption criteria, such as military personnel, veterans, and their families are
+potentially eligible in every state and territory.
+
+
+
+     In 2023, lawful permanent residents who had been in the U.S. less than five years were eligible to
+receive state-funded benefits in 13 states if they met the state’s other eligibility requirements (figure 4). In
+three other states, some lawful permanent residents were potentially eligible before the five-year mark. For
+example, in Louisiana, certain American Indians born in Canada may be regarded as lawful permanent
+residents for purposes of eligibility and were potentially eligible in their first five years. Additionally, lawful
+permanent residents in Louisiana were potentially eligible in their first five years if they were receiving
+assistance for blindness or disability. In Maine, lawful permanent residents were potentially eligible in their
+first five years if they were elderly or disabled, victims of domestic violence, or suffering from a hardship
+while waiting for work documentation. In Minnesota, lawful permanent residents were generally potentially
+eligible before the five-year mark, but if they were ages 18 to 69, were receiving state-funded aid, and had
+
+
+
+
+    2023 STATE TANF POLICIES                                                                                                  9
+lived in the country more than four years, they were required to be in literacy classes or working toward
+citizenship to keep their aid.
+
+    Forty-four states, the District of Columbia, and two territories considered lawful permanent residents
+potentially eligible for federally-funded TANF assistance once they met the five-year residency requirement
+and conformed with other TANF eligibility requirements. An additional six states considered them
+potentially eligible after five years only under certain conditions. In Mississippi, Montana, Ohio, South
+Carolina, and Texas, lawful permanent residents were only potentially eligible if they could be credited with
+40 quarters of work (approximately 10 years). Indiana only considered them eligible if they previously held
+refugee status.
+
+
+
+
+Benefit Amounts and Sanctions
+The amount of assistance families can receive depends on the family’s characteristics (especially the family’s
+size and income) combined with state/territory rules for benefit computation and income disregards.
+Families that do not comply with various program requirements (such as work requirements) may see their
+benefits reduced or suspended. 14
+
+
+
+
+What Is the Maximum Monthly TANF Benefit Families Can Receive?
+
+The amount of TANF benefits a family receives is determined by state/territory-defined formulas. 15 Many
+formulas start with a dollar amount (usually referred to as a payment standard), subtract the family’s net
+income (total countable income minus disregards), and pay the entire amount of the difference (sometimes
+called the income deficit). In such cases, families with no income receive the full payment standard, and
+families with some income may receive less. Some states/territories will not pay more than a maximum
+benefit (which is set lower than the payment standard), and others pay only a percentage of the income
+deficit. Payment standards almost always vary by family size, but they may also vary based on family
+structure, the type of income the family has, or the area of the state/territory where the family lives.
+
+
+14 This brief captures the states’/territories’ standard sanction policies and does not include policies temporarily
+
+implemented during the COVID-19 pandemic. Several states temporarily lifted or suspended sanctions during the
+COVID-19 pandemic. For more detailed information on states’/territories’ standard sanction policies, see the 2023
+Welfare Rules Databook. For more information on states’ temporary policies implemented during the COVID-19
+pandemic, see the full underlying database.
+15 Some states offered additional benefits to eligible recipients in response to the COVID-19 pandemic. See the full
+
+underlying database for more information on temporary benefit computation policies during the COVID-19 pandemic.
+
+
+     10                                                                                 2023 STATE TANF POLICIES
+Because of all the variations, we compute the benefit in each state/territory for a consistent family type: a
+single-parent family with two children and no income that lives in the sub-area with the largest population in
+the state/territory. The monthly benefit in this situation ranged from $204 in Arkansas to $1,243 in New
+Hampshire in 2023 (figure 5). 16
+
+
+
+
+16 The calculation assumes the assistance unit contains no children subject to a family cap, no assistance unit members
+
+have special needs, the unit pays for all shelter costs with no subsidies, and the unit is subject to the benefit standard
+that applies to most of the state/territory’s caseload.
+
+
+
+   2023 STATE TANF POLICIES                                                                                          11
+FIGURE 5
+Maximum Monthly TANF Benefit for a Family of Three with No Income, 2023
+
+
+
+
+Source: Welfare Rules Database.
+*Notes: Dollar amounts are the amounts awarded to a single-parent family with two children and no income who live in the sub-area
+with the largest population in the state/territory. In the following states, the policies vary by specific TANF component or group of
+recipients, and the data shown are for specific components or groups: Wisconsin (W-2T component) and California (non-exempt
+families).
+
+
+
+      12                                                                                         2023 STATE TANF POLICIES
+How Much Will a Family’s Monthly Benefits Decrease if They Do Not Comply with
+Work Requirements?
+
+In most cases, individuals who are considered work-eligible and who are members of the TANF assistance
+unit are required to participate in work activities. 17 States/territories may determine who must work, how
+much work is required, and which activities are allowed. If the adults do not comply with the requirements,
+the state/territory can impose sanctions, which vary by state/territory. 18 A sanction is a penalty that
+typically reduces the family’s benefits for a certain period or until the adults comply with the requirement.
+States/territories can define their program requirements, the penalties for families who do not meet those
+requirements, and how families can resolve the situation and once again receive their full benefit.
+
+    Figure 6 shows states’/territories’ standard sanction policies as of July 1, 2023. 19 Sanctions typically
+have stages progressing from least to most severe. The most severe sanction varies substantially across
+states/territories. In 2023, 31 states/territories closed the family’s TANF case, ending their benefits, as the
+most severe sanction for noncompliance with work requirements. In the other states, the most severe
+sanction was either a total loss of benefits (14 states) or a partial loss of benefits (8 states and the District of
+Columbia), but recipients were able to regain the full benefit by complying with program requirements for a
+certain number of months. 20
+
+
+
+
+17 Under federal policy, individuals required to participate in work activities in order to meet federal work participation
+
+requirements are defined as “work-eligible” individuals. Here, “work-eligible” refers to individuals who are required to
+engage in work activities according to the policies in their own state/territory. What a state/territory requires of a
+particular group of recipients may be more or less than what would be required for those individuals to “count” as
+participating in work activities for purposes of federal calculations. The Welfare Rules Database captures work
+requirements and other policies as determined by the states/territories, rather than the policies to meet the federal
+participation requirements.
+18 The policies captured here apply to individuals who are work-eligible and are counted as part of the TANF assistance
+
+unit and do not include other adults living in the family. For example, in many states/territories, a grandparent may
+receive TANF for a grandchild as a “child-only” unit—i.e., without the grandparent being considered a TANF recipient.
+19 Standard sanction policies are the policies that were in place prior to any temporary changes implemented in
+
+response to the COVID-19 pandemic. Many states suspended new sanctions to accommodate families unable to meet
+requirements during the COVID-19 pandemic. Additionally, several states removed existing sanctions for individuals at
+the beginning of the COVID-19 pandemic. For more detailed information, see the full underlying database.
+20 When the sanction results in case closure, the family may need to reapply for benefits. This may also affect a family’s
+
+eligibility for other types of assistance, such as when a family is eligible for child care subsidies due to participation in the
+TANF program.
+
+
+
+   2023 STATE TANF POLICIES                                                                                             13
+FIGURE 6
+Most Severe Sanctions for Noncompliance with TANF Work Requirements for a Single Parent Head of a
+Family Unit, 2023 (Standard Policies)
+
+                                                        AK                                                                         ME
+
+
+                                                                                            WI*                           VT       NH*
+
+
+                                                        WA      ID     MT     ND     MN      IL      MI            NY    MA*
+
+
+                                                        OR      NV     WY     SD      IA     IN      OH    PA      NJ     CT       RI
+                                  31
+
+                                                        CA      UT     CO     NE     MO      KY      WV    VA*    MD      DE*
+                   14
+      9
+                                                                AZ    NM*     KS      AR     TN      NC    SC*     DC
+Family loses Family loses Family loses
+ portion of    entire        entire
+                                                                              OK      LA     MS      AL    GA
+  beneﬁt       beneﬁt       beneﬁt
+                           and case is
+                             closed                      HI                   TX                                   FL              PR
+
+
+                                                 GU                                                                                VI
+
+
+
+Source: Welfare Rules Database.
+*Notes: In the following states, the policies vary by specific TANF component, and the data shown are for specific components or
+groups: Delaware (time-limited assistance), Massachusetts (non-exempt recipients), New Hampshire (New Hampshire Employment
+Program (NHEP)), New Mexico (New Mexico Works (NMW) component), South Carolina (All, except Challenging Adults through
+Rehabilitation, Education, and Services (CARES) component), Virginia (Virginia Initiative for Education and Work (VIEW)), and
+Wisconsin (W-2 Transition (W-2T) and Community Service Jobs (CSJ) components).
+
+
+
+
+Ongoing Eligibility Requirements
+Families who begin receiving a benefit must continue to pass state/territory-defined financial tests to
+remain eligible. Even for families who remain low-income, however, benefits are usually time limited. Some
+states provide transitional cash assistance to families leaving TANF.
+
+
+
+
+After One Year, How Much Income Can Families Have and Continue to Receive TANF
+Assistance?
+
+To continue to receive TANF benefits after initially becoming eligible, a family must have countable income
+(total income minus disregards) that results in being eligible for a benefit, and depending on the
+state/territory, they may also have to continue to pass other financial tests. In many states, the countable
+
+
+
+
+      14                                                                                          2023 STATE TANF POLICIES
+income definition for families already receiving TANF uses a more generous earned income disregard than is
+used for families initially applying for benefits. In some states/territories, the portion of earnings
+disregarded also changes depending on the number of months the family has combined TANF benefits and
+earnings. 21 These variations effectively change the maximum amount of earnings a family can have while
+remaining eligible (compared with the amount of earnings the family can have at initial eligibility as shown in
+figure 2).
+
+    Here we focus on the maximum earnings a family of three could have and remain eligible for benefits in
+the 13th month of receiving assistance. In 2023, the maximum earnings ranged from $307 in Alabama to
+$2,935 in Minnesota (figure 7). 22
+
+    Comparing this with the information presented earlier on the maximum possible earnings for initial
+eligibility, in nearly half (25) of the states/territories, the maximum earnings point for eligibility in the 13th
+month of assistance (figure 7) is higher than at application (figure 2) because of higher disregards for
+recipients than for applicants. For example, in New Jersey, a three-person family must have earnings no
+greater than $838 to initially become eligible, but they can remain eligible at the 13-month point if their
+earnings are no greater than $1,117. In contrast, in seven states and two territories, the maximum possible
+earnings point is lower after one year than at application because some portion of the state/territory’s
+earnings disregards expire after a certain number of months. In the remaining states and territory, the
+maximum possible earnings amount is the same after one year as it is at application.
+
+
+
+
+21 As an example, Indiana disregards the first $120 of earnings and one-third of remaining earnings for the first four
+
+months that a family has TANF and earnings, then $120 of earnings for the next eight months, then $90 of earnings for
+the remaining time the family receives TANF benefits.
+22 The calculation assumes the assistance unit includes one parent and two children, has only earned income, has no
+
+child care expenses, contains no children subject to a family cap, has no special needs, pays for all shelter costs with no
+subsidies, and is subject to the benefit standard that applies to the majority of the state/territory’s caseload.
+
+
+
+   2023 STATE TANF POLICIES                                                                                         15
+FIGURE 7
+Maximum Monthly Earnings at 13 Months for Ongoing TANF Eligibility for a Family of Three, 2023
+
+
+
+
+Source: Welfare Rules Database.
+*Notes: If the amounts vary by county or region within a state/territory, the amount shown applies to the sub-area with the largest
+population in the state/territory. In Virginia, the policies vary by specific TANF component or group of recipients, and the data shown
+represent the Virginia (VIEW program). Wisconsin provides cash assistance to families with earned income in limited circumstances.
+Other applicants may earn as much as $2,382 monthly and still be eligible for nonfinancial assistance. See the WRD for more
+information.
+
+
+
+      16                                                                                         2023 STATE TANF POLICIES
+How Many Months Can Families Receive TANF over Their Lifetime?
+
+Federal rules set a lifetime limit on how long families containing an adult who receives federally-funded
+benefits (i.e., not a “child-only” family) can receive TANF benefits. States/territories impose two basic types
+of limits on recipients: (1) lifetime limits (including the federal 60-month limit and in some cases, a shorter,
+state/territory-determined limit), after which the entire benefit is permanently eliminated, or (2) other
+intermittent state/territory time limits (such as periodic time limits, benefit waiting periods, or benefit-
+reduction time limits), which interrupt or reduce benefits for a certain period but do not eliminate them.
+Both types of time limits may terminate benefits for the entire family or just the adults in the family.
+
+    Figure 8 shows the standard lifetime limits used in each state/territory as of July 1, 2023. 23 In 2023, 40
+states/territories had a lifetime limit of 60 months, 12 states had a lifetime limit ranging from 12 to 48
+months, and Massachusetts and the District of Columbia had no lifetime limit. States/territories with time
+limits may use exemptions and extensions that allow benefits to continue past the limit, creating additional
+variation in their policies. States/territories may use their own funds to pay benefits not allowed by the
+federal time limit.
+
+
+
+
+23 Standard time limits are the policies that were in place prior to any temporary changes implemented in response to
+
+the COVID-19 pandemic. Several states suspended or removed time limits for recipients during the COVID-19
+pandemic. For more detailed information, see the full underlying database.
+
+
+
+   2023 STATE TANF POLICIES                                                                                     17
+FIGURE 8
+Lifetime Limit on the Number of Months of TANF Assistance, 2023 (Standard Policies)
+
+                                                             AK                                                                        ME
+
+
+                                                                                                 WI*                          VT       NH*
+
+
+                                                             WA      ID     MT     ND     MN      IL     MI            NY     MA
+
+
+                                                             OR      NV     WY     SD      IA     IN     OH     PA     NJ     CT       RI
+
+                                  40
+                                                             CA      UT     CO     NE*    MO      KY    WV      VA     MD     DE*
+
+
+      5             7                                                AZ    NM*     KS     AR      TN     NC     SC*    DC
+                                                 2
+
+  Limit < 30   Limit 30 to <   Limit = 60   No time limit                          OK     LA     MS      AL     GA
+   months       60 months       months
+                                                              HI                   TX                                  FL              PR
+
+
+                                                        GU                                                                             VI
+
+
+Source: Welfare Rules Database.
+*Notes: States/territories with time limits may use exemptions and extensions that allow benefits to continue past the limit in some
+cases. In the following states, the policies vary by specific TANF component or group, and the data shown are for following components
+and groups: Delaware (time-limited assistance), Nebraska (time-limited assistance), New Hampshire (NHEP), New Mexico (NMW
+program), South Carolina (All, except CARES programs), and Wisconsin (W-2T, CSJ, and TEMP).
+
+
+
+
+Can Families Receive Transitional Cash Benefits when They No Longer Qualify for
+TANF?
+
+When families are no longer eligible for TANF, some states/territories may provide short-term assistance to
+help them transition from the program. In states/territories with transitional aid programs, assistance is
+usually provided to families who are no longer eligible for TANF because of increased work and earnings.
+
+     Transitional benefits can include both cash and noncash assistance, such as child care or food assistance.
+In 2023, 27 states provided cash assistance for periods ranging from 1 to 24 months to families transitioning
+off TANF (figure 9). 24 For states with fixed transitional cash assistance amounts, the amount ranged from
+$50 to $204 per month. In other states, the amounts varied depending on various factors. For example,
+Massachusetts decreases benefits over the transitional period; benefits are equal to $200 in the first month
+
+
+
+
+24 Some transitional benefits are in the form of increases in supplemental food benefits. This map captures only the
+
+transitional benefits paid as cash. Additional details on other transitional benefits—such as transitional child care
+benefits—can be found in the full underlying database.
+
+
+      18                                                                                        2023 STATE TANF POLICIES
+and decrease to $50 by the fourth month. In Maryland, transitional benefits are equal to the last month of
+TANF benefits the family received.
+
+FIGURE 9
+States and Territories Offering Transitional Cash Assistance Following Standard TANF Benefits, 2023
+
+                                                             AK                                                  ME
+
+
+                                                                                      WI                   VT    NH
+
+
+                                                            WA    ID   MT   ND   MN   IL   MI         NY   MA
+
+
+                                                             OR   NV   WY   SD   IA   IN   OH   PA    NJ   CT    RI
+          27            26
+
+                                                             CA   UT   CO   NE   MO   KY   WV   VA*   MD   DE
+
+
+                                                                  AZ   NM   KS   AR   TN   NC   SC    DC
+
+
+                                       1                                    OK   LA   MS   AL   GA
+
+    Transitional      No     n.a., data not
+        cash     transitional available                      HI             TX                        FL         PR
+     assistance      cash
+                  assistance
+                                                      GU                                                         VI
+
+
+
+Source: Welfare Rules Database.
+*Notes: The policy shown for Virginia is for VIEW participants.
+
+
+
+
+    2023 STATE TANF POLICIES                                                                                19
+More Information from the Welfare Rules Database
+The policies discussed in this brief are a small subset of the policies available from the WRD. The WRD
+tracks TANF policies for the 50 states, the District of Columbia, and the three territories that operate TANF
+programs (Guam, Puerto Rico, and the Virgin Islands). 25 The database contains hundreds of variables
+designed to capture detailed TANF policies over time.
+
+    Information from the database is available for public use through the project’s website
+(https://wrd.urban.org). From the project website, users can access the data in two ways:
+
+         Annual databooks. The annual databook highlights key policies as of July 1st of each year. The
+          databook contains prepared tables showing policies for (1) initial application and eligibility
+          requirements, (2) benefit amounts, (3) work and activity requirements, and (4) ongoing eligibility
+          requirements and transitional assistance. The databook also contains tables showing selected
+          policies over time. All annual databooks are available for download.
+
+         Online search tool. The online search tool provides access to the full database in detail. The search
+          tool allows users to access information beyond what is included in the annual databooks, including
+          hundreds of detailed policy variables and policies for any point in time back to 1996. Users can
+          select the information they are interested in and produce custom tables through a point-and-click
+          online interface.
+
+
+
+
+25 The Welfare Rules Database captures policies for Guam, Puerto Rico, and the Virgin Islands beginning in 2022.
+
+American Samoa and the Commonwealth of the Northern Mariana Islands do not operate TANF programs.
+
+
+
+     20                                                                              2023 STATE TANF POLICIES
+About the Authors
+Kevin Moclair is a research assistant in the Income and Benefits Policy Center at the Urban Institute. His
+research is in social safety net programs, with a focus on the Welfare Rules Database and TRIM3
+microsimulation modeling.
+
+Sarah Knowles is a research analyst in the Income and Benefits Policy Center at the Urban Institute. She
+serves as the project manager for the Welfare Rules Database and contributes to social safety net program
+microsimulation analyses.
+
+Lauren Simpson is a research analyst in the Income and Benefits Policy Center at the Urban Institute. She
+works on the Welfare Rules Database and assists with safety net program microsimulation modeling.
+
+Ilham Dehry is a research associate in the Income and Benefits Policy Center at the Urban Institute, where
+her work focuses on social assistance programs. She works on the TRIM3 and ATTIS microsimulation
+models and codirects the Welfare Rules Database, which documents Temporary Assistance for Needy
+Families policies across time in states and territories.
+
+
+
+
+Acknowledgments
+This brief was funded by the Office of Planning, Research, and Evaluation (OPRE). The authors would like to
+thank Girley Wright, the OPRE federal project officer for the WRD, and KaLeigh White, a National Poverty
+Fellow with the Institute for Research on Poverty at the University of Wisconsin-Madison in residence at
+OPRE, for their continued guidance on the project and their review of this report. We also thank Linda
+Giannarelli, the project codirector at the Urban Institute, for her review and feedback on the brief.
+
+
+
+
+   2023 STATE TANF POLICIES                                                                             21
+Submitted to:
+Girley Wright, Project Officer
+Office of Planning, Research, and Evaluation
+Administration for Children and Families
+U.S. Department of Health and Human Services
+Contract Number: 47QRAA18D003Z
+
+Project Directors:
+Linda Giannarelli and Ilham Dehry
+The Urban Institute
+500 L’Enfant Plaza SW
+Washington, DC 20024
+
+This brief is in the public domain. Permission to reproduce is not necessary. Suggested citation: Moclair,
+Kevin, Sarah Knowles, Lauren Simpson, Ilham Dehry (2024). Graphical Overview of State and Territory
+TANF Policies as of July 2023. OPRE Report 2024-358, Washington, DC: Office of Planning, Research, and
+Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+
+The views expressed in this publication do not necessarily reflect the views or policies of the Office of
+Planning, Research, and Evaluation, the Administration for Children and Families, the U.S. Department of
+Health and Human Services, the Urban Institute, or the Urban Institute’s trustees or funders.
+
+This report and other reports sponsored by the Office of Planning, Research, and Evaluation are available at
+https://www.acf.hhs.gov/opre.
+
+Cover photo via Zoteva/Shutterstock.
+
+
+
+                           ABOU T O PRE
+                           The Welfare Rules Database project is funded by the Office of Planning, Research, and
+                           Evaluation (OPRE), within the Administration for Children & Families (ACF). This brief was
+ Subscribe to OPRE News
+                           produced as part of the OPRE-funded project. ACF is a division of the U.S. Department of
+ Follow OPRE on Social
+                           Health & Human Services (HHS). ACF promotes the economic and social well-being of
+ Media
+                           families, children, individuals, and communities. OPRE studies ACF programs and the
+                           populations they serve through rigorous research and evaluation projects. These include
+                           evaluations of existing programs, evaluations of innovative approaches to helping low-
+                           income children and families, research syntheses, and descriptive and exploratory studies.
+
+
+                          ABOU T THE U RBA N IN S TITU TE
+                          The nonprofit Urban Institute is dedicated to elevating the debate on social and economic
+                          policy. For nearly five decades, Urban scholars have conducted research and offered
+                          evidence-based solutions that improve lives and strengthen communities across a rapidly
+                          urbanizing world. Their objective research helps expand opportunities for all, reduce
+                          hardship among the most vulnerable, and strengthen the effectiveness of the public sector.
+
+
+
+     22                                                                           2023 STATE TANF POLICIES
+

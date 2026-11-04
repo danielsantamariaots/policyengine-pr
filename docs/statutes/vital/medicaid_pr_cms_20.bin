@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<!-- Title -->
+		<title> 
+	Estadísticas 
+</title>
+
+		<!-- Required Meta Tags Always Come First -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+				
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="/imgs/favicon.ico">
+		
+		<!-- Leaflet Maps for Main Page Oficinas Locales-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="//fonts.googleapis.com">
+		<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+				<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|DM+Serif+Text|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			  rel="stylesheet">
+
+
+		<link rel="stylesheet" href="/min/?f=templates/ayuda/assets/vendor/bootstrap/bootstrap.min.css,css/toastr.min.css,css/bootstrap4-datetimepicker.min.css">
+		
+				<!-- CSS Implementing Plugins -->
+				<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-etlinefont/style.css">
+		<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-line-pro/style.css">
+		<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-hs/style.css">
+		<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-line/css/simple-line-icons.css">
+		<link rel="stylesheet" href="/templates/ayuda/assets/vendor/icon-material/material-icons.css">
+				<link rel="stylesheet" href="/templates/ayuda/assets/vendor/fancybox/jquery.fancybox.css">
+		
+
+		<link rel="stylesheet"
+			  href="/min/?f=templates/ayuda/assets/vendor/slick-carousel/slick/slick.css,templates/ayuda/assets/vendor/icon-hs/style.css,templates/ayuda/assets/vendor/animate.css,templates/ayuda/assets/vendor/hamburgers/hamburgers.min.css,templates/ayuda/assets/vendor/hs-megamenu/src/hs.megamenu.css,templates/ayuda/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css,templates/ayuda/assets/vendor/dzsparallaxer/dzsparallaxer.css,templates/ayuda/assets/vendor/dzsparallaxer/dzsscroller/scroller.css,templates/ayuda/assets/vendor/dzsparallaxer/advancedscroller/plugin.css,templates/ayuda/assets/vendor/custombox/custombox.min.css,templates/ayuda/ayuda.loading.css,css/ladda-themeless.min.css">
+		
+		
+			
+	<meta property="og:url"           content="https://https://medicaid.pr.gov" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Estadísticas" />
+<meta property="og:description"   content="Portal Institucional del Departamento de Salud de Puerto Rico" />
+<meta property="og:image"         content="https://https://medicaid.pr.gov/imgs/salud/homepage.png" />
+<meta property="og:width"         content="1900" />
+<meta property="og:height"        content="960" />
+	<!-- PAGE CSS INCLUDES -->
+			<link rel="stylesheet" href="/templates/deptsalud/stylesheet.css?1792602047">
+		
+						<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css">
+					<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-classic.css">
+						<link rel="stylesheet" href="/pages/posts/stylesheet.css?1727880971">
+	<!-- END PAGE CSS INCLUDES -->
+
+		<script src="/templates/ayuda/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="/templates/ayuda/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8">
+			$(window).on('load', function () {
+				(function (g, e, n, es, ys) {
+					g['_genesysJs'] = e;
+					g[e] = g[e] || function () {
+						(g[e].q = g[e].q || []).push(arguments)
+					};
+					g[e].t = 1 * new Date();
+					g[e].c = es;
+					ys = document.createElement('script');
+					ys.async = 1;
+					ys.src = n;
+					ys.charset = 'utf-8';
+					document.head.appendChild(ys);
+				})(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+					environment: 'prod-usw2',
+					deploymentId: 'c4171cc4-f0cf-40f0-a977-bf08a4c114b5'
+				});
+			});
+
+			function openMessenger() {
+				Genesys("command", "Messenger.open");
+			}
+		</script>
+	</head>
+
+	<body class="g-bg-main-light-v1">
+				<input type="hidden" id="site_prefix" value="">
+		<input type="hidden" id="services_web_root" value="">
+		<main class="d-flex flex-column" style="background-color:white;">
+				<header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance" ng-controller="agoraPageHeaderCtrl" data-header-fix-moment="200" style="margin-top: 0px;">
+
+<!-- START PRGOV Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+
+    <!-- Logo -->
+    <a href="https://www.pr.gov" target="_blank">
+      <img alt="PRGov" height="30"
+        src="https://cdn.prod.website-files.com/60ddbc422188bb3fab87d219/679a7703a5af836b122e44e1_ICON2025.png">
+    </a>
+
+    <!-- Dropdown wrapper -->
+    <div class="dropdown-wrapper">
+
+      <!-- Trigger -->
+      <a id="trigger" class="prgov-trigger">
+        Portal oficial del Gobierno de Puerto Rico.
+        <i class="fa fa-chevron-down"></i>
+      </a>
+
+      <!-- Dropdown -->
+      <div id="dropdown" class="prgov-dropdown">
+        <div class="prgov-dropdown-content">
+          <div class="row">
+
+            <!-- Column 1 -->
+            <div class="col">
+              <div class="prgov-item">
+                <div class="prgov-icon">
+                  <!-- badge -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L3 7V12C3 17 7 21 12 22C17 21 21 17 21 12V7L12 2Z"
+                          stroke="#495057" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Un sitio web oficial .pr.gov</strong>
+                  <p>Pertenece a una organización oficial del Gobierno de Puerto Rico.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col">
+              <div class="prgov-item">
+                <div class="prgov-icon">
+                  <!-- lock -->
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="5" y="10" width="14" height="10" rx="2"
+                          stroke="#495057" stroke-width="1.5"/>
+                    <path d="M8 10V7C8 5 9.5 4 12 4C14.5 4 16 5 16 7V10"
+                          stroke="#495057" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Los sitios seguros .pr.gov usan HTTPS</strong>
+                  <p>Esto significa que usted se conectó de forma segura a un sitio web.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- END PRGOV Top Bar -->
+
+	<!-- Middle Bar (Dept Salud) -->
+	<div class="u-header__section u-header__section--hidden u-header__section--dark">
+		<nav class="navbar navbar-expand-lg py-4 py-md-1 bg-light g-px-35--md justify-content-between flex-row">
+			<h2 class="g-font-size-28 g-font-size-35--md g-color-gray-dark-4">Programa Medicaid</h2>
+			<!-- Logo -->
+<a href="https://www.salud.pr.gov/" class="navbar-brand py-0 ml-auto">
+	<div class="d-flex flex-row align-items-center no-gutters">
+		<div class="d-flex flex-column align-items-end pr-4 mr-4 g-color-black g-brd-black g-brd-right g-brd-2">
+		<!--
+			<div class="h6 g-font-size-14 font-montserrat align-self-end g-font-weight-500 text-right mb-0 deptartamento_de">DEPARTAMENTO DE</div>
+			<div class="h2 g-font-size-28 font-montserrat align-self-end g-font-weight-700 text-right g-line-height-1 salud_logo">SALUD</div>
+		-->
+		</div>
+		<img class="img-fluid g-height-100 mini-logo" loading="lazy" src="/imgs/salud/Logo_SALUD_rev2.png" alt="Logo del Departamento de Salud">
+
+	</div>
+</a>
+<!-- End Logo -->		</nav>
+	</div>
+	<!-- End Middle Bar (Dept Salud) -->
+	
+	<!-- Bottom Bar (Menu) -->
+	<div id="main-menu-header" class="u-header__section u-header__section--light g-bg-white-opacity-0_9"
+	     data-header-fix-moment-exclude="g-bg-white-opacity-0_9"
+	     data-header-fix-moment-classes="g-bg-white g-brd-bottom g-brd-gray-light-v5">
+		<nav class="navbar navbar-expand-lg g-py-15 g-py-0--lg px-5 px-lg-0 g-bg-gris-medicaid">
+			<div class="g-py-10 g-py-0--lg g-pos-rel w-100">
+				<div id="navBar" class="collapse navbar-collapse w-100" data-mobile-scroll-hide="true">
+					<!-- Navigation -->
+					<div class="navbar-collapse align-items-center flex-sm-row g-py-10 g-px-25--md">
+						<ul id="js-scroll-nav" class="navbar-nav h-100 g-font-weight-700 g-py-20 g-py-0--lg justify-content-around align-items-center w-100">
+
+							
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2">
+										<a class="g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										   href="/">
+											<span>Inicio</span>
+										</a>
+									</li>
+															
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2">
+										<a class="g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										   href="/CMS/34">
+											<span>Solicitante</span>
+										</a>
+									</li>
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2">
+										<a class="g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										   href="/CMS/4">
+											<span>Beneficiarios</span>
+										</a>
+									</li>
+															
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2 dropdown">
+										<a class="nav-link dropdown-toggle g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+											<span>Proveedores (PEP)</span>
+										</a>
+										<div class="dropdown-menu  g-pa-15 mt-md-3 dropdown-menu" style="width: 278px;">
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5">
+													Información General
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/36">
+													Revalidación
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#faq">
+													Preguntas Frecuentes
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#comunicaciones">
+													Comunicaciones
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#politicas">
+													Políticas
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#formularios">
+													Formularios
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#guias">
+													Guías
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#checklists">
+													Listas de Verificación
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#recursos">
+													Capacitación y Recursos
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/5#newsletter">
+													Boletín para Proveedores
+												</a>
+																					</div>
+									</li>
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2 dropdown">
+										<a class="nav-link dropdown-toggle g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+											<span>Program Integrity (PI)</span>
+										</a>
+										<div class="dropdown-menu  g-pa-15 mt-md-3 dropdown-menu" style="width: 278px;">
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/65">
+													Información General
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/68">
+													Alertas y Comunicaciones
+												</a>
+																					</div>
+									</li>
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2 dropdown">
+										<a class="nav-link dropdown-toggle g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+											<span>Medicaid</span>
+										</a>
+										<div class="dropdown-menu  g-pa-15 mt-md-3 dropdown-menu" style="width: 278px;">
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/20">
+													Estadísticas
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/3">
+													Sobre Nosotros
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/44">
+													CHIP
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/35">
+													PARIS
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/23">
+													Plan Estatal
+												</a>
+																					</div>
+									</li>
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2">
+										<a class="g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										   href="/CMS/8">
+											<span>FAQs</span>
+										</a>
+									</li>
+															
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2 dropdown">
+										<a class="nav-link dropdown-toggle g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+											<span>Contratación</span>
+										</a>
+										<div class="dropdown-menu  g-pa-15 mt-md-3 dropdown-menu" style="width: 278px;">
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/21">
+													Request For Proposal (RFP)
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/26">
+													Notificación de Necesidad de Servicios
+												</a>
+																							<a class="dropdown-item g-font-size-16 mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 text-wrap g-bg-transparent g-brd-medicaid--hover g-brd-bottom"
+												href="/CMS/46">
+													Información Pública
+												</a>
+																					</div>
+									</li>
+															
+															
+															
+															
+																	<li class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16  px-2">
+										<a class="g-font-size-16 text-center mb-0 pb-0 nav-link g-color-black--hover g-color-black--active g-color-black-opacity-0_6 px-2 d-flex align-items-center font-montserrat g-font-weight-600 "
+										   href="/CMS/6">
+											<span>Avisos Públicos</span>
+										</a>
+									</li>
+																						<li
+									class="nav-item g-brd-medicaid--hover g-brd-medicaid--focus-within g-brd-bottom g-pos-rel g-brd-3 g-pb-0 g-transition-0_2 g-font-size-16 px-0">
+								<a class="g-font-size-18 text-center mb-0 pb-0 nav-link g-color-black-opacity-0_6 px-0 d-flex align-items-center font-montserrat g-font-weight-600"
+								   href="/" ng-click="setLang('en')" data-tooltip
+								   data-title="Change language">
+									<span>Language</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- End Navigation -->
+				</div>
+				<button class="navbar-toggler btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-0 g-right-0" type="button"
+				        aria-label="Toggle navigation"
+				        aria-expanded="false"
+				        aria-controls="navBar"
+				        data-toggle="collapse"
+				        data-target="#navBar">
+	                <span class="hamburger hamburger--slider">
+	                  <span class="hamburger-box">
+	                    <span class="hamburger-inner"></span>
+	                  </span>
+	                </span>
+				</button>
+				<!-- End Responsive Toggle Button -->
+			</div>
+		</nav>
+	</div>
+	<!-- End Bottom Bar (Menu) -->
+</header>
+			<section id="mainSection" class="flex-fill" style="margin-top: 210px;">
+									
+	
+<!-- News Content -->
+<section>
+	<!-- Breadcrumbs -->
+<section id="breadcrumbs" class="mt-5 g-py-25">
+	<div class="container">
+		<div class="d-sm-flex">
+			<div class="col align-self-center">
+				<ul class="u-list-inline">
+					<li class="list-inline-item g-mr-5">
+						<a class="u-link-v5 g-color-primary" href="/"><i class="fa fa-home fa-lg"></i></a>
+						<i class="g-color-gray-light-v2 g-ml-5">/</i>
+					</li>
+										<li class="list-inline-item g-color-main">
+													Estadísticas
+											</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Breadcrumbs -->	<div class="container g-mb-50">
+		<div class="row">
+			<!-- Articles Content -->
+			<div class="col-12 g-mb-0--lg">
+				<article class="g-mb-60">
+					<div class="g-mb-30">
+						<h2 class="h1 g-mb-15">
+															Estadísticas
+													</h2>
+							<ul class="list-inline d-sm-flex g-color-gray-dark-v4 mb-0">
+																<!--
+								<li class="list-inline-item">
+									miércoles, 6 de noviembre de 2024
+								</li>
+								-->
+																<li class="list-inline-item ml-auto">
+									<i class="icon-eye u-line-icon-pro align-middle mr-1"></i> 5266
+								</li>
+							</ul>
+						<hr class="g-brd-gray-light-v4 g-my-15">
+					</div>
+					<div class="g-font-size-16 g-line-height-1_8 g-mb-30">
+						<figure class="u-shadow-v25 g-mb-30">
+													</figure>
+						<div class="txContent">
+															<div class="row">
+	<iframe class="w-100" src="https://app.powerbi.com/view?r=eyJrIjoiODljMmZkMDgtOWMzZi00NTVjLWI1ZmUtYTJkNzBmYzA3MDIyIiwidCI6ImYzMWJjM2MxLTJkMzktNDllMC1iODBiLWNkNTE1ZDc0YjNjOSIsImMiOjF9&pageName=ReportSection47762866e48dd0b43d25" title="PowerBi - Medicaid" style="height: 800px !important;"></iframe>
+</div>
+													</div>
+					</div>
+				</article>
+			</div>
+            <!-- End Articles Content -->
+            <!-- Sidebar -->
+                       <!-- End Sidebar -->
+		</div>
+
+		<!-- DOCUMENTOS -->
+		
+		<!-- FAQ -->
+			</div>
+</section>
+<!-- End News Content -->
+			</section>
+				<!-- Footer -->
+<footer>
+	<div class="g-bg-black-opacity-0_8 g-color-white-opacity-0_6 g-pt-30 g-pb-0">
+		<div class="d-flex flex-row flex-wrap justify-content-md-around pb-3">
+			<!-- Footer Content (Enlaces) -->
+			<div class="col-12 col-sm-8 col-xl-auto order-2 order-lg-0 g-mb-0">
+				<ul id="footer-link-list" class="list-unstyled">
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.fortaleza.pr.gov/">
+																	La Fortaleza
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.asespr.org/">
+																	Administración de Seguros de Salud (ASES)
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="http://www.opp.pr.gov/">
+																	Oficina del Procurador del Paciente
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="http://www.agencias.pr.gov/agencias/oppea/Pages/default.aspx">
+																	Oficina del Procurador de las Personas de Edad Ava
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="http://www.salud.gov.pr/">
+																	Departamento de Salud de PR
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.medicaid.gov/">
+																	Medicaid/CMS
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.saludprimariapr.org">
+																	Asociación de Salud Primaria de PR
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.cms.gov">
+																	Centros de Servicios de Medicare y Medicaid
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.saludmedica.com">
+																	Salud Médica
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.ocs.gobierno.pr">
+																	Oficina del Comisionado de Seguros de PR
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://oig.pr.gov/">
+																	Oficina del Inspector General (OIG) de Puerto Rico
+															</a>
+						</li>
+											<li class="d-flex g-mb-12">
+							<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"
+							   href="https://www.moms.gov/">
+																	Salud Maternal
+															</a>
+						</li>
+														</ul>
+			</div>
+			<!-- End Footer Content -->
+
+			<!-- Footer Content (Logo) -->
+			<div class="col-12 col-sm-4 col-xl-auto order-3 g-mb-0">
+				<div class="d-flex flex-row flex-md-column align-items-end justify-content-center g-color-white-opacity-0_8">
+					<div class="col-auto">
+						<div class="d-flex flex-column align-self-center align-items-end">
+							<div class="h5 font-montserrat g-font-weight-500 g-font-size-14 g-font-size-18--md text-right mb-0">
+								DEPARTAMENTO DE</div>
+							<div class="h1 font-montserrat g-font-weight-700 g-font-size-28 g-font-size-36--md text-right g-line-height-1">
+								SALUD</div>
+							<hr class="g-width-100 mt-2 mb-4 mx-0 align-self-end g-brd-2 g-brd-gray-light-v3">
+						</div>
+					</div>
+					<div class="col-auto">
+						<div class="d-flex align-self-center">
+							<img class="img-fluid g-width-120" loading="lazy" src="/imgs/salud/logo_saludpr_cut.png" alt="Logo">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Footer COntent -->
+		</div>
+	</div>
+	<div class="g-bg-black-opacity-0_8 g-color-white-opacity-0_8 g-py-10">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center g-mb-10 g-mb-0--md">
+				
+				
+			<!-- Privacy Policy - ADDED 09/11/2026 -->
+				<a class="g-color-white-opacity-0_6 g-color-primary--hover g-color-primary--focus g-text-underline--focus"   
+                    						href="/pdf/PRMP Aviso de Practicas de Privacidad (ESP).pdf" target="_blank">
+						Aviso de Prácticas de Privacidad
+										
+                    </a>
+                
+				<!-- Copyright - ADDED DUAL LANGUAGE 09/11/2026-->
+					<small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">
+											2026 © Departamento de Salud PR - Todos los derechos reservados.						
+					</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- End Footer -->				<div class="position-fixed g-right-10 g-bottom-80 d-flex flex-column g-z-index-9999">
+		<a class="js-go-to u-go-to-v1 g-pos-rel mt-3" href data-type="relative" 	   data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn" style="display: none;">
+		<i class="hs-icon hs-icon-arrow-top"></i>
+	</a>
+</div>		</main>
+
+		<div class="u-outer-spaces-helper"></div>
+		<div id="main-loading-container" style="display:none">
+        		<svg class="mat_spinner g-absolute-centered--y" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+			<circle class="path" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+		</svg>
+</div>
+
+		<script src="/js/angular.min.js"></script>
+		<script src="/min/?f=templates/ayuda/assets/vendor/popper.js/popper.min.js,templates/ayuda/assets/vendor/bootstrap/bootstrap.min.js"></script>
+		<script src="/min/?f=js/moment-with-locales.min.js,js/angular-sanitize.min.js,js/angular-messages.min.js,js/angular-animate.js,js/angular-touch.js"></script>
+
+						
+				<script src="/templates/ayuda/assets/vendor/fancybox/jquery.fancybox.js"></script>
+						
+		<script src="/min/?f=js/console/jquery.blockUI.min.js,templates/ayuda/assets/vendor/jquery.countdown.min.js,templates/ayuda/assets/vendor/slick-carousel/slick/slick.js,templates/ayuda/assets/vendor/hs-megamenu/src/hs.megamenu.js,templates/ayuda/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js,templates/ayuda/assets/vendor/appear.js,templates/ayuda/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js,templates/ayuda/assets/vendor/dzsparallaxer/dzsparallaxer.js,templates/ayuda/assets/vendor/dzsparallaxer/dzsscroller/scroller.js,templates/ayuda/assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+		
+		<script src="/min/?f=templates/ayuda/assets/js/hs.core.js,templates/ayuda/assets/js/components/hs.header.js,templates/ayuda/assets/js/helpers/hs.hamburgers.js,templates/ayuda/assets/js/components/hs.dropdown.js,templates/ayuda/assets/js/components/hs.count-qty.js,templates/ayuda/assets/js/components/hs.scrollbar.js,templates/ayuda/assets/js/components/hs.countdown.js,templates/ayuda/assets/js/components/hs.carousel.js,templates/ayuda/assets/js/components/hs.go-to.js,templates/ayuda/assets/js/components/hs.onscroll-animation.js,templates/ayuda/assets/js/helpers/hs.file-attachments.js"></script>
+				
+		<script src="/min/?f=templates/ayuda/assets/js/components/hs.scroll-nav.js,templates/ayuda/assets/js/components/hs.counter.js,templates/ayuda/assets/js/components/hs.carousel.js,templates/ayuda/assets/js/components/hs.popup.js,templates/ayuda/assets/js/components/hs.cubeportfolio.js,templates/ayuda/assets/js/components/hs.tabs.js"></script>
+		
+		<script src="/min/?f=js/holder.min.js,js/spin.min.js,js/ladda.min.js,js/toastr.min.js,js/jquery.backstretch.min.js,js/jquery.i18n/jquery.i18n.js,js/jquery.i18n/jquery.i18n.messagestore.js,js/jquery.i18n/jquery.i18n.fallbacks.js,js/jquery.i18n/jquery.i18n.parser.js,js/jquery.i18n/jquery.i18n.emitter.js,js/jquery.i18n/jquery.i18n.language.js,js/ngMask.min.js"></script>
+		
+		<script src="/min/?f=js/URI.min.js,js/jquery.main.js,js/toastr.min.js,js/bootbox5/bootbox.min.js,js/console/summernote/summernote.min.js,js/console/summernote/angular-summernote.min.js,js/console/angular-numberinput.js,js/console/ng-selectize.js,js/bootstrap4-datetimepicker.min.js,js/console/angular-bootstrap-datetimepicker-directive.js,js/console/angular-selectize.js,js/console/jquery.bootstrap-duallistbox.min.js,js/console/angular-bootstrap-duallistbox.js,js/console/jquery.appManager.js,templates/deptsalud/jquery.header.js"></script>
+		
+					
+	<!-- PAGE JS INCLUDES -->
+			<script type="text/javascript" src="/templates/deptsalud/javascript.js?1727881009"></script>
+							<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js" defer ></script>
+			
+			<script type="text/javascript" src="/pages/posts/javascript.js?1727880971"></script>
+	<!-- END PAGE JS INCLUDES -->
+
+
+		<script>(function () { var s = document.createElement("script"); s.setAttribute("data-account","tqQHbjP3kE");s.setAttribute("src","https://cdn.userway.org/widget.js"); document.body.appendChild(s); })();</script>
+		<noscript>Enable JavaScript to ensure <a href="https://userway.org">website accessibility</a></noscript>
+		
+		
+		<!-- START JS for PRGOV TOP bar -->
+		<script>
+			const trigger = document.getElementById("trigger");
+			const dropdown = document.getElementById("dropdown");
+
+			trigger.addEventListener("click", function (e) {
+			e.preventDefault();
+			dropdown.classList.toggle("show");
+			});
+
+			document.addEventListener("click", function (e) {
+			if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+			dropdown.classList.remove("show");
+				}
+			});
+
+			//close with ESC)
+			document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape") {
+			dropdown.classList.remove("show");
+			}
+			});
+		</script>
+		<!-- END JS for PRGOV TOP bar -->
+		
+	</body>
+</html>

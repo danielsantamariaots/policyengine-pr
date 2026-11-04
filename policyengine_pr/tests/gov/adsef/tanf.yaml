@@ -1,0 +1,89 @@
+# Expected values from Reglamento 7653 (Secs. 4.20.C, 4.22.D) and the Welfare
+# Rules Database 2023 figures for Puerto Rico (max benefit $584, initial
+# earnings ceiling $1,620 for a family of three; applied to every size, GAP).
+
+- name: Single parent with two children and no income gets the maximum
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    tanf_eligible: true
+    # 584 x 12
+    tanf: 7_008
+
+- name: "Single parent earning $600 a month: benefit is 584 - (600 - 90)"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 7_200
+      c1:
+        age: 4
+    households:
+      household:
+        members: [p, c1]
+  output:
+    tanf_countable_income: 6_120
+    tanf_eligible: true
+    # (584 - 510) x 12
+    tanf: 888
+
+- name: Single parent earning $1,700 a month is over the initial-eligibility ceiling
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 20_400
+      c1:
+        age: 4
+    households:
+      household:
+        members: [p, c1]
+  output:
+    tanf_eligible: false
+    tanf: 0
+
+- name: Two-parent family with no income is not served
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+      s:
+        age: 31
+      c1:
+        age: 4
+    households:
+      household:
+        members: [p, s, c1]
+  output:
+    tanf_eligible: false
+    tanf: 0
+
+- name: Benefit under $10 a month is not paid
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 8_004
+      c1:
+        age: 4
+    households:
+      household:
+        members: [p, c1]
+  output:
+    # 667 - 90 = 577 countable; 584 - 577 = 7 < 10
+    tanf: 0

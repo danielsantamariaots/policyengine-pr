@@ -1,0 +1,9 @@
+description: A child counts for Category C while under this age.
+metadata:
+  unit: year
+  label: TANF child maximum age
+  reference:
+    - title: "ADSEF, Reglamento 7653 (2008), Sec. 5.1.B-C (minors under 18)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/2.ReglamentoTANF.pdf
+values:
+  2008-12-08: 18

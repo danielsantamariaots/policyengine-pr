@@ -1,0 +1,10 @@
+description: Monthly deduction per earner from wages, salary or self-employment income in Category C.
+metadata:
+  unit: currency-USD
+  period: month
+  label: TANF work expense deduction
+  reference:
+    - title: "ADSEF, Reglamento 7653 (2008), Sec. 4.20.C.2: $90.00 per applicant or participant with earnings"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/2.ReglamentoTANF.pdf
+values:
+  2008-12-08: 90

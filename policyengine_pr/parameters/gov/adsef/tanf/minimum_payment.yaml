@@ -1,0 +1,10 @@
+description: Benefits below this monthly amount are not issued in Category C.
+metadata:
+  unit: currency-USD
+  period: month
+  label: TANF minimum payment
+  reference:
+    - title: "ADSEF, Reglamento 7653 (2008), Sec. 4.22.D: in Category C no checks under $10.00 are issued"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/2.ReglamentoTANF.pdf
+values:
+  2008-12-08: 10

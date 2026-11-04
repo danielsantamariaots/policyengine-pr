@@ -1,0 +1,15 @@
+description: Maximum monthly TANF (Category C) benefit for a family with no income.
+metadata:
+  unit: currency-USD
+  period: month
+  label: TANF maximum monthly benefit
+  reference:
+    - title: "Urban Institute / ACF OPRE, Graphical Overview of State and Territory TANF Policies as of July 2023, Figure 5: Puerto Rico $584 (family of three, no income)"
+      href: https://www.urban.org/sites/default/files/2025-05/Graphical-Overview-of-State-and-Territory-TANF-Policies-as-of-July-2023.pdf#page=12
+  gap: >-
+    Only the three-person value is published; the standard-of-need table by
+    family size in Reglamento 7653 (Sec. 4.22) is not printed in it. The
+    three-person value is applied to every family size until ADSEF's table
+    is obtained (docs/statutes/tanf/SOURCES.md).
+values:
+  2023-07-01: 584
