@@ -244,14 +244,14 @@ TEXT = {
         "{} dependientes ({} años)",
         "{} dependents (ages {})",
     ),
-    "m_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
+    "m_tax": ("Contribución de PR", "PR income tax"),
     "m_tax_help": (
         "Línea 26 del Formulario 482: lo que el hogar debe a Hacienda antes "
         "de retenciones y créditos reembolsables.",
         "Formulario 482 line 26: what the household owes Hacienda before "
         "withholding and refundable credits.",
     ),
-    "m_credits": ("Créditos reembolsables", "Refundable credits"),
+    "m_credits": ("Créditos", "Credits"),
     "m_credits_help": (
         "Crédito por Trabajo (línea 27C) más el crédito federal por hijos "
         "(línea 27D). Se pagan aunque no se deba contribución.",
@@ -265,7 +265,7 @@ TEXT = {
         "Household income minus PR tax, Social Security and Medicare, plus "
         "refundable credits, PAN and TANF.",
     ),
-    "m_rate": ("Lo que se va de cada $100", "Out of every $100"),
+    "m_rate": ("Se va de cada $100", "Out of each $100"),
     "m_rate_help": (
         "Tasa contributiva neta: (ingreso de mercado − ingreso neto) / "
         "ingreso de mercado. Negativa cuando el hogar recibe más en créditos "

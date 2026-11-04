@@ -60,12 +60,12 @@ TEXT = {
         "Pérdida de ingreso neto en el peor precipicio",
         "Net income lost at the worst cliff",
     ),
-    "m_high": ("Salarios con tasa ≥ 50%", "Wages at a rate ≥ 50%"),
+    "m_high": ("Tramo con tasa ≥ 50%", "Range at ≥ 50%"),
     "m_high_help": (
         "Suma de los tramos de $500 con tasa marginal efectiva de 50% o más",
         "Sum of the $500 steps with an effective marginal rate of 50% or more",
     ),
-    "m_emtr_here": ("Tasa marginal del hogar", "Household's marginal rate"),
+    "m_emtr_here": ("Tasa marginal aquí", "Marginal rate here"),
     "m_emtr_here_help": (
         "De los próximos $500 de salario del contribuyente, cuánto se va en "
         "contribuciones y créditos perdidos",

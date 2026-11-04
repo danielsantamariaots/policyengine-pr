@@ -17,6 +17,8 @@ Usage::
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 """
 
+from pathlib import Path
+
 import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
@@ -217,12 +219,18 @@ def hline(fig, y, color=ZERO, dash="solid", label=None):
         )
 
 
+def _fontface():
+    """Self-hosted Inter and Source Serif 4 (Latin subsets) served from
+    app/static/ (server.enableStaticServing); system fonts are the fallback."""
+    path = Path(__file__).resolve().parent / "static" / "fonts" / "fonts.css"
+    return path.read_text() if path.exists() else ""
+
+
 def inject_css():
     """Site typography and KPI styling for the Streamlit page."""
     css = """
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
         <style>
+        %(FONTFACE)s
         .stApp, .stApp p, .stApp li, .stApp label, .stApp input, .stApp button, .stApp td, .stApp th { font-family: %(FONT)s; color: %(INK)s; }
         .stApp h1, .stApp h2, .stApp h3 { font-family: %(FONT)s; color: %(NAVY)s; }
         .stApp h1 { font-weight: 700; letter-spacing: -.01em; }
@@ -235,6 +243,12 @@ def inject_css():
         [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { font-family: %(FONT)s; }
         </style>
     """ % dict(
-        FONT=FONT, INK=INK, NAVY=NAVY, SOFT=SOFT, LINE=LINE, MUTED=MUTED
+        FONT=FONT,
+        INK=INK,
+        NAVY=NAVY,
+        SOFT=SOFT,
+        LINE=LINE,
+        MUTED=MUTED,
+        FONTFACE=_fontface(),
     )
     st.markdown(css, unsafe_allow_html=True)
