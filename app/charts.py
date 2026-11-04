@@ -259,6 +259,12 @@ def inject_css():
         [data-testid="stMetricLabel"] p { color: %(MUTED)s; font-size: .82rem; font-family: %(FONT)s; }
         [data-testid="stSidebar"] { background: %(SOFT)s; border-right: 1px solid %(LINE)s; }
         [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { font-family: %(FONT)s; }
+        .st-key-tile_pays [data-testid="stMetric"] { border-left: 4px solid %(RED)s; }
+        .st-key-tile_gets [data-testid="stMetric"] { border-left: 4px solid %(GREEN)s; }
+        .st-key-tile_net [data-testid="stMetric"] { border-left: 4px solid %(NAVY)s; }
+        .st-key-tile_rate [data-testid="stMetric"] { border-left: 4px solid %(MUTED)s; }
+        .st-key-tile_pays [data-testid="stMetricValue"] { color: %(RED)s; }
+        .st-key-tile_gets [data-testid="stMetricValue"] { color: %(GREEN)s; }
         .pr-mobile-hint { display: none; }
         @media (max-width: 640px) {
           .stApp h1 { font-size: 1.6rem; line-height: 1.2; }
@@ -281,5 +287,7 @@ def inject_css():
         LINE=LINE,
         MUTED=MUTED,
         FONTFACE=_fontface(),
+        RED=RED,
+        GREEN=GREEN,
     )
     st.markdown(css, unsafe_allow_html=True)

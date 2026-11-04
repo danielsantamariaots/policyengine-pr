@@ -225,11 +225,9 @@ TEXT = {
     "home_disclaimer": (
         "Los resultados son estimaciones a partir de los formularios e "
         "instrucciones oficiales para 2025 y no sustituyen asesoría "
-        "profesional. Código y fuentes: github.com/danielsantamariaots/"
-        "policyengine-pr.",
+        "profesional.",
         "Results are estimates from the official 2025 forms and instructions "
-        "and are not professional advice. Code and sources: "
-        "github.com/danielsantamariaots/policyengine-pr.",
+        "and are not professional advice.",
     ),
     "preset": ("Hogar tipo", "Household preset"),
     "preset_help": (
@@ -279,11 +277,14 @@ TEXT = {
         "Household income minus PR tax, Social Security and Medicare, plus "
         "refundable credits, PAN and TANF.",
     ),
-    "m_rate": ("Se va de cada $100", "Out of each $100"),
+    "m_rate": (
+        "De cada $100 más, se queda con",
+        "Of each extra $100, it keeps",
+    ),
     "m_rate_help": (
-        "Tasa contributiva neta: (ingreso de mercado − ingreso neto) / "
-        "ingreso de mercado. Negativa cuando el hogar recibe más en créditos "
-        "de lo que paga.",
+        "100 menos la tasa contributiva neta: (ingreso de mercado − ingreso "
+        "neto) / ingreso de mercado. Más de $100 cuando el hogar recibe más en "
+        "créditos de lo que paga.",
         "Net tax rate: (market income − net income) / market income. "
         "Negative when the household receives more in credits than it pays.",
     ),
@@ -725,20 +726,21 @@ def metric_row(base, ref, L):
     """The four headline figures, identical on both pages."""
     shown = ref or base
 
-    def metric(col, label, key, help_key, lower_is_better=False):
+    def metric(col, label, key, help_key, tile, lower_is_better=False):
         delta = money(ref[key] - base[key]) if ref else None
-        col.metric(
-            t(label, L),
-            money(shown[key]),
-            delta=delta,
-            help=md(help_key, L),
-            delta_color="inverse" if lower_is_better else "normal",
-        )
+        with col, st.container(key=f"tile_{tile}"):
+            st.metric(
+                t(label, L),
+                money(shown[key]),
+                delta=delta,
+                help=md(help_key, L),
+                delta_color="inverse" if lower_is_better else "normal",
+            )
 
     c1, c2, c3, c4 = st.columns(4)
-    metric(c1, "m_tax", "pr_income_tax", "m_tax_help", lower_is_better=True)
-    metric(c2, "m_credits", "pr_refundable_credits", "m_credits_help")
-    metric(c3, "m_net", "household_net_income", "m_net_help")
+    metric(c1, "m_tax", "pr_income_tax", "m_tax_help", "pays", True)
+    metric(c2, "m_credits", "pr_refundable_credits", "m_credits_help", "gets")
+    metric(c3, "m_net", "household_net_income", "m_net_help", "net")
     market = shown["household_market_income"]
     rate = (market - shown["household_net_income"]) / market if market else 0.0
     delta = None
@@ -747,13 +749,14 @@ def metric_row(base, ref, L):
             base["household_market_income"] - base["household_net_income"]
         ) / base["household_market_income"]
         delta = f"{(rate - base_rate) * 100:+.1f} pp"
-    c4.metric(
-        t("m_rate", L),
-        f"-${-rate * 100:,.0f}" if rate < 0 else money(rate * 100),
-        delta=delta,
-        delta_color="inverse",
-        help=md("m_rate_help", L),
-    )
+    with c4, st.container(key="tile_rate"):
+        st.metric(
+            t("m_rate", L),
+            money(100 - rate * 100),
+            delta=f"{-(rate - base_rate) * 100:+.1f} pp" if delta else None,
+            delta_color="normal",
+            help=md("m_rate_help", L),
+        )
     head = md(
         "headline_sentence",
         L,
@@ -767,6 +770,39 @@ def metric_row(base, ref, L):
         st.markdown(head + md("rate_sentence_pos", L, 100 - rate * 100))
     else:
         st.markdown(head + md("rate_sentence_neg", L, 100 - rate * 100))
+
+
+VALIDATED_RETURNS = (
+    None  # set to the number of returns matched after the CPA validation
+)
+LAST_UPDATE = "2026-11-04"
+
+ABOUT = (
+    "**Sobre este modelo.** Hecho por [Espacios Abiertos](https://espaciosabiertos.org) "
+    "sobre [PolicyEngine](https://policyengine.org); código y fuentes abiertos en "
+    "[GitHub](https://github.com/danielsantamariaots/policyengine-pr). Reglas del año "
+    "contributivo 2025. Última actualización: {}. ¿Un error o una duda? "
+    "[Escríbanos](https://github.com/danielsantamariaots/policyengine-pr/issues/new). "
+    "Licencia AGPL-3.0.",
+    "**About this model.** Built by [Espacios Abiertos](https://espaciosabiertos.org) "
+    "on [PolicyEngine](https://policyengine.org); code and sources open on "
+    "[GitHub](https://github.com/danielsantamariaots/policyengine-pr). Tax year 2025 "
+    "rules. Last update: {}. An error or a question? "
+    "[Write to us](https://github.com/danielsantamariaots/policyengine-pr/issues/new). "
+    "AGPL-3.0 licence.",
+)
+VALIDATED = (
+    " Comprobado contra {} planillas reales de 2025 revisadas por un CPA.",
+    " Checked against {} real 2025 returns reviewed by a CPA.",
+)
+
+
+def footer(L):
+    text = ABOUT[L].format(LAST_UPDATE)
+    if VALIDATED_RETURNS:
+        text += VALIDATED[L].format(VALIDATED_RETURNS)
+    st.divider()
+    st.caption(text)
 
 
 def not_included(L, short=False):

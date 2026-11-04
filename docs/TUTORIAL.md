@@ -67,6 +67,13 @@ José, Doña Ana) muestran su resultado en una línea; *Ver* carga cada uno.
   efectiva: cuánto de cada $100 adicionales se va en contribuciones y
   créditos perdidos.
 
+La gráfica *A lo largo de la escala de ingresos* está plegada bajo *Ver
+cómo cambia con el salario*; las cuatro cifras llevan un borde de color
+(rojo lo que se paga, verde lo que se recibe, azul el ingreso neto) y la
+cuarta se lee en positivo: *De cada $100 más, se queda con*. Al pie de
+cada página, *Sobre este modelo* indica quién lo hace, la fecha de la
+última actualización y dónde reportar un error.
+
 ## 3. Probar una reforma
 
 Al final de la barra lateral, **Reforma** empieza con *Reformas de

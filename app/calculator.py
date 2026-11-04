@@ -218,6 +218,10 @@ TEXT = {
         "La Sección 8 se dibuja solo si marca *El hogar tiene un vale de Sección 8* en Vivienda.",
         "Section 8 is drawn only if you tick *Household holds a Section 8 voucher* under Housing.",
     ),
+    "range_expander": (
+        "Ver cómo cambia con el salario",
+        "See how it changes with wages",
+    ),
     "range_caption": (
         "Mismo hogar; salarios del contribuyente de $0 a $150,000. Para "
         "precipicios y tasas marginales, vea CliffWatch.",
@@ -822,7 +826,6 @@ def household_form(guided):
 
 if view == "calc":
     st.title(t("title"))
-    charts.mobile_hint(t("mobile_hint"))
     st.caption(t("caption"))
     hh, filer_wages = household_form(guided=True)
     with st.sidebar:
@@ -932,12 +935,14 @@ def example_results(L):
 
 if view == "home":
     ui.home(L, example_results(L))
+    ui.footer(L)
     st.stop()
 
 if view == "reform":
     reforms_page.render(L, ui.EXAMPLE_REFORMS, CURRENT, changes, reform_name)
     ui.not_included(L)
     ui.tutorial(L)
+    ui.footer(L)
     st.stop()
 
 situation = build_situation(hh, filer_wages)
@@ -991,6 +996,7 @@ if view == "cliff":
     ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
     ui.glossary(L)
     ui.tutorial(L)
+    ui.footer(L)
     st.stop()
 
 st.markdown(f"**{ui.household_summary(hh, filer_wages, L)}**")
@@ -1000,8 +1006,8 @@ if reform:
 ui.metric_row(base, ref, L)
 ui.why(base, shown, L)
 
-# chart full width, line-by-line table underneath
-left, right = st.container(), st.container()
+# chart (collapsed by default), line-by-line table underneath
+left, right = st.expander(t("range_expander")), st.container()
 
 with left:
     rows = []
@@ -1179,3 +1185,4 @@ ui.not_included(L, short=True)
 ui.glossary(L)
 ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
 ui.tutorial(L)
+ui.footer(L)
