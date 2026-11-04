@@ -25,6 +25,7 @@ NET_COLOR = "#1f1f1f"
 MARKET_COLOR = "#9a9a94"
 CLIFF_COLOR = "#d6283c"
 PAN_COLOR = "#c9a227"
+TANF_COLOR = "#8e44ad"
 
 TEXT = {
     "title": ("CliffWatch · Puerto Rico", "CliffWatch · Puerto Rico"),
@@ -87,6 +88,7 @@ TEXT = {
     "s_eitc": ("Crédito por Trabajo", "Crédito por Trabajo (PR EITC)"),
     "s_actc": ("Crédito federal por hijos", "Federal child credit (ACTC)"),
     "s_pan": ("PAN", "PAN (nutrition assistance)"),
+    "s_tanf": ("TANF", "TANF (cash assistance)"),
     "s_cliff": ("Precipicio", "Cliff"),
     "s_emtr": ("Ley vigente", "Current law"),
     "s_emtr_reform": ("Reforma", "Reform"),
@@ -127,6 +129,7 @@ TEXT = {
     "cause_tax": ("Sube la contribución de PR", "PR income tax rises"),
     "cause_payroll": ("Suben Seguro Social y Medicare", "Payroll taxes rise"),
     "cause_pan": ("Se pierde el PAN", "PAN lost"),
+    "cause_tanf": ("Se reduce o se pierde el TANF", "TANF reduced or lost"),
     "narr_none": (
         "Para este hogar no hay precipicios: el ingreso neto sube siempre que "
         "suben los salarios, y en ningún tramo se pierde la mitad o más de "
@@ -178,17 +181,24 @@ TEXT = {
         "el hogar pierde el PAN al superar el límite de ingreso neto",
         "the household loses PAN by exceeding the net income limit",
     ),
+    "narr_cause_tanf": (
+        "se reduce o se pierde el TANF",
+        "TANF is reduced or lost",
+    ),
     "note": (
         "La tasa marginal efectiva se calcula sobre pasos de $500. El PAN se "
         "modela con el beneficio máximo para todo hogar elegible, porque ADSEF "
         "no publica la tabla de beneficios por nivel de ingreso neto: el "
         "precipicio al superar el límite es, en parte, un artefacto de esa "
-        "laguna. Medicaid/Vital, TANF y Sección 8 no están incluidos.",
+        "laguna. El TANF usa el máximo de una familia de tres ($584) para todo "
+        "tamaño. Plan Vital se evalúa pero no tiene valor en dólares; Sección 8 "
+        "no está incluida.",
         "The effective marginal rate is computed over $500 steps. PAN is "
         "modelled at the maximum benefit for every eligible household because "
         "ADSEF does not publish the benefit schedule by net income: the cliff "
-        "at the limit is partly an artefact of that gap. Medicaid/Vital, TANF "
-        "and Section 8 are not included.",
+        "at the limit is partly an artefact of that gap. TANF uses the "
+        "three-person maximum ($584) for every size. Plan Vital is assessed "
+        "but carries no dollar value; Section 8 is not included.",
     ),
 }
 
@@ -203,6 +213,7 @@ VARS = {
     "eitc": "pr_eitc",
     "actc": "federal_actc",
     "pan": "pan",
+    "tanf": "tanf",
 }
 
 
@@ -248,6 +259,7 @@ def find_cliffs(df, L):
             "cause_tax": d.loc[i, "tax"],
             "cause_payroll": d.loc[i, "payroll"],
             "cause_pan": -d.loc[i, "pan"],
+            "cause_tanf": -d.loc[i, "tanf"],
         }
         cause = max(adverse, key=adverse.get)
         rows.append(
@@ -461,6 +473,7 @@ def render(
         ("eitc", "s_eitc", CREDIT_COLOR, 1),
         ("actc", "s_actc", "#0d7a52", 1),
         ("pan", "s_pan", PAN_COLOR, 1),
+        ("tanf", "s_tanf", TANF_COLOR, 1),
         ("tax", "s_tax", TAX_COLOR, -1),
         ("payroll", "s_payroll", PAYROLL_COLOR, -1),
     ]
@@ -583,6 +596,7 @@ def render(
                 "eitc",
                 "actc",
                 "pan",
+                "tanf",
                 "net",
                 "emtr",
             ]
@@ -595,6 +609,7 @@ def render(
                 "eitc": t("s_eitc"),
                 "actc": t("s_actc"),
                 "pan": t("s_pan"),
+                "tanf": t("s_tanf"),
                 "net": t("s_net"),
                 "emtr": t("col_emtr"),
             }

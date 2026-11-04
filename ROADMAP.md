@@ -46,6 +46,15 @@ late: ship the household calculator first; aggregate estimates follow.
   the October 2021 values; no resources test, dependent-care, disability,
   student or medical deductions, or Vieques/Culebra supplement. Ask ADSEF
   for the current Tabla and the FY2026 plan.
+- **Plan Vital and TANF.** Modelled since 2026-11-04 (`docs/statutes/vital/`,
+  `docs/statutes/tanf/`). Vital: household MAGI against the CMS Puerto Rico
+  Medicaid/CHIP levels (April 2026 table applied to 2025); eligibility
+  only, no cash value. TANF Category C: single parent with a child under
+  18, Reglamento 7653 deductions and minimum payment, Welfare Rules
+  Database 2023 figures for a family of three ($584 maximum, $1,620
+  earnings ceiling) applied to every size (GAP: ADSEF's standard-of-need
+  table). Not modelled: categories A/B/D/G/T, new-job exemptions, child
+  care deduction, resources, time limits, non-MAGI Medicaid, Sección 8.
 - **Microdata (PRCS 2023 PUMS).** Since 2026-11-04 `policyengine_pr/data/prcs.py`
   builds `data/prcs_2023.h5` from the Census PUMS person and housing files
   (download into `data/raw/pums_2023/`; `data/` is git-ignored). Tax units

@@ -138,7 +138,13 @@ cifra útil. Requiere `data/prcs_2023.h5` (véase `policyengine_pr/data/`).
 - Tasas preferenciales distintas del 10% (intereses bancarios), 15%
   (dividendos y ganancias de capital): columnas de 4% y 20% del Anejo A2.
 - Créditos no reembolsables por inversión (Anejo B).
-- Beneficios: Medicaid/Vital, TANF, Sección 8. El **PAN** sí está incluido
+- Sección 8. El **TANF** (categoría C: madre o padre solo con hijos
+  menores) está incluido con el máximo de una familia de tres ($584 al
+  mes, Welfare Rules Database 2023) aplicado a todo tamaño, porque ADSEF
+  no publica la tabla de necesidades; se descuenta el ingreso contable
+  dólar por dólar tras $90 de gastos de trabajo. **Plan Vital** se evalúa
+  (miembros elegibles según los niveles de ingreso de CMS) sin asignarle
+  valor en dólares. El **PAN** sí está incluido
   (Reglamento 8684 y Plan Estatal NAP): elegibilidad por ingreso neto
   mensual y beneficio máximo según el tamaño del hogar, con el bono por
   edad avanzada. Lagunas señaladas: ADSEF no publica la tabla que reduce el

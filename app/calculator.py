@@ -22,6 +22,7 @@ BASELINE_COLOR = "#2a78d6"
 REFORM_COLOR = "#eb6834"
 CREDIT_COLOR = "#1baf7a"
 PAN_COLOR = "#c9a227"
+TANF_COLOR = "#8e44ad"
 
 # ---------------------------------------------------------------------------
 # Text in both languages. Spanish is the default; English is one toggle away.
@@ -98,6 +99,7 @@ TEXT = {
     "s_payroll": ("Seguro Social y Medicare", "Social Security and Medicare"),
     "s_credits": ("Créditos reembolsables", "Refundable credits"),
     "s_pan": ("PAN", "PAN"),
+    "s_tanf": ("TANF", "TANF"),
     "s_net": ("Ingreso neto", "Net income"),
     "s_change": ("Cambio en ingreso neto", "Change in net income"),
     "s_net_current": ("Ingreso neto, ley vigente", "Net income, current law"),
@@ -231,11 +233,25 @@ OUTPUTS = [
         "Nutrition assistance: maximum benefit by household size if monthly net income is within the limit",
     ),
     (
+        "tanf",
+        "TANF, beneficio anual (ADSEF, categoría C)",
+        "TANF, annual benefit (ADSEF, category C)",
+        "Ayuda en efectivo a madres o padres solos con hijos menores: $584 al mes menos el ingreso contable",
+        "Cash aid to single parents with minor children: $584 a month less countable income",
+    ),
+    (
+        "vital_eligible_count",
+        "Plan Vital: miembros elegibles",
+        "Plan Vital: eligible members",
+        "Personas del hogar con derecho a Medicaid o CHIP según el ingreso mensual (sin valor en dólares)",
+        "Household members eligible for Medicaid or CHIP by monthly income (no dollar value assigned)",
+    ),
+    (
         "household_net_income",
         "Ingreso neto del hogar",
         "Household net income",
-        "Ingresos menos contribuciones más créditos reembolsables y PAN",
-        "Income minus taxes plus refundable credits and PAN",
+        "Ingresos menos contribuciones más créditos reembolsables, PAN y TANF",
+        "Income minus taxes plus refundable credits, PAN and TANF",
     ),
 ]
 RANGE_VARS = [
@@ -245,6 +261,7 @@ RANGE_VARS = [
     "self_employment_tax",
     "pr_refundable_credits",
     "pan",
+    "tanf",
     "household_net_income",
 ]
 PERSON_INPUTS = [
@@ -662,6 +679,7 @@ with left:
             + x["self_employment_tax"],
             t("s_credits"): x["pr_refundable_credits"],
             t("s_pan"): x["pan"],
+            t("s_tanf"): x["tanf"],
             t("s_net"): x["household_net_income"],
         }
         if reform:
@@ -722,6 +740,7 @@ with left:
         line(fig, t("s_payroll"), REFORM_COLOR)
         line(fig, t("s_credits"), CREDIT_COLOR)
         line(fig, t("s_pan"), PAN_COLOR)
+        line(fig, t("s_tanf"), TANF_COLOR)
     fig.add_vline(
         x=filer_wages, line=dict(color="#9a9a94", width=1, dash="dot")
     )
@@ -770,6 +789,9 @@ with right:
             columns=[t("col_item"), t("col_amount"), t("col_what")],
         )
         fmt = {t("col_amount"): "${:,.2f}"}
+        table.loc[
+            table[t("col_item")].str.startswith("Plan Vital"), t("col_amount")
+        ] = base["vital_eligible_count"]
     st.dataframe(
         table.style.format(fmt),
         use_container_width=True,
