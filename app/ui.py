@@ -168,6 +168,11 @@ TEXT = {
     "nav_calc": ("Mi hogar", "My household"),
     "nav_cliff": ("¿Y si gano más?", "What if I earn more?"),
     "nav_reform": ("Reforma contributiva", "Tax reform"),
+    "nav_method": ("Cómo funciona", "How it works"),
+    "method_en_note": (
+        "",
+        "This page is in Spanish; the technical description in English is in the repository's ROADMAP.md and docs/statutes/.",
+    ),
     "home_title": (
         "¿Cuánto paga su hogar en contribuciones y cuánto recibe en créditos y ayudas?",
         "How much does your household pay in taxes, and how much does it get in credits and benefits?",
@@ -590,6 +595,11 @@ def apply_query_params(lever_defaults):
                 st.session_state[k] = _coerce(v, DEFAULTS[k])
             elif k == "show_levers":
                 st.session_state[k] = v in ("1", "true", "True")
+            elif k == "reform":
+                row = _lookup(EXAMPLE_REFORMS, v)
+                if row is not None:
+                    st.session_state["example_reform"] = row[0]
+                    apply_example_reform(lever_defaults)
             elif k in SHARED_KEYS:
                 st.session_state[k] = v
         except (TypeError, ValueError):
@@ -605,10 +615,33 @@ def sync_query_params(lever_defaults):
         v = s.get(k, default)
         if v != default:
             out[k] = str(int(v)) if isinstance(v, bool) else str(v)
+    levers = {}
     for path, default in lever_defaults.items():
         v = s.get(f"r_{path}", default)
         if abs(float(v) - float(default)) > 1e-9:
-            out[f"r.{path}"] = f"{v:g}"
+            levers[f"r.{path}"] = f"{v:g}"
+    # a reform file whose levers match exactly travels as ?reform=<key>
+    alias = next(
+        (
+            key
+            for key, _, _, changes in EXAMPLE_REFORMS
+            if changes
+            and len(changes) == len(levers)
+            and all(
+                abs(
+                    float(s.get(f"r_{p}", lever_defaults.get(p, 0)))
+                    - float(val)
+                )
+                < 1e-6
+                for p, val in changes.items()
+            )
+        ),
+        None,
+    )
+    if alias:
+        out["reform"] = alias
+    else:
+        out.update(levers)
     for k in SHARED_KEYS:
         v = s.get(k)
         if v is True:
@@ -781,13 +814,13 @@ ABOUT = (
     "**Sobre este modelo.** Hecho por [Espacios Abiertos](https://espaciosabiertos.org) "
     "sobre [PolicyEngine](https://policyengine.org); código y fuentes abiertos en "
     "[GitHub](https://github.com/danielsantamariaots/policyengine-pr). Reglas del año "
-    "contributivo 2025. Última actualización: {}. ¿Un error o una duda? "
+    "contributivo 2025. Versión del modelo: {}. ¿Un error o una duda? "
     "[Escríbanos](https://github.com/danielsantamariaots/policyengine-pr/issues/new). "
     "Licencia AGPL-3.0.",
     "**About this model.** Built by [Espacios Abiertos](https://espaciosabiertos.org) "
     "on [PolicyEngine](https://policyengine.org); code and sources open on "
     "[GitHub](https://github.com/danielsantamariaots/policyengine-pr). Tax year 2025 "
-    "rules. Last update: {}. An error or a question? "
+    "rules. Model version: {}. An error or a question? "
     "[Write to us](https://github.com/danielsantamariaots/policyengine-pr/issues/new). "
     "AGPL-3.0 licence.",
 )
@@ -803,6 +836,38 @@ def footer(L):
         text += VALIDATED[L].format(VALIDATED_RETURNS)
     st.divider()
     st.caption(text)
+
+
+def card_tiles(base, ref, L):
+    shown = ref or base
+    market = shown["household_market_income"]
+    rate = (market - shown["household_net_income"]) / market if market else 0.0
+    return [
+        (t("m_tax", L), money(shown["pr_income_tax"]), "pays"),
+        (t("m_credits", L), money(shown["pr_refundable_credits"]), "gets"),
+        (t("m_net", L), money(shown["household_net_income"]), "net"),
+        (t("m_rate", L), money(100 - rate * 100), "rate"),
+    ]
+
+
+def headline_text(shown, L):
+    """The headline sentence as plain text (no markdown) for the card."""
+    market = shown["household_market_income"]
+    rate = (market - shown["household_net_income"]) / market if market else 0.0
+    head = t(
+        "headline_sentence",
+        L,
+        money(shown["pr_income_tax"]),
+        money(shown["pr_refundable_credits"]),
+        money(shown["household_net_income"]),
+    )
+    if not market:
+        tail = t("rate_sentence_zero", L)
+    elif rate >= 0:
+        tail = t("rate_sentence_pos", L, 100 - rate * 100)
+    else:
+        tail = t("rate_sentence_neg", L, 100 - rate * 100)
+    return (head + tail).replace("**", "")
 
 
 def not_included(L, short=False):

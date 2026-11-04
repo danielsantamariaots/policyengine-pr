@@ -137,3 +137,22 @@ def test_shared_link_restores_household_and_reform():
     )
     assert at.info  # reform notice
     assert at.query_params["filer_wages"] == "42000"
+
+
+def test_short_reform_link_loads_the_reform_file():
+    from streamlit.testing.v1 import AppTest
+
+    at = AppTest.from_file(str(APP), default_timeout=120)
+    at.query_params["view"] = "calc"
+    at.query_params["reform"] = "ensayo_2027"
+    at.run()
+    _no_errors(at)
+    assert at.info and "Ensayo 2027" in at.info[0].value
+    assert at.query_params["reform"] == "ensayo_2027"
+
+
+def test_method_page_renders(app):
+    at = app
+    _radio(at, "view").set_value("method").run()
+    _no_errors(at)
+    assert any("Cómo funciona" in m.value for m in at.markdown)

@@ -74,6 +74,13 @@ cuarta se lee en positivo: *De cada $100 más, se queda con*. Al pie de
 cada página, *Sobre este modelo* indica quién lo hace, la fecha de la
 última actualización y dónde reportar un error.
 
+Bajo *¿Por qué estos números?*, *Descargar tarjeta (PNG)* produce una
+imagen con las cuatro cifras y la frase, lista para pegar en un mensaje o
+una presentación; la página *Reforma contributiva* tiene la suya con el
+costo y quién gana. La página *Cómo funciona* explica el modelo sin
+tecnicismos (`docs/METODOLOGIA.md`). Un enlace compartido con una
+propuesta de ejemplo lleva `?reform=<archivo>` en vez de cada parámetro.
+
 ## 3. Probar una reforma
 
 Al final de la barra lateral, **Reforma** empieza con *Reformas de

@@ -7,10 +7,12 @@ mean change in net income. Selecting a row shows the decile chart.
 
 from pathlib import Path
 
+import card
 import charts
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+import ui
 
 from policyengine_pr.analysis.scoring import score
 from policyengine_pr.reforms.parametric import parametric_reform
@@ -100,6 +102,35 @@ TEXT = {
     "benefits_table": ("Ver tabla", "Table view"),
     "col_share": ("% de hogares con {}", "% of households with {}"),
     "col_ben_mean": ("{} medio", "Mean {}"),
+    "download_card": ("Descargar tarjeta (PNG)", "Download card (PNG)"),
+    "card_sub": (
+        "Reforma contributiva simulada sobre la Encuesta de la Comunidad de Puerto Rico 2023, reglas de 2025, pesos calibrados a totales oficiales.",
+        "Tax reform simulated on the 2023 Puerto Rico Community Survey, 2025 rules, weights calibrated to official totals.",
+    ),
+    "card_cost": (
+        "Costo anual para Hacienda: {}",
+        "Annual cost to Hacienda: {}",
+    ),
+    "card_gain": (
+        "Costo anual para Hacienda: {} (recaudo)",
+        "Annual gain for Hacienda: {}",
+    ),
+    "card_b1": (
+        "{:.0%} de los hogares salen ganando; {:.0%} perdiendo",
+        "{:.0%} of households are better off; {:.0%} worse off",
+    ),
+    "card_b2": (
+        "Cambio medio en ingreso neto: {} por hogar al año",
+        "Mean change in net income: {} per household a year",
+    ),
+    "card_b3": (
+        "Contribución sobre ingresos {}; Crédito por Trabajo {}; PAN {}",
+        "Income tax {}; Crédito por Trabajo {}; PAN {}",
+    ),
+    "card_footer": (
+        "Espacios Abiertos · policyengine-pr versión {} · policyengine-pr.streamlit.app",
+        "Espacios Abiertos · policyengine-pr version {} · policyengine-pr.streamlit.app",
+    ),
     "calibration_title": (
         "Calibración a totales oficiales",
         "Calibration to official totals",
@@ -276,6 +307,32 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
 
     pick = st.selectbox(t("pick"), list(results))
     r = results[pick]
+    s = r["summary"]
+    households = s["households"]
+    cost = s["revenue_change"]
+    m = lambda x: f"${x / 1e6:,.0f} M"
+    st.download_button(
+        t("download_card"),
+        card.reform_card(
+            pick,
+            t("card_sub"),
+            t("card_cost" if cost >= 0 else "card_gain", m(abs(cost))),
+            [
+                t("card_b1", s["share_better_off"], s["share_worse_off"]),
+                t("card_b2", f"${s['net_income_change'] / households:+,.0f}"),
+                t(
+                    "card_b3",
+                    m(s["income_tax_change"]),
+                    m(s["eitc_change"]),
+                    m(s["pan_change"]),
+                ),
+            ],
+            t("card_footer", ui.LAST_UPDATE.replace("-", ".")),
+        ),
+        "reforma_contributiva.png",
+        "image/png",
+        key="download_reform_card",
+    )
     dec = r["deciles"]
 
     fig = charts.figure(

@@ -15,6 +15,7 @@ from pathlib import Path
 # first deploy (Streamlit Community Cloud keeps that install across pushes).
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import card  # noqa: E402
 import charts  # noqa: E402
 import cliffwatch  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -217,6 +218,15 @@ TEXT = {
     "section8_hint": (
         "La Sección 8 se dibuja solo si marca *El hogar tiene un vale de Sección 8* en Vivienda.",
         "Section 8 is drawn only if you tick *Household holds a Section 8 voucher* under Housing.",
+    ),
+    "download_card": ("Descargar tarjeta (PNG)", "Download card (PNG)"),
+    "card_title": (
+        "Mi hogar · Modelo contributivo de Puerto Rico",
+        "My household · Puerto Rico tax model",
+    ),
+    "card_footer": (
+        "Espacios Abiertos · policyengine-pr versión {} · año contributivo 2025 · policyengine-pr.streamlit.app",
+        "Espacios Abiertos · policyengine-pr version {} · tax year 2025 · policyengine-pr.streamlit.app",
     ),
     "range_expander": (
         "Ver cómo cambia con el salario",
@@ -644,7 +654,9 @@ VIEWS = {
     "calc": "nav_calc",
     "cliff": "nav_cliff",
     "reform": "nav_reform",
+    "method": "nav_method",
 }
+METHOD_MD = Path(__file__).resolve().parents[1] / "docs" / "METODOLOGIA.md"
 with st.sidebar:
     view = st.radio(
         ui.t("nav", L),
@@ -933,6 +945,13 @@ def example_results(L):
     return out
 
 
+if view == "method":
+    if L == 1:
+        st.info(ui.t("method_en_note", L))
+    st.markdown(METHOD_MD.read_text().replace("$", "\\$"))
+    ui.footer(L)
+    st.stop()
+
 if view == "home":
     ui.home(L, example_results(L))
     ui.footer(L)
@@ -1005,6 +1024,19 @@ if reform:
 
 ui.metric_row(base, ref, L)
 ui.why(base, shown, L)
+st.download_button(
+    t("download_card"),
+    card.household_card(
+        t("card_title"),
+        ui.household_summary(hh, filer_wages, L).replace("\\$", "$"),
+        ui.card_tiles(base, ref, L),
+        ui.headline_text(shown, L),
+        t("card_footer", ui.LAST_UPDATE.replace("-", ".")),
+    ),
+    "mi_hogar.png",
+    "image/png",
+    key="download_card",
+)
 
 # chart (collapsed by default), line-by-line table underneath
 left, right = st.expander(t("range_expander")), st.container()
