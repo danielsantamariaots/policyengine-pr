@@ -1,0 +1,12 @@
+name: Subir 20% el Crédito por Trabajo máximo
+name_en: Raise the maximum Crédito por Trabajo 20%
+description: >-
+  Los cuatro máximos del Crédito por Trabajo (Sección 1052.01) suben un 20%
+  sobre los valores de 2025; las fases de aumento y reducción no cambian.
+source: Reforma de ejemplo (policyengine-pr)
+start: 2025-01-01
+levers:
+  gov.hacienda.credits.eitc.max.0: "+20%"
+  gov.hacienda.credits.eitc.max.1: "+20%"
+  gov.hacienda.credits.eitc.max.2: "+20%"
+  gov.hacienda.credits.eitc.max.3: "+20%"

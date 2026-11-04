@@ -51,3 +51,11 @@
   statistic: sum
   value: 2_928_990_448
   source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 total food cost
+
+- name: returns_filed
+  description: Individual income tax returns filed for tax year 2023 (check only; not a constraint, because the published figure is Hacienda's cycle projection)
+  variable: pr_files_return
+  statistic: count_positive
+  value: 1_200_000
+  check_only: true
+  source: "Hacienda, comunicado 'Más de un millón de planillas radicadas a una semana del cierre del Ciclo Contributivo' (April 2024): 1,038,899 filed a week before the deadline; 1.2 million projected for the cycle"

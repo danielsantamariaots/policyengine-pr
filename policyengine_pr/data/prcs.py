@@ -17,8 +17,9 @@ tabulations allow calibration):
   if enrolled in school (SCH > 1), are their dependents, as are any other
   members under 18. Every other adult files a separate single return with
   no dependents. Unmarried partners (22, 24) file separately.
-- Money amounts are PUMS annual amounts times ADJINC (2023 dollars). No
-  uprating to the 2025 tax year is applied yet.
+- Money amounts are PUMS annual amounts times ADJINC (2023 dollars), uprated
+  to the tax year by the growth of BLS QCEW average annual pay in Puerto
+  Rico (2023 -> 2025: x1.0815; docs/statutes/uprating/).
 - interest_income receives INTP (interest, dividends and net rental
   income together); dividend_income and capital gains are zero.
 - is_veteran: served on active duty in the past (MIL == 2).
@@ -55,6 +56,15 @@ PERSON_COLS = [
 HOUSEHOLD_COLS = ["SERIALNO", "WGTP", "TYPEHUGQ", "PUMA"]
 
 
+def uprating_factor(from_year: int = 2023, to_year: int = TAX_YEAR) -> float:
+    """Growth of Puerto Rico average annual pay (BLS QCEW) between the survey
+    year and the simulated tax year; see docs/statutes/uprating/SOURCES.md."""
+    from policyengine_pr import system
+
+    pay = system.parameters.gov.data.uprating.average_annual_pay
+    return float(pay(f"{to_year}-01-01")) / float(pay(f"{from_year}-01-01"))
+
+
 def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
     p = pd.read_csv(raw / "psam_p72.csv", usecols=PERSON_COLS)
     h = pd.read_csv(raw / "psam_h72.csv", usecols=HOUSEHOLD_COLS)
@@ -64,7 +74,7 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
         drop=True
     )  # occupied housing units with at least one person (vacant units dropped)
     p = p[p["SERIALNO"].isin(h["SERIALNO"])].reset_index(drop=True)
-    adj = p["ADJINC"] / 1_000_000
+    adj = p["ADJINC"] / 1_000_000 * uprating_factor()
 
     p["household_id"] = p["SERIALNO"].map(
         dict(zip(h["SERIALNO"], np.arange(len(h))))

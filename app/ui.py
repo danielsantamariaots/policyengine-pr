@@ -122,40 +122,27 @@ PRESETS = [
     ),
 ]
 
-# Example reforms: (key, name es, name en, {lever path: value})
-EXAMPLE_REFORMS = [
-    ("none", "Ninguna (ley vigente)", "None (current law)", {}),
-    (
-        "zero_bracket",
-        "Ampliar el tramo de 0% a $12,000",
-        "Widen the 0% bracket to $12,000",
-        {"gov.hacienda.income.rates[1].threshold": 12_000.0},
-    ),
-    (
-        "eitc_up",
-        "Subir 20% el Crédito por Trabajo máximo",
-        "Raise the maximum Crédito por Trabajo 20%",
-        {
-            f"gov.hacienda.credits.eitc.max.{n}": None  # filled from current law
-            for n in range(4)
-        },
-    ),
-    (
-        "no_notch",
-        "Eliminar el salto del 92% al 95%",
-        "Remove the 92%→95% jump",
-        {"gov.hacienda.income.tax_determination.rate.standard": 0.92},
-    ),
-    (
-        "exemption_up",
-        "Exención personal a $5,000 / $10,000",
-        "Personal exemption to $5,000 / $10,000",
-        {
-            "gov.hacienda.income.exemptions.personal.SINGLE": 5_000.0,
-            "gov.hacienda.income.exemptions.personal.JOINT": 10_000.0,
-        },
-    ),
-]
+
+# Example reforms come from the YAML files in reforms/ (one file per reform:
+# name, name_en, description, source, start, levers). Keys are file stems.
+def _example_reforms():
+    from policyengine_pr.reforms.files import REFORMS_DIR, load_reform
+
+    rows = [("none", "Ninguna (ley vigente)", "None (current law)", {})]
+    for path in sorted(REFORMS_DIR.glob("*.yaml")):
+        meta, changes = load_reform(path)
+        rows.append(
+            (
+                path.stem,
+                meta["name"],
+                meta.get("name_en", meta["name"]),
+                changes,
+            )
+        )
+    return rows
+
+
+EXAMPLE_REFORMS = _example_reforms()
 
 TEXT = {
     "nav": ("Página", "Page"),
@@ -464,8 +451,6 @@ def apply_example_reform(lever_defaults):
     for path, base in lever_defaults.items():
         st.session_state[f"r_{path}"] = base
     for path, value in changes.items():
-        if value is None:  # relative change: +20% on the current value
-            value = round(lever_defaults[path] * 1.2)
         st.session_state[f"r_{path}"] = float(value)
     name = next(
         r[1 + st.session_state.get("L", 0)]

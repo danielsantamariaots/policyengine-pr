@@ -180,10 +180,7 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     for key, es, en, changes in example_reforms:
         if key == "none":
             continue
-        resolved = {
-            path: (round(current_values[path] * 1.2) if v is None else v)
-            for path, v in changes.items()
-        }
+        resolved = dict(changes)
         reforms.append(((es, en)[L], tuple(sorted(resolved.items()))))
     if sidebar_changes:
         reforms.append((sidebar_name, tuple(sorted(sidebar_changes.items()))))

@@ -1,0 +1,10 @@
+name: Eliminar el salto del 92% al 95%
+name_en: Remove the 92%→95% jump
+description: >-
+  El factor de la Sección 1021.01(c) sobre el umbral de $100,000 de ingreso
+  bruto baja del 95% al 92%, igualándolo al de los contribuyentes por debajo
+  del umbral y eliminando el precipicio en $100,000.
+source: Reforma de ejemplo (policyengine-pr)
+start: 2025-01-01
+levers:
+  gov.hacienda.income.tax_determination.rate.standard: 0.92

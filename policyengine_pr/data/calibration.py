@@ -93,13 +93,15 @@ def calibrate(sim, targets=None) -> tuple[np.ndarray, pd.DataFrame]:
     targets = targets or load_targets()
     w0 = np.asarray(sim.calculate("household_weight", YEAR), dtype=float)
     A, t = contributions(sim, targets)
-    w = entropy_reweight(w0, A, t)
+    constrained = np.array([not x.get("check_only") for x in targets])
+    w = entropy_reweight(w0, A[constrained], t[constrained])
     report = pd.DataFrame(
         {
             "target": [x["name"] for x in targets],
             "published": t,
             "before": A @ w0,
             "after": A @ w,
+            "constraint": constrained,
         }
     )
     report["before_ratio"] = report["before"] / report["published"]

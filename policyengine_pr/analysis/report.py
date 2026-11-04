@@ -164,3 +164,19 @@ def write_report(
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines) + "\n")
     return out
+
+
+def write_report_from_file(reform_file, out: Path, eti: float = 0.0) -> Path:
+    """Report for a reforms/*.yaml file; the file's name becomes the title."""
+    from policyengine_pr.reforms.files import load_reform
+
+    meta, changes = load_reform(reform_file)
+    return write_report(changes, meta["name"], out, eti=eti)
+
+
+if __name__ == "__main__":
+    import sys
+
+    reform_file, out = sys.argv[1], Path(sys.argv[2])
+    eti = float(sys.argv[3]) if len(sys.argv) > 3 else 0.0
+    print(write_report_from_file(reform_file, out, eti))

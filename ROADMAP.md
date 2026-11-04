@@ -75,6 +75,20 @@ late: ship the household calculator first; aggregate estimates follow.
   use `prcs_2023_calibrated.h5` when built. Distributional targets from
   Hacienda's Tabla A will replace these aggregates when they arrive.
 
+- **Reform files, uprating, filing rule, app tests (2026-11-04).** A reform
+  is a YAML file in `reforms/` (name, description, source, start, levers;
+  values absolute or "+20%" relative to current law), loaded by
+  `policyengine_pr/reforms/files.py`; the app's example reforms and the
+  report CLI (`python -m policyengine_pr.analysis.report reforms/x.yaml
+  out.md`) read them. PRCS incomes are uprated 2023 → 2025 by BLS QCEW
+  average annual pay (×1.0815, `docs/statutes/uprating/`); a single factor
+  for every income source is a simplification. `pr_files_return` applies
+  the "who must file" rule (gross income net of exemptions > 0, ABT net
+  income ≥ $25,000, or a Crédito por Trabajo claim); the calibration
+  report shows the implied returns count (926k) against Hacienda's 1.2 M
+  projection as a check, not a constraint. `tests/test_app.py` renders
+  every page headlessly (Streamlit AppTest) in both languages.
+
 ## Launch checklist (target: March–April 2027)
 
 | When | Step | Status |

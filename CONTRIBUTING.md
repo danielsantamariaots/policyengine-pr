@@ -56,6 +56,27 @@ python -c "from policyengine_pr.data import build_prcs, build_calibrated; build_
 - Flag anything uncertain in the parameter's `gap:` field and in the app's
   "Qué no incluye" box rather than guessing.
 
+## Scoring a reform
+
+A reform is one YAML file in `reforms/`:
+
+```yaml
+name: Ampliar el tramo de 0% a $12,000
+name_en: Widen the 0% bracket to $12,000
+description: ...
+source: Proyecto de la Cámara 1234, 15 de marzo de 2027
+start: 2025-01-01
+levers:
+  gov.hacienda.income.rates[1].threshold: 12000
+  gov.hacienda.credits.eitc.max.0: "+20%"     # relative to current law
+```
+
+Lever paths are parameter paths (`rates[1]` indexes a bracket). The app
+lists every file in `reforms/` under *Reformas de ejemplo* and on the
+*Reformas* page; the two-page report is
+`python -m policyengine_pr.analysis.report reforms/<file>.yaml docs/informes/<name>.md [eti]`,
+then `node docs/hacienda/fuentes_documentos/md2docx.js <md> <docx>`.
+
 ## Updating a tax year
 
 When Hacienda publishes the next year's instructions and the Crédito por

@@ -1,0 +1,11 @@
+description: Average annual pay in Puerto Rico, all ownerships and industries (BLS QCEW, statewide area 72000); used to uprate PRCS incomes to the simulated tax year.
+metadata:
+  unit: currency-USD
+  label: Puerto Rico average annual pay (QCEW)
+  reference:
+    - title: "BLS, Quarterly Census of Employment and Wages, annual averages for Puerto Rico (area 72000), 2023-2025"
+      href: https://data.bls.gov/cew/data/api/2025/a/area/72000.csv
+values:
+  2023-01-01: 33_673
+  2024-01-01: 35_285
+  2025-01-01: 36_419

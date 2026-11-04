@@ -1,0 +1,9 @@
+name: Ampliar el tramo de 0% a $12,000
+name_en: Widen the 0% bracket to $12,000
+description: >-
+  El tramo de 0% de la tabla de la Sección 1021.01 pasa de $9,000 a $12,000 de
+  ingreso neto sujeto a contribución; los demás tramos no cambian.
+source: Reforma de ejemplo (policyengine-pr)
+start: 2025-01-01
+levers:
+  gov.hacienda.income.rates[1].threshold: 12000

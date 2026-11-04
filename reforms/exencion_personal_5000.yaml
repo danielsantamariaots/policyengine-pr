@@ -1,0 +1,10 @@
+name: Exención personal a $5,000 / $10,000
+name_en: Personal exemption to $5,000 / $10,000
+description: >-
+  La exención personal (Sección 1033.18) sube de $3,500 a $5,000 en planilla
+  individual y de $7,000 a $10,000 en planilla conjunta.
+source: Reforma de ejemplo (policyengine-pr)
+start: 2025-01-01
+levers:
+  gov.hacienda.income.exemptions.personal.SINGLE: 5000
+  gov.hacienda.income.exemptions.personal.JOINT: 10000
