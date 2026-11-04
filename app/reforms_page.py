@@ -5,6 +5,8 @@ in PAN spending, the share of households better and worse off, and the
 mean change in net income. Selecting a row shows the decile chart.
 """
 
+from pathlib import Path
+
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -127,10 +129,13 @@ def _baseline():
     return Simulation(dataset=default_dataset())
 
 
+REPORT_CSV = (
+    Path(__file__).resolve().parents[1] / "data" / "calibration_report.csv"
+)
+
+
 @st.cache_data(show_spinner=False)
 def _calibration_report():
-    from policyengine_pr.data.calibration import REPORT_CSV
-
     if REPORT_CSV.exists():
         return pd.read_csv(REPORT_CSV)
     from policyengine_pr import Simulation
