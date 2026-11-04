@@ -122,8 +122,8 @@ TEXT = {
     "deductions": ("Deducciones (Anejo A)", "Deductions (Anejo A)"),
     "other_deductions": ("Otras deducciones ($)", "Other deductions ($)"),
     "other_deductions_help": (
-        "Pérdidas por causas fortuitas y partidas no calculadas",
-        "Casualty losses and items not computed",
+        "**En palabras sencillas:** Otros gastos que la planilla permite restar y que esta calculadora no calcula por sí sola.\n\n**Detalle:** Pérdidas por causas fortuitas y partidas no calculadas",
+        "**In plain words:** Other expenses the return lets you subtract that this calculator does not compute by itself.\n\n**Detail:** Casualty losses and items not computed",
     ),
     "advanced": ("Avanzado", "Advanced"),
     "pan_inputs": ("PAN: recursos y gastos", "PAN: resources and expenses"),
@@ -132,24 +132,24 @@ TEXT = {
         "Household countable resources ($)",
     ),
     "pan_resources_help": (
-        "Cuentas bancarias y otros bienes contables (Reglamento 8684, Arts. 46-48). Límite de $5,000, o $15,000 si hay una persona de 60 años o más.",
-        "Bank balances and other countable assets (Reglamento 8684, Arts. 46-48). Limit $5,000, or $15,000 with a member aged 60+.",
+        "**En palabras sencillas:** Ahorros y bienes que el hogar tiene (dinero en el banco, por ejemplo). Con demasiados, no se puede recibir el PAN.\n\n**Detalle:** Cuentas bancarias y otros bienes contables (Reglamento 8684, Arts. 46-48). Límite de $5,000, o $15,000 si hay una persona de 60 años o más.",
+        "**In plain words:** Savings and assets the household owns (money in the bank, for example). With too much, PAN cannot be received.\n\n**Detail:** Bank balances and other countable assets (Reglamento 8684, Arts. 46-48). Limit $5,000, or $15,000 with a member aged 60+.",
     ),
     "pan_care": (
         "Paga cuido de niños para poder trabajar",
         "Pays child care in order to work",
     ),
     "pan_care_help": (
-        "Deducción de $225 al mes por niño de 2 años o menos y $200 por niño mayor (Art. 45.D).",
-        "Deduction of $225 a month per child aged 2 or under and $200 per older child (Art. 45.D).",
+        "**En palabras sencillas:** Si paga a alguien para cuidar a sus hijos mientras trabaja o busca trabajo, el PAN descuenta ese gasto de sus ingresos.\n\n**Detalle:** Deducción de $225 al mes por niño de 2 años o menos y $200 por niño mayor (Art. 45.D).",
+        "**In plain words:** If you pay someone to look after your children while you work or look for work, PAN deducts that expense from your income.\n\n**Detail:** Deduction of $225 a month per child aged 2 or under and $200 per older child (Art. 45.D).",
     ),
     "pan_medical": (
         "Gastos médicos recurrentes (60+ o menores)",
         "Recurrent medical expenses (60+ or children)",
     ),
     "pan_medical_help": (
-        "Deducción de $100 al mes (Art. 45.C).",
-        "Deduction of $100 a month (Art. 45.C).",
+        "**En palabras sencillas:** Si una persona mayor, con incapacidad o un menor tiene gastos médicos todos los meses, el PAN descuenta $100 de sus ingresos.\n\n**Detalle:** Deducción de $100 al mes (Art. 45.C).",
+        "**In plain words:** If an elderly or disabled member or a child has medical expenses every month, PAN deducts $100 from your income.\n\n**Detail:** Deduction of $100 a month (Art. 45.C).",
     ),
     "housing": ("Vivienda (Sección 8)", "Housing (Section 8)"),
     "housing_assisted": (
@@ -157,35 +157,29 @@ TEXT = {
         "Household holds a Section 8 voucher",
     ),
     "housing_assisted_help": (
-        "Vale de elección de vivienda del Departamento de la Vivienda. El "
-        "subsidio es la renta justa de mercado de San Juan menos el 30% del "
-        "ingreso ajustado (24 CFR 982.505).",
-        "Housing Choice Voucher from the Departamento de la Vivienda. The "
-        "subsidy is the San Juan fair market rent less 30% of adjusted "
-        "income (24 CFR 982.505).",
+        "**En palabras sencillas:** Ayuda federal para pagar el alquiler: el programa paga al casero la parte de la renta que supera el 30% de los ingresos del hogar.\n\n**Detalle:** Vale de elección de vivienda del Departamento de la Vivienda. El subsidio es la renta justa de mercado de San Juan menos el 30% del ingreso ajustado (24 CFR 982.505).",
+        "**In plain words:** Federal help with the rent: the programme pays the landlord the part of the rent above 30% of the household's income.\n\n**Detail:** Housing Choice Voucher from the Departamento de la Vivienda. The subsidy is the San Juan fair market rent less 30% of adjusted income (24 CFR 982.505).",
     ),
     "municipio": ("Municipio", "Municipio"),
     "municipio_help": (
-        "Fija el área de HUD: límites de ingreso y renta justa de mercado (FY2025) del vale.",
-        "Sets the HUD area: the voucher's income limits and fair market rent (FY2025).",
+        "**En palabras sencillas:** Dónde vive el hogar. Cambia los límites de ingreso y la renta de referencia del vale de vivienda.\n\n**Detalle:** Fija el área de HUD: límites de ingreso y renta justa de mercado (FY2025) del vale.",
+        "**In plain words:** Where the household lives. It changes the income limits and the reference rent for the housing voucher.\n\n**Detail:** Sets the HUD area: the voucher's income limits and fair market rent (FY2025).",
     ),
     "housing_rent": (
         "Renta mensual, con utilidades ($)",
         "Monthly rent incl. utilities ($)",
     ),
     "housing_rent_help": (
-        "Tope del subsidio. Deje 0 si la renta iguala la renta justa de mercado.",
-        "Caps the subsidy. Leave 0 if the rent equals the fair market rent.",
+        "**En palabras sencillas:** Lo que paga de alquiler al mes, con agua y luz. Si no lo sabe, déjelo en 0.\n\n**Detalle:** Tope del subsidio. Deje 0 si la renta iguala la renta justa de mercado.",
+        "**In plain words:** What you pay in rent a month, including utilities. If unsure, leave 0.\n\n**Detail:** Caps the subsidy. Leave 0 if the rent equals the fair market rent.",
     ),
     "abt_other": (
         "Otros ingresos sujetos a contribución básica alterna ($)",
         "Other income subject to alternate basic tax ($)",
     ),
     "abt_other_help": (
-        "Partidas de entidades conducto y exentas no modeladas; los "
-        "salarios nunca están sujetos (instrucciones 2025, p. 82).",
-        "Pass-through and exempt items not modelled; wages are never "
-        "subject (2025 instructions, p. 82).",
+        "**En palabras sencillas:** Solo para casos especiales: ingresos de negocios o inversiones que entran en un cálculo paralelo de la contribución. Si no sabe qué es, déjelo en 0.\n\n**Detalle:** Partidas de entidades conducto y exentas no modeladas; los salarios nunca están sujetos (instrucciones 2025, p. 82).",
+        "**In plain words:** Special cases only: business or investment income that enters a parallel tax computation. If unsure, leave 0.\n\n**Detail:** Pass-through and exempt items not modelled; wages are never subject (2025 instructions, p. 82).",
     ),
     "reform": ("Reforma contributiva", "Tax reform"),
     "reform_caption": (
@@ -197,8 +191,8 @@ TEXT = {
         "Adjust the parameters one by one",
     ),
     "show_levers_help": (
-        "Para analistas: tramos, tasas, exenciones y Crédito por Trabajo. Las propuestas de ejemplo los fijan por usted.",
-        "For analysts: brackets, rates, exemptions and Crédito por Trabajo. The example proposals set them for you.",
+        "**En palabras sencillas:** Abre los números exactos de la ley (tramos, tasas, exenciones) para cambiarlos uno a uno. No hace falta para usar las propuestas de ejemplo.\n\n**Detalle:** Para analistas: tramos, tasas, exenciones y Crédito por Trabajo. Las propuestas de ejemplo los fijan por usted.",
+        "**In plain words:** Opens the exact numbers in the law (brackets, rates, exemptions) to change them one by one. Not needed to use the example proposals.\n\n**Detail:** For analysts: brackets, rates, exemptions and Crédito por Trabajo. The example proposals set them for you.",
     ),
     "levers_changed": (
         "{} parámetro(s) cambiado(s) respecto a la ley vigente.",
@@ -457,7 +451,11 @@ PERSON_INPUTS = [
         "Ganancia neta por cuenta propia ($)",
         "Self-employment net profit ($)",
         1_000,
+        "**En palabras sencillas:** Lo que gana por su cuenta (negocio propio, trabajo independiente) después de restar los gastos."
+        "\n\n**Detalle:** "
         "Anejo M, Parte IV, línea 9",
+        "**In plain words:** What you earn on your own (own business, freelance work) after expenses."
+        "\n\n**Detail:** "
         "Anejo M, Parte IV, línea 9",
     ),
     (
@@ -465,7 +463,11 @@ PERSON_INPUTS = [
         "Pensión de un plan cualificado ($)",
         "Pension from a qualified plan ($)",
         1_000,
+        "**En palabras sencillas:** Lo que cobra al año de una pensión de retiro de un plan de empleo."
+        "\n\n**Detalle:** "
         "Anejo H; $11,000 / $15,000 exentos según la edad",
+        "**In plain words:** What you receive a year from a retirement pension from an employment plan."
+        "\n\n**Detail:** "
         "Anejo H; $11,000 / $15,000 exempt by age",
     ),
     (
@@ -473,7 +475,11 @@ PERSON_INPUTS = [
         "Beneficios del Seguro Social ($)",
         "Social Security benefits ($)",
         1_000,
+        "**En palabras sencillas:** Lo que cobra del Seguro Social al año (retiro, incapacidad o sobrevivientes)."
+        "\n\n**Detalle:** "
         "No tributan en Puerto Rico",
+        "**In plain words:** What you receive from Social Security a year (retirement, disability or survivors)."
+        "\n\n**Detail:** "
         "Not taxed in Puerto Rico",
     ),
     (
@@ -481,7 +487,11 @@ PERSON_INPUTS = [
         "Intereses de depósitos bancarios en PR ($)",
         "Interest on PR bank deposits ($)",
         500,
+        "**En palabras sencillas:** Los intereses que le paga el banco por sus ahorros en Puerto Rico."
+        "\n\n**Detalle:** "
         "Anejo FF; primeros $100 ($200 conjunta) exentos; 10% o tasas ordinarias",
+        "**In plain words:** The interest a bank in Puerto Rico pays you on your savings."
+        "\n\n**Detail:** "
         "Anejo FF; first $100 ($200 joint) exempt; 10% or ordinary rates",
     ),
     (
@@ -489,7 +499,11 @@ PERSON_INPUTS = [
         "Dividendos de corporaciones de PR ($)",
         "Dividends from PR corporations ($)",
         500,
+        "**En palabras sencillas:** Lo que le pagan por acciones de empresas de Puerto Rico."
+        "\n\n**Detalle:** "
         "Anejo FF, Parte II; 15% (Sección 1023.06)",
+        "**In plain words:** What you are paid on shares of Puerto Rico companies."
+        "\n\n**Detail:** "
         "Anejo FF, Part II; 15% (Sección 1023.06)",
     ),
     (
@@ -497,7 +511,11 @@ PERSON_INPUTS = [
         "Ganancia neta de capital a largo plazo ($)",
         "Net long-term capital gain ($)",
         1_000,
+        "**En palabras sencillas:** Ganancia por vender una propiedad o inversión que tuvo más de un año."
+        "\n\n**Detalle:** "
         "Anejo D; 15% o tasas ordinarias si resultan menores (Sección 1023.02)",
+        "**In plain words:** Profit from selling a property or investment held for more than a year."
+        "\n\n**Detail:** "
         "Anejo D; 15% or ordinary rates if lower (Sección 1023.02)",
     ),
 ]
@@ -507,7 +525,11 @@ DEDUCTION_INPUTS = [
         "Intereses hipotecarios ($)",
         "Home mortgage interest ($)",
         500,
+        "**En palabras sencillas:** Los intereses que pagó en el año por la hipoteca de su casa."
+        "\n\n**Detalle:** "
         "El menor entre lo pagado, 30% del ingreso y $35,000",
+        "**In plain words:** The interest you paid during the year on your home mortgage."
+        "\n\n**Detail:** "
         "Lesser of paid, 30% of income, $35,000",
     ),
     (
@@ -515,7 +537,11 @@ DEDUCTION_INPUTS = [
         "Gastos médicos ($)",
         "Medical expenses ($)",
         500,
+        "**En palabras sencillas:** Gastos médicos que pagó de su bolsillo y no le reembolsó el plan."
+        "\n\n**Detalle:** "
         "Deducibles en exceso del 6% del ingreso bruto ajustado",
+        "**In plain words:** Medical expenses you paid out of pocket and the plan did not reimburse."
+        "\n\n**Detail:** "
         "Deductible above 6% of AGI",
     ),
     (
@@ -523,7 +549,11 @@ DEDUCTION_INPUTS = [
         "Donativos ($)",
         "Charitable contributions ($)",
         500,
+        "**En palabras sencillas:** Donativos a iglesias y organizaciones sin fines de lucro."
+        "\n\n**Detalle:** "
         "Hasta 50% del ingreso bruto ajustado",
+        "**In plain words:** Gifts to churches and non-profit organisations."
+        "\n\n**Detail:** "
         "Up to 50% of AGI",
     ),
     (
@@ -531,7 +561,11 @@ DEDUCTION_INPUTS = [
         "Aportaciones a IRA ($)",
         "IRA contributions ($)",
         500,
+        "**En palabras sencillas:** Dinero que puso en una cuenta de retiro individual (IRA) en el año."
+        "\n\n**Detalle:** "
         "Hasta $7,000 por persona, limitado por ingresos ganados",
+        "**In plain words:** Money you put into an individual retirement account (IRA) during the year."
+        "\n\n**Detail:** "
         "Up to $7,000 per person, limited by earnings",
     ),
     (
@@ -539,7 +573,11 @@ DEDUCTION_INPUTS = [
         "Cuentas de aportación educativa ($)",
         "Education accounts ($)",
         100,
+        "**En palabras sencillas:** Dinero que puso en una cuenta de ahorro para estudios de un hijo."
+        "\n\n**Detalle:** "
         "Hasta $1,000 por beneficiario",
+        "**In plain words:** Money you put into a savings account for a child's education."
+        "\n\n**Detail:** "
         "Up to $1,000 per beneficiary",
     ),
     (
@@ -547,7 +585,11 @@ DEDUCTION_INPUTS = [
         "Pagos de préstamos estudiantiles ($)",
         "Student loan payments ($)",
         100,
+        "**En palabras sencillas:** Lo que pagó en el año de préstamos de estudios universitarios."
+        "\n\n**Detalle:** "
         "Intereses y principal, nivel universitario",
+        "**In plain words:** What you paid during the year on university student loans."
+        "\n\n**Detail:** "
         "Interest and principal, university level",
     ),
 ]

@@ -52,28 +52,26 @@ TEXT = {
     "what_is_cliff_title": ("¿Qué es un precipicio?", "What is a cliff?"),
     "m_cliffs": ("Precipicios", "Cliffs"),
     "m_cliffs_help": (
-        "Puntos donde $500 más de salario reducen el ingreso neto",
-        "Points where $500 more in wages reduce net income",
+        "**En palabras sencillas:** Cuántas veces, al subir el salario, el hogar acaba con menos dinero que antes porque pierde una ayuda de golpe.\n\n**Detalle:** Puntos donde $500 más de salario reducen el ingreso neto",
+        "**In plain words:** How many times, as wages rise, the household ends up with less money than before because it loses a benefit all at once.\n\n**Detail:** Points where $500 more in wages reduce net income",
     ),
     "m_worst": ("Mayor pérdida", "Largest loss"),
     "m_worst_help": (
-        "Pérdida de ingreso neto en el peor precipicio",
-        "Net income lost at the worst cliff",
+        "**En palabras sencillas:** En el peor de esos puntos, cuánto dinero pierde el hogar al año por ganar un poco más.\n\n**Detalle:** Pérdida de ingreso neto en el peor precipicio",
+        "**In plain words:** At the worst of those points, how much money a year the household loses by earning a little more.\n\n**Detail:** Net income lost at the worst cliff",
     ),
     "m_high": ("Tramo con tasa ≥ 50%", "Range at ≥ 50%"),
     "m_high_help": (
-        "Suma de los tramos de $500 con tasa marginal efectiva de 50% o más",
-        "Sum of the $500 steps with an effective marginal rate of 50% or more",
+        "**En palabras sencillas:** Cuánto salario, sumando tramos, está en zonas donde de cada $100 más el hogar se queda con $50 o menos.\n\n**Detalle:** Suma de los tramos de $500 con tasa marginal efectiva de 50% o más",
+        "**In plain words:** How much wage range, adding up the steps, sits in zones where the household keeps $50 or less of each extra $100.\n\n**Detail:** Sum of the $500 steps with an effective marginal rate of 50% or more",
     ),
     "m_emtr_here": (
         "Aquí, de cada $100 más se queda con",
         "Here, of each extra $100 it keeps",
     ),
     "m_emtr_here_help": (
-        "De los próximos $500 de salario del contribuyente, cuánto se va en "
-        "contribuciones y créditos perdidos",
-        "Of the filer's next $500 in wages, how much goes to taxes and lost "
-        "credits",
+        "**En palabras sencillas:** Con el salario que usted puso: si ganara $100 más, cuántos dólares le quedarían.\n\n**Detalle:** De los próximos $500 de salario del contribuyente, cuánto se va en contribuciones y créditos perdidos",
+        "**In plain words:** At the wages you entered: if it earned $100 more, how many dollars it would keep.\n\n**Detail:** Of the filer's next $500 in wages, how much goes to taxes and lost credits",
     ),
     "chart_net": (
         "¿Dónde pierde al ganar más?",
@@ -285,12 +283,8 @@ TEXT = {
         "Marriage penalty at your wages",
     ),
     "m_marriage_help": (
-        "Ingreso neto de la pareja casada menos la suma de los dos hogares "
-        "por separado (el contribuyente con los hijos; el cónyuge solo). "
-        "Negativo: casarse cuesta dinero; positivo: bono por matrimonio.",
-        "Net income of the married couple minus the sum of the two separate "
-        "households (filer with the children; spouse alone). Negative: "
-        "marriage costs money; positive: a marriage bonus.",
+        "**En palabras sencillas:** Cuánto gana o pierde esta pareja al año por estar casada y rendir una sola planilla, comparado con vivir como dos hogares separados.\n\n**Detalle:** Ingreso neto de la pareja casada menos la suma de los dos hogares por separado (el contribuyente con los hijos; el cónyuge solo). Negativo: casarse cuesta dinero; positivo: bono por matrimonio.",
+        "**In plain words:** How much this couple gains or loses a year by being married and filing one return, compared with living as two separate households.\n\n**Detail:** Net income of the married couple minus the sum of the two separate households (filer with the children; spouse alone). Negative: marriage costs money; positive: a marriage bonus.",
     ),
     "narr_marriage_penalty": (
         "A sus salarios, casarse **cuesta {}** al año frente a vivir como dos "
