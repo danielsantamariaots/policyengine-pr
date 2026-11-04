@@ -671,7 +671,8 @@ if reform:
 
 ui.metric_row(base, ref, L)
 
-left, right = st.columns([3, 2])
+# chart full width, line-by-line table underneath
+left, right = st.container(), st.container()
 
 with left:
     rows = []
@@ -727,7 +728,7 @@ with left:
         t("range_caption"),
         x_title=xcol,
         y_money=True,
-        height=400,
+        height=460,
     )
     if reform:
         charts.line(
