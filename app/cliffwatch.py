@@ -65,7 +65,10 @@ TEXT = {
         "Suma de los tramos de $500 con tasa marginal efectiva de 50% o más",
         "Sum of the $500 steps with an effective marginal rate of 50% or more",
     ),
-    "m_emtr_here": ("Tasa marginal aquí", "Marginal rate here"),
+    "m_emtr_here": (
+        "Aquí, de cada $100 más se queda con",
+        "Here, of each extra $100 it keeps",
+    ),
     "m_emtr_here_help": (
         "De los próximos $500 de salario del contribuyente, cuánto se va en "
         "contribuciones y créditos perdidos",
@@ -73,14 +76,21 @@ TEXT = {
         "credits",
     ),
     "chart_net": (
-        "Ingreso neto frente a ingreso de mercado",
-        "Net income vs market income",
+        "¿Dónde pierde al ganar más?",
+        "Where does it lose by earning more?",
     ),
     "chart_components": (
-        "Contribuciones y créditos por nivel de salarios",
-        "Taxes and credits by wage level",
+        "¿Qué paga y qué recibe a cada nivel de salario?",
+        "What does it pay and receive at each wage level?",
     ),
-    "chart_emtr": ("Tasa marginal efectiva", "Effective marginal tax rate"),
+    "chart_emtr": (
+        "¿Con cuánto se queda de cada $100 más?",
+        "How much of each extra $100 does it keep?",
+    ),
+    "tables_expander": (
+        "Ver precipicios y zonas en tabla",
+        "See cliffs and zones as tables",
+    ),
     "s_market": ("Ingreso de mercado", "Market income"),
     "s_net": ("Ingreso neto", "Net income"),
     "s_net_reform": ("Ingreso neto (reforma)", "Net income (reform)"),
@@ -105,15 +115,12 @@ TEXT = {
         "Credits and benefits above zero; taxes below",
     ),
     "chart_emtr_sub": (
-        "Sombreado: tramos al 50% o más; triángulos: precipicios, con su pérdida",
-        "Shaded: ranges at 50% or more; triangles: cliffs, with their loss",
+        "Sombreado: tramos donde se queda con $50 o menos; triángulos: precipicios, con su pérdida",
+        "Shaded: ranges where it keeps $50 or less; triangles: cliffs, with their loss",
     ),
     "y_net": ("Ingreso neto anual", "Annual net income"),
     "y_components": ("Al año", "Per year"),
-    "y_emtr": (
-        "Parte de cada $100 adicionales que se pierde",
-        "Share of each extra $100 lost",
-    ),
+    "y_emtr": ("Se queda con", "Keeps"),
     "zone_label": ("Zona de tasa alta: {:.0%}", "High-rate zone: {:.0%}"),
     "hover_cliff": (
         "A {}: ganar $500 más baja el ingreso neto {} ({})",
@@ -524,7 +531,9 @@ def render(
         help=md("m_high_help"),
     )
     c4.metric(
-        t("m_emtr_here"), f"{emtr_here:.0%}", help=md("m_emtr_here_help")
+        t("m_emtr_here"),
+        money(100 - emtr_here * 100),
+        help=md("m_emtr_here_help"),
     )
 
     def marker_lines(fig):
@@ -661,161 +670,167 @@ def render(
     marker_lines(fig)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
-    # --- components: credits above zero, taxes below
-    fig = charts.figure(
-        t("chart_components"),
-        t("chart_components_sub"),
-        x_title=t("x_axis"),
-        y_money=True,
-        height=400,
-    )
-    for key, label, sign in (
-        ("eitc", "s_eitc", 1),
-        ("actc", "s_actc", 1),
-        ("pan", "s_pan", 1),
-        ("tanf", "s_tanf", 1),
-        *([("section8", "s_section8", 1)] if assisted else []),
-        ("tax", "s_tax", -1),
-        ("payroll", "s_payroll", -1),
-    ):
-        charts.area(
-            fig,
-            shown["wages"],
-            sign * shown[key],
-            t(label),
-            charts.SERIES[key],
-            "pos" if sign > 0 else "neg",
+    # --- components and EMTR side by side under the hero chart
+    col_components, col_emtr = st.columns(2)
+    with col_components:
+        fig = charts.figure(
+            t("chart_components"),
+            t("chart_components_sub"),
+            x_title=t("x_axis"),
+            y_money=True,
+            height=380,
         )
-    charts.hline(fig, 0, color=charts.ZERO)
-    fig.update_yaxes(title_text=t("y_components"))
-    marker_lines(fig)
-    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
-    if not assisted:
-        st.caption(md("section8_hint"))
-
-    # --- EMTR
-    fig = charts.figure(
-        t("chart_emtr"),
-        t("chart_emtr_sub"),
-        x_title=t("x_axis"),
-        y_percent=True,
-        height=360,
-    )
-    for _, z in zones.iterrows():
-        fig.add_vrect(
-            x0=z["from"],
-            x1=z["to"],
-            fillcolor=charts.SERIES["cliff"],
-            opacity=0.08,
-            line_width=0,
-        )
-    # the line is clipped at 100%: a cliff's one-step rate can be several
-    # hundred per cent and would flatten everything else; cliffs are marked
-    # at the top with their dollar loss instead
-    if ref is None:
-        charts.line(
-            fig,
-            base["wages"],
-            np.minimum(base["emtr"], 1.0),
-            t("s_emtr"),
-            charts.SERIES["tax"],
-            money=False,
-            shape="hv",
-        )
-    else:
-        charts.line(
-            fig,
-            base["wages"],
-            np.minimum(base["emtr"], 1.0),
-            t("s_emtr"),
-            charts.SERIES["baseline"],
-            money=False,
-            shape="hv",
-        )
-        charts.line(
-            fig,
-            ref["wages"],
-            np.minimum(ref["emtr"], 1.0),
-            reform_name,
-            charts.SERIES["reform"],
-            money=False,
-            shape="hv",
-        )
-    charts.hline(fig, HIGH_EMTR, color=charts.MUTED, dash="dot", label="50%")
-    if len(cliffs):
-        fig.add_trace(
-            go.Scatter(
-                x=cliffs["wages"],
-                y=[1.0] * len(cliffs),
-                name=t("s_cliff"),
-                mode="markers+text",
-                marker=dict(
-                    color=charts.SERIES["cliff"],
-                    size=10,
-                    symbol="triangle-down",
-                ),
-                text=["-" + money(v) for v in cliffs["loss"]],
-                textposition="top center",
-                textfont=dict(size=11, color=charts.SERIES["cliff"]),
-                hovertemplate="%{text}<extra>" + t("s_cliff") + "</extra>",
+        for key, label, sign in (
+            ("eitc", "s_eitc", 1),
+            ("actc", "s_actc", 1),
+            ("pan", "s_pan", 1),
+            ("tanf", "s_tanf", 1),
+            *([("section8", "s_section8", 1)] if assisted else []),
+            ("tax", "s_tax", -1),
+            ("payroll", "s_payroll", -1),
+        ):
+            charts.area(
+                fig,
+                shown["wages"],
+                sign * shown[key],
+                t(label),
+                charts.SERIES[key],
+                "pos" if sign > 0 else "neg",
             )
+        charts.hline(fig, 0, color=charts.ZERO)
+        fig.update_yaxes(title_text=t("y_components"))
+        marker_lines(fig)
+        st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+        if not assisted:
+            st.caption(md("section8_hint"))
+    with col_emtr:
+        # --- kept share of each extra $100 (1 - EMTR), clipped at 0
+        fig = charts.figure(
+            t("chart_emtr"),
+            t("chart_emtr_sub"),
+            x_title=t("x_axis"),
+            y_money=True,
+            height=380,
         )
-    fig.update_yaxes(
-        title_text=t("y_emtr"),
-        range=[min(-0.1, float(shown["emtr"].min()) - 0.05), 1.12],
-    )
-    if ref is None:
-        fig.update_layout(showlegend=False)
-    marker_lines(fig)
-    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+        for _, z in zones.iterrows():
+            fig.add_vrect(
+                x0=z["from"],
+                x1=z["to"],
+                fillcolor=charts.SERIES["cliff"],
+                opacity=0.08,
+                line_width=0,
+            )
 
-    # --- tables
-    left, right = st.columns(2)
-    with left:
-        st.subheader(t("cliffs_title"))
+        # what the household keeps of each extra $100 (1 - EMTR), floored at
+        # $0: a cliff's one-step rate can be several hundred per cent and would
+        # flatten everything else; cliffs are marked at the bottom with their loss
+        def kept(df):
+            return np.clip((1 - df["emtr"]) * 100, 0, None)
+
+        if ref is None:
+            charts.line(
+                fig,
+                base["wages"],
+                kept(base),
+                t("s_emtr"),
+                charts.SERIES["tax"],
+                shape="hv",
+            )
+        else:
+            charts.line(
+                fig,
+                base["wages"],
+                kept(base),
+                t("s_emtr"),
+                charts.SERIES["baseline"],
+                shape="hv",
+            )
+            charts.line(
+                fig,
+                ref["wages"],
+                kept(ref),
+                reform_name,
+                charts.SERIES["reform"],
+                shape="hv",
+            )
+        charts.hline(fig, 50, color=charts.MUTED, dash="dot", label="$50")
         if len(cliffs):
-            st.dataframe(
-                cliffs.drop(columns="cause_key")
-                .rename(
+            fig.add_trace(
+                go.Scatter(
+                    x=cliffs["wages"],
+                    y=[0] * len(cliffs),
+                    name=t("s_cliff"),
+                    mode="markers+text",
+                    marker=dict(
+                        color=charts.SERIES["cliff"],
+                        size=10,
+                        symbol="triangle-up",
+                    ),
+                    text=["-" + money(v) for v in cliffs["loss"]],
+                    textposition="bottom center",
+                    textfont=dict(size=11, color=charts.SERIES["cliff"]),
+                    hovertemplate="%{text}<extra>" + t("s_cliff") + "</extra>",
+                )
+            )
+        fig.update_yaxes(
+            title_text=t("y_emtr"),
+            range=[-14, max(110, float(kept(shown).max()) + 8)],
+            tickformat="$,.0f",
+        )
+        if ref is None:
+            fig.update_layout(showlegend=False)
+        marker_lines(fig)
+        st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+
+        # --- tables, folded
+        tables = st.expander(t("tables_expander"))
+    with tables:
+        left, right = st.columns(2)
+        with left:
+            st.subheader(t("cliffs_title"))
+            if len(cliffs):
+                st.dataframe(
+                    cliffs.drop(columns="cause_key")
+                    .rename(
+                        columns={
+                            "wages": t("col_wages"),
+                            "loss": t("col_loss"),
+                            "cause": t("col_cause"),
+                        }
+                    )
+                    .style.format(
+                        {t("col_wages"): "${:,.0f}", t("col_loss"): "${:,.0f}"}
+                    ),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+            else:
+                st.success(md("no_cliffs"))
+        with right:
+            st.subheader(t("zones_title"))
+            if len(zones):
+                z = zones.assign(width=zones["to"] - zones["from"]).rename(
                     columns={
-                        "wages": t("col_wages"),
-                        "loss": t("col_loss"),
-                        "cause": t("col_cause"),
+                        "from": t("col_from"),
+                        "to": t("col_to"),
+                        "emtr": t("col_emtr"),
+                        "width": t("col_width"),
                     }
                 )
-                .style.format(
-                    {t("col_wages"): "${:,.0f}", t("col_loss"): "${:,.0f}"}
-                ),
-                use_container_width=True,
-                hide_index=True,
-            )
-        else:
-            st.success(md("no_cliffs"))
-    with right:
-        st.subheader(t("zones_title"))
-        if len(zones):
-            z = zones.assign(width=zones["to"] - zones["from"]).rename(
-                columns={
-                    "from": t("col_from"),
-                    "to": t("col_to"),
-                    "emtr": t("col_emtr"),
-                    "width": t("col_width"),
-                }
-            )
-            st.dataframe(
-                z.style.format(
-                    {
-                        t("col_from"): "${:,.0f}",
-                        t("col_to"): "${:,.0f}",
-                        t("col_width"): "${:,.0f}",
-                        t("col_emtr"): "{:.0%}",
-                    }
-                ),
-                use_container_width=True,
-                hide_index=True,
-            )
-        else:
-            st.success(md("no_zones"))
+                st.dataframe(
+                    z.style.format(
+                        {
+                            t("col_from"): "${:,.0f}",
+                            t("col_to"): "${:,.0f}",
+                            t("col_width"): "${:,.0f}",
+                            t("col_emtr"): "{:.0%}",
+                        }
+                    ),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+            else:
+                st.success(md("no_zones"))
 
     with st.expander(t("table_view")):
         table = shown[

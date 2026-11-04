@@ -52,8 +52,8 @@ TEXT = {
     "col_mean": ("Cambio medio por hogar", "Mean change per household"),
     "pick": ("Reforma contributiva a detallar", "Tax reform to detail"),
     "chart_title": (
-        "Cambio medio en ingreso neto por decil de ingreso",
-        "Mean change in net income by income decile",
+        "¿Quién gana con la reforma contributiva?",
+        "Who gains from the tax reform?",
     ),
     "x_axis": (
         "Decil de ingreso neto del hogar (1 = más bajo)",
@@ -69,8 +69,8 @@ TEXT = {
     ),
     "s_change": ("Cambio medio ($/año)", "Mean change ($/year)"),
     "share_title": (
-        "Hogares que ganan y pierden por decil",
-        "Households better and worse off by decile",
+        "¿Cuántos ganan y cuántos pierden en cada decil?",
+        "How many gain and how many lose in each decile?",
     ),
     "s_better": ("Ganan", "Better off"),
     "s_worse": ("Pierden", "Worse off"),

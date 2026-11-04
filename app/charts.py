@@ -56,7 +56,31 @@ SERIES = {
 }
 
 FONT = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-CONFIG = {"displayModeBar": False, "responsive": True}
+VERSION = "2026.11.04"
+SOURCE_LINE = "Espacios Abiertos · policyengine-pr v" + VERSION
+CONFIG = {
+    "displayModeBar": "hover",
+    "displaylogo": False,
+    "modeBarButtonsToRemove": [
+        "zoom",
+        "pan",
+        "select",
+        "lasso2d",
+        "zoomIn",
+        "zoomOut",
+        "autoScale",
+        "resetScale",
+        "toggleSpikelines",
+        "hoverClosestCartesian",
+        "hoverCompareCartesian",
+    ],
+    "toImageButtonOptions": {
+        "format": "png",
+        "scale": 2,
+        "filename": "policyengine-pr",
+    },
+    "responsive": True,
+}
 
 TEMPLATE = go.layout.Template(
     layout=dict(
@@ -150,6 +174,17 @@ def figure(
         )
     if x_title:
         fig.update_xaxes(title_text=x_title)
+    # attribution, baked into every PNG export
+    fig.add_annotation(
+        x=1,
+        y=-0.26 if x_title else -0.18,
+        xref="paper",
+        yref="paper",
+        text=SOURCE_LINE,
+        showarrow=False,
+        xanchor="right",
+        font=dict(size=10, color=MUTED),
+    )
     if y_money:
         fig.update_yaxes(tickformat="$,.3~s")  # $10k, -$10k
     if y_percent:

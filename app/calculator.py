@@ -211,8 +211,8 @@ TEXT = {
         "current law.",
     ),
     "range_title": (
-        "A lo largo de la escala de ingresos",
-        "Across the income range",
+        "¿Cómo cambia si gana más o menos?",
+        "How does it change with more or less income?",
     ),
     "you": ("Su hogar", "Your household"),
     "section8_hint": (
