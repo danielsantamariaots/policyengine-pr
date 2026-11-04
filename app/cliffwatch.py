@@ -46,6 +46,7 @@ TEXT = {
         "household keeps less than $50 of each additional $100, once taxes "
         "and withdrawn credits are added up.",
     ),
+    "what_is_cliff_title": ("¿Qué es un precipicio?", "What is a cliff?"),
     "m_cliffs": ("Precipicios", "Cliffs"),
     "m_cliffs_help": (
         "Puntos donde $500 más de salario reducen el ingreso neto",
@@ -123,6 +124,53 @@ TEXT = {
     ),
     "cause_tax": ("Sube la contribución de PR", "PR income tax rises"),
     "cause_payroll": ("Suben Seguro Social y Medicare", "Payroll taxes rise"),
+    "narr_none": (
+        "Para este hogar no hay precipicios: el ingreso neto sube siempre que "
+        "suben los salarios, y en ningún tramo se pierde la mitad o más de "
+        "cada $100 adicionales.",
+        "This household has no cliffs: net income always rises with wages, "
+        "and no range loses half or more of each additional $100.",
+    ),
+    "narr_cliff": (
+        "Para este hogar, el mayor precipicio está en **{}**: ganar $500 más "
+        "reduce el ingreso neto en **{}** porque {}.",
+        "For this household, the largest cliff is at **{}**: earning $500 "
+        "more cuts net income by **{}** because {}.",
+    ),
+    "narr_more_cliffs": (
+        " Hay {} precipicios en total.",
+        " There are {} cliffs in all.",
+    ),
+    "narr_zone": (
+        " Entre **{}** y **{}**, el hogar se queda con menos de ${:.0f} de "
+        "cada $100 adicionales (tasa marginal media {:.0%}).",
+        " Between **{}** and **{}**, the household keeps less than ${:.0f} of "
+        "each additional $100 (average marginal rate {:.0%}).",
+    ),
+    "narr_more_zones": (
+        " Hay otros {} tramos con tasa marginal de 50% o más.",
+        " {} other ranges have a marginal rate of 50% or more.",
+    ),
+    "narr_no_zone": (
+        " En ningún otro tramo se pierde la mitad o más de cada $100 adicionales.",
+        " No other range loses half or more of each additional $100.",
+    ),
+    "narr_cause_eitc": (
+        "se reduce o se pierde el Crédito por Trabajo",
+        "the Crédito por Trabajo is reduced or lost",
+    ),
+    "narr_cause_actc": (
+        "se reduce el crédito federal por hijos",
+        "the federal child credit falls",
+    ),
+    "narr_cause_tax": (
+        "la contribución de PR sube más que el salario adicional",
+        "PR income tax rises by more than the extra wages",
+    ),
+    "narr_cause_payroll": (
+        "suben el Seguro Social y Medicare",
+        "payroll taxes rise",
+    ),
     "note": (
         "La tasa marginal efectiva se calcula sobre pasos de $500. El modelo "
         "no incluye todavía beneficios (PAN, Medicaid/Vital, TANF), cuyos "
@@ -194,9 +242,10 @@ def find_cliffs(df, L):
                 "wages": df.loc[i, "wages"],
                 "loss": -d.loc[i, "net"],
                 "cause": TEXT[cause][L],
+                "cause_key": cause,
             }
         )
-    return pd.DataFrame(rows, columns=["wages", "loss", "cause"])
+    return pd.DataFrame(rows, columns=["wages", "loss", "cause", "cause_key"])
 
 
 def find_zones(df):
@@ -223,7 +272,53 @@ def money(x):
     return f"${x:,.0f}"
 
 
-def render(situation, filer_wages, reform, L):
+def narrative(cliffs, zones, L):
+    """One paragraph saying what the tables say."""
+
+    def md(key, *args):
+        return TEXT[key][L].format(*args).replace("$", "\\$")
+
+    if not len(cliffs) and not len(zones):
+        return md("narr_none")
+    text = ""
+    if len(cliffs):
+        worst = cliffs.loc[cliffs["loss"].idxmax()]
+        text += md(
+            "narr_cliff",
+            money(worst["wages"]),
+            money(worst["loss"]),
+            TEXT["narr_" + worst["cause_key"]][L],
+        )
+        if len(cliffs) > 1:
+            text += md("narr_more_cliffs", len(cliffs))
+    # zones wider than one step (a one-step zone is just a cliff)
+    wide = zones[(zones["to"] - zones["from"]) > STEP]
+    if len(wide):
+        z = wide.loc[(wide["to"] - wide["from"]).idxmax()]
+        text += md(
+            "narr_zone",
+            money(z["from"]),
+            money(z["to"]),
+            (1 - z["emtr"]) * 100,
+            z["emtr"],
+        )
+        if len(wide) > 1:
+            text += md("narr_more_zones", len(wide) - 1)
+    elif len(cliffs):
+        text += md("narr_no_zone")
+    return text.strip()
+
+
+def render(
+    situation,
+    filer_wages,
+    reform,
+    L,
+    summary=None,
+    reform_name=None,
+    metric_row=None,
+    reform_notice=None,
+):
     def t(key):
         return TEXT[key][L]
 
@@ -231,9 +326,13 @@ def render(situation, filer_wages, reform, L):
         # Streamlit renders "$...$" as LaTeX in markdown; escape the dollars.
         return TEXT[key][L].replace("$", "\\$")
 
+    reform_name = reform_name or t("s_emtr_reform")
     st.title(t("title"))
     st.caption(md("caption"))
-    st.markdown(md("what_is_cliff"))
+    if summary:
+        st.markdown(f"**{summary}**")
+    if reform_notice:
+        st.info(reform_notice)
 
     base = earnings_range(situation)
     ref = earnings_range(situation, reform) if reform else None
@@ -242,6 +341,12 @@ def render(situation, filer_wages, reform, L):
     zones = find_zones(shown)
     here = round(min(filer_wages, MAX_WAGES) / STEP)
     emtr_here = shown.loc[min(here + 1, len(shown) - 1), "emtr"]
+
+    if metric_row:
+        metric_row()
+    st.markdown(narrative(cliffs, zones, L))
+    with st.expander(t("what_is_cliff_title")):
+        st.markdown(md("what_is_cliff"))
 
     c1, c2, c3, c4 = st.columns(4)
     c1.metric(t("m_cliffs"), len(cliffs), help=md("m_cliffs_help"))
@@ -314,12 +419,10 @@ def render(situation, filer_wages, reform, L):
             go.Scatter(
                 x=ref["wages"],
                 y=ref["net"],
-                name=t("s_net_reform"),
+                name=reform_name,
                 mode="lines",
                 line=dict(color=PAYROLL_COLOR, width=2),
-                hovertemplate="%{y:$,.0f}<extra>"
-                + t("s_net_reform")
-                + "</extra>",
+                hovertemplate="%{y:$,.0f}<extra>" + reform_name + "</extra>",
             )
         )
     if len(cliffs):
@@ -366,8 +469,8 @@ def render(situation, filer_wages, reform, L):
     st.subheader(t("chart_emtr"))
     fig = go.Figure()
     for df_, label, color in (
-        (base, "s_emtr", TAX_COLOR),
-        (ref, "s_emtr_reform", PAYROLL_COLOR),
+        (base, t("s_emtr"), TAX_COLOR),
+        (ref, reform_name, PAYROLL_COLOR),
     ):
         if df_ is None:
             continue
@@ -375,10 +478,10 @@ def render(situation, filer_wages, reform, L):
             go.Scatter(
                 x=df_["wages"],
                 y=df_["emtr"],
-                name=t(label),
+                name=label,
                 mode="lines",
                 line=dict(color=color, width=2, shape="hv"),
-                hovertemplate="%{y:.0%}<extra>" + t(label) + "</extra>",
+                hovertemplate="%{y:.0%}<extra>" + label + "</extra>",
             )
         )
     for _, z in zones.iterrows():
@@ -414,13 +517,15 @@ def render(situation, filer_wages, reform, L):
         st.subheader(t("cliffs_title"))
         if len(cliffs):
             st.dataframe(
-                cliffs.rename(
+                cliffs.drop(columns="cause_key")
+                .rename(
                     columns={
                         "wages": t("col_wages"),
                         "loss": t("col_loss"),
                         "cause": t("col_cause"),
                     }
-                ).style.format(
+                )
+                .style.format(
                     {t("col_wages"): "${:,.0f}", t("col_loss"): "${:,.0f}"}
                 ),
                 use_container_width=True,

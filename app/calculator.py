@@ -1,12 +1,17 @@
 """Household calculator prototype on top of policyengine-pr.
 
 Run with:  streamlit run app/calculator.py
+
+Three pages share one sidebar: Inicio (choose a page), Calculadora
+(line-by-line result for one household) and CliffWatch (taxes, credits and
+net income as wages rise). Shared text and layout live in ui.py.
 """
 
 import cliffwatch
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+import ui
 
 from policyengine_pr import Simulation, system
 from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
@@ -32,9 +37,6 @@ TEXT = {
         "cited to a Hacienda or IRS document in docs/statutes/",
     ),
     "language": ("Idioma / Language", "Idioma / Language"),
-    "view": ("Página", "Page"),
-    "view_calc": ("Calculadora", "Calculator"),
-    "view_cliff": ("CliffWatch", "CliffWatch"),
     "household": ("Hogar", "Household"),
     "joint": (
         "Casados que rinden planilla conjunta",
@@ -74,139 +76,150 @@ TEXT = {
         "Edit any lever; unchanged levers keep current law.",
     ),
     "reform_active": (
-        "Reforma activa: {} parámetro(s) cambiado(s). Las diferencias "
+        "**{}** activa: {} parámetro(s) cambiado(s). Las diferencias "
         "son reforma menos ley vigente.",
-        "Reform active: {} lever(s) changed. Deltas are reform minus "
+        "**{}** active: {} lever(s) changed. Deltas are reform minus "
         "current law.",
-    ),
-    "m_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
-    "m_credits": ("Créditos reembolsables", "Refundable credits"),
-    "m_credits_help": (
-        "Crédito por Trabajo + ACTC federal",
-        "Crédito por Trabajo + federal ACTC",
-    ),
-    "m_net": ("Ingreso neto", "Net income"),
-    "m_rate": ("Tasa contributiva neta", "Net tax rate"),
-    "m_rate_help": (
-        "(ingreso de mercado − ingreso neto) / ingreso de mercado; "
-        "negativo significa una transferencia neta al hogar",
-        "(market income − net income) / market income; negative means "
-        "a net transfer",
     ),
     "range_title": (
         "A lo largo de la escala de ingresos",
         "Across the income range",
     ),
     "range_caption": (
-        "Mismo hogar; salarios del contribuyente de $0 a $150,000.",
-        "Same household; filer wages varied from $0 to $150,000.",
+        "Mismo hogar; salarios del contribuyente de $0 a $150,000. Para "
+        "precipicios y tasas marginales, vea CliffWatch.",
+        "Same household; filer wages varied from $0 to $150,000. For cliffs "
+        "and marginal rates, see CliffWatch.",
     ),
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
     "s_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
-    "s_payroll": ("Contribuciones de nómina", "Payroll taxes"),
+    "s_payroll": ("Seguro Social y Medicare", "Social Security and Medicare"),
     "s_credits": ("Créditos reembolsables", "Refundable credits"),
     "s_net": ("Ingreso neto", "Net income"),
-    "s_net_reform": ("Ingreso neto (reforma)", "Net income (reform)"),
     "s_change": ("Cambio en ingreso neto", "Change in net income"),
     "s_net_current": ("Ingreso neto, ley vigente", "Net income, current law"),
-    "s_net_ref": ("Ingreso neto, reforma", "Net income, reform"),
     "change_caption": (
         "Positivo significa que el hogar sale ganando con la reforma.",
         "Positive means the household is better off under the reform.",
     ),
     "table_view": ("Ver tabla", "Table view"),
-    "marginal": ("Tasa marginal", "Marginal rate"),
+    "marginal": ("Pierde de cada $100 adicionales", "Lost per extra $100"),
     "line_by_line": ("Línea por línea", "Line by line"),
     "col_item": ("Partida", "Item"),
+    "col_what": ("Qué es", "What it is"),
     "col_amount": ("Cantidad", "Amount"),
     "col_current": ("Ley vigente", "Current law"),
     "col_reform": ("Reforma", "Reform"),
     "col_change": ("Cambio", "Change"),
-    "not_modelled": (
-        "**Todavía no modelado:** intereses, dividendos y ganancias de "
-        "capital a tasas preferenciales; créditos no reembolsables por "
-        "inversión (Anejo B); beneficios (PAN, Medicaid). La exención "
-        "para jóvenes (Ley 135-2014) se aplica automáticamente entre los "
-        "16 y 26 años.",
-        "**Not yet modelled:** interest, dividends and capital gains at "
-        "preferential rates; nonrefundable investment credits (Anejo B); "
-        "benefits (PAN, Medicaid). Youth exemption (Ley 135-2014) applies "
-        "automatically for ages 16–26.",
-    ),
-    "tutorial_title": (
-        "Cómo usar esta calculadora",
-        "How to use this calculator",
-    ),
 }
 
+# (variable, label es, label en, gloss es, gloss en)
 OUTPUTS = [
     (
         "pr_taxable_gross_income",
         "Ingreso bruto ajustado (línea 5)",
         "Adjusted gross income (line 5)",
+        "Salarios, cuenta propia y pensiones tributables, antes de deducciones",
+        "Taxable wages, self-employment and pensions, before deductions",
     ),
     (
         "pr_deductions",
         "Deducciones, Anejo A (línea 6)",
         "Deductions, Anejo A (line 6)",
+        "Hipoteca, gastos médicos, donativos, IRA, educación, préstamos",
+        "Mortgage, medical, charity, IRA, education, student loans",
     ),
     (
         "pr_exemptions",
-        "Exenciones personal, por veterano y por dependientes",
-        "Personal, veteran and dependent exemptions",
+        "Exenciones (líneas 7 a 9)",
+        "Exemptions (lines 7 to 9)",
+        "$3,500 por contribuyente ($7,000 en conjunta), $2,500 por dependiente, $1,500 por veterano",
+        "$3,500 per filer ($7,000 joint), $2,500 per dependent, $1,500 per veteran",
     ),
     (
         "pr_net_taxable_income",
         "Ingreso neto sujeto a contribución (línea 13)",
         "Net taxable income (line 13)",
+        "Lo que queda tras deducciones y exenciones; sobre esto se aplica la tabla",
+        "What is left after deductions and exemptions; the rate table applies to it",
     ),
     (
         "pr_regular_tax",
-        "Contribución según tabla, Sec. 1021.01 (línea 14)",
-        "Tax per table, Sec. 1021.01 (line 14)",
+        "Contribución según tabla (línea 14)",
+        "Tax per table (line 14)",
+        "0% hasta $9,000; 7% hasta $25,000; 14% hasta $41,500; 25% hasta $61,500; 33% después",
+        "0% to $9,000; 7% to $25,000; 14% to $41,500; 25% to $61,500; 33% above",
     ),
     (
         "pr_gradual_adjustment",
         "Ajuste gradual (línea 15)",
         "Gradual adjustment (line 15)",
+        "Recargo de 5% sobre ingreso neto mayor de $500,000",
+        "5% surcharge on net income above $500,000",
     ),
     (
         "pr_regular_tax_before_credits",
         "Contribución regular tras 92%/95% (línea 17)",
         "Regular tax after 92%/95% (line 17)",
+        "Se paga el 92% de la tabla si el ingreso bruto no pasa de $100,000; el 95% si lo pasa",
+        "92% of the table if gross income is at most $100,000; 95% above",
     ),
     (
         "pr_abt_excess",
         "Exceso de contribución básica alterna (línea 20)",
         "Alternate basic tax excess (line 20)",
+        "Impuesto mínimo sobre ingresos distintos de salarios; cero para la mayoría",
+        "Minimum tax on non-wage income; zero for most households",
     ),
     (
         "pr_income_tax",
         "Contribución sobre ingresos de PR (línea 26)",
         "PR income tax (line 26)",
+        "Lo que el hogar debe a Hacienda por el año",
+        "What the household owes Hacienda for the year",
     ),
     (
         "pr_eitc",
         "Crédito por Trabajo (línea 27C)",
         "Crédito por Trabajo (line 27C)",
+        "Crédito reembolsable para trabajadores; sube con los salarios y luego baja hasta cero",
+        "Refundable credit for workers; rises with wages, then phases out to zero",
     ),
     (
         "federal_actc",
-        "Crédito tributario adicional por hijos, federal (línea 27D)",
-        "Federal additional child tax credit (line 27D)",
+        "Crédito federal por hijos (línea 27D)",
+        "Federal child credit (line 27D)",
+        "Hasta $1,700 por hijo menor de 17, limitado por el Seguro Social y Medicare pagados",
+        "Up to $1,700 per child under 17, limited by Social Security and Medicare paid",
     ),
     (
         "employee_social_security_tax",
         "Seguro Social retenido",
         "Social Security tax withheld",
+        "6.2% de los salarios hasta $176,100 (federal)",
+        "6.2% of wages up to $176,100 (federal)",
     ),
-    ("employee_medicare_tax", "Medicare retenido", "Medicare tax withheld"),
+    (
+        "employee_medicare_tax",
+        "Medicare retenido",
+        "Medicare tax withheld",
+        "1.45% de los salarios (federal)",
+        "1.45% of wages (federal)",
+    ),
     (
         "self_employment_tax",
-        "Contribución por trabajo por cuenta propia (Schedule SE)",
+        "Contribución por cuenta propia (Schedule SE)",
         "Self-employment tax (Schedule SE)",
+        "15.3% sobre el 92.35% de la ganancia neta (federal)",
+        "15.3% of 92.35% of net profit (federal)",
     ),
-    ("household_net_income", "Ingreso neto del hogar", "Household net income"),
+    (
+        "household_net_income",
+        "Ingreso neto del hogar",
+        "Household net income",
+        "Ingresos menos contribuciones más créditos reembolsables",
+        "Income minus taxes plus refundable credits",
+    ),
 ]
 RANGE_VARS = [
     "pr_income_tax",
@@ -320,85 +333,6 @@ LEVER_LABELS_ES = {
     "Youth exemption maximum age": "Edad máxima de la exención para jóvenes",
 }
 
-TUTORIAL = {
-    "es": """
-**1. Describa el hogar** en la barra lateral: estado civil, edades, salarios y
-dependientes. Para ingresos que no sean salarios (trabajo por cuenta propia,
-pensiones, Seguro Social) abra *Contribuyente: otros ingresos*. Las
-deducciones del Anejo A van en su propia sección; la calculadora aplica los
-límites de ley (por ejemplo, gastos médicos solo sobre el 6% del ingreso).
-
-**2. Lea los resultados.** Arriba: contribución, créditos reembolsables,
-ingreso neto y la tasa neta (negativa cuando el hogar recibe más en créditos
-de lo que paga). A la derecha, *Línea por línea* sigue el orden de la
-planilla (Formulario 482). A la izquierda, la gráfica muestra cómo cambian
-contribuciones y créditos si los salarios del contribuyente variaran de $0 a
-$150,000; la línea punteada marca el hogar actual. *Ver tabla* añade la
-tasa marginal efectiva en cada tramo.
-
-**3. Pruebe una reforma.** Al final de la barra lateral, cambie cualquier
-parámetro (tramos, exenciones, factor 92%/95%, Crédito por Trabajo, exención
-para jóvenes). La página pasa a modo de comparación: cada cifra muestra la
-diferencia frente a la ley vigente y aparece una gráfica de *Cambio en
-ingreso neto*. Para volver a la ley vigente, restaure el valor original.
-
-**4. CliffWatch.** Arriba de la barra lateral, cambie *Calculadora* por
-*CliffWatch* para ver, con el mismo hogar, cómo cambian contribuciones,
-créditos e ingreso neto en pasos de $500 hasta $150,000, la tasa marginal
-efectiva en cada paso, y una lista de los *precipicios* (puntos donde ganar
-$500 más deja al hogar con menos ingreso neto) y de las zonas donde la tasa
-marginal llega al 50% o más. Con una reforma activa se comparan las dos curvas.
-
-**Ejemplos para empezar:** edad 22 y salarios $30,000 (exención para jóvenes:
-contribución cero); dos dependientes y salarios de $44,000 frente a $45,000
-(se pierde todo el Crédito por Trabajo); *Inicio del tramo 2* en $12,000
-(ampliar el tramo de 0%).
-
-**Qué no está incluido todavía:** intereses, dividendos y ganancias de
-capital a tasas preferenciales; créditos por inversión del Anejo B;
-beneficios como PAN y Medicaid. Los resultados son estimaciones a partir de
-los formularios e instrucciones de Hacienda y del IRS para 2025; no
-sustituyen asesoría profesional.
-""",
-    "en": """
-**1. Describe the household** in the sidebar: filing status, ages, wages and
-dependents. Non-wage income (self-employment, pensions, Social Security) is
-under *Filer other income*. Anejo A deductions have their own section; the
-calculator applies the statutory limits (for example, medical expenses only
-above 6% of income).
-
-**2. Read the results.** At the top: tax, refundable credits, net income and
-the net rate (negative when the household receives more in credits than it
-pays). On the right, *Line by line* follows the order of the return
-(Formulario 482). On the left, the chart shows how taxes and credits would
-change if the filer's wages ran from $0 to $150,000; the dotted line marks
-the current household. *Table view* adds the effective marginal rate at each
-step.
-
-**3. Try a reform.** At the bottom of the sidebar, change any lever (brackets,
-exemptions, the 92%/95% factor, the Crédito por Trabajo, the youth
-exemption). The page switches to comparison mode: every figure shows its
-difference from current law and a *Change in net income* chart appears. To
-return to current law, restore the original value.
-
-**4. CliffWatch.** At the top of the sidebar, switch *Calculator* to
-*CliffWatch* to see, for the same household, how taxes, credits and net
-income change in $500 steps up to $150,000, the effective marginal rate at
-each step, and a list of *cliffs* (points where earning $500 more leaves the
-household with less net income) and of zones where the marginal rate reaches
-50% or more. With a reform active, both curves are compared.
-
-**Examples to start with:** age 22 and $30,000 wages (youth exemption: zero
-tax); two dependents at $44,000 vs $45,000 wages (the whole Crédito por
-Trabajo is lost); *Bracket 2 starts* at $12,000 (a wider 0% bracket).
-
-**Not included yet:** interest, dividends and capital gains at preferential
-rates; Anejo B investment credits; benefits such as PAN and Medicaid. Results
-are estimates from Hacienda's and the IRS's 2025 forms and instructions and
-are not professional advice.
-""",
-}
-
 
 def current_value(path):
     """Current-law value of a lever at the start of YEAR."""
@@ -457,11 +391,15 @@ def compute(situation, variables, reform=None):
     return {v: float(sim.calculate(v, YEAR)[0]) for v in variables}
 
 
-def money(x):
-    return f"${x:,.0f}"
+money = ui.money
 
+# ---------------------------------------------------------------------------
+# Sidebar: language, page, household, reform
+# ---------------------------------------------------------------------------
+st.set_page_config(page_title="Modelo contributivo PR", layout="wide")
 
-st.set_page_config(page_title="Calculadora contributiva PR", layout="wide")
+CURRENT = {path: current_value(path) for path, _, _ in LEVERS}
+ui.init_state(CURRENT)
 
 with st.sidebar:
     lang = st.radio(
@@ -471,6 +409,7 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 L = 0 if lang == "Español" else 1
+st.session_state["L"] = L
 
 
 def t(key, *args):
@@ -478,14 +417,16 @@ def t(key, *args):
     return s.format(*args) if args else s
 
 
+VIEWS = {"home": "nav_home", "calc": "nav_calc", "cliff": "nav_cliff"}
 with st.sidebar:
     view = st.radio(
-        t("view"),
-        [t("view_calc"), t("view_cliff")],
+        ui.t("nav", L),
+        list(VIEWS),
+        format_func=lambda v: ui.t(VIEWS[v], L),
         horizontal=True,
         label_visibility="collapsed",
+        key="view",
     )
-show_cliffwatch = view == t("view_cliff")
 
 
 def person_inputs(prefix_key):
@@ -495,7 +436,6 @@ def person_inputs(prefix_key):
                 (es, en)[L],
                 0,
                 5_000_000,
-                0,
                 step=step,
                 help=(hes, hen)[L],
                 key=f"{prefix_key}_{var}",
@@ -504,36 +444,40 @@ def person_inputs(prefix_key):
         }
 
 
-if not show_cliffwatch:
-    st.title(t("title"))
-    st.caption(t("caption"))
-    with st.expander(t("tutorial_title"), expanded=False):
-        st.markdown(TUTORIAL["es" if L == 0 else "en"])
-
 hh = {}
 with st.sidebar:
     st.header(t("household"))
-    hh["joint"] = st.toggle(t("joint"), value=False)
-    hh["filer_age"] = st.number_input(t("filer_age"), 16, 100, 35)
-    filer_wages = st.number_input(
-        t("filer_wages"), 0, 2_000_000, 30_000, step=1_000
+    st.selectbox(
+        ui.t("preset", L),
+        [p[0] for p in ui.PRESETS],
+        format_func=lambda k: next(p[1 + L] for p in ui.PRESETS if p[0] == k),
+        key="preset",
+        on_change=ui.apply_preset,
+        help=ui.t("preset_help", L),
     )
-    hh["filer_veteran"] = st.checkbox(t("filer_veteran"), value=False)
+    hh["joint"] = st.toggle(t("joint"), key="joint")
+    hh["filer_age"] = st.number_input(t("filer_age"), 16, 100, key="filer_age")
+    filer_wages = st.number_input(
+        t("filer_wages"), 0, 2_000_000, step=1_000, key="filer_wages"
+    )
+    hh["filer_veteran"] = st.checkbox(t("filer_veteran"), key="filer_veteran")
     hh["filer"] = person_inputs("filer")
     hh["spouse_age"], hh["spouse_wages"] = 35, 0
     hh["spouse_veteran"], hh["spouse"] = False, {}
     if hh["joint"]:
-        hh["spouse_age"] = st.number_input(t("spouse_age"), 16, 100, 35)
+        hh["spouse_age"] = st.number_input(
+            t("spouse_age"), 16, 100, key="spouse_age"
+        )
         hh["spouse_wages"] = st.number_input(
-            t("spouse_wages"), 0, 2_000_000, 0, step=1_000
+            t("spouse_wages"), 0, 2_000_000, step=1_000, key="spouse_wages"
         )
-        hh["spouse_veteran"] = st.checkbox(t("spouse_veteran"), value=False)
+        hh["spouse_veteran"] = st.checkbox(
+            t("spouse_veteran"), key="spouse_veteran"
+        )
         hh["spouse"] = person_inputs("spouse")
-    n_children = st.number_input(t("children"), 0, 8, 2)
+    n_children = st.number_input(t("children"), 0, 8, key="n_children")
     hh["child_ages"] = [
-        st.number_input(
-            t("child_age", i + 1), 0, 25, min(4 + 4 * i, 25), key=f"c{i}"
-        )
+        st.number_input(t("child_age", i + 1), 0, 25, key=f"c{i}")
         for i in range(n_children)
     ]
     with st.expander(t("deductions")):
@@ -542,7 +486,6 @@ with st.sidebar:
                 (es, en)[L],
                 0,
                 1_000_000,
-                0,
                 step=step,
                 help=(hes, hen)[L],
                 key=f"d_{var}",
@@ -553,42 +496,51 @@ with st.sidebar:
             t("other_deductions"),
             0,
             1_000_000,
-            0,
             step=500,
             help=t("other_deductions_help"),
+            key="other_deductions",
         )
     with st.expander(t("advanced")):
         hh["abt_other_income"] = st.number_input(
             t("abt_other"),
             0,
             5_000_000,
-            0,
             step=1_000,
             help=t("abt_other_help"),
+            key="abt_other_income",
         )
 
     st.header(t("reform"))
+    st.selectbox(
+        ui.t("example_reform", L),
+        [r[0] for r in ui.EXAMPLE_REFORMS],
+        format_func=lambda k: next(
+            r[1 + L] for r in ui.EXAMPLE_REFORMS if r[0] == k
+        ),
+        key="example_reform",
+        on_change=ui.apply_example_reform,
+        args=(CURRENT,),
+        help=ui.t("example_reform_help", L),
+    )
+    st.text_input(
+        ui.t("reform_name", L),
+        key="reform_name",
+        placeholder=ui.t("reform_default_name", L),
+    )
     st.caption(t("reform_caption"))
     changes = {}
     for path, label_en, kind in LEVERS:
         label = LEVER_LABELS_ES.get(label_en, label_en) if L == 0 else label_en
-        base_value = current_value(path)
+        base_value = CURRENT[path]
         if kind == "rate":
             new = st.number_input(
-                label,
-                0.0,
-                1.0,
-                base_value,
-                step=0.01,
-                format="%.4f",
-                key=f"r_{path}",
+                label, 0.0, 1.0, step=0.01, format="%.4f", key=f"r_{path}"
             )
         else:
             new = st.number_input(
                 label,
                 0.0,
                 5_000_000.0,
-                base_value,
                 step=500.0,
                 format="%.0f",
                 key=f"r_{path}",
@@ -596,11 +548,15 @@ with st.sidebar:
         if abs(new - base_value) > 1e-9:
             changes[path] = new
     reform = parametric_reform(changes) if changes else None
+    reform_name = st.session_state["reform_name"] or ui.t(
+        "reform_default_name", L
+    )
 
-if show_cliffwatch:
-    if reform:
-        st.info(t("reform_active", len(changes)))
-    cliffwatch.render(build_situation(hh, 0), filer_wages, reform, L)
+# ---------------------------------------------------------------------------
+# Pages
+# ---------------------------------------------------------------------------
+if view == "home":
+    ui.home(L)
     st.stop()
 
 situation = build_situation(hh, filer_wages)
@@ -609,29 +565,32 @@ variables = [v for v, *_ in OUTPUTS] + extra
 base = compute(situation, variables)
 ref = compute(situation, variables, reform) if reform else None
 shown = ref or base
-market = base["household_market_income"]
 
-if reform:
-    st.info(t("reform_active", len(changes)))
-
-
-def metric(col, label, key, help_=None, lower_is_better=False):
-    delta = money(ref[key] - base[key]) if ref else None
-    col.metric(
-        label,
-        money(shown[key]),
-        delta=delta,
-        help=help_,
-        delta_color="inverse" if lower_is_better else "normal",
+if view == "cliff":
+    cliffwatch.render(
+        build_situation(hh, 0),
+        filer_wages,
+        reform,
+        L,
+        summary=ui.household_summary(hh, filer_wages, L),
+        reform_name=reform_name,
+        metric_row=lambda: ui.metric_row(base, ref, L),
+        reform_notice=t("reform_active", reform_name, len(changes))
+        if reform
+        else None,
     )
+    ui.not_included(L)
+    ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
+    ui.tutorial(L)
+    st.stop()
 
+st.title(t("title"))
+st.caption(t("caption"))
+st.markdown(f"**{ui.household_summary(hh, filer_wages, L)}**")
+if reform:
+    st.info(t("reform_active", reform_name, len(changes)))
 
-c1, c2, c3, c4 = st.columns(4)
-metric(c1, t("m_tax"), "pr_income_tax", lower_is_better=True)
-metric(c2, t("m_credits"), "pr_refundable_credits", t("m_credits_help"))
-metric(c3, t("m_net"), "household_net_income")
-net_rate = (market - shown["household_net_income"]) / market if market else 0.0
-c4.metric(t("m_rate"), f"{net_rate:.1%}", help=t("m_rate_help"))
+ui.metric_row(base, ref, L)
 
 left, right = st.columns([3, 2])
 
@@ -653,7 +612,7 @@ with left:
         }
         if reform:
             y = compute(s, RANGE_VARS, reform)
-            row[t("s_net_reform")] = y["household_net_income"]
+            row[reform_name] = y["household_net_income"]
             row[t("s_change")] = (
                 y["household_net_income"] - x["household_net_income"]
             )
@@ -677,15 +636,15 @@ with left:
         ),
     )
 
-    def line(fig, col, color):
+    def line(fig, col, color, name=None):
         fig.add_trace(
             go.Scatter(
                 x=df[xcol],
                 y=df[col],
-                name=col,
+                name=name or col,
                 mode="lines",
                 line=dict(color=color, width=2),
-                hovertemplate="%{y:$,.0f}<extra>" + col + "</extra>",
+                hovertemplate="%{y:$,.0f}<extra>" + (name or col) + "</extra>",
             )
         )
 
@@ -702,10 +661,8 @@ with left:
 
     fig = go.Figure()
     if reform:
-        df[t("s_net_current")] = df[t("s_net")]
-        line(fig, t("s_net_current"), BASELINE_COLOR)
-        df[t("s_net_ref")] = df[t("s_net_reform")]
-        line(fig, t("s_net_ref"), REFORM_COLOR)
+        line(fig, t("s_net"), BASELINE_COLOR, t("s_net_current"))
+        line(fig, reform_name, REFORM_COLOR)
     else:
         line(fig, t("s_tax"), BASELINE_COLOR)
         line(fig, t("s_payroll"), REFORM_COLOR)
@@ -716,15 +673,12 @@ with left:
     fig.update_layout(height=380, **layout)
     st.plotly_chart(fig, use_container_width=True)
 
-    df[t("marginal")] = 1 - df[t("s_net")].diff() / df[xcol].diff()
-    show = [
-        c for c in df.columns if c not in (t("s_net_current"), t("s_net_ref"))
-    ]
+    df[t("marginal")] = (1 - df[t("s_net")].diff() / df[xcol].diff()) * 100
     with st.expander(t("table_view")):
         st.dataframe(
-            df[show].style.format(
-                {c: "${:,.0f}" for c in show if c != t("marginal")}
-                | {t("marginal"): "{:.0%}"}
+            df.style.format(
+                {c: "${:,.0f}" for c in df.columns if c != t("marginal")}
+                | {t("marginal"): "${:,.0f}"}
             ),
             use_container_width=True,
             hide_index=True,
@@ -736,14 +690,15 @@ with right:
     if reform:
         table = pd.DataFrame(
             [
-                ((es, en)[L], base[v], ref[v], ref[v] - base[v])
-                for v, es, en in OUTPUTS
+                ((es, en)[L], base[v], ref[v], ref[v] - base[v], (ges, gen)[L])
+                for v, es, en, ges, gen in OUTPUTS
             ],
             columns=[
                 t("col_item"),
                 t("col_current"),
                 t("col_reform"),
                 t("col_change"),
+                t("col_what"),
             ],
         )
         fmt = {
@@ -753,16 +708,24 @@ with right:
         }
     else:
         table = pd.DataFrame(
-            [((es, en)[L], base[v]) for v, es, en in OUTPUTS],
-            columns=[t("col_item"), t("col_amount")],
+            [
+                ((es, en)[L], base[v], (ges, gen)[L])
+                for v, es, en, ges, gen in OUTPUTS
+            ],
+            columns=[t("col_item"), t("col_amount"), t("col_what")],
         )
         fmt = {t("col_amount"): "${:,.2f}"}
     st.dataframe(
         table.style.format(fmt),
         use_container_width=True,
         hide_index=True,
-        height=560,
+        height=600,
+        column_config={
+            t("col_what"): st.column_config.TextColumn(width="large"),
+        },
     )
 
 st.divider()
-st.markdown(t("not_modelled"))
+ui.not_included(L)
+ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
+ui.tutorial(L)

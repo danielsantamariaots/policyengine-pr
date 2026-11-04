@@ -16,11 +16,28 @@ streamlit run app/calculator.py
 ```
 
 Se abre en el navegador en `http://localhost:8501`. El idioma se elige
-arriba de la barra lateral (Español por defecto).
+arriba de la barra lateral (Español por defecto). Debajo, tres páginas:
+
+- **Inicio**: dos tarjetas (*¿Cuánto paga mi hogar?* → Calculadora;
+  *¿Dónde pierde mi hogar al ganar más?* → CliffWatch), la guía y la lista
+  de lo que el modelo no incluye.
+- **Calculadora** y **CliffWatch** comparten la barra lateral: el mismo
+  hogar y la misma reforma se ven en las dos.
+
+Las dos páginas empiezan con una línea que describe el hogar activo
+("Contribuyente de 35 años; planilla individual; 2 dependientes…"), las
+mismas cuatro cifras (contribución, créditos, ingreso neto y lo que se va
+de cada $100) y una frase en lenguaje llano. Al pie de ambas: *Qué no
+incluye*, *Ver supuestos* (los valores de ley vigente usados, con el
+archivo de parámetros de cada uno) y *Cómo usar estas páginas*.
 
 ## 1. Describir el hogar
 
-En la barra lateral:
+En la barra lateral, primero **Hogar tipo**: seis hogares de ejemplo
+(trabajador con salario mínimo, madre o padre con dos hijos, pareja con dos
+salarios, pensionado de 65, joven de 22, cuenta propia) que rellenan los
+campos; después ajuste lo que quiera. *Hogar personalizado* deja los campos
+como están.
 
 | Campo | Qué poner |
 |---|---|
@@ -40,7 +57,7 @@ En la barra lateral:
   créditos de lo que paga en contribuciones.
 - **Línea por línea (derecha):** sigue el orden del Formulario 482, de
   ingreso bruto ajustado a ingreso neto, con el número de línea de la
-  planilla.
+  planilla y una columna *Qué es* que explica cada partida en una frase.
 - **A lo largo de la escala de ingresos (izquierda):** el mismo hogar con
   los salarios del contribuyente de $0 a $150,000. La línea punteada marca
   el hogar actual. *Ver tabla* muestra las cifras y la tasa marginal
@@ -49,10 +66,14 @@ En la barra lateral:
 
 ## 3. Probar una reforma
 
-Al final de la barra lateral, **Reforma** lista los parámetros que una
-propuesta suele tocar: tramos y tasas, exenciones, el factor 92%/95% y su
-umbral, los máximos y límites del Crédito por Trabajo, y la exención para
-jóvenes. Cambie uno o varios; los demás mantienen la ley vigente.
+Al final de la barra lateral, **Reforma** empieza con *Reformas de
+ejemplo* (ampliar el tramo de 0% a $12,000; subir 20% el Crédito por
+Trabajo máximo; eliminar el salto del 92% al 95%; exención personal a
+$5,000 / $10,000), que rellenan los parámetros, y un *Nombre de la reforma*
+que aparece en las gráficas. Debajo, los parámetros que una propuesta suele
+tocar: tramos y tasas, exenciones, el factor 92%/95% y su umbral, los
+máximos y límites del Crédito por Trabajo, y la exención para jóvenes.
+Cambie uno o varios; los demás mantienen la ley vigente.
 
 La página pasa a modo de comparación:
 
