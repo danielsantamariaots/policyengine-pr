@@ -130,6 +130,25 @@ TEXT = {
     "s_pan": ("PAN", "PAN"),
     "s_tanf": ("TANF", "TANF"),
     "s_section8": ("Sección 8", "Section 8"),
+    "section8_off": (
+        "No se calcula: marque *El hogar tiene un vale de Sección 8* en "
+        "Vivienda",
+        "Not computed: tick *Household holds a Section 8 voucher* under "
+        "Housing",
+    ),
+    "section8_zero": (
+        "Sin subsidio: el 30% del ingreso ajustado (${:,.0f} al mes) supera "
+        "el estándar de pago de ${:,.0f} ({} dormitorios)",
+        "No subsidy: 30% of adjusted income (${:,.0f} a month) exceeds the "
+        "${:,.0f} payment standard ({} bedrooms)",
+    ),
+    "section8_on": (
+        "Vale de vivienda: estándar de pago de ${:,.0f} ({} dormitorios) "
+        "menos ${:,.0f} al mes de pago del inquilino (30% del ingreso "
+        "ajustado), por 12",
+        "Housing voucher: ${:,.0f} payment standard ({} bedrooms) less the "
+        "${:,.0f} monthly tenant payment (30% of adjusted income), times 12",
+    ),
     "s_net": ("Ingreso neto", "Net income"),
     "s_change": ("Cambio en ingreso neto", "Change in net income"),
     "s_net_current": ("Ingreso neto, ley vigente", "Net income, current law"),
@@ -696,7 +715,14 @@ if view == "reform":
     st.stop()
 
 situation = build_situation(hh, filer_wages)
-extra = ["pr_refundable_credits", "household_market_income", "household_tax"]
+extra = [
+    "pr_refundable_credits",
+    "household_market_income",
+    "household_tax",
+    "section8_total_tenant_payment",
+    "section8_payment_standard",
+    "section8_bedrooms",
+]
 variables = [v for v, *_ in OUTPUTS] + extra
 base = compute(situation, variables)
 ref = compute(situation, variables, reform) if reform else None
@@ -765,7 +791,11 @@ with left:
             t("s_credits"): x["pr_refundable_credits"],
             t("s_pan"): x["pan"],
             t("s_tanf"): x["tanf"],
-            t("s_section8"): x["section8"],
+            **(
+                {t("s_section8"): x["section8"]}
+                if hh["housing_assisted"]
+                else {}
+            ),
             t("s_net"): x["household_net_income"],
         }
         if reform:
@@ -832,7 +862,10 @@ with left:
             ("s_tanf", "tanf"),
             ("s_section8", "section8"),
         ):
-            charts.line(fig, df[xcol], df[t(col)], t(col), charts.SERIES[key])
+            if t(col) in df:
+                charts.line(
+                    fig, df[xcol], df[t(col)], t(col), charts.SERIES[key]
+                )
     charts.vline(
         fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
     )
@@ -883,6 +916,23 @@ with right:
         table.loc[
             table[t("col_item")].str.startswith("Plan Vital"), t("col_amount")
         ] = base["vital_eligible_count"]
+    s8 = table[t("col_item")].str.startswith(("Sección 8", "Section 8"))
+    if not hh["housing_assisted"]:
+        table.loc[s8, t("col_what")] = t("section8_off")
+    elif shown["section8"] <= 0:
+        table.loc[s8, t("col_what")] = t(
+            "section8_zero",
+            shown["section8_total_tenant_payment"],
+            shown["section8_payment_standard"],
+            int(shown["section8_bedrooms"]),
+        )
+    else:
+        table.loc[s8, t("col_what")] = t(
+            "section8_on",
+            shown["section8_payment_standard"],
+            int(shown["section8_bedrooms"]),
+            shown["section8_total_tenant_payment"],
+        )
     st.dataframe(
         table.style.format(fmt),
         use_container_width=True,

@@ -463,6 +463,11 @@ def render(
         return TEXT[key][L].replace("$", "\\$")
 
     reform_name = reform_name or t("s_emtr_reform")
+    assisted = bool(
+        situation["households"]["household"]
+        .get("housing_assisted", {})
+        .get(YEAR, False)
+    )
     st.title(t("title"))
     st.caption(md("caption"))
     if summary:
@@ -580,7 +585,7 @@ def render(
         ("actc", "s_actc", 1),
         ("pan", "s_pan", 1),
         ("tanf", "s_tanf", 1),
-        ("section8", "s_section8", 1),
+        *([("section8", "s_section8", 1)] if assisted else []),
         ("tax", "s_tax", -1),
         ("payroll", "s_payroll", -1),
     ):
@@ -710,7 +715,7 @@ def render(
                 "actc",
                 "pan",
                 "tanf",
-                "section8",
+                *(["section8"] if assisted else []),
                 "net",
                 "emtr",
             ]
