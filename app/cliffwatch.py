@@ -670,8 +670,8 @@ def render(
     marker_lines(fig)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
-    # --- components and EMTR side by side under the hero chart
-    col_components, col_emtr = st.columns(2)
+    # --- components and kept-share charts, full width, one after the other
+    col_components, col_emtr = st.container(), st.container()
     with col_components:
         fig = charts.figure(
             t("chart_components"),
