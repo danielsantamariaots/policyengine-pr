@@ -11,7 +11,7 @@ Oficina del Administrador / División de Planificación Estratégica
 **De:** [Nombre], [cargo], Espacios Abiertos
 [dirección · correo electrónico · teléfono]
 
-**Asunto:** Solicitud de la Tabla de Beneficios del PAN y del Plan Estatal de Operaciones del NAP vigentes, para un modelo público de microsimulación
+**Asunto:** Solicitud de la Tabla de Beneficios del PAN, del Plan Estatal de Operaciones del NAP y de la tabla de necesidades básicas del TANF vigentes, para un modelo público de microsimulación
 
 ## 1. Propósito
 
@@ -28,11 +28,16 @@ Hemos codificado las reglas del **Reglamento 8684** (artículos 42, 45 y 51) y l
 5. **El beneficio máximo para los municipios de Vieques y Culebra** por tamaño del núcleo, y el bono de edad avanzada vigente.
 6. Si existe, **la enmienda al Reglamento 8684 de 2024** (número de reglamento y texto) que incorporó los cambios en recursos máximos ($5,000 / $15,000), en el cómputo del 50% de los ingresos de Seguro Social, retiro y desempleo, y en la exención escalonada por nuevo empleo (12 meses al 100%, 6 al 66%, 33% hasta el mes 24).
 
+Sobre el **Programa de Ayuda Temporal para Familias Necesitadas (TANF)**, cuyas reglas hemos codificado a partir del Reglamento 7653 (2008) y de las cifras que el Welfare Rules Database (Urban Institute / ACF) publica para Puerto Rico (beneficio máximo de $584 mensuales y tope de ingresos de $1,620 para una familia de tres personas, 2023):
+
+7. **La tabla de necesidades básicas (estándar de necesidad y de pago) de la categoría C vigente**, por tamaño de la unidad familiar (de 1 a 12 personas), a la que se refieren las secciones 4.16 y 4.22 del Reglamento 7653, con su fecha de efectividad. Solo conocemos el valor para tres personas.
+8. **El nuevo reglamento del TANF** que, según la ponencia de ADSEF ante el Comité de Transición (octubre de 2024), sustituiría al Reglamento 7653, si ya fue aprobado; y las cantidades vigentes de las deducciones y exenciones de las secciones 4.18 a 4.20 (gastos de trabajo, cuido de menores, exención por nuevo empleo) y del beneficio regular de las categorías A, B, D, G y T.
+
 Si alguno de estos documentos se publica en el portal de ADSEF o en docs.pr.gov, agradeceríamos el enlace.
 
 ## 3. Compromisos de Espacios Abiertos
 
-- Los documentos se utilizarán únicamente para codificar las reglas del PAN en policyengine-pr, cuyo código y fuentes son públicos (github.com/danielsantamariaots/policyengine-pr); cada regla citará el documento de ADSEF del que procede.
+- Los documentos se utilizarán únicamente para codificar las reglas del PAN y del TANF en policyengine-pr, cuyo código y fuentes son públicos (github.com/danielsantamariaots/policyengine-pr); cada regla citará el documento de ADSEF del que procede.
 - Espacios Abiertos pondrá a disposición de ADSEF, sin costo, el modelo, su documentación y la herramienta de cálculo de hogares, que permite ver cómo interactúan el PAN, el Crédito por Trabajo y la contribución sobre ingresos a lo largo de la escala de ingresos.
 - Compartiremos con antelación cualquier informe que utilice estas reglas.
 
