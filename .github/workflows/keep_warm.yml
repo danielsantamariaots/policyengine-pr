@@ -1,8 +1,9 @@
 # Streamlit Community Cloud puts an app to sleep after a period without
-# visits; the first visitor then waits about a minute while it restarts.
-# This visits the app every four hours so it stays awake. If Community
-# Cloud stops counting these requests as visits, move the app to a small
-# paid host (see ROADMAP.md, launch checklist).
+# viewers; the first visitor then waits about a minute while it restarts.
+# A plain HTTP request is not a viewer (the front page redirects until a
+# browser session starts), so this opens the app in a headless browser for
+# a short while every four hours. If Community Cloud stops honouring this,
+# move the app to a small paid host (ROADMAP.md, launch checklist).
 name: keep-warm
 
 on:
@@ -11,16 +12,39 @@ on:
   workflow_dispatch:
 
 jobs:
-  ping:
+  visit:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Load the app's front page
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install a headless browser
         run: |
-          for i in 1 2 3; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 120 \
-              "https://policyengine-pr.streamlit.app/?view=calc")
-            echo "attempt $i: HTTP $code"
-            [ "$code" = "200" ] && exit 0
-            sleep 60
-          done
-          exit 1
+          pip install -q playwright==1.49.1
+          python -m playwright install --with-deps chromium >/dev/null
+      - name: Open the app as a viewer
+        run: |
+          python - <<'PY'
+          import sys
+          from playwright.sync_api import sync_playwright
+
+          URL = "https://policyengine-pr.streamlit.app/?view=calc"
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              page.goto(URL, wait_until="load", timeout=180_000)
+              # wait for the Streamlit app (or its wake-up button) to render
+              for _ in range(12):
+                  page.wait_for_timeout(10_000)
+                  text = page.inner_text("body")
+                  if "get this app back up" in text.lower():
+                      page.get_by_role("button").first.click()
+                  if "Modelo contributivo" in text or "contributiva" in text:
+                      print("app rendered")
+                      browser.close()
+                      sys.exit(0)
+              print("app did not render in time:", text[:300])
+              browser.close()
+              sys.exit(1)
+          PY
