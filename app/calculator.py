@@ -892,8 +892,46 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------
+EXAMPLE_NAMES = {
+    "single_parent": (
+        "Carmen, 32 años, dos hijos, $30,000",
+        "Carmen, 32, two children, $30,000",
+    ),
+    "minwage": (
+        "Luis, 30 años, solo, salario mínimo",
+        "Luis, 30, single, minimum wage",
+    ),
+    "couple": (
+        "Marta y José, dos hijos, $45,000 + $25,000",
+        "Marta and José, two children, $45,000 + $25,000",
+    ),
+    "retiree": ("Doña Ana, 65 años, pensionada", "Doña Ana, 65, retired"),
+}
+
+
+@st.cache_data(show_spinner=False)
+def example_results(L):
+    out = []
+    for key, (es, en) in EXAMPLE_NAMES.items():
+        p_hh, p_wages = ui.preset_hh(key)
+        x = compute(
+            build_situation(p_hh, p_wages),
+            ["pr_income_tax", "pr_refundable_credits", "household_net_income"],
+        )
+        out.append(
+            (
+                key,
+                (es, en)[L],
+                x["pr_income_tax"],
+                x["pr_refundable_credits"],
+                x["household_net_income"],
+            )
+        )
+    return out
+
+
 if view == "home":
-    ui.home(L)
+    ui.home(L, example_results(L))
     st.stop()
 
 if view == "reform":
@@ -949,8 +987,9 @@ if view == "cliff":
         else None,
         compare=compare,
     )
-    ui.not_included(L)
+    ui.not_included(L, short=True)
     ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
+    ui.glossary(L)
     ui.tutorial(L)
     st.stop()
 
@@ -959,6 +998,7 @@ if reform:
     st.info(t("reform_active", reform_name, len(changes)))
 
 ui.metric_row(base, ref, L)
+ui.why(base, shown, L)
 
 # chart full width, line-by-line table underneath
 left, right = st.container(), st.container()
@@ -1135,6 +1175,7 @@ with right:
     )
 
 st.divider()
-ui.not_included(L)
+ui.not_included(L, short=True)
+ui.glossary(L)
 ui.assumptions(CURRENT, changes, L, LEVER_LABELS_ES)
 ui.tutorial(L)

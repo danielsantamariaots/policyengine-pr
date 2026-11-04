@@ -360,6 +360,26 @@ TEXT = {
         "to 26.\n\n"
         "Results are estimates, not professional advice.",
     ),
+    "why_title": ("¿Por qué estos números?", "Why these numbers?"),
+    "why_tax": (
+        "**Contribución:** su ingreso bruto ajustado es {} ; tras {} de deducciones y exenciones queda {} sujeto a contribución. La tabla da {}, que la ley rebaja al 92% o 95% ({}), y la contribución básica alterna añade {}: total **{}**.",
+        "**Tax:** your adjusted gross income is {} ; after {} in deductions and exemptions, {} is subject to tax. The table gives {}, which the law reduces to 92% or 95% ({}), and the alternate basic tax adds {}: total **{}**.",
+    ),
+    "why_credits": (
+        "**Créditos:** **{}** de Crédito por Trabajo (depende del ingreso ganado y de los dependientes) y **{}** de crédito federal por hijos (ACTC). Son reembolsables: se cobran aunque la contribución sea cero.",
+        "**Credits:** **{}** Crédito por Trabajo (depends on earned income and dependents) and **{}** federal child credit (ACTC). Both are refundable: paid even when the tax is zero.",
+    ),
+    "why_net": (
+        "**Ingreso neto:** ingresos de mercado {} menos contribución {} y Seguro Social y Medicare {}, más créditos {} y ayudas {} (PAN {}, TANF {}, Sección 8 {}) = **{}**.",
+        "**Net income:** market income {} minus tax {} and Social Security and Medicare {}, plus credits {} and benefits {} (PAN {}, TANF {}, Section 8 {}) = **{}**.",
+    ),
+    "glossary_title": ("Glosario", "Glossary"),
+    "examples_title": ("Hogares de ejemplo", "Example households"),
+    "example_line": (
+        "**{}** paga **{}** de contribución, recibe **{}** en créditos y se queda con **{}**.",
+        "**{}** pays **{}** in tax, receives **{}** in credits and keeps **{}**.",
+    ),
+    "see": ("Ver", "See"),
     "assumptions_title": ("Ver supuestos", "See assumptions"),
     "assumptions_intro": (
         "Valores de ley vigente usados en el cálculo (año contributivo "
@@ -749,8 +769,181 @@ def metric_row(base, ref, L):
         st.markdown(head + md("rate_sentence_neg", L, 100 - rate * 100))
 
 
-def not_included(L):
-    st.warning(md("not_included", L))
+def not_included(L, short=False):
+    """short=True keeps only the 'Lea con cuidado' bullets and the disclaimer
+    (household pages); the full box goes on the home and reform pages."""
+    text = md("not_included", L)
+    if short:
+        marker = "**Lea con cuidado:**" if L == 0 else "**Read with care:**"
+        text = text[text.index(marker) :]
+    st.warning(text)
+
+
+def why(base, shown, L):
+    """Three sentences, built from the computed values, that explain the
+    headline numbers in words."""
+    with st.expander(t("why_title", L)):
+        x = shown
+        ded = x["pr_deductions"] + x["pr_exemptions"]
+        pct = "92%" if x["pr_taxable_gross_income"] <= 100_000 else "95%"
+        st.markdown(
+            md(
+                "why_tax",
+                L,
+                money(x["pr_taxable_gross_income"]),
+                money(ded),
+                money(x["pr_net_taxable_income"]),
+                money(x["pr_regular_tax"]),
+                pct,
+                money(x["pr_abt_excess"]),
+                money(x["pr_income_tax"]),
+            )
+        )
+        st.markdown(
+            md("why_credits", L, money(x["pr_eitc"]), money(x["federal_actc"]))
+        )
+        payroll = (
+            x["employee_social_security_tax"]
+            + x["employee_medicare_tax"]
+            + x["self_employment_tax"]
+        )
+        benefits = x["pan"] + x["tanf"] + x["section8"]
+        st.markdown(
+            md(
+                "why_net",
+                L,
+                money(x["household_market_income"]),
+                money(x["pr_income_tax"]),
+                money(payroll),
+                money(x["pr_refundable_credits"]),
+                money(benefits),
+                money(x["pan"]),
+                money(x["tanf"]),
+                money(x["section8"]),
+                money(x["household_net_income"]),
+            )
+        )
+
+
+GLOSSARY = [
+    (
+        "Ingreso bruto ajustado",
+        "Adjusted gross income",
+        "Todo lo que gana el hogar y que Hacienda cuenta: salarios, cuenta propia, pensiones tributables, intereses y dividendos (línea 5 de la planilla).",
+        "Everything the household earns that Hacienda counts: wages, self-employment, taxable pensions, interest and dividends (line 5 of the return).",
+    ),
+    (
+        "Deducciones",
+        "Deductions",
+        "Gastos que la ley permite restar antes de calcular la contribución: hipoteca, gastos médicos, donativos, IRA, educación, préstamos de estudio (Anejo A).",
+        "Expenses the law lets you subtract before the tax is computed: mortgage, medical, donations, IRA, education, student loans (Anejo A).",
+    ),
+    (
+        "Exenciones",
+        "Exemptions",
+        "Cantidades fijas que se restan por cada contribuyente ($3,500), dependiente ($2,500) y veterano ($1,500).",
+        "Fixed amounts subtracted per filer ($3,500), dependent ($2,500) and veteran ($1,500).",
+    ),
+    (
+        "Ingreso neto sujeto a contribución",
+        "Net taxable income",
+        "Lo que queda tras deducciones y exenciones; es la cantidad a la que se aplica la tabla de tasas.",
+        "What is left after deductions and exemptions; the rate table applies to it.",
+    ),
+    (
+        "Tabla de tasas (tramos)",
+        "Rate table (brackets)",
+        "0% hasta $9,000; 7% hasta $25,000; 14% hasta $41,500; 25% hasta $61,500; 33% después. Cada tasa se aplica solo a la parte del ingreso dentro de su tramo.",
+        "0% to $9,000; 7% to $25,000; 14% to $41,500; 25% to $61,500; 33% above. Each rate applies only to the income within its bracket.",
+    ),
+    (
+        "Ajuste gradual",
+        "Gradual adjustment",
+        "Recargo que quita el beneficio del tramo de 0% y de las exenciones a quienes ganan más de $500,000.",
+        "Surcharge that removes the benefit of the 0% bracket and the exemptions above $500,000 of income.",
+    ),
+    (
+        "Contribución básica alterna",
+        "Alternate basic tax",
+        "Un cálculo paralelo con menos deducciones; se paga la mayor de las dos contribuciones. Aplica desde $25,000 de ingreso neto alterno.",
+        "A parallel computation with fewer deductions; the higher of the two taxes is paid. Applies from $25,000 of alternate net income.",
+    ),
+    (
+        "Crédito reembolsable",
+        "Refundable credit",
+        "Crédito que Hacienda paga aunque la contribución sea cero. El Crédito por Trabajo y el crédito federal por hijos lo son.",
+        "A credit Hacienda pays even when the tax is zero. The Crédito por Trabajo and the federal child credit are refundable.",
+    ),
+    (
+        "Crédito por Trabajo",
+        "Crédito por Trabajo (PR EITC)",
+        "Crédito para quien trabaja: sube con el ingreso ganado hasta un máximo (según el número de dependientes) y luego baja hasta desaparecer.",
+        "Credit for workers: rises with earned income up to a maximum (by number of dependents) and then falls to zero.",
+    ),
+    (
+        "Crédito federal por hijos (ACTC)",
+        "Federal child credit (ACTC)",
+        "Parte reembolsable del crédito federal por hijos que los residentes de Puerto Rico reclaman al IRS: hasta $1,700 por hijo en 2025, 15% del ingreso ganado sobre $2,500.",
+        "Refundable part of the federal child credit that Puerto Rico residents claim from the IRS: up to $1,700 per child in 2025, 15% of earned income above $2,500.",
+    ),
+    (
+        "Tasa marginal efectiva",
+        "Effective marginal rate",
+        "De cada $100 adicionales que gana el hogar, la parte que se va en más contribuciones y en créditos y ayudas que se reducen.",
+        "Of each additional $100 the household earns, the part that goes to more tax and to credits and benefits that shrink.",
+    ),
+    (
+        "Precipicio",
+        "Cliff",
+        "Punto en el que ganar un poco más deja al hogar con menos ingreso neto, porque se pierde una ayuda de golpe (por ejemplo, el PAN al superar su límite).",
+        "A point where earning slightly more leaves the household with less net income, because a benefit is lost all at once (for example PAN above its limit).",
+    ),
+    (
+        "Núcleo de servicio (PAN)",
+        "Núcleo de servicio (PAN)",
+        "La unidad a la que ADSEF da el PAN: quienes compran y preparan la comida juntos. Una persona de 60 años o más puede ser su propio núcleo.",
+        "The unit ADSEF pays PAN to: those who buy and prepare food together. A person aged 60 or over may be a núcleo of their own.",
+    ),
+    (
+        "Vale de Sección 8",
+        "Section 8 voucher",
+        "Ayuda federal para el alquiler, administrada por Vivienda: cubre la diferencia entre la renta justa de mercado y el 30% del ingreso ajustado del hogar.",
+        "Federal rent assistance run by Vivienda: covers the gap between the fair market rent and 30% of the household's adjusted income.",
+    ),
+    (
+        "Ley vigente",
+        "Current law",
+        "Las reglas de 2025 tal como están en los formularios e instrucciones oficiales; la reforma contributiva se compara contra ellas.",
+        "The 2025 rules as they stand in the official forms and instructions; a tax reform is compared against them.",
+    ),
+]
+
+
+def glossary(L):
+    with st.expander(t("glossary_title", L)):
+        for es, en, des, den in GLOSSARY:
+            st.markdown(
+                f"**{(es, en)[L]}.** {(des, den)[L]}".replace("$", "\\$")
+            )
+
+
+def example_household(examples, L):
+    """Named households with a one-line result; each 'Ver' loads its preset."""
+    st.subheader(t("examples_title", L))
+    for key, name, tax, credits, net in examples:
+        c1, c2 = st.columns([6, 1])
+        c1.markdown(
+            md("example_line", L, name, money(tax), money(credits), money(net))
+        )
+        c2.button(
+            t("see", L),
+            key=f"example_{key}",
+            on_click=lambda k=key: (
+                st.session_state.update(preset=k),
+                apply_preset(),
+                st.session_state.update(view="calc"),
+            ),
+        )
 
 
 def assumptions(current_values, changes, L, labels):
@@ -796,7 +989,7 @@ def start_example():
     st.session_state["view"] = "calc"
 
 
-def home(L):
+def home(L, examples=None):
     st.title(t("home_title", L))
     st.markdown(t("home_intro", L))
     st.button(
@@ -806,6 +999,8 @@ def home(L):
         help=t("start_help", L),
         on_click=start_example,
     )
+    if examples:
+        example_household(examples, L)
     st.markdown(t("home_more", L))
     c1, c2, c3 = st.columns(3)
     for col, title, body, view in (

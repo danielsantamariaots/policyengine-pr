@@ -45,6 +45,15 @@ otro.
 
 ## 2. Leer los resultados
 
+Debajo de las cuatro cifras, *¿Por qué estos números?* explica en tres
+frases cómo salen la contribución, los créditos y el ingreso neto del hogar
+descrito. Al final de cada página, *Glosario* define en una frase los
+quince términos que aparecen (ingreso bruto ajustado, exención, crédito
+reembolsable, tasa marginal, precipicio, núcleo de servicio, vale de
+Sección 8…). En *Inicio*, cuatro hogares con nombre (Carmen, Luis, Marta y
+José, Doña Ana) muestran su resultado en una línea; *Ver* carga cada uno.
+
+
 - **Arriba:** contribución sobre ingresos de PR, créditos reembolsables
   (Crédito por Trabajo + crédito federal por hijos), ingreso neto y la tasa
   contributiva neta. Una tasa negativa significa que el hogar recibe más en
