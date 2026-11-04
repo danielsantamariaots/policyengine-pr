@@ -165,7 +165,8 @@ TEXT = {
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
     "s_tax": ("Contribución sobre ingresos de PR", "PR income tax"),
     "s_payroll": ("Seguro Social y Medicare", "Social Security and Medicare"),
-    "s_credits": ("Créditos reembolsables", "Refundable credits"),
+    "s_eitc": ("Crédito por Trabajo", "Crédito por Trabajo (PR EITC)"),
+    "s_actc": ("Crédito federal por hijos", "Federal child credit (ACTC)"),
     "s_pan": ("PAN", "PAN"),
     "s_tanf": ("TANF", "TANF"),
     "s_section8": ("Sección 8", "Section 8"),
@@ -354,7 +355,8 @@ RANGE_VARS = [
     "employee_social_security_tax",
     "employee_medicare_tax",
     "self_employment_tax",
-    "pr_refundable_credits",
+    "pr_eitc",
+    "federal_actc",
     "pan",
     "tanf",
     "section8",
@@ -861,7 +863,8 @@ with left:
             t("s_payroll"): x["employee_social_security_tax"]
             + x["employee_medicare_tax"]
             + x["self_employment_tax"],
-            t("s_credits"): x["pr_refundable_credits"],
+            t("s_eitc"): x["pr_eitc"],
+            t("s_actc"): x["federal_actc"],
             t("s_pan"): x["pan"],
             t("s_tanf"): x["tanf"],
             **(
@@ -930,7 +933,8 @@ with left:
         for col, key in (
             ("s_tax", "tax"),
             ("s_payroll", "payroll"),
-            ("s_credits", "eitc"),
+            ("s_eitc", "eitc"),
+            ("s_actc", "actc"),
             ("s_pan", "pan"),
             ("s_tanf", "tanf"),
             ("s_section8", "section8"),
