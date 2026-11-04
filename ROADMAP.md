@@ -117,8 +117,12 @@ late: ship the household calculator first; aggregate estimates follow.
   **Areas since 2026-11-04**: `hud_area` (15 HUD FMR / income-limit areas
   from HUD's FY2025 FMR documentation pages, `policyengine_pr/data/hud_areas.py`)
   drives the limits and FMRs; the app has a municipio selector, the PRCS
-  takes the PUMA's majority area. HUD's 2025 extract is saved alongside
-  2024 (27,948 vouchers in use, $634 a month). CliffWatch gains a two-household comparison
+  takes the PUMA's majority area. HUD's 2025 extract (27,948 vouchers in use, $634 a month) is now the
+  calibration target. Diagnosis in `docs/statutes/hud/SOURCES.md`: imputed
+  households match HUD on income ($7.4k vs $7.6k) and tenant payment ($174
+  vs $178); the subsidy shortfall (66%) comes from the payment standard
+  ($591 vs HUD's $812 gross rent: larger units and a schedule above 100% of
+  FMR). `payment_standard_share_of_fmr` (1.0) is the lever to test. CliffWatch gains a two-household comparison
   (presets, or the same adults unmarried → marriage penalty). The URL
   carries every non-default input and lever (`ui.sync_query_params`), so a
   calculator or CliffWatch view can be shared as a link.

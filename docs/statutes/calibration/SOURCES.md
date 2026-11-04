@@ -17,11 +17,12 @@ Not yet used:
 
 ## HUD Picture of Subsidized Households 2024 (added 2026-11-04)
 
-Target `section8_households` = 28,425 (33,948 Housing Choice Vouchers in
-Puerto Rico × 83.7% occupied, unit-weighted over the 75 PHAs) and the
-check-only `section8_benefits` = $215.6 M (28,425 × $631.8 × 12). Source
-file `docs/statutes/hud/psh_2024_pr_vouchers.csv`, from
-https://www.huduser.gov/portal/datasets/assthsg.html (PHA table, 2024).
+Target `section8_households` = 27,948 (33,883 Housing Choice Vouchers in
+Puerto Rico × 82.5% occupied, unit-weighted over the 74 PHAs, extract of
+31 Dec 2025) and the check-only `section8_benefits` = $212.6 M (27,948 ×
+$633.8 × 12). Source file `docs/statutes/hud/psh_2025_pr_vouchers.csv`,
+from https://www.huduser.gov/portal/datasets/assthsg.html (PHA table,
+2025; the 2024 extract is kept alongside).
 
 ## Method
 

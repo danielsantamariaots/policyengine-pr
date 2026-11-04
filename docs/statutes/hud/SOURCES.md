@@ -51,6 +51,28 @@ allowance schedule; both are flagged `gap:` in
 - `section8_income_eligible` reports the admission test against the San
   Juan very low income limit; it does not switch the subsidy off (982.455).
 
+## Why the modelled subsidy total is below HUD's (diagnosis, 2026-11-04)
+
+Against HUD's 2025 extract the imputed voucher households match on income
+and tenant payment but not on the rent HUD pays towards:
+
+| Unit-weighted average | Model (PRCS, imputed) | HUD PSH 2025 |
+|---|---|---|
+| Household income | $7,361 | $7,634 |
+| Tenant payment / rent a month | $174 | $178 |
+| Payment standard / gross rent a month | $591 | $812 (HAP $634 + $178) |
+| Bedrooms: 1 / 2 / 3+ | 48% / 43% / 9% | 27% / 25% / 47% |
+
+So the shortfall (model $142 M vs $213 M) is not the family's share; it is
+the standard HUD pays against: real vouchers are for larger units (47%
+three or more bedrooms against 9% in the model's occupancy rule) and the
+PHA schedule plus utility allowances sit above 100% of the FMR. The
+`payment_standard_share_of_fmr` parameter (100% by default) lets a user
+test the 110% ceiling; closing the gap properly needs PRPHA's schedule and
+utility allowances (letter items 1–2) and its bedroom-assignment practice.
+A rent input from the PRCS cannot help here: the subsidy is capped by rent,
+so adding rents could only lower it.
+
 ## Gaps to close with Vivienda
 
 1. Payment-standard dollar schedule by bedroom size and FMR area (982.503);

@@ -1,0 +1,17 @@
+description: Payment standard as a share of the Fair Market Rent, applied to every area and bedroom size.
+metadata:
+  unit: /1
+  label: Section 8 payment standard share of FMR
+  reference:
+    - title: "24 CFR 982.503(b): the PHA sets a payment standard between 90% and 110% of the FMR for each bedroom size"
+      href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
+    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.A: payment standards between 110 and 90 percent of HUD's FMR, set annually"
+      href: https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf
+  gap: >-
+    PRPHA's adopted share is not published; 100% is assumed. HUD's Picture of
+    Subsidized Households 2025 implies an average gross rent of $812 against
+    the model's $591 average standard, so the true schedule, utility
+    allowances and bedroom assignment together sit well above 100% of the
+    FMR for the average voucher (docs/statutes/hud/SOURCES.md).
+values:
+  2025-01-01: 1.0

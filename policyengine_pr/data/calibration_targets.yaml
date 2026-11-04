@@ -53,19 +53,19 @@
   source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 total food cost
 
 - name: section8_households
-  description: Households with a Housing Choice Voucher in use, 31 Dec 2024 (33,948 units x 83.7% occupied, all 75 Puerto Rico PHAs)
+  description: Households with a Housing Choice Voucher in use, 31 Dec 2025 (33,883 units x 82.5% occupied, all 74 Puerto Rico PHAs)
   variable: section8
   statistic: count_positive
-  value: 28_425
-  source: HUD, Picture of Subsidized Households 2024, PHA table, Puerto Rico HCV rows (docs/statutes/hud/psh_2024_pr_vouchers.csv)
+  value: 27_948
+  source: HUD, Picture of Subsidized Households 2025, PHA table, Puerto Rico HCV rows (docs/statutes/hud/psh_2025_pr_vouchers.csv)
 
 - name: section8_benefits
-  description: Housing assistance payments, voucher households in use x average HUD spending per month x 12 (check only; the model's HAP uses 100% of the San Juan FMR for every area)
+  description: Housing assistance payments, voucher households in use x average HUD spending per month x 12 (check only; the model's payment standard is 100% of each area's FMR)
   variable: section8
   statistic: sum
-  value: 215_575_000
+  value: 212_560_000
   check_only: true
-  source: HUD, Picture of Subsidized Households 2024, average spending_per_month $631.8 unit-weighted over Puerto Rico HCV rows
+  source: HUD, Picture of Subsidized Households 2025, average spending_per_month $633.8 unit-weighted over Puerto Rico HCV rows
 
 - name: returns_filed
   description: Individual income tax returns filed for tax year 2023 (check only; not a constraint, because the published figure is Hacienda's cycle projection)

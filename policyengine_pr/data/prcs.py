@@ -32,9 +32,9 @@ tabulations allow calibration):
   income at or below the very low income limit for their size and area. Within four
   strata (member aged 62+ or not, income below the extremely low limit or
   not) households are drawn at random (seed 20241231) until the stratum's
-  weighted count reaches its target: 28,425 voucher households in use (HUD
-  Picture of Subsidized Households, 31 Dec 2024, 33,948 units x 83.7%
-  occupied), 25.6% with a head aged 62+, 63.0% below 30% of area median,
+  weighted count reaches its target: 27,948 voucher households in use (HUD
+  Picture of Subsidized Households, 31 Dec 2025, 33,883 units x 82.5%
+  occupied), 27.5% with a head aged 62+, 62.6% below 30% of area median,
   treated as independent. housing_rent stays 0 (subsidy capped at the
   payment standard): assisted tenants report only their own share of the
   rent in the PRCS, so GRNTP would understate the gross rent.
@@ -69,11 +69,11 @@ PERSON_COLS = [
 ]
 HOUSEHOLD_COLS = ["SERIALNO", "WGTP", "TYPEHUGQ", "PUMA", "TEN"]
 
-# HUD Picture of Subsidized Households, 31 Dec 2024, Puerto Rico HCV rows
-# (docs/statutes/hud/psh_2024_pr_vouchers.csv), unit-weighted.
-VOUCHER_HOUSEHOLDS = 28_425  # 33,948 units x 83.7% occupied
-VOUCHER_SHARE_ELDERLY = 0.256  # head aged 62+
-VOUCHER_SHARE_ELI = 0.630  # income below 30% of area median
+# HUD Picture of Subsidized Households, 31 Dec 2025, Puerto Rico HCV rows
+# (docs/statutes/hud/psh_2025_pr_vouchers.csv), unit-weighted.
+VOUCHER_HOUSEHOLDS = 27_948  # 2025 extract: 33,883 units x 82.5% occupied
+VOUCHER_SHARE_ELDERLY = 0.275  # head aged 62+
+VOUCHER_SHARE_ELI = 0.626  # income below 30% of area median
 VOUCHER_SEED = 20241231
 
 
