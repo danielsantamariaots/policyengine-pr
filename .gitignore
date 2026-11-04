@@ -11,3 +11,4 @@ dist/
 data/*
 !data/prcs_2023_calibrated.h5
 !data/README.md
+!data/calibration_report.csv

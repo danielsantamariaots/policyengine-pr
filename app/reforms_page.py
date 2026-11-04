@@ -129,6 +129,10 @@ def _baseline():
 
 @st.cache_data(show_spinner=False)
 def _calibration_report():
+    from policyengine_pr.data.calibration import REPORT_CSV
+
+    if REPORT_CSV.exists():
+        return pd.read_csv(REPORT_CSV)
     from policyengine_pr import Simulation
     from policyengine_pr.data import PRCS, calibrate
 
@@ -151,9 +155,9 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
         s = TEXT[key][L]
         return s.format(*args) if args else s
 
-    from policyengine_pr.data import PRCS
+    from policyengine_pr.analysis.scoring import default_dataset
 
-    if not PRCS.file_path.exists():
+    if not default_dataset().file_path.exists():
         st.title(t("title"))
         st.warning(t("no_data"))
         return

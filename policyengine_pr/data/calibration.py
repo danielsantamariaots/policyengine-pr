@@ -30,6 +30,7 @@ from policyengine_pr.data.prcs import OUT, PRCS, TAX_YEAR
 
 TARGETS = Path(__file__).with_name("calibration_targets.yaml")
 OUT_CALIBRATED = OUT.with_name("prcs_2023_calibrated.h5")
+REPORT_CSV = OUT.with_name("calibration_report.csv")
 YEAR = TAX_YEAR
 
 
@@ -128,6 +129,7 @@ def build_calibrated(out: Path = OUT_CALIBRATED):
     data["person_weight"] = data["person_weight"] * ratio[hh_of_person]
     data["tax_unit_weight"] = data["tax_unit_weight"] * ratio[hh_of_unit]
     PRCSCalibrated().save_dataset(data, out)
+    report.to_csv(REPORT_CSV, index=False)
     return out, report
 
 
