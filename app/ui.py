@@ -295,35 +295,56 @@ TEXT = {
         "Este hogar no tiene ingresos de mercado.",
         "This household has no market income.",
     ),
-    "not_included_title": ("Qué no incluye", "What is not included"),
+    "not_included_title": (
+        "Qué cubre y qué no",
+        "What is covered and what is not",
+    ),
     "not_included": (
-        "**No incluido:** tasas preferenciales distintas del 10% y 15% "
-        "(columnas de 4% y 20% del Anejo A2) y arrastre de pérdidas de "
-        "capital; créditos por inversión (Anejo B); categorías A, B, D, G y T "
-        "del TANF; efectos de comportamiento. "
-        "**Incluido con salvedades:** el PAN paga el beneficio máximo a todo "
-        "hogar elegible, porque ADSEF no publica la tabla que lo reduce según "
-        "el ingreso neto y usa los límites de octubre de 2021 para hogares de 2 "
-        "o más personas; el TANF (categoría C, "
-        "madre o padre solo con hijos menores) usa el máximo de una familia de "
-        "tres ($584) para todo tamaño; la Sección 8 solo se calcula si usted "
-        "indica que el hogar tiene un vale, con los límites y rentas justas "
-        "de mercado de San Juan-Guaynabo para toda la isla; el Plan Vital se "
-        "evalúa como elegibilidad, sin valor en dólares. La exención para jóvenes (Ley "
-        "135-2014) se aplica automáticamente entre los 16 y 26 años.",
-        "**Not included:** preferential rates other than 10% and 15% (Anejo "
-        "A2 columns at 4% and 20%) and capital-loss carryovers; investment "
-        "credits (Anejo B); TANF categories A, B, D, G and T; behavioural "
-        "responses. **Included with caveats:** PAN pays the "
-        "maximum benefit to every eligible household because ADSEF does not "
-        "publish the schedule that reduces it with net income, uses the "
-        "October 2021 limits for households of 2 or more; TANF (category C, single parent with minor "
-        "children) uses the three-person maximum ($584) for every size; "
-        "Section 8 is computed only if you say the household holds a voucher, "
-        "with the San Juan-Guaynabo income limits and fair market rents applied "
-        "island-wide; Plan Vital is assessed as eligibility only, with no "
-        "dollar value. The "
-        "youth exemption (Ley 135-2014) applies automatically at ages 16–26.",
+        "**Qué cubre y qué no.** La contribución sobre ingresos de 2025, el "
+        "Crédito por Trabajo, el crédito federal por hijos, el Seguro Social y "
+        "Medicare, el PAN, el TANF, la Sección 8 y la elegibilidad al Plan "
+        "Vital, con cada regla citada a su fuente oficial.\n\n"
+        "**No está incluido:** las columnas de 4% y 20% del Anejo A2 ni el "
+        "arrastre de pérdidas de capital; los créditos por inversión del Anejo "
+        "B; las categorías A, B, D, G y T del TANF; las respuestas de "
+        "comportamiento (el modelo es estático).\n\n"
+        "**Lea con cuidado:**\n"
+        "- **PAN:** paga el beneficio máximo a todo núcleo elegible, porque "
+        "ADSEF no publica la tabla que lo reduce con el ingreso; los límites "
+        "para núcleos de 2 o más personas son los de octubre de 2021. El "
+        "precipicio al superar el límite es, en parte, un efecto de esa laguna.\n"
+        "- **TANF:** categoría C (madre o padre solo con hijos menores) con el "
+        "máximo de una familia de tres ($584) para todo tamaño.\n"
+        "- **Sección 8:** solo si marca que el hogar tiene un vale; usa las "
+        "rentas justas de mercado y los límites de HUD del municipio elegido, "
+        "no el estándar de pago que fija Vivienda.\n"
+        "- **Plan Vital:** se informa quién es elegible; no tiene valor en "
+        "dólares.\n"
+        "- **Jóvenes:** la exención de la Ley 135-2014 se aplica sola entre "
+        "los 16 y 26 años.\n\n"
+        "Los resultados son estimaciones y no sustituyen asesoría profesional.",
+        "**What is covered and what is not.** The 2025 income tax, the "
+        "Crédito por Trabajo, the federal child credit, Social Security and "
+        "Medicare, PAN, TANF, Section 8 and Plan Vital eligibility, each rule "
+        "cited to its official source.\n\n"
+        "**Not included:** the 4% and 20% columns of Anejo A2 and capital-loss "
+        "carryovers; Anejo B investment credits; TANF categories A, B, D, G "
+        "and T; behavioural responses (the model is static).\n\n"
+        "**Read with care:**\n"
+        "- **PAN:** pays the maximum benefit to every eligible núcleo, because "
+        "ADSEF does not publish the schedule that reduces it with income; the "
+        "limits for núcleos of 2 or more are the October 2021 ones. The cliff "
+        "at the limit is partly an effect of that gap.\n"
+        "- **TANF:** category C (single parent with minor children) with the "
+        "three-person maximum ($584) for every size.\n"
+        "- **Section 8:** only if you tick that the household holds a "
+        "voucher; uses HUD's fair market rents and income limits for the "
+        "chosen municipio, not the payment standard Vivienda sets.\n"
+        "- **Plan Vital:** reports who is eligible; it carries no dollar "
+        "value.\n"
+        "- **Youth:** the Ley 135-2014 exemption applies by itself at ages 16 "
+        "to 26.\n\n"
+        "Results are estimates, not professional advice.",
     ),
     "assumptions_title": ("Ver supuestos", "See assumptions"),
     "assumptions_intro": (

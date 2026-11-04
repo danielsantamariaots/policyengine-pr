@@ -180,11 +180,12 @@ es estático).
   trabajo.
 - **Plan Vital**: miembros elegibles según los niveles de ingreso de CMS
   (tabla de abril de 2026), sin asignarle valor en dólares.
-- **Sección 8**: solo si usted indica que el hogar tiene vale (no se imputa
-  en los microdatos); los límites de ingreso y las rentas justas de mercado
-  de San Juan-Guaynabo se aplican a toda la isla, y el estándar de pago, el
-  estándar de subsidio y la renta mínima de Vivienda no están publicados
-  (`docs/statutes/hud/SOURCES.md`).
+- **Sección 8**: solo si usted indica que el hogar tiene vale; usa las
+  rentas justas de mercado y los límites de ingreso de HUD del municipio
+  elegido (15 áreas) y el estándar de ocupación de Vivienda, pero no el
+  esquema de estándares de pago en dólares, que Vivienda no publica
+  (`docs/statutes/hud/SOURCES.md`). En los microdatos el vale se imputa y
+  se calibra a 27,948 hogares (HUD, 2025).
 
 Los resultados son estimaciones y no sustituyen asesoría profesional.
 
@@ -243,6 +244,7 @@ columns at 4%/20%), Anejo B investment credits, TANF categories other than
 C, behavioural responses. **With caveats:** PAN pays the maximum to every
 eligible household (ADSEF's benefit schedule is unpublished); TANF uses the
 three-person maximum for every size; Plan Vital is eligibility only;
-Section 8 only when the household says it holds a voucher, with San
-Juan-Guaynabo limits and rents island-wide. Results are estimates, not
-professional advice.
+Section 8 only when the household says it holds a voucher, with HUD's
+limits and fair market rents for the chosen municipio rather than
+Vivienda's unpublished payment-standard schedule. Results are estimates,
+not professional advice.
