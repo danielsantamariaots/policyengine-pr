@@ -291,26 +291,29 @@ TEXT = {
     ),
     "not_included_title": ("Qué no incluye", "What is not included"),
     "not_included": (
-        "Tasas preferenciales distintas del 10% y 15% (columnas de 4% y 20% "
-        "del Anejo A2); créditos por inversión (Anejo B); Sección 8. Plan Vital "
-        "se evalúa (elegibilidad, sin valor en dólares). El TANF usa el máximo "
-        "de una familia de tres ($584) para todo tamaño, porque ADSEF no "
-        "publica la tabla de necesidades. El PAN está incluido con el beneficio máximo por tamaño "
-        "del hogar, pero ADSEF no publica la tabla que reduce el beneficio "
-        "según el ingreso neto, ni los límites vigentes para hogares de 2 o "
-        "más personas (se usan los de octubre de 2021); efectos de "
-        "comportamiento. La "
-        "exención para jóvenes (Ley 135-2014) se aplica automáticamente "
-        "entre los 16 y 26 años.",
-        "Preferential rates other than 10% and 15% (Anejo A2 columns at 4% "
-        "and 20%); investment credits (Anejo B); Section 8. Plan Vital is "
-        "assessed (eligibility, no dollar value). TANF uses the three-person "
-        "maximum ($584) for every size because ADSEF does not publish the "
-        "standard-of-need table. PAN is included at the maximum benefit by household size, "
-        "but ADSEF does not publish the schedule that reduces the benefit "
-        "with net income, nor the current limits for households of 2 or more "
-        "(October 2021 values are used); behavioural responses. The youth "
-        "exemption (Ley 135-2014) applies automatically at ages 16–26.",
+        "**No incluido:** tasas preferenciales distintas del 10% y 15% "
+        "(columnas de 4% y 20% del Anejo A2) y arrastre de pérdidas de "
+        "capital; créditos por inversión (Anejo B); Sección 8; categorías "
+        "A, B, D, G y T del TANF; efectos de comportamiento. "
+        "**Incluido con salvedades:** el PAN paga el beneficio máximo a todo "
+        "hogar elegible, porque ADSEF no publica la tabla que lo reduce según "
+        "el ingreso neto, usa los límites de octubre de 2021 para hogares de 2 "
+        "o más personas y no aplica prueba de recursos; el TANF (categoría C, "
+        "madre o padre solo con hijos menores) usa el máximo de una familia de "
+        "tres ($584) para todo tamaño; el Plan Vital se evalúa como "
+        "elegibilidad, sin valor en dólares. La exención para jóvenes (Ley "
+        "135-2014) se aplica automáticamente entre los 16 y 26 años.",
+        "**Not included:** preferential rates other than 10% and 15% (Anejo "
+        "A2 columns at 4% and 20%) and capital-loss carryovers; investment "
+        "credits (Anejo B); Section 8; TANF categories A, B, D, G and T; "
+        "behavioural responses. **Included with caveats:** PAN pays the "
+        "maximum benefit to every eligible household because ADSEF does not "
+        "publish the schedule that reduces it with net income, uses the "
+        "October 2021 limits for households of 2 or more, and applies no "
+        "resources test; TANF (category C, single parent with minor "
+        "children) uses the three-person maximum ($584) for every size; Plan "
+        "Vital is assessed as eligibility only, with no dollar value. The "
+        "youth exemption (Ley 135-2014) applies automatically at ages 16–26.",
     ),
     "assumptions_title": ("Ver supuestos", "See assumptions"),
     "assumptions_intro": (
@@ -555,7 +558,7 @@ def metric_row(base, ref, L):
 
 
 def not_included(L):
-    st.warning(f"**{t('not_included_title', L)}.** {t('not_included', L)}")
+    st.warning(md("not_included", L))
 
 
 def assumptions(current_values, changes, L, labels):

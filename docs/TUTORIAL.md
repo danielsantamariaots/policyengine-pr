@@ -135,26 +135,30 @@ cifra útil. Requiere `data/prcs_2023.h5` (véase `policyengine_pr/data/`).
 
 ## Qué no incluye todavía
 
-- Tasas preferenciales distintas del 10% (intereses bancarios), 15%
-  (dividendos y ganancias de capital): columnas de 4% y 20% del Anejo A2.
-- Créditos no reembolsables por inversión (Anejo B).
-- Sección 8. El **TANF** (categoría C: madre o padre solo con hijos
-  menores) está incluido con el máximo de una familia de tres ($584 al
-  mes, Welfare Rules Database 2023) aplicado a todo tamaño, porque ADSEF
-  no publica la tabla de necesidades; se descuenta el ingreso contable
-  dólar por dólar tras $90 de gastos de trabajo. **Plan Vital** se evalúa
-  (miembros elegibles según los niveles de ingreso de CMS) sin asignarle
-  valor en dólares. El **PAN** sí está incluido
-  (Reglamento 8684 y Plan Estatal NAP): elegibilidad por ingreso neto
-  mensual y beneficio máximo según el tamaño del hogar, con el bono por
-  edad avanzada. Lagunas señaladas: ADSEF no publica la tabla que reduce el
-  beneficio a medida que sube el ingreso neto (el modelo paga el máximo a
-  todo hogar elegible, por lo que el precipicio al superar el límite es en
-  parte un artefacto), ni los límites vigentes para hogares de 2 o más
-  personas (se usan los de octubre de 2021); tampoco se modelan recursos,
-  deducciones por cuido, incapacidad o estudio, ni el suplemento de Vieques
-  y Culebra.
-- Efectos de comportamiento: el modelo es estático.
+**No incluido:** tasas preferenciales distintas del 10% (intereses
+bancarios) y 15% (dividendos y ganancias de capital), es decir, las
+columnas de 4% y 20% del Anejo A2, y el arrastre de pérdidas de capital;
+créditos no reembolsables por inversión (Anejo B); Sección 8; las
+categorías A, B, D, G y T del TANF; efectos de comportamiento (el modelo
+es estático).
+
+**Incluido con salvedades:**
+
+- **PAN** (Reglamento 8684 y Plan Estatal NAP): elegibilidad por ingreso
+  neto mensual y beneficio máximo según el tamaño del hogar, con el bono
+  por edad avanzada. ADSEF no publica la tabla que reduce el beneficio a
+  medida que sube el ingreso neto, así que el modelo paga el máximo a todo
+  hogar elegible (el precipicio al superar el límite es en parte un
+  artefacto); los límites para hogares de 2 o más personas son los de
+  octubre de 2021; no se modelan recursos, deducciones por cuido,
+  incapacidad o estudio, ni el suplemento de Vieques y Culebra.
+- **TANF** (categoría C: madre o padre solo con hijos menores): máximo de
+  una familia de tres ($584 al mes, Welfare Rules Database 2023) aplicado
+  a todo tamaño, porque ADSEF no publica la tabla de necesidades; el
+  ingreso contable se descuenta dólar por dólar tras $90 de gastos de
+  trabajo.
+- **Plan Vital**: miembros elegibles según los niveles de ingreso de CMS
+  (tabla de abril de 2026), sin asignarle valor en dólares.
 
 Los resultados son estimaciones y no sustituyen asesoría profesional.
 
