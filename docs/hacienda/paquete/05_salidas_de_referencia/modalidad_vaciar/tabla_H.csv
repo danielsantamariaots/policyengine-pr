@@ -1,0 +1,26 @@
+estado,dependientes,planillas,exencion_dependientes,credito_trabajo,creditos_federales,nota,supr
+Individual,0,10984,0,5949894,0,,0
+Individual,1,2776,6940000,5409785,3257936,,0
+Individual,2,1226,6130000,4080497,2011828,,0
+Individual,3,446,3345000,1568710,852027,,0
+Individual,4 o más,163,1630000,553010,306999,,0
+Individual,Total,15595,18045000,17561896,6428790,,0
+"Casado, planilla conjunta",0,2588,0,1742645,0,,0
+"Casado, planilla conjunta",1,2305,5762500,4992457,2690202,,0
+"Casado, planilla conjunta",2,1605,8025000,5626197,2647480,,0
+"Casado, planilla conjunta",3,714,5355000,2633420,1362562,,0
+"Casado, planilla conjunta",4 o más,313,3130000,1056520,618294,,0
+"Casado, planilla conjunta",Total,7525,22272500,16051239,7318538,,0
+"Casado, planilla separada",0,510,0,0,0,,0
+"Casado, planilla separada",1,124,310000,0,141804,,0
+"Casado, planilla separada",2,51,255000,0,82247,,0
+"Casado, planilla separada",3,,,,,s,2
+"Casado, planilla separada",4 o más,,,,,s,1
+"Casado, planilla separada",Total,717,822500,0,296380,,0
+Cómputo opcional de casados,0,803,0,428596,0,,0
+Cómputo opcional de casados,1,211,527500,440542,250441,,0
+Cómputo opcional de casados,2,96,480000,294740,165808,,0
+Cómputo opcional de casados,3,38,285000,134094,83692,,0
+Cómputo opcional de casados,4 o más,15,150000,51055,24177,,0
+Cómputo opcional de casados,Total,1163,1442500,1349027,524118,,0
+,Total general,25000,42582500,34962162,14567826,,0

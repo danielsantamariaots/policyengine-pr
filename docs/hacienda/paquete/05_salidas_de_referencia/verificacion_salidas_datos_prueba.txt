@@ -1,0 +1,20 @@
+VERIFICACIÓN DE SALIDAS (policyengine-pr) — carpeta 05_salidas_de_referencia
+  tabla_0_control: OK; filas 1; columnas 37; conteo mínimo distinto de cero 25000; celdas vacías 0
+  tabla_A: OK; filas 61; columnas 39; conteo mínimo distinto de cero 11; celdas vacías 70
+  tabla_B: OK; filas 16; columnas 18; conteo mínimo distinto de cero 28; celdas vacías 28
+  tabla_C: OK; filas 16; columnas 12; conteo mínimo distinto de cero 28; celdas vacías 36
+  tabla_D1: OK; filas 18; columnas 7; conteo mínimo distinto de cero 41; celdas vacías 0
+  tabla_D2: OK; filas 92; columnas 6; conteo mínimo distinto de cero 16; celdas vacías 0
+  tabla_D3: OK; filas 5; columnas 7; conteo mínimo distinto de cero 38; celdas vacías 0
+  tabla_E: OK; filas 12; columnas 8; conteo mínimo distinto de cero 137; celdas vacías 0
+  tabla_F: OK; filas 11; columnas 8; conteo mínimo distinto de cero 60; celdas vacías 0
+  tabla_G1: OK; filas 3; columnas 6; conteo mínimo distinto de cero 11; celdas vacías 0
+  tabla_G2: OK; filas 5; columnas 7; conteo mínimo distinto de cero 31; celdas vacías 0
+  tabla_H: OK; filas 24; columnas 8; conteo mínimo distinto de cero 15; celdas vacías 0
+  tabla_I: OK; filas 27; columnas 8; conteo mínimo distinto de cero 47; celdas vacías 0
+  tabla_I_edad: OK; filas 132; columnas 9; conteo mínimo distinto de cero 12; celdas vacías 0
+  tabla_J: OK; filas 79; columnas 8; conteo mínimo distinto de cero 28; celdas vacías 0
+
+REGISTRO: log_ejecucion_pe.txt presente
+
+RESULTADO: sin incidencias

@@ -1,0 +1,5 @@
+Carpeta de trabajo: aquí se escriben las salidas de cada ejecución (por ejemplo, 06_salidas/prueba en el paso 0 y
+06_salidas/salidas_2023 en el paso 3, una carpeta por año contributivo).
+No contiene nada al inicio. Las salidas son tabla_0_control.csv, tabla_A.csv … tabla_J.csv (hasta 15 tablas, según las
+columnas disponibles), el libro tabulaciones_482_<anio>.xlsx y log_ejecucion_pe.txt. Solo las tablas agregadas que
+Hacienda revise y apruebe salen del Departamento.

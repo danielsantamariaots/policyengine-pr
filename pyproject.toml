@@ -32,3 +32,5 @@ packages = ["policyengine_pr"]
 
 [tool.ruff]
 line-length = 79
+# El paquete para Hacienda se entrega tal cual (120 columnas, estilo de los paquetes WTG/AV).
+extend-exclude = ["docs/hacienda"]

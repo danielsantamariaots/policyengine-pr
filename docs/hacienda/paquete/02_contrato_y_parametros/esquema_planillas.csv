@@ -1,0 +1,52 @@
+variable,obligatoria,tipo,minimo,maximo,descripcion,fuente_formulario_482_2025,si_falta
+anio,no,entero,2019,2025,Año contributivo de la planilla,Encabezado de la planilla,se supone que todas las filas son del año --anio
+estado_personal,si,entero,1,4,Estado personal: 1 individual; 2 casado que rinde planilla conjunta; 3 casado que rinde planilla separada; 4 cómputo opcional de casados,Pág. 1 (estado personal),detiene la ejecución
+edad,si,entero,0,120,Edad del contribuyente principal al cierre del año contributivo (año contributivo − año de nacimiento),Pág. 1 (fecha de nacimiento),detiene la ejecución
+municipio,no,texto,,,Municipio de residencia del contribuyente (nombre o código; vacío si fuera de Puerto Rico),"Pág. 1, dirección residencial",no se produce la Tabla J
+salarios,si,numérico,0,,"Salarios, comisiones, concesiones y propinas (W-2PR y W-2 federal), incluida la parte exenta (código E)",Líneas 1A–1C,detiene la ejecución
+intereses_dividendos,no,numérico,,,Intereses y dividendos,"Líneas 2C, 2D",sin esa columna en A
+pensiones,no,numérico,0,,Pensiones y anualidades (total antes de la exención),Línea 2H (Anejo H),sin esa columna en A
+distribuciones_retiro,no,numérico,0,,Distribuciones de planes de retiro e IRA,"Líneas 2E, 2F, 2L",sin esa columna en A
+ganancia_capital,no,numérico,,,Ganancia (o pérdida) neta de capital,Línea 2B,sin esa columna en A
+entidades_conducto,no,numérico,,,Participación distribuible en entidades conducto,Línea 2K,sin esa columna en A
+industria_negocio,no,numérico,,,"Ingreso neto de industria o negocio, profesión, agricultura y alquiler (puede ser negativo)",Líneas 2P–2T,sin esa columna en A y en E
+pension_divorcio,no,numérico,0,,Pensión pagada por divorcio o separación,Línea 4,sin esa columna en A
+iba,si,numérico,,,Ingreso bruto ajustado (neto de ingresos exentos),Línea 5,detiene la ejecución
+deducciones,si,numérico,0,,Total de deducciones,Línea 6,detiene la ejecución
+exencion_personal,si,numérico,0,,Exención personal,Línea 7,detiene la ejecución
+exencion_dependientes,si,numérico,0,,Exención por dependientes (cantidad),Línea 8,detiene la ejecución
+num_dependientes,si,entero,0,,Número de dependientes reclamados,Línea 8,detiene la ejecución
+exencion_veterano,no,numérico,0,,Exención adicional por veterano,Línea 9,sin esa columna en A
+ingreso_neto,si,numérico,0,,Ingreso neto sujeto a contribución,Línea 13,detiene la ejecución
+contribucion_tabla,si,numérico,0,,Contribución según tabla,Línea 14,detiene la ejecución
+ajuste_gradual,no,numérico,0,,Ajuste gradual,Línea 15,sin esa columna en A; no se produce G1
+factor,no,numérico,0.92,0.95,"Factor aplicado a la contribución: 0.92 si el ingreso bruto no excede $100,000; 0.95 en los demás casos (Sección 1021.01(c))",Línea 17 (cómputo),sin las columnas 92 %/95 % en A; no se produce F
+ingreso_bruto_factor,no,numérico,,,"Ingreso bruto según se define para el umbral de $100,000 de la Sección 1021.01(c)",Cómputo de la línea 17,no se produce F
+contribucion_regular,si,numérico,0,,Contribución regular antes del crédito,Línea 17,detiene la ejecución
+credito_otras_jurisdicciones,no,numérico,0,,Crédito por contribuciones pagadas a otras jurisdicciones,Línea 18,sin esa columna en A
+exceso_cba,no,numérico,0,,Exceso de contribución básica alterna sobre la contribución regular,Línea 20 (Anejo O),sin esa columna en A y en G2
+credito_cba,no,numérico,0,,Crédito por contribución básica alterna,Línea 21,sin esa columna en A
+creditos_anejo_b,no,numérico,0,,Créditos contributivos no reembolsables (Anejo B),Línea 25,sin esa columna en A
+responsabilidad,si,numérico,0,,Responsabilidad contributiva (contribución determinada menos créditos no reembolsables; mínimo cero),Línea 26,detiene la ejecución
+retenida_salarios,no,numérico,0,,Contribución retenida sobre salarios,Línea 27A,sin esa columna en A
+credito_trabajo,si,numérico,0,,Crédito por Trabajo concedido (0 si no aplica),Línea 27C (Anejo CT),detiene la ejecución
+creditos_federales,si,numérico,0,,Créditos reembolsables del Gobierno Federal (crédito adicional por hijos),Línea 27D,detiene la ejecución
+sobrepago,no,numérico,0,,Sobrepago (contribución pagada en exceso),Línea 29,sin esa columna en A
+balance_pendiente,no,numérico,0,,Balance pendiente de pago,Línea 31,sin esa columna en A
+ded_hipoteca,no,numérico,0,,Deducción por intereses hipotecarios,Anejo A línea 1i,sin esa columna en B
+ded_medicos,no,numérico,0,,Deducción por gastos médicos,Anejo A línea 3,sin esa columna en B
+ded_donativos,no,numérico,0,,Deducción por donativos,Anejo A línea 4,sin esa columna en B
+ded_ira,no,numérico,0,,Deducción por aportaciones a cuentas de retiro individual,Anejo A línea 7b,sin esa columna en B
+ded_educativa,no,numérico,0,,Deducción por aportaciones a cuentas de aportación educativa,Anejo A línea 8b,sin esa columna en B
+ded_prestamos,no,numérico,0,,Deducción por intereses de préstamos estudiantiles,Anejo A línea 9b,sin esa columna en B
+ded_total,no,numérico,0,,Total de deducciones del Anejo A,Anejo A línea 11,no se produce B
+exento_pension,no,numérico,0,,"Exención de pensiones (hasta $11,000; $15,000 a partir de 60 años)",Anejo IE (Sección 1031.02(a)(13)),sin esa columna en C
+exento_jovenes,no,numérico,0,40000,"Exención para jóvenes de 16 a 26 años, Ley 135-2014 (primeros $40,000)",Anejo IE línea 31,sin esa columna en C; no se produce E
+exento_dificil_reclutamiento,no,numérico,0,,Salarios exentos de profesionales de difícil reclutamiento,Anejo IE línea 32,sin esa columna en C
+exento_total,no,numérico,0,,Total de ingresos exentos,Anejo IE línea 45,no se produce C
+ct_dependientes,no,entero,0,,Número de dependientes cualificados para el Crédito por Trabajo (0 si no hay Anejo CT),Anejo CT,"no se producen D1, D2 ni D3"
+ct_ingreso_ganado,no,numérico,0,,Ingreso bruto ganado del Crédito por Trabajo (0 si no hay Anejo CT),"Anejo CT, Parte II, línea 3",no se produce D2; sin esa columna en D1
+ct_reclamado,no,numérico,0,,Crédito por Trabajo reclamado por el contribuyente (antes de cualquier ajuste de Hacienda),Línea 27C según se radicó,no se produce D3
+ct_ajustado,no,entero,0,1,1 si Hacienda denegó o ajustó el Crédito por Trabajo reclamado; 0 en caso contrario,Procesamiento del crédito,no se produce D3
+cba_ingreso_neto,no,numérico,0,,Ingreso neto sujeto a contribución básica alterna (0 si no hay Anejo O),Anejo O,no se produce G2
+cba_contribucion,no,numérico,0,,Contribución básica alterna (0 si no hay Anejo O),Anejo O,no se produce G2

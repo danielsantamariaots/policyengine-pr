@@ -1,0 +1,22 @@
+PE tabulaciones (policyengine-pr) — versión 2026-11-04 (rev. 1 del paquete PE) — Python 3.12.13, pandas 3.1.0, numpy 2.5.4, openpyxl 3.1.5 — Darwin 23.5.0
+Inicio: 2026-11-04 08:42:15  anio=2023  entrada=03_datos_de_prueba/planillas_dummy.csv  w2pr=03_datos_de_prueba/w2pr_dummy.csv  salida=05_salidas_de_referencia/modalidad_vaciar  supresion=vaciar  etiqueta=PRUEBA
+Parámetros: MIN_N=10; tramos de IBA: 15; tramos de ingreso ganado (D2): $2,500 hasta $55,000
+Filas leídas: 25,000; del año 2023: 25,000; columnas: 51 de 51
+Comprobantes W-2PR leídos: 40,000; personas distintas: 22,061
+  Tabla 0_control: 1 fila; totales del archivo de entrada (sin supresión: todas las celdas tienen al menos 10 planillas o se vacían)
+  Tabla A: 65 filas; filas colapsadas: 0; filas vaciadas (<10): 4; vaciadas para proteger otras: 2; conteos parciales vaciados: 26; celdas vaciadas para proteger otras: 3; 0.0 s
+  Tabla B: 16 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 9; celdas vaciadas para proteger otras: 5; 0.0 s
+  Tabla C: 16 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 15; celdas vaciadas para proteger otras: 3; 0.0 s
+  Tabla D1: 21 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla D2: 97 filas; filas colapsadas: 0; filas vaciadas (<10): 1; vaciadas para proteger otras: 1; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla D3: 5 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla E: 12 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla F: 11 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla G1: 5 filas; filas colapsadas: 0; filas vaciadas (<10): 2; vaciadas para proteger otras: 1; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla G2: 6 filas; filas colapsadas: 0; filas vaciadas (<10): 1; vaciadas para proteger otras: 1; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla H: 25 filas; filas colapsadas: 0; filas vaciadas (<10): 1; vaciadas para proteger otras: 1; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla I: 28 filas; filas colapsadas: 0; filas vaciadas (<10): 1; vaciadas para proteger otras: 1; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla I_edad: 141 filas; filas colapsadas: 0; filas vaciadas (<10): 7; vaciadas para proteger otras: 5; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+  Tabla J: 79 filas; filas colapsadas: 0; filas vaciadas (<10): 0; vaciadas para proteger otras: 0; conteos parciales vaciados: 0; celdas vaciadas para proteger otras: 0; 0.0 s
+Libro Excel: 05_salidas_de_referencia/modalidad_vaciar/tabulaciones_482_2023.xlsx
+Fin: 2026-11-04 08:42:15; duración 0.5 s

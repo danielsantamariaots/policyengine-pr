@@ -1,0 +1,71 @@
+variable,tabla_o_vista_SURI,campo_SURI,linea_formulario_482_por_anio,observaciones
+(instrucciones),rellenar Hacienda,rellenar Hacienda,referencia orientativa; anotar la línea real usada en cada año,decisiones y aclaraciones
+_fecha_extraccion,,,,Fecha en que se ejecutó la consulta (AAAA-MM-DD)
+_anios,,,,"Años contributivos extraídos (uno por archivo o columna anio); indicar para cada uno la fecha de corte de las planillas incluidas (con prórrogas hasta octubre del año siguiente)"
+_tabla_o_vista_origen,,,,Tabla o vista de SURI de la que sale la fila por planilla
+_version_planilla,,,,"Tratamiento de las enmiendas: qué versión se tomó (una sola fila por planilla; p. ej. la última vigente)"
+_estado_personal,,,,"Confirmar la codificación: 1 individual; 2 conjunta; 3 separada; 4 cómputo opcional (Anejo CO)"
+_edad,,,,"Regla de edad usada (año contributivo − año de nacimiento, o edad al 31 de diciembre)"
+_factor,,,,"Cómo se obtuvo el factor 0.92/0.95 y el ingreso bruto usado para el umbral de $100,000 (Sección 1021.01(c))"
+_ct_ajustado,,,,"Cómo se identifican las planillas con Crédito por Trabajo denegado o ajustado y si consta el crédito reclamado original"
+_municipios,,,,Lista de códigos o nombres de municipio y regla para direcciones fuera de Puerto Rico
+_w2pr,,,,"Fuente de los comprobantes W-2PR (archivo de patronos), método de la clave seudónima id_persona y si se incluyen comprobantes de personas que no rindieron planilla"
+_planillas_por_anio,,,,"Número de filas por año que arrojó la consulta, para cuadrar con validar_entrada.py y la Tabla 0 de control"
+_comprobantes_por_anio,,,,Número de comprobantes W-2PR por año y de personas distintas
+_columnas_no_disponibles,,,,Columnas del esquema que no se pudieron extraer y motivo (el programa omite solo lo que depende de ellas)
+anio,,,Encabezado,
+estado_personal,,,Pág. 1 (estado personal),
+edad,,,Pág. 1 (fecha de nacimiento),
+municipio,,,"Pág. 1, dirección residencial",
+salarios,,,Líneas 1A–1C,Incluye la parte exenta (código E)
+intereses_dividendos,,,"Líneas 2C, 2D",
+pensiones,,,Línea 2H,
+distribuciones_retiro,,,"Líneas 2E, 2F, 2L",
+ganancia_capital,,,Línea 2B,
+entidades_conducto,,,Línea 2K,
+industria_negocio,,,Líneas 2P–2T,Indicar las letras usadas en cada año
+pension_divorcio,,,Línea 4,
+iba,,,Línea 5,
+deducciones,,,Línea 6,
+exencion_personal,,,Línea 7,
+exencion_dependientes,,,Línea 8,
+num_dependientes,,,Línea 8,
+exencion_veterano,,,Línea 9,
+ingreso_neto,,,Línea 13,
+contribucion_tabla,,,Línea 14,
+ajuste_gradual,,,Línea 15,
+factor,,,Línea 17 (cómputo),Véase _factor
+ingreso_bruto_factor,,,Cómputo de la línea 17,Véase _factor
+contribucion_regular,,,Línea 17,
+credito_otras_jurisdicciones,,,Línea 18,
+exceso_cba,,,Línea 20,
+credito_cba,,,Línea 21,
+creditos_anejo_b,,,Línea 25,
+responsabilidad,,,Línea 26,
+retenida_salarios,,,Línea 27A,
+credito_trabajo,,,Línea 27C,Crédito concedido
+creditos_federales,,,Línea 27D,
+sobrepago,,,Línea 29,
+balance_pendiente,,,Línea 31,
+ded_hipoteca,,,Anejo A línea 1i,
+ded_medicos,,,Anejo A línea 3,
+ded_donativos,,,Anejo A línea 4,
+ded_ira,,,Anejo A línea 7b,
+ded_educativa,,,Anejo A línea 8b,
+ded_prestamos,,,Anejo A línea 9b,
+ded_total,,,Anejo A línea 11,
+exento_pension,,,Anejo IE,
+exento_jovenes,,,Anejo IE línea 31,Indicar la sublínea según el año
+exento_dificil_reclutamiento,,,Anejo IE línea 32,
+exento_total,,,Anejo IE línea 45,
+ct_dependientes,,,Anejo CT,
+ct_ingreso_ganado,,,"Anejo CT, Parte II, línea 3",
+ct_reclamado,,,Línea 27C según se radicó,Véase _ct_ajustado
+ct_ajustado,,,Procesamiento del crédito,Véase _ct_ajustado
+cba_ingreso_neto,,,Anejo O,
+cba_contribucion,,,Anejo O,
+w2pr.id_persona,,,Generada en la extracción,Véase _w2pr
+w2pr.salarios,,,W-2PR,
+w2pr.retenida,,,W-2PR,
+w2pr.exento_135,,,"W-2PR encasillado 16, código E",
+w2pr.edad,,,Fecha de nacimiento del empleado,

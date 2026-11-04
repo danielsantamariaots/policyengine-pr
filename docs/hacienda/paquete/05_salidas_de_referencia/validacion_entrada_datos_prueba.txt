@@ -1,0 +1,14 @@
+VALIDACIÓN DE LOS ARCHIVOS DE ENTRADA (policyengine-pr) — 2026-11-04 08:42
+(Informe para entregar a Espacios Abiertos: las comprobaciones sin conteos de filas ni sumas, salvo el total de filas; las cifras y el resumen por año se muestran solo en pantalla.)
+
+planillas: 03_datos_de_prueba/planillas_dummy.csv
+  Filas: 25,000   Columnas: ['anio', 'estado_personal', 'edad', 'municipio', 'salarios', 'intereses_dividendos', 'pensiones', 'distribuciones_retiro', 'ganancia_capital', 'entidades_conducto', 'industria_negocio', 'pension_divorcio', 'iba', 'deducciones', 'exencion_personal', 'exencion_dependientes', 'num_dependientes', 'exencion_veterano', 'ingreso_neto', 'contribucion_tabla', 'ajuste_gradual', 'factor', 'ingreso_bruto_factor', 'contribucion_regular', 'credito_otras_jurisdicciones', 'exceso_cba', 'credito_cba', 'creditos_anejo_b', 'responsabilidad', 'retenida_salarios', 'credito_trabajo', 'creditos_federales', 'sobrepago', 'balance_pendiente', 'ded_hipoteca', 'ded_medicos', 'ded_donativos', 'ded_ira', 'ded_educativa', 'ded_prestamos', 'ded_total', 'exento_pension', 'exento_jovenes', 'exento_dificil_reclutamiento', 'exento_total', 'ct_dependientes', 'ct_ingreso_ganado', 'ct_reclamado', 'ct_ajustado', 'cba_ingreso_neto', 'cba_contribucion']
+  columnas del esquema presentes: 51 de 51
+
+Resumen por año: solo en pantalla, para la revisión interna de Hacienda (la Tabla 0 de control da esos totales, protegidos).
+
+w2pr: 03_datos_de_prueba/w2pr_dummy.csv
+  Filas: 40,000   Columnas: ['anio', 'id_persona', 'salarios', 'retenida', 'exento_135', 'edad']
+  columnas del esquema presentes: 6 de 6
+
+RESULTADO: 0 error(es), 0 aviso(s). El archivo cumple el contrato; revisar los avisos.

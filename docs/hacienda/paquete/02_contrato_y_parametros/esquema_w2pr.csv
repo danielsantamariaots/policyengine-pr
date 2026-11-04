@@ -1,0 +1,7 @@
+variable,obligatoria,tipo,minimo,maximo,descripcion,fuente,si_falta
+anio,no,entero,2019,2025,Año contributivo del comprobante,Encabezado del 499R-2/W-2PR,se supone que todas las filas son del año --anio
+id_persona,si,texto,,,"Clave seudónima de la persona (hash con clave secreta de Hacienda del número de seguro social); sirve solo para contar personas distintas y no aparece en ninguna salida",Generada en la extracción,detiene la ejecución
+salarios,si,numérico,0,,"Salarios, comisiones, concesiones y propinas del comprobante (incluida la parte exenta)",W-2PR encasillados de salarios,detiene la ejecución
+retenida,no,numérico,0,,Contribución sobre ingresos retenida,W-2PR (contribución retenida),sin esa columna en I
+exento_135,no,numérico,0,40000,Salarios exentos bajo la Ley 135-2014 (jóvenes de 16 a 26 años),"W-2PR encasillado 16, código E",sin esa columna en I
+edad,no,entero,0,120,Edad de la persona al cierre del año contributivo,Fecha de nacimiento del empleado,no se produce I_edad
