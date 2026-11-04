@@ -21,6 +21,7 @@ import pandas as pd
 
 from policyengine_pr import Simulation
 from policyengine_pr.data import PRCS
+from policyengine_pr.data.calibration import PRCSCalibrated
 
 YEAR = 2025
 AGGREGATES = [
@@ -53,7 +54,13 @@ def _weighted_deciles(values, weights, n=10):
     return deciles
 
 
-def score(reform=None, dataset=PRCS, baseline_sim=None):
+def default_dataset():
+    """The calibrated PRCS when it has been built, else the survey-weighted one."""
+    return PRCSCalibrated if PRCSCalibrated.file_path.exists() else PRCS
+
+
+def score(reform=None, dataset=None, baseline_sim=None):
+    dataset = dataset or default_dataset()
     base_sim = baseline_sim or Simulation(dataset=dataset)
     base = _household_frame(base_sim)
     ref = (

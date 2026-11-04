@@ -55,5 +55,13 @@ late: ship the household calculator first; aggregate estimates follow.
   about 0.1 s; the app's *Reformas* page shows it. Uncalibrated: baseline
   income tax (\$4.8 bn) and PAN households (835k vs 597k reporting PAN in
   the PRCS) exceed administrative totals; 2023 incomes are not uprated.
-  Calibration to Hacienda's Tabla A and ADSEF's counts is the next data
-  step once those tabulations arrive.
+  **Calibrated since 2026-11-04** (`policyengine_pr/data/calibration.py`,
+  targets in `calibration_targets.yaml`, sources in
+  `docs/statutes/calibration/`): entropy reweighting of household weights
+  to seven published totals — households and persons (PRCS), net
+  individual income tax FY2023-24 ($2,615.5 M, Hacienda), Crédito por
+  Trabajo total and claimants TY2023 ($1,303 M, ~700k, Hacienda), PAN
+  households and benefits FY2024 (738,510, $2,929 M, USDA FNS Keydata).
+  All met exactly; weight ratios 0.07–4.45. Scoring and the Reformas page
+  use `prcs_2023_calibrated.h5` when built. Distributional targets from
+  Hacienda's Tabla A will replace these aggregates when they arrive.

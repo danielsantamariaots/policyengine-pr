@@ -23,12 +23,13 @@ TEXT = {
     ),
     "caption": (
         "Cada reforma se simula sobre la Encuesta sobre la Comunidad de Puerto "
-        "Rico 2023 (PUMS, {:,.0f} hogares) con las reglas de 2025. Los niveles "
-        "no están calibrados a las planillas de Hacienda; los cambios son la "
-        "cifra útil.",
+        "Rico 2023 (PUMS, {:,.0f} hogares) con las reglas de 2025, con pesos "
+        "calibrados a los totales oficiales de recaudo, Crédito por Trabajo y "
+        "PAN (véase Calibración, al pie).",
         "Each reform is simulated on the 2023 Puerto Rico Community Survey "
-        "(PUMS, {:,.0f} households) under 2025 rules. Levels are not yet "
-        "calibrated to Hacienda's returns; the changes are the useful figure.",
+        "(PUMS, {:,.0f} households) under 2025 rules, with weights calibrated "
+        "to official totals for revenue, Crédito por Trabajo and PAN (see "
+        "Calibration, at the foot).",
     ),
     "custom": ("Reforma de la barra lateral", "Sidebar reform"),
     "col_reform": ("Reforma", "Reform"),
@@ -65,6 +66,26 @@ TEXT = {
     "col_base": ("Ley vigente", "Current law"),
     "col_ref": ("Reforma", "Reform"),
     "col_change": ("Cambio", "Change"),
+    "calibration_title": (
+        "Calibración a totales oficiales",
+        "Calibration to official totals",
+    ),
+    "calibration_intro": (
+        "Los pesos de la encuesta se reponderan para reproducir estos totales "
+        "administrativos (fuentes en docs/statutes/calibration/SOURCES.md). "
+        "'Antes' es la encuesta sin calibrar; 'Después', la base que usa esta página.",
+        "Survey weights are reweighted to reproduce these administrative totals "
+        "(sources in docs/statutes/calibration/SOURCES.md). 'Before' is the "
+        "uncalibrated survey; 'After' is the base this page uses.",
+    ),
+    "uncalibrated": (
+        "Base sin calibrar: ejecute build_calibrated() para calibrar los pesos.",
+        "Uncalibrated base: run build_calibrated() to calibrate the weights.",
+    ),
+    "col_target": ("Total", "Total"),
+    "col_published": ("Publicado", "Published"),
+    "col_before": ("Antes", "Before"),
+    "col_after": ("Después", "After"),
     "no_data": (
         "No se encuentra el archivo de microdatos (data/prcs_2023.h5). "
         "Descargue los PUMS 2023 de Puerto Rico en data/raw/pums_2023/ y "
@@ -93,9 +114,18 @@ TEXT = {
 @st.cache_resource(show_spinner=False)
 def _baseline():
     from policyengine_pr import Simulation
-    from policyengine_pr.data import PRCS
+    from policyengine_pr.analysis.scoring import default_dataset
 
-    return Simulation(dataset=PRCS)
+    return Simulation(dataset=default_dataset())
+
+
+@st.cache_data(show_spinner=False)
+def _calibration_report():
+    from policyengine_pr import Simulation
+    from policyengine_pr.data import PRCS, calibrate
+
+    _, report = calibrate(Simulation(dataset=PRCS))
+    return report
 
 
 @st.cache_data(show_spinner=False)
@@ -250,3 +280,34 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
         hide_index=True,
     )
     st.caption(t("note"))
+
+    from policyengine_pr.analysis.scoring import default_dataset
+    from policyengine_pr.data import PRCSCalibrated
+
+    with st.expander(t("calibration_title")):
+        if default_dataset() is PRCSCalibrated:
+            st.markdown(t("calibration_intro"))
+            rep = _calibration_report()
+            st.dataframe(
+                pd.DataFrame(
+                    {
+                        t("col_target"): rep["target"],
+                        t("col_published"): rep["published"],
+                        t("col_before"): rep["before"],
+                        t("col_after"): rep["after"],
+                    }
+                ).style.format(
+                    {
+                        c: "{:,.0f}"
+                        for c in (
+                            t("col_published"),
+                            t("col_before"),
+                            t("col_after"),
+                        )
+                    }
+                ),
+                use_container_width=True,
+                hide_index=True,
+            )
+        else:
+            st.warning(t("uncalibrated"))

@@ -39,3 +39,12 @@ def test_widening_the_zero_bracket_costs_revenue_and_hurts_nobody():
     assert r["summary"]["share_worse_off"] == 0
     assert r["summary"]["eitc_change"] == 0
     assert len(r["deciles"]) == 10
+
+
+def test_calibration_hits_every_target():
+    from policyengine_pr import Simulation
+    from policyengine_pr.data import calibrate
+
+    w, report = calibrate(Simulation(dataset=PRCS))
+    assert (w > 0).all()
+    assert (abs(report["after_ratio"] - 1) < 1e-6).all()
