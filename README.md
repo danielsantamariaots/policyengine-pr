@@ -24,3 +24,7 @@ User guide (Spanish and English): [docs/TUTORIAL.md](docs/TUTORIAL.md).
 uv pip install -e ".[app]"
 streamlit run app/calculator.py
 ```
+
+## Licence
+
+AGPL-3.0-or-later (see LICENSE), the same licence as PolicyEngine's country models: anyone may use and adapt the model, and a hosted service built on it must publish its source.
