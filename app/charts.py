@@ -51,7 +51,7 @@ SERIES = {
     "reform": "#eb6834",
     "baseline": "#2a78d6",
     "cliff": RED,
-    "better": "#2a78d6",
+    "better": GREEN,
     "worse": RED,
 }
 
