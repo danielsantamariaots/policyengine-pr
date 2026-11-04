@@ -74,6 +74,16 @@ TEXT = {
     ),
     "s_better": ("Ganan", "Better off"),
     "s_worse": ("Pierden", "Worse off"),
+    "s_same": ("Sin cambio", "No change"),
+    "decile_tick": ("Decil {}<br>{}", "Decile {}<br>{}"),
+    "hover_change": (
+        "Decil %{x}: %{y:$+,.0f} al año por hogar (%{customdata:+.1%} del ingreso neto medio)",
+        "Decile %{x}: %{y:$+,.0f} a year per household (%{customdata:+.1%} of mean net income)",
+    ),
+    "hover_share": (
+        "Decil %{x}: %{customdata[0]:.0%} ganan, %{customdata[1]:.0%} pierden, %{customdata[2]:.0%} sin cambio",
+        "Decile %{x}: %{customdata[0]:.0%} better off, %{customdata[1]:.0%} worse off, %{customdata[2]:.0%} unchanged",
+    ),
     "totals_title": (
         "Totales (millones de dólares al año)",
         "Totals ($ million a year)",
@@ -342,6 +352,10 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
         y_money=True,
         height=360,
     )
+    ticks = [
+        t("decile_tick", int(d), f"${m / 1e3:,.0f}k")
+        for d, m in zip(dec["decile"], dec["mean_net_income"])
+    ]
     fig.add_trace(
         go.Bar(
             x=dec["decile"],
@@ -360,12 +374,13 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
             textposition="outside",
             textfont=dict(size=11, color=charts.MUTED),
             cliponaxis=False,
-            hovertemplate="%{y:$,.0f}<extra></extra>",
+            customdata=dec["mean_change"] / dec["mean_net_income"],
+            hovertemplate=t("hover_change") + "<extra></extra>",
         )
     )
     charts.hline(fig, 0, color=charts.ZERO)
-    fig.update_xaxes(dtick=1)
-    fig.update_layout(showlegend=False, bargap=0.25)
+    fig.update_xaxes(tickvals=list(dec["decile"]), ticktext=ticks)
+    fig.update_layout(showlegend=False, bargap=0.25, hovermode="x")
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     fig = charts.figure(
@@ -375,25 +390,36 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
         y_percent=True,
         height=320,
     )
-    charts.bars(
-        fig,
-        dec["decile"],
-        dec["share_better_off"],
-        t("s_better"),
-        charts.SERIES["better"],
-        money=False,
-    )
-    charts.bars(
-        fig,
-        dec["decile"],
-        -dec["share_worse_off"],
-        t("s_worse"),
-        charts.SERIES["worse"],
-        money=False,
-    )
+    same = 1 - dec["share_better_off"] - dec["share_worse_off"]
+    shares = list(zip(dec["share_better_off"], dec["share_worse_off"], same))
+    for values, label, colour in (
+        (dec["share_better_off"], "s_better", charts.SERIES["better"]),
+        (same, "s_same", charts.GRID),
+        (-dec["share_worse_off"], "s_worse", charts.SERIES["worse"]),
+    ):
+        fig.add_trace(
+            go.Bar(
+                x=dec["decile"],
+                y=values,
+                name=t(label),
+                marker=dict(color=colour, line=dict(width=0)),
+                text=[
+                    f"{abs(v):.0%}" if abs(v) >= 0.08 else "" for v in values
+                ],
+                textposition="inside",
+                insidetextanchor="middle",
+                textfont=dict(
+                    size=11,
+                    color="white" if label != "s_same" else charts.MUTED,
+                ),
+                customdata=shares,
+                hovertemplate=t("hover_share") + "<extra></extra>",
+            )
+        )
     charts.hline(fig, 0, color=charts.ZERO)
-    fig.update_xaxes(dtick=1)
-    fig.update_layout(barmode="relative", bargap=0.25)
+    fig.update_xaxes(tickvals=list(dec["decile"]), ticktext=ticks)
+    fig.update_yaxes(range=[-1.02, 1.02])
+    fig.update_layout(barmode="relative", bargap=0.25, hovermode="x")
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     from policyengine_pr.analysis.scoring import BENEFITS

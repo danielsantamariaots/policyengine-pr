@@ -115,6 +115,10 @@ TEXT = {
         "Share of each extra $100 lost",
     ),
     "zone_label": ("Zona de tasa alta: {:.0%}", "High-rate zone: {:.0%}"),
+    "hover_cliff": (
+        "A {}: ganar $500 más baja el ingreso neto {} ({})",
+        "At {}: earning $500 more lowers net income by {} ({})",
+    ),
     "cliff_label": ("{} · {}", "{} · {}"),
     "cliffs_title": ("Precipicios detectados", "Cliffs detected"),
     "no_cliffs": (
@@ -547,9 +551,29 @@ def render(
         charts.SERIES["market"],
         dash="dash",
     )
+    # explaining hover: a sentence at each cliff, the value elsewhere
+    notes = {
+        float(c["wages"]): TEXT["hover_cliff"][L].format(
+            money(c["wages"]), money(c["loss"]), c["cause"].lower()
+        )
+        for _, c in cliffs.iterrows()
+    }
+    hover_text = [notes.get(float(w), "") for w in shown["wages"]]
     if ref is None:
-        charts.line(
-            fig, base["wages"], base["net"], t("s_net"), charts.SERIES["net"]
+        fig.add_trace(
+            go.Scatter(
+                x=base["wages"],
+                y=base["net"],
+                name=t("s_net"),
+                mode="lines",
+                line=dict(color=charts.SERIES["net"], width=2),
+                customdata=hover_text,
+                hovertemplate="%{y:$,.0f}<br><span style='color:"
+                + charts.SERIES["cliff"]
+                + "'>%{customdata}</span><extra>"
+                + t("s_net")
+                + "</extra>",
+            )
         )
     else:
         charts.line(
@@ -602,13 +626,38 @@ def render(
             )
     fig.update_yaxes(title_text=t("y_net"))
     last = shown.iloc[-1]
+    # direct labels at the right end replace the legend
     charts.end_label(
         fig,
         last["wages"],
-        last["net"],
-        money(last["net"]),
-        charts.SERIES["net"] if ref is None else charts.SERIES["reform"],
+        last["market"],
+        t("s_market"),
+        charts.SERIES["market"],
     )
+    if ref is None:
+        charts.end_label(
+            fig,
+            last["wages"],
+            last["net"],
+            f"{t('s_net')} {money(last['net'])}",
+            charts.SERIES["net"],
+        )
+    else:
+        charts.end_label(
+            fig,
+            base.iloc[-1]["wages"],
+            base.iloc[-1]["net"],
+            t("s_emtr"),
+            charts.SERIES["baseline"],
+        )
+        charts.end_label(
+            fig,
+            last["wages"],
+            last["net"],
+            f"{reform_name} {money(last['net'])}",
+            charts.SERIES["reform"],
+        )
+    fig.update_layout(showlegend=False, margin=dict(r=170))
     marker_lines(fig)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
@@ -715,6 +764,8 @@ def render(
         title_text=t("y_emtr"),
         range=[min(-0.1, float(shown["emtr"].min()) - 0.05), 1.12],
     )
+    if ref is None:
+        fig.update_layout(showlegend=False)
     marker_lines(fig)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
