@@ -1,13 +1,13 @@
 """Parametric reforms change outcomes exactly as the rate table implies."""
 
-from policyengine_pr import Simulation
-from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
 from policyengine_core.parameters import (
-    ParameterNode,
     Parameter,
+    ParameterNode,
     ParameterScaleBracket,
 )
 
+from policyengine_pr import Simulation
+from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
 
 SITUATION = {
     "people": {"p": {"age": {2025: 40}, "employment_income": {2025: 30_000}}},

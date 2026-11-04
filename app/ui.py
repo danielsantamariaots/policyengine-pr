@@ -162,6 +162,7 @@ TEXT = {
     "nav_home": ("Inicio", "Home"),
     "nav_calc": ("Calculadora", "Calculator"),
     "nav_cliff": ("CliffWatch", "CliffWatch"),
+    "nav_reform": ("Reformas", "Reforms"),
     "home_title": (
         "Modelo contributivo de Puerto Rico",
         "Puerto Rico tax model",
@@ -189,6 +190,17 @@ TEXT = {
     "card_cliff_title": (
         "¿Dónde pierde mi hogar al ganar más?",
         "Where does my household lose by earning more?",
+    ),
+    "card_reform_title": (
+        "¿Cuánto cuesta una reforma y a quién beneficia?",
+        "What does a reform cost and who gains?",
+    ),
+    "card_reform_body": (
+        "Cada reforma simulada sobre la Encuesta de la Comunidad de Puerto "
+        "Rico: costo para Hacienda, hogares que ganan y pierden, cambio por "
+        "decil de ingreso.",
+        "Each reform simulated on the Puerto Rico Community Survey: cost to "
+        "Hacienda, households better and worse off, change by income decile.",
     ),
     "card_cliff_body": (
         "Cómo cambian contribuciones y créditos a medida que suben los "
@@ -572,10 +584,11 @@ def tutorial(L):
 def home(L):
     st.title(t("home_title", L))
     st.markdown(t("home_intro", L))
-    c1, c2 = st.columns(2)
+    c1, c2, c3 = st.columns(3)
     for col, title, body, view in (
         (c1, "card_calc_title", "card_calc_body", "calc"),
         (c2, "card_cliff_title", "card_cliff_body", "cliff"),
+        (c3, "card_reform_title", "card_reform_body", "reform"),
     ):
         with col, st.container(border=True):
             st.subheader(t(title, L))

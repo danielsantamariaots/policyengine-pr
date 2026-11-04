@@ -104,6 +104,21 @@ mismo hogar, la página muestra:
 Con una reforma activa se comparan las curvas de la ley vigente y de la
 reforma, y los precipicios se calculan sobre la reforma.
 
+## 5. Reformas
+
+La tercera página simula cada reforma sobre los microdatos de la Encuesta
+sobre la Comunidad de Puerto Rico 2023 (PUMS, unos 1.28 millones de
+hogares ponderados) con las reglas de 2025. La tabla muestra, para cada
+reforma de ejemplo y para la reforma activa en la barra lateral: el costo
+para Hacienda (contribución perdida más Crédito por Trabajo adicional), el
+cambio en PAN, el porcentaje de hogares que ganan y pierden, y el cambio
+medio por hogar. Debajo, para la reforma elegida: el cambio medio por decil
+de ingreso neto, los hogares que ganan y pierden por decil, y los totales.
+
+Los niveles (recaudo total, gasto en PAN) no están calibrados a las
+planillas de Hacienda ni a los participantes de ADSEF; los cambios son la
+cifra útil. Requiere `data/prcs_2023.h5` (véase `policyengine_pr/data/`).
+
 ## Ejemplos
 
 1. **Exención para jóvenes.** Edad 22, salarios $30,000: contribución cero,

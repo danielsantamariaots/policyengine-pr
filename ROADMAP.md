@@ -46,3 +46,14 @@ late: ship the household calculator first; aggregate estimates follow.
   the October 2021 values; no resources test, dependent-care, disability,
   student or medical deductions, or Vieques/Culebra supplement. Ask ADSEF
   for the current Tabla and the FY2026 plan.
+- **Microdata (PRCS 2023 PUMS).** Since 2026-11-04 `policyengine_pr/data/prcs.py`
+  builds `data/prcs_2023.h5` from the Census PUMS person and housing files
+  (download into `data/raw/pums_2023/`; `data/` is git-ignored). Tax units
+  are built from household composition (head + spouse joint, their
+  children as dependents, other adults single). `policyengine_pr/analysis/
+  scoring.py` scores a reform (revenue, PAN, deciles, winners/losers) in
+  about 0.1 s; the app's *Reformas* page shows it. Uncalibrated: baseline
+  income tax (\$4.8 bn) and PAN households (835k vs 597k reporting PAN in
+  the PRCS) exceed administrative totals; 2023 incomes are not uprated.
+  Calibration to Hacienda's Tabla A and ADSEF's counts is the next data
+  step once those tabulations arrive.

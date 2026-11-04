@@ -10,6 +10,7 @@ net income as wages rise). Shared text and layout live in ui.py.
 import cliffwatch
 import pandas as pd
 import plotly.graph_objects as go
+import reforms_page
 import streamlit as st
 import ui
 
@@ -458,7 +459,12 @@ def t(key, *args):
     return s.format(*args) if args else s
 
 
-VIEWS = {"home": "nav_home", "calc": "nav_calc", "cliff": "nav_cliff"}
+VIEWS = {
+    "home": "nav_home",
+    "calc": "nav_calc",
+    "cliff": "nav_cliff",
+    "reform": "nav_reform",
+}
 with st.sidebar:
     view = st.radio(
         ui.t("nav", L),
@@ -598,6 +604,12 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 if view == "home":
     ui.home(L)
+    st.stop()
+
+if view == "reform":
+    reforms_page.render(L, ui.EXAMPLE_REFORMS, CURRENT, changes, reform_name)
+    ui.not_included(L)
+    ui.tutorial(L)
     st.stop()
 
 situation = build_situation(hh, filer_wages)

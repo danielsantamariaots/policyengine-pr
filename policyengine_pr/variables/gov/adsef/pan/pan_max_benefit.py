@@ -11,7 +11,7 @@ class pan_max_benefit(Variable):
 
     def formula(household, period, parameters):
         p = parameters(period).gov.adsef.pan
-        size = min_(household("pan_household_size", period), 18).astype(str)
+        size = clip(household("pan_household_size", period), 1, 18).astype(str)
         return p.max_benefit[size] + p.elderly_bonus * household(
             "pan_elderly_count", period
         )

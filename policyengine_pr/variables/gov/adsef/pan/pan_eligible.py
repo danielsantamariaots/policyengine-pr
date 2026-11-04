@@ -10,6 +10,6 @@ class pan_eligible(Variable):
 
     def formula(household, period, parameters):
         p = parameters(period).gov.adsef.pan
-        size = min_(household("pan_household_size", period), 18).astype(str)
+        size = clip(household("pan_household_size", period), 1, 18).astype(str)
         net = household("pan_net_income", period) / MONTHS_IN_YEAR
         return net <= p.net_income_limit[size]
