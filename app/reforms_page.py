@@ -113,6 +113,18 @@ TEXT = {
     "col_share": ("% de hogares con {}", "% of households with {}"),
     "col_ben_mean": ("{} medio", "Mean {}"),
     "download_card": ("Descargar tarjeta (PNG)", "Download card (PNG)"),
+    "explain_change": (
+        "Los hogares de Puerto Rico se ordenan por ingreso neto y se dividen en diez grupos iguales (deciles): el 1 es el 10% más pobre, el 10 el más rico; bajo cada decil está su ingreso neto medio. Cada barra es el cambio anual medio en el ingreso neto de los hogares de ese decil con la reforma, contando a todos (reciban algo o no). Verde: ganan; rojo: pierden. Al pasar el cursor se ve el cambio como porcentaje del ingreso del decil.",
+        "Puerto Rico's households are ranked by net income and split into ten equal groups (deciles): 1 is the poorest tenth, 10 the richest; under each decile is its mean net income. Each bar is the mean annual change in net income for that decile under the reform, counting every household (whether it receives anything or not). Green: gain; red: loss. Hover shows the change as a share of the decile's income.",
+    ),
+    "explain_share": (
+        "Para cada decil, qué parte de los hogares sale ganando (verde, hacia arriba), perdiendo (rojo, hacia abajo) o sin cambio apreciable (gris). Las tres partes suman el 100% del decil.",
+        "For each decile, the share of households better off (green, upward), worse off (red, downward) or with no appreciable change (grey). The three parts add up to the whole decile.",
+    ),
+    "explain_benefits": (
+        "Con la ley vigente, cuánto recibe de media un hogar de cada decil en cada crédito o ayuda, contando a todos los hogares del decil (los que no reciben cuentan como cero). Es la fotografía de partida sobre la que actúa cualquier reforma; *Ver tabla* añade qué parte de los hogares recibe cada programa.",
+        "Under current law, how much a household in each decile receives on average from each credit or benefit, counting every household in the decile (non-recipients count as zero). It is the starting picture any reform acts on; *Table view* adds the share of households receiving each programme.",
+    ),
     "card_sub": (
         "Reforma contributiva simulada sobre la Encuesta de la Comunidad de Puerto Rico 2023, reglas de 2025, pesos calibrados a totales oficiales.",
         "Tax reform simulated on the 2023 Puerto Rico Community Survey, 2025 rules, weights calibrated to official totals.",
@@ -382,6 +394,7 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     fig.update_xaxes(tickvals=list(dec["decile"]), ticktext=ticks)
     fig.update_layout(showlegend=False, bargap=0.25, hovermode="x")
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    charts.explain(L, t("explain_change"))
 
     fig = charts.figure(
         t("share_title"),
@@ -421,6 +434,7 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     fig.update_yaxes(range=[-1.02, 1.02])
     fig.update_layout(barmode="relative", bargap=0.25, hovermode="x")
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    charts.explain(L, t("explain_share"))
 
     from policyengine_pr.analysis.scoring import BENEFITS
 
@@ -453,6 +467,7 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     fig.update_yaxes(title_text=t("benefits_y"))
     st.caption(t("benefits_sub"))
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    charts.explain(L, t("explain_benefits"))
     with st.expander(t("benefits_table")):
         table = pd.DataFrame({t("x_axis"): ben["decile"]})
         for var, es, en in BENEFITS:
