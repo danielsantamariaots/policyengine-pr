@@ -17,6 +17,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     pr_youth_exempt_income: 30_000
     pr_net_taxable_income: 0
@@ -37,6 +40,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     pr_youth_exempt_income: 40_000
@@ -59,6 +65,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     pr_youth_exempt_income: 0
     pr_income_tax: 1_223.6
@@ -75,6 +84,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     pr_youth_exempt_income: 0
@@ -97,6 +109,9 @@
     households:
       household:
         members: [a, b]
+    pan_units:
+      pan_unit:
+        members: [a, b]
   output:
     # 40,000 + 20,000 exempt; taxable 5,000 - 7,000 exemption -> 0
     pr_taxable_gross_income: 5_000
@@ -115,6 +130,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     # 90,000 - 3,500 = 86,500 -> 8,430 + 33% x 25,000 = 16,680; gross 130,000 > 100,000 -> x 0.95

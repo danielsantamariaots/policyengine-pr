@@ -18,6 +18,9 @@
       household:
         members: [p, c1, c2]
         housing_assisted: true
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     # TANF: countable 12,000 - 1,080 = 10,920 -> 910/month > 584, so none
     section8_annual_income: 12_000
@@ -46,6 +49,9 @@
     households:
       household:
         members: [p, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     section8: 0
 
@@ -61,6 +67,9 @@
       household:
         members: [p]
         housing_assisted: true
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # 20,000 - 525
     section8_adjusted_income: 19_475
@@ -86,6 +95,9 @@
       household:
         members: [p, c1, c2]
         housing_assisted: true
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     # 0.30 x (40,000 - 960) / 12 = 976 > 656
     section8: 0
@@ -102,6 +114,9 @@
         members: [p]
         housing_assisted: true
         housing_rent: 500
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # min(569, 500) - 0, x 12
     section8: 6_000
@@ -125,6 +140,9 @@
       household:
         members: [p, c1, c2, c3]
         housing_assisted: true
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2, c3]
   output:
     section8_bedrooms: 3
     section8_payment_standard: 861
@@ -144,6 +162,9 @@
       household:
         members: [p, s]
         housing_assisted: true
+    pan_units:
+      pan_unit:
+        members: [p, s]
   output:
     section8_bedrooms: 1
 
@@ -164,6 +185,9 @@
         members: [p, c1, c2]
         housing_assisted: true
         hud_area: PONCE
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     section8_income_eligible: true
     section8_payment_standard: 589
@@ -185,5 +209,8 @@
       household:
         members: [p, c1, c2]
         hud_area: NONMETRO
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     section8_income_eligible: false

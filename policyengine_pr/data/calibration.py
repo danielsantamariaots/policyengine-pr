@@ -54,7 +54,7 @@ def contributions(sim, targets) -> tuple[np.ndarray, np.ndarray]:
         if var == "household_weight":
             a = np.ones(n)
         elif var == "person_weight":
-            a = sim.calculate("pan_household_size", YEAR).astype(float)
+            a = sim.calculate("household_size", YEAR).astype(float)
         else:
             x = sim.calculate(var, YEAR, map_to="household")
             a = x if stat == "sum" else (x > 0).astype(float)
@@ -130,6 +130,13 @@ def build_calibrated(out: Path = OUT_CALIBRATED):
     data["household_weight"] = w
     data["person_weight"] = data["person_weight"] * ratio[hh_of_person]
     data["tax_unit_weight"] = data["tax_unit_weight"] * ratio[hh_of_unit]
+    hh_of_pan_unit = (
+        pd.Series(hh_of_person)
+        .groupby(data["person_pan_unit_id"])
+        .first()
+        .values
+    )
+    data["pan_unit_weight"] = data["pan_unit_weight"] * ratio[hh_of_pan_unit]
     PRCSCalibrated().save_dataset(data, out)
     report.to_csv(REPORT_CSV, index=False)
     return out, report

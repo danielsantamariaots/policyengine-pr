@@ -1,5 +1,5 @@
 # Runtime for Streamlit Community Cloud; the package itself is installed from this repo.
-# Editing this file makes Community Cloud rebuild the environment (fresh process). Rebuild 8 (payment standard share).
+# Editing this file makes Community Cloud rebuild the environment (fresh process). Rebuild 9 (PAN núcleo entity).
 -e .
 policyengine-core==3.34.3
 streamlit==1.66.1

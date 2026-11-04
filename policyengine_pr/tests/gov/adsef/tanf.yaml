@@ -15,6 +15,9 @@
     households:
       household:
         members: [p, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     tanf_eligible: true
     # 584 x 12
@@ -32,6 +35,9 @@
         age: 4
     households:
       household:
+        members: [p, c1]
+    pan_units:
+      pan_unit:
         members: [p, c1]
   output:
     tanf_countable_income: 6_120
@@ -51,6 +57,9 @@
     households:
       household:
         members: [p, c1]
+    pan_units:
+      pan_unit:
+        members: [p, c1]
   output:
     tanf_eligible: false
     tanf: 0
@@ -68,6 +77,9 @@
     households:
       household:
         members: [p, s, c1]
+    pan_units:
+      pan_unit:
+        members: [p, s, c1]
   output:
     tanf_eligible: false
     tanf: 0
@@ -83,6 +95,9 @@
         age: 4
     households:
       household:
+        members: [p, c1]
+    pan_units:
+      pan_unit:
         members: [p, c1]
   output:
     # 667 - 90 = 577 countable; 584 - 577 = 7 < 10

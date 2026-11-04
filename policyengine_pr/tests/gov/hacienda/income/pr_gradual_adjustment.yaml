@@ -46,6 +46,9 @@
     households:
       household:
         members: [filer, spouse, child1, child2]
+    pan_units:
+      pan_unit:
+        members: [filer, spouse, child1, child2]
   output:
     pr_net_taxable_income: 788_000
     pr_regular_tax: 248_175

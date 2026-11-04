@@ -20,7 +20,17 @@ aquí es la composición.
 | Participantes menores de 18 | 17% | — | — |
 | Hogares con PAN, deciles 1–2 de ingreso neto | 100% | — | — |
 
-**Lectura.** El modelo trata a todo el hogar como un solo núcleo de PAN,
+**Actualización (misma fecha, tras crear la entidad `pan_unit`).** Con las
+personas de 60+ que no son jefe ni cónyuge como núcleos aparte, y
+calibrando a 738,510 *núcleos* con beneficio (no hogares), las personas en
+núcleos PAN bajan de 1.96 a 1.72 millones (FNS: 1.27), el tamaño medio del
+núcleo queda en 2.33 (FNS: 1.73; un tercio de los núcleos son de una
+persona) y la proporción de participantes de 60+
+del 34% al 29% (CBPP 2018: 24%). Lo que queda es la participación
+incompleta (no todo núcleo elegible solicita) y el supuesto del beneficio
+máximo; ambos se resuelven con la Tabla y las características de ADSEF.
+
+**Lectura original.** El modelo trataba a todo el hogar como un solo núcleo de PAN,
 por lo que cuenta 1.96 millones de personas donde ADSEF cuenta 1.27
 millones: los núcleos reales son más pequeños (1.7 personas) porque dentro
 de un hogar pueden convivir varios núcleos y porque no todos los miembros

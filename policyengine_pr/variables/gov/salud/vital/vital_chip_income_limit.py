@@ -11,7 +11,7 @@ class vital_chip_income_limit(Variable):
 
     def formula(household, period, parameters):
         p = parameters(period).gov.salud.vital
-        size = household("pan_household_size", period)
+        size = household("household_size", period)
         return (
             p.chip_income_limit
             + p.chip_income_limit_per_additional_person * (size - 1)

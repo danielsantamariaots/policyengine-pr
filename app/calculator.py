@@ -523,6 +523,11 @@ def build_situation(hh, filer_wages):
                 "housing_assisted": {YEAR: hh["housing_assisted"]},
                 "housing_rent": {YEAR: hh["housing_rent"]},
                 "hud_area": {YEAR: MUNICIPIOS[hh["municipio"]][1]},
+            }
+        },
+        "pan_units": {
+            "pan_unit": {
+                "members": members,
                 "pan_resources": {YEAR: hh["pan_resources"]},
                 "pan_pays_dependent_care": {
                     YEAR: hh["pan_pays_dependent_care"]

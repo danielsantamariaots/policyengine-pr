@@ -3,7 +3,7 @@ from policyengine_pr.model_api import *
 
 class pan_deductions(Variable):
     value_type = float
-    entity = Household
+    entity = PANUnit
     label = "PAN deductions (annual)"
     documentation = (
         "Reglamento 8684, Art. 45; amounts from the SPO FY2022 pp. 26-27 and the 2024 amendment. "
@@ -13,10 +13,10 @@ class pan_deductions(Variable):
     unit = USD
     definition_period = YEAR
 
-    def formula(household, period, parameters):
+    def formula(pan_unit, period, parameters):
         p = parameters(period).gov.adsef.pan.deductions
-        earned = household("pan_earned_income", period) / MONTHS_IN_YEAR
-        other = household("pan_other_income", period) / MONTHS_IN_YEAR
+        earned = pan_unit("pan_earned_income", period) / MONTHS_IN_YEAR
+        other = pan_unit("pan_other_income", period) / MONTHS_IN_YEAR
         earned_deduction = where(
             earned > 0,
             max_(
@@ -30,26 +30,26 @@ class pan_deductions(Variable):
         )
         elderly = parameters(
             period
-        ).gov.adsef.pan.deductions.elderly * household(
+        ).gov.adsef.pan.deductions.elderly * pan_unit(
             "pan_elderly_count", period
         )
-        age = household.members("age", period)
-        students = household.sum(
-            household.members("is_full_time_student", period)
+        age = pan_unit.members("age", period)
+        students = pan_unit.sum(
+            pan_unit.members("is_full_time_student", period)
         )
         young_max = parameters(
             period
         ).gov.adsef.pan.dependent_care_max_age_young
         care = where(
-            household("pan_pays_dependent_care", period),
-            p.dependent_care_young * household.sum(age <= young_max)
+            pan_unit("pan_pays_dependent_care", period),
+            p.dependent_care_young * pan_unit.sum(age <= young_max)
             + p.dependent_care_older
-            * household.sum((age > young_max) & (age < 18)),
+            * pan_unit.sum((age > young_max) & (age < 18)),
             0,
         )
         medical = where(
-            household("pan_recurrent_medical_expenses", period)
-            & household.any(
+            pan_unit("pan_recurrent_medical_expenses", period)
+            & pan_unit.any(
                 (age >= parameters(period).gov.adsef.pan.elderly_age)
                 | (age < 18)
             ),

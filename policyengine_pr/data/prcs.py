@@ -27,6 +27,10 @@ tabulations allow calibration):
 - hud_area: the HUD FMR / income-limit area of the PUMA's municipios
   (policyengine_pr/data/hud_areas.py); a PUMA spanning several areas takes
   the area with most of its municipios (GAP: PUMAs 0700, 0800, 1900, 2000).
+- PAN núcleos de servicio (pan_unit): the household is one núcleo, except
+  that each member aged 60+ who is not the head or spouse forms their own
+  (Reglamento 8684, separate núcleos, item 10). Disabled adults and
+  independent students (items 5-8, 11-13) are not identified: GAP.
 - housing_assisted (Section 8 voucher): the PRCS does not ask about rent
   subsidies, so receipt is imputed. Pool: renter households (TEN == 3) with
   income at or below the very low income limit for their size and area. Within four
@@ -195,6 +199,19 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
         lambda s: s.isin(SPOUSE_CODES).any()
     )
 
+    # PAN núcleos: everyone with the head, except members aged 60+ who are not
+    # the head or spouse (Reglamento 8684, separate núcleo item 10)
+    separate = (p["AGEP"] >= 60) & ~is_head & ~is_spouse
+    p["pan_unit_id"] = np.where(
+        separate, len(h) + np.arange(len(p)), p["household_id"]
+    )
+    pu_ids, pu_index = np.unique(p["pan_unit_id"], return_inverse=True)
+    pu_household = (
+        pd.Series(p["household_id"].values, index=pu_index)
+        .groupby(level=0)
+        .first()
+        .values
+    )
     tu_ids, tu_index = np.unique(p["tax_unit_id"], return_inverse=True)
     tu_household = (
         pd.Series(p["household_id"].values, index=tu_index)
@@ -207,12 +224,15 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
         "person_id": np.arange(len(p)),
         "person_household_id": p["household_id"].values,
         "person_tax_unit_id": tu_index,
+        "person_pan_unit_id": pu_index,
         "household_id": np.arange(len(h)),
         "tax_unit_id": np.arange(len(tu_ids)),
+        "pan_unit_id": np.arange(len(pu_ids)),
         # weights
         "person_weight": p["PWGTP"].values.astype(float),
         "household_weight": h["WGTP"].values.astype(float),
         "tax_unit_weight": h["WGTP"].values[tu_household].astype(float),
+        "pan_unit_weight": h["WGTP"].values[pu_household].astype(float),
         # person inputs
         "age": p["AGEP"].values,
         "employment_income": (p["WAGP"].fillna(0) * adj).values,

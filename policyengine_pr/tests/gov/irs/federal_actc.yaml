@@ -22,6 +22,9 @@
     households:
       household:
         members: [parent, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [parent, c1, c2]
   output:
     actc_qualifying_children: 2
     # line 2: 2 x 1,700
@@ -46,6 +49,9 @@
     households:
       household:
         members: [parent, c1]
+    pan_units:
+      pan_unit:
+        members: [parent, c1]
   output:
     # payroll 4,590 > line 11 of 1,700
     federal_actc: 1_700
@@ -67,6 +73,9 @@
     households:
       household:
         members: [parent, c1]
+    pan_units:
+      pan_unit:
+        members: [parent, c1]
   output:
     actc_qualifying_children: 0
     actc_other_dependents: 1
@@ -87,6 +96,9 @@
         members: [parent, c1]
     households:
       household:
+        members: [parent, c1]
+    pan_units:
+      pan_unit:
         members: [parent, c1]
   output:
     federal_actc: 0
@@ -114,6 +126,9 @@
     households:
       household:
         members: [parent, spouse, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [parent, spouse, c1, c2]
   output:
     # line 5: 50,000; line 6: 2,500; line 9: 4,400; line 10: 1,900
     # line 11: min(3,400, 1,900); payroll 6.2% x 176,100 + 1.45% x 450,000
@@ -136,6 +151,9 @@
         members: [parent, c1]
     households:
       household:
+        members: [parent, c1]
+    pan_units:
+      pan_unit:
         members: [parent, c1]
   output:
     # line 5: 40,425 -> 41,000; line 6: 2,050; line 9: 2,200; line 10: 150

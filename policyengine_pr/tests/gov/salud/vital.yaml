@@ -12,6 +12,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     is_vital_eligible: [true]
     vital_eligible_count: 1
@@ -25,6 +28,9 @@
         employment_income: 23_000
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     is_vital_eligible: [false]
@@ -43,6 +49,9 @@
         age: 8
     households:
       household:
+        members: [p, c1, c2]
+    pan_units:
+      pan_unit:
         members: [p, c1, c2]
   output:
     # 1,835 + 2 x 653.44 = 3,141.88 a month = 37,702.56 a year < 45,000

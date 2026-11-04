@@ -18,6 +18,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     pr_taxable_gross_income: 60_000
     pr_preferential_income: 10_000
@@ -42,6 +45,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     # Line 14: column A 0 (exemption exceeds regular income), column C 1,500
     pr_tax_with_preferential_rates: 1_500
@@ -64,6 +70,9 @@
         members: [filer]
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     pr_taxable_gross_income: 70_000
@@ -89,6 +98,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     pr_exempt_interest_income: 100
     pr_taxable_interest_income: 900
@@ -113,6 +125,9 @@
     households:
       household:
         members: [filer, spouse]
+    pan_units:
+      pan_unit:
+        members: [filer, spouse]
   output:
     pr_exempt_interest_income: 200
     pr_taxable_interest_income: 100
@@ -131,6 +146,9 @@
         members: [filer]
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     pr_gross_income: 105_000

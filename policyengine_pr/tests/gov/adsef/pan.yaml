@@ -18,6 +18,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # monthly: 1,000 gross; deductions min(500, 1,400) + 279 = 779; net 221 <= 633
     pan_deductions: 9_348
@@ -34,6 +37,9 @@
         employment_income: 24_000
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     # monthly: 2,000 gross; deductions 1,000 + 279; net 721 > 633
@@ -55,6 +61,9 @@
     households:
       household:
         members: [p, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     pan_household_size: 3
     # monthly: 2,500 gross; deductions min(1,250, 1,400) + 279 = 1,529; net 971 <= 1,706
@@ -75,6 +84,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # 50% x 38,000 = 19,000 counted; monthly 1,583.33; deductions 100 + 100 + 279 = 479; net 1,104.33 > 633
     pan_gross_income: 19_000
@@ -93,6 +105,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # counted 4,500 -> 375 a month; deductions 479; net 0
     pan_net_income: 0
@@ -110,6 +125,9 @@
         employment_income: 1_200
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     # 50% x 100 = 50 < 100 -> 100; plus 279

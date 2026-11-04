@@ -44,7 +44,7 @@ def _household_frame(sim):
     frame = {"weight": w}
     for var, *_ in AGGREGATES:
         frame[var] = sim.calculate(var, YEAR, map_to="household")
-    frame["size"] = sim.calculate("pan_household_size", YEAR)
+    frame["size"] = sim.calculate("household_size", YEAR)
     return pd.DataFrame(frame)
 
 

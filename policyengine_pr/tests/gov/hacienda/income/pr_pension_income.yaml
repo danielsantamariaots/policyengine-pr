@@ -15,6 +15,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     pr_taxable_pension_income: 15_000
     pr_exempt_pension_income: 15_000
@@ -36,6 +39,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     pr_taxable_pension_income: 0
     pr_income_tax: 0
@@ -52,6 +58,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     pr_taxable_gross_income: 0

@@ -1,7 +1,9 @@
 # Expected values from Reglamento 8684 Art. 45-48 and the NAP SPO FY2022
 # pp. 26-28 (deductions: earned 50% up to $1,400 from Aug 2024; dependent care
 # $225 / $200; student, elderly and medical $100; standard $279 from Aug 2024;
-# resources $5,000 / $15,000 with a member aged 60+).
+# resources $5,000 / $15,000 with a member aged 60+). Núcleos de servicio
+# (pan_units) follow Reglamento 8684's composition rules: a member aged 60+
+# who is not the head or spouse may be a separate núcleo (item 10).
 
 - name: "Single parent, children aged 1 and 5, $1,000 a month, pays child care: deductions 500 + 225 + 200 + 279"
   period: 2025
@@ -18,6 +20,9 @@
     households:
       household:
         members: [p, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
         pan_pays_dependent_care: true
         pan_resources: 4_000
   output:
@@ -27,6 +32,7 @@
     pan_resources_eligible: true
     pan_eligible: true
     # three persons, maximum $368 x 12
+    pan_benefit: 4_416
     pan: 4_416
 
 - name: Same household with $6,000 in resources is over the $5,000 limit
@@ -42,6 +48,9 @@
         age: 5
     households:
       household:
+        members: [p, c1, c2]
+    pan_units:
+      pan_unit:
         members: [p, c1, c2]
         pan_resources: 6_000
   output:
@@ -59,6 +68,9 @@
         social_security: 12_000
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
         pan_resources: 12_000
         pan_recurrent_medical_expenses: true
@@ -82,6 +94,37 @@
     households:
       household:
         members: [p, s]
+    pan_units:
+      pan_unit:
+        members: [p, s]
   output:
     # (500 + 100 + 279) x 12
     pan_deductions: 10_548
+
+- name: "Grandmother aged 70 on $9,000 of Social Security living with her daughter's family is her own núcleo"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      d:
+        age: 35
+        employment_income: 30_000
+      c:
+        age: 8
+      g:
+        age: 70
+        social_security: 9_000
+    households:
+      household:
+        members: [d, c, g]
+    pan_units:
+      family:
+        members: [d, c]
+      grandmother:
+        members: [g]
+  output:
+    # family: 2,500 a month gross earned, 50% deduction capped at 1,400 -> 1,100 - 279 = 821 > 1,179? no: 2,500 - 1,250 - 279 = 971 <= 1,179 (two persons) -> eligible, $257
+    # grandmother: 50% of 750 = 375 counted; deductions 100 + 100 + 279 = 479 -> net 0 -> eligible, 183 + 37 bonus
+    pan_benefit: [3_084, 2_640]
+    pan_units_receiving: 2
+    pan: 5_724

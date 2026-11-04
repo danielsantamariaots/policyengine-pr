@@ -20,7 +20,20 @@ income limits and the benefit by net income.
 ## Rules (Reglamento 8684, 2015; SPO FY2022 section VII)
 
 - **Unit:** "núcleo de servicio", the people who buy and prepare food
-  together.
+  together. Composition (Reglamento 8684, Art. on composición del núcleo,
+  pp. 24–28 of the scan): parents and their children living together form
+  one núcleo, including adult children, married children with their
+  spouses and children, and children who work (A.2); relatives or others
+  who move in (A.6) and lodgers (A.7) are part of it; minors with other
+  custodians always are (A.3). May be separate núcleos (B): persons aged
+  60+ who manage their own affairs or have a guardian (item 10), disabled
+  adults (11), student couples and independent students (5–8), students
+  with a parent aged 60+ or disabled (7, 12), núcleos over 18 persons split
+  in two (9), minors under protection orders (14), domestic-violence
+  survivors sheltering with relatives (15). **Modelled since 2026-11-04**
+  as the `pan_unit` entity: one núcleo per household except that each
+  member aged 60+ who is not the head or spouse is a separate núcleo;
+  disabled adults and independent students are not identified (GAP).
 - **Gross income:** all members' monthly income (Art. 42 conversions:
   weekly × 4.3, biweekly × 2.15, semimonthly × 2). Self-employment net of
   production costs (Art. 44). Since September 2018 (FNS approval August

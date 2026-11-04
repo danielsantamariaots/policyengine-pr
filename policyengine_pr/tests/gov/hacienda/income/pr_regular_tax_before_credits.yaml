@@ -56,6 +56,9 @@
     households:
       household:
         members: [filer, spouse, child1, child2]
+    pan_units:
+      pan_unit:
+        members: [filer, spouse, child1, child2]
   output:
     # 7,000 personal + 2 x 2,500 dependents
     pr_exemptions: 12_000

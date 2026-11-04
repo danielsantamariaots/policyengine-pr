@@ -16,6 +16,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # 46,175 x (12.4% + 2.9%)
     self_employment_tax: 7_064.775
@@ -39,6 +42,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     # 92.35% x 400 = 369.4 < 400
     self_employment_tax: 0
@@ -57,6 +63,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     # 2.9% x 18,470 only
@@ -81,6 +90,9 @@
         members: [p, c1, c2]
     households:
       household:
+        members: [p, c1, c2]
+    pan_units:
+      pan_unit:
         members: [p, c1, c2]
   output:
     # 18,470 x 15.3% = 2,825.91; half = 1,412.955

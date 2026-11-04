@@ -13,5 +13,8 @@
     households:
       household:
         members: [filer, spouse]
+    pan_units:
+      pan_unit:
+        members: [filer, spouse]
   output:
     tax_unit_employment_income: 42_500

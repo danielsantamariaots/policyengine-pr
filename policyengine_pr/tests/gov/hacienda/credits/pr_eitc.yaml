@@ -15,6 +15,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     pr_eitc_dependent_count: 0
     pr_eitc_eligible: true
@@ -35,6 +38,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     # 15% x 15,000 = 2,250, capped at 1,794
     pr_eitc: 1_794
@@ -53,6 +59,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     # 1,794 - 15% x (25,000 - 19,130) = 1,794 - 880.5
     pr_eitc: 913.5
@@ -69,6 +78,9 @@
         members: [filer]
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     pr_eitc_eligible: false
@@ -90,6 +102,9 @@
         members: [filer, child]
     households:
       household:
+        members: [filer, child]
+    pan_units:
+      pan_unit:
         members: [filer, child]
   output:
     pr_eitc_dependent_count: 1
@@ -119,6 +134,9 @@
         pr_filing_status: JOINT
     households:
       household:
+        members: [filer, spouse, child1, child2]
+    pan_units:
+      pan_unit:
         members: [filer, spouse, child1, child2]
   output:
     pr_eitc_dependent_count: 2
@@ -151,6 +169,9 @@
     households:
       household:
         members: [filer, c1, c2, c3, c4]
+    pan_units:
+      pan_unit:
+        members: [filer, c1, c2, c3, c4]
   output:
     pr_eitc_dependent_count: 4
     # 7,774 - 34.21% x (30,000 - 25,110) = 7,774 - 1,672.869
@@ -177,6 +198,9 @@
     households:
       household:
         members: [filer, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [filer, c1, c2]
   output:
     pr_eitc_dependent_count: 1
     # 33.98% x 20,000 = 6,796 capped at 4,186
@@ -194,6 +218,9 @@
         members: [filer]
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     pr_eitc_eligible: false
@@ -213,6 +240,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     pr_eitc: 0
 
@@ -229,6 +259,9 @@
         pr_eitc_unmodelled_other_income: 10_001
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     pr_eitc: 0

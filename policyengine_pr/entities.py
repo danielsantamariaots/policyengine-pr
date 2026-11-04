@@ -37,6 +37,21 @@ TaxUnit = build_entity(
     ],
 )
 
+PANUnit = build_entity(
+    key="pan_unit",
+    plural="pan_units",
+    label="PAN núcleo de servicio",
+    doc="The people who buy and prepare food together (Reglamento 8684, Art. 5): parents with their children of any age and anyone who moves in with them; a member aged 60+ who is not the head or spouse, a disabled adult or an independent student may be a separate núcleo.",
+    roles=[
+        {
+            "key": "member",
+            "plural": "members",
+            "label": "Member",
+            "doc": "A member of the núcleo de servicio.",
+        },
+    ],
+)
+
 Person = build_entity(
     key="person",
     plural="people",
@@ -45,4 +60,4 @@ Person = build_entity(
     is_person=True,
 )
 
-entities = [Household, TaxUnit, Person]
+entities = [Household, TaxUnit, PANUnit, Person]

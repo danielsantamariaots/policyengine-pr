@@ -39,9 +39,9 @@
   source: Hacienda, comunicado de prensa 26 Dec 2024, "cerca de 700,000 familias trabajadoras"
 
 - name: pan_households
-  description: PAN households, FY2024 monthly average
-  variable: pan
-  statistic: count_positive
+  description: PAN households (núcleos de servicio) receiving benefits, FY2024 monthly average
+  variable: pan_units_receiving
+  statistic: sum
   value: 738_510
   source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 average households
 

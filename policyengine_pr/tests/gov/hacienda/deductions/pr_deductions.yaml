@@ -26,6 +26,9 @@
     households:
       household:
         members: [p, c1]
+    pan_units:
+      pan_unit:
+        members: [p, c1]
   output:
     # min(20,000, 30% x 60,000 = 18,000, 35,000)
     pr_mortgage_interest_deduction: 18_000
@@ -61,6 +64,9 @@
     households:
       household:
         members: [p, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [p, c1, c2]
   output:
     pr_ira_deduction: 4_000
     pr_education_account_deduction: 2_000
@@ -79,6 +85,9 @@
     households:
       household:
         members: [p]
+    pan_units:
+      pan_unit:
+        members: [p]
   output:
     pr_ira_deduction: 0
 
@@ -96,6 +105,9 @@
         members: [p]
     households:
       household:
+        members: [p]
+    pan_units:
+      pan_unit:
         members: [p]
   output:
     pr_exemptions: 5_000

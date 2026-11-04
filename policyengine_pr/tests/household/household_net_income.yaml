@@ -21,6 +21,9 @@
     households:
       household:
         members: [parent, c1, c2]
+    pan_units:
+      pan_unit:
+        members: [parent, c1, c2]
   output:
     # 30,000 - 3,500 - 2 x 2,500 = 21,500 -> 7% x 12,500 = 875 x 0.92
     pr_income_tax: 805
@@ -48,6 +51,9 @@
     households:
       household:
         members: [filer]
+    pan_units:
+      pan_unit:
+        members: [filer]
   output:
     # 46,500 -> (3,430 + 25% x 5,000) x 0.92
     pr_income_tax: 4_305.6
@@ -70,6 +76,9 @@
         pr_nonrefundable_credits: 5_000
     households:
       household:
+        members: [filer]
+    pan_units:
+      pan_unit:
         members: [filer]
   output:
     # 16,500 -> 7% x 7,500 = 525 x 0.92 = 483
