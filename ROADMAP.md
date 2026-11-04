@@ -106,8 +106,10 @@ late: ship the household calculator first; aggregate estimates follow.
   Juan-Guaynabo income limits and FMRs applied island-wide; the dollar
   payment-standard schedule and utility allowances unpublished (plan gives
   only the 90–110% band); no medical, disability or child-care deductions;
-  HUD's Picture of Subsidized Households 2024 (PHA table) still to be
-  downloaded for voucher counts and average HAP. CliffWatch gains a two-household comparison
+  HUD's Picture of Subsidized Households 2024 (PHA table, saved as
+  `docs/statutes/hud/psh_2024_pr_vouchers.csv`): 33,948 vouchers across 75
+  PHAs (PRPHA 12,437), average HAP $632 a month, average household income
+  $7,183; a calibration target once voucher receipt is imputed. CliffWatch gains a two-household comparison
   (presets, or the same adults unmarried → marriage penalty). The URL
   carries every non-default input and lever (`ui.sync_query_params`), so a
   calculator or CliffWatch view can be shared as a link.

@@ -2,7 +2,9 @@
 
 Puerto Rico's vouchers are administered by the Administración de Vivienda
 Pública (PRPHA, HUD code RQ005; 12,896 vouchers through nine regional
-offices per the 2026 Annual Plan) and a few municipal PHAs. The federal
+offices per the 2026 Annual Plan) and 74 municipal PHAs with another
+21,500 vouchers (HUD Picture of Subsidized Households 2024: 33,948 in all,
+about 2.7% of households). The federal
 rules in 24 CFR parts 5 and 982 set the formula; PRPHA's Administrative
 Plan (June 2025, on avp.pr.gov/reglamentacion) gives the subsidy standard
 and the $0 minimum rent. Still unpublished: the dollar payment-standard
@@ -18,7 +20,7 @@ allowance schedule; both are flagged `gap:` in
 | 24 CFR part 982 | https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982 | §982.201 admission limited to very low-income families (75% extremely low); §982.402 subsidy standard, at most two persons per bedroom; §982.503 payment standard 90–110% of FMR; §982.505 HAP = lower of payment standard and gross rent, less TTP; §982.455 voucher ends 180 days after HAP reaches zero. |
 | PRPHA_Administrative_Plan_Section8_June2025.pdf / .txt | https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf (avp.pr.gov → Reglamentación) | PRPHA Housing Choice Voucher Administrative Plan, amended 20 June 2025, 159 pp. Sec. VI.A payment standards 90–110% of FMR, set annually, hold harmless; VI.B occupancy standards (two per bedroom, head/spouse separate bedroom, one-person family → 1 BR, table 0–6 BR); VI.D family share (highest of 10% gross, 30% adjusted, **minimum rent $0**); VI.E / Sec. on adjusted income ($480 dependent, $400 elderly in the plan text, i.e. pre-HOTMA; child care, medical > 3%, disability expenses); Sec. XIV HOTMA chapter. |
 | PRPHA_Annual_Plan_2026.pdf / .txt | https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/Plan_2026/PHA_Annual_Plan_2026_Final.pdf | PHA Annual Plan 2026: 12,863 HCVs on the HUD form (12,896 in the text), nine regional offices with their municipalities. No HAP totals. |
-| (not downloaded) HUD Picture of Subsidized Households 2024 | https://www.huduser.gov/portal/datasets/assthsg.html → PHA_2024_2020census.xlsx | PHA-level 2024 table with subsidized units, average HUD expenditure per month, household income and composition for RQ005 and the municipal PHAs. Public; the download needs a browser (scripted requests are refused). Use it to calibrate voucher counts and average HAP. |
+| psh_2024_pr_vouchers.csv (from PHA_2024_2020census.xlsx, kept in data/raw/hud/, git-ignored) | https://www.huduser.gov/portal/datasets/assthsg.html → Data → 2024 → Public Housing Agency (downloaded in a browser 2026-11-04; a 2025 file also exists) | HUD Picture of Subsidized Households, extract of 31 Dec 2024, Housing Choice Voucher rows for the 75 Puerto Rico PHAs. **33,948 vouchers in all**: PRPHA RQ005 12,437 (90% occupied), San Juan RQ006 4,715, Bayamón RQ011 2,225, Ponce 1,580, Caguas 1,405, Arecibo 933, Mayagüez 848, Carolina 808, and 67 smaller municipal PHAs. Unit-weighted averages: HAP **$632 a month**, tenant rent $170, household income **$7,183 a year**; 61–75% of households below 30% of area median; main income source wages 28% (PRPHA), welfare 6%, other (SS, pensions) 63%; head aged 62+ 34% (PRPHA); one-adult households 36%; bedroom mix PRPHA 35% 1 BR, 23% 2 BR, 42% 3+ BR. |
 | 89 FR 27377 (17 Apr 2024) | https://www.govinfo.gov/content/pkg/FR-2024-04-17/html/2024-08133.htm | HUD methodology for the annual inflation adjustment of the HOTMA amounts; 2024 dependent deduction $480. |
 | Arizona Dept. of Housing IB-67-24 (Oct 2024) | https://housing.az.gov/sites/default/files/2024-10/IB-67-24-HOTMA-Implementation-Date-Extended.pdf | Secondary source: 2025 amounts unchanged, $480 dependent and $525 elderly/disabled. HUD's 2025 notice not yet saved. |
 

@@ -6,3 +6,5 @@
   reforms without the raw files. Rebuild with `build_prcs(); build_calibrated()`.
 - `raw/` and `prcs_2023.h5` — not in git. Raw PUMS files are public:
   https://www2.census.gov/programs-surveys/acs/data/pums/2023/1-Year/
+
+- `raw/hud/PHA_2024_2020census.xlsx`: HUD Picture of Subsidized Households 2024, PHA table (downloaded from huduser.gov in a browser). The Puerto Rico voucher rows are committed as `docs/statutes/hud/psh_2024_pr_vouchers.csv`.
