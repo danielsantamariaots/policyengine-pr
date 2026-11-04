@@ -46,6 +46,7 @@ DEFAULTS = {
     "abt_other_income": 0,
     "housing_assisted": False,
     "housing_rent": 0,
+    "municipio": "San Juan",
     "pan_resources": 0,
     "pan_pays_dependent_care": False,
     "pan_recurrent_medical_expenses": False,
@@ -242,7 +243,7 @@ TEXT = {
     "summary_se": ("cuenta propia {}", "self-employment {}"),
     "summary_pension": ("pensión {}", "pension {}"),
     "summary_ss": ("Seguro Social {}", "Social Security {}"),
-    "summary_voucher": ("vale de Sección 8", "Section 8 voucher"),
+    "summary_voucher": ("vale de Sección 8 en {}", "Section 8 voucher in {}"),
     "summary_children_0": ("sin dependientes", "no dependents"),
     "summary_children_1": ("1 dependiente ({} años)", "1 dependent (age {})"),
     "summary_children_n": (
@@ -469,6 +470,7 @@ def hh_from_state(state):
         "abt_other_income": g("abt_other_income", 0),
         "housing_assisted": bool(g("housing_assisted", False)),
         "housing_rent": g("housing_rent", 0),
+        "municipio": g("municipio", "San Juan"),
         "pan_resources": g("pan_resources", 0),
         "pan_pays_dependent_care": bool(g("pan_pays_dependent_care", False)),
         "pan_recurrent_medical_expenses": bool(
@@ -653,7 +655,7 @@ def household_summary(hh, filer_wages, L):
         if total:
             parts.append(t(key, L, money(total)))
     if hh.get("housing_assisted"):
-        parts.append(t("summary_voucher", L))
+        parts.append(t("summary_voucher", L, hh.get("municipio", "San Juan")))
     text = "; ".join(parts)
     # shown with st.markdown, where "$…$" would be read as LaTeX
     return (text[0].upper() + text[1:] + ".").replace("$", "\\$")

@@ -146,3 +146,44 @@
         housing_assisted: true
   output:
     section8_bedrooms: 1
+
+- name: "Ponce area: three-person very low limit $15,000 and two-bedroom standard $589"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+        housing_assisted: true
+        hud_area: PONCE
+  output:
+    section8_income_eligible: true
+    section8_payment_standard: 589
+    # (589 - 276) x 12
+    section8: 3_756
+
+- name: "Nonmetro area: a $16,000 income is over the $12,500 three-person limit"
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 16_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+        hud_area: NONMETRO
+  output:
+    section8_income_eligible: false

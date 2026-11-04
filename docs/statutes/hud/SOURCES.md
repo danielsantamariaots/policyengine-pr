@@ -21,6 +21,8 @@ allowance schedule; both are flagged `gap:` in
 | PRPHA_Administrative_Plan_Section8_June2025.pdf / .txt | https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf (avp.pr.gov → Reglamentación) | PRPHA Housing Choice Voucher Administrative Plan, amended 20 June 2025, 159 pp. Sec. VI.A payment standards 90–110% of FMR, set annually, hold harmless; VI.B occupancy standards (two per bedroom, head/spouse separate bedroom, one-person family → 1 BR, table 0–6 BR); VI.D family share (highest of 10% gross, 30% adjusted, **minimum rent $0**); VI.E / Sec. on adjusted income ($480 dependent, $400 elderly in the plan text, i.e. pre-HOTMA; child care, medical > 3%, disability expenses); Sec. XIV HOTMA chapter. |
 | PRPHA_Annual_Plan_2026.pdf / .txt | https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/Plan_2026/PHA_Annual_Plan_2026_Final.pdf | PHA Annual Plan 2026: 12,863 HCVs on the HUD form (12,896 in the text), nine regional offices with their municipalities. No HAP totals. |
 | psh_2024_pr_vouchers.csv (from PHA_2024_2020census.xlsx, kept in data/raw/hud/, git-ignored) | https://www.huduser.gov/portal/datasets/assthsg.html → Data → 2024 → Public Housing Agency (downloaded in a browser 2026-11-04; a 2025 file also exists) | HUD Picture of Subsidized Households, extract of 31 Dec 2024, Housing Choice Voucher rows for the 75 Puerto Rico PHAs. **33,948 vouchers in all**: PRPHA RQ005 12,437 (90% occupied), San Juan RQ006 4,715, Bayamón RQ011 2,225, Ponce 1,580, Caguas 1,405, Arecibo 933, Mayagüez 848, Carolina 808, and 67 smaller municipal PHAs. Unit-weighted averages: HAP **$632 a month**, tenant rent $170, household income **$7,183 a year**; 61–75% of households below 30% of area median; main income source wages 28% (PRPHA), welfare 6%, other (SS, pensions) 63%; head aged 62+ 34% (PRPHA); one-adult households 36%; bedroom mix PRPHA 35% 1 BR, 23% 2 BR, 42% 3+ BR. |
+| HUD FY2025 FMR Documentation System (one page per municipio, read in a browser 4 Nov 2026; e.g. fips=7212799999 for San Juan) | https://www.huduser.gov/portal/datasets/fmr/fmrs/FY2025_code/2025summary.odn?fips=7212799999&year=2025&selection_type=county&data=2025 | FY2025 FMRs by bedroom and the municipios in each of the 11 FMR areas: San Juan-Guaynabo HMFA (28 municipios), Caguas (5), Fajardo (3), Barranquitas-Aibonito (4), Aguadilla-Isabela MSA (9, incl. Lares and Utuado), Arecibo (4), Guayama (3), Mayagüez (3, incl. Las Marías), San Germán (4), Ponce (4, incl. Adjuntas), Yauco (4); the other 7 municipios (Coamo, Culebra, Jayuya, Maricao, Salinas, Santa Isabel, Vieques) are the Nonmetro area. Income limits carve Adjuntas, Lares-Utuado and Las Marías out as exception areas (HOME table). Encoded in `policyengine_pr/data/hud_areas.py`. |
+| psh_2025_pr_vouchers.csv (from PHA_2025_2020census.xlsx, git-ignored) | same HUD page, 2025 row (downloaded 4 Nov 2026) | Extract of 31 Dec 2025: 74 PHAs, 33,883 vouchers, 27,948 in use (82.5%), HAP $634 a month, household income $7,634, 27.5% head 62+, 62.6% below 30% of median, wages the main income for 31%. The 2025 file splits tenant-based (29,893) and project-based (3,946) vouchers; the CSV keeps the all-voucher row per PHA. |
 | 89 FR 27377 (17 Apr 2024) | https://www.govinfo.gov/content/pkg/FR-2024-04-17/html/2024-08133.htm | HUD methodology for the annual inflation adjustment of the HOTMA amounts; 2024 dependent deduction $480. |
 | Arizona Dept. of Housing IB-67-24 (Oct 2024) | https://housing.az.gov/sites/default/files/2024-10/IB-67-24-HOTMA-Implementation-Date-Extended.pdf | Secondary source: 2025 amounts unchanged, $480 dependent and $525 elderly/disabled. HUD's 2025 notice not yet saved. |
 
@@ -31,15 +33,18 @@ allowance schedule; both are flagged `gap:` in
   renter households within the very low income limit, drawn at random
   within four strata (member 62+, income below the extremely low limit) to
   HUD's shares, and calibrated to 28,425 voucher households in use. The
-  modelled HAP total ($155 M) is 72% of HUD's $216 M (28,425 × $632 × 12),
+  modelled HAP total ($142 M) is 66% of HUD's $216 M (28,425 × $632 × 12),
   consistent with PRPHA paying above 100% of the San Juan FMR or with
   lower incomes among actual voucher holders; reported as a check in
   `data/calibration_report.csv`.
 - Annual income = wages + net self-employment profit + pensions + Social
   Security + interest + dividends + TANF. Adjusted income subtracts $480
   per member under 18 and $525 if any member is 62 or over.
+- `hud_area` (input; 15 areas) selects the income limits and FMRs; the app
+  offers a municipio list, the PRCS assigns it from the PUMA (PUMAs that
+  span areas take the majority area).
 - Bedrooms = 1 for the head/spouse plus ceil(others / 2) (PRPHA Sec. VI.B),
-  capped at 5; payment standard = San Juan FMR
+  capped at 5; payment standard = the area's FMR
   for that size; TTP = max(30% adjusted, 10% gross, $0); HAP = (min(payment
   standard, gross rent) − TTP) × 12, never negative. `housing_rent` = 0
   means the rent equals the payment standard.
@@ -51,9 +56,9 @@ allowance schedule; both are flagged `gap:` in
 1. Payment-standard dollar schedule by bedroom size and FMR area (982.503);
    the plan states only the 90–110% band.
 2. Utility allowance schedule (gross rent = rent + allowance).
-3. Share of vouchers by regional office / FMR area, to apply the other
-   seven areas' income limits and FMRs (HUD's Picture of Subsidized
-   Households gives PHA totals, not areas).
+3. Share of vouchers by regional office / FMR area (HUD's Picture of
+   Subsidized Households gives PHA totals, which the municipal PHAs map
+   to municipios; PRPHA's 12,400 are island-wide).
 4. Medical, disability-assistance and child-care deductions (§5.611(a)(3)–(4)):
    amounts are household-specific, so they need inputs rather than data.
 5. Whether PRPHA applies the HOTMA $525 elderly deduction (the June 2025

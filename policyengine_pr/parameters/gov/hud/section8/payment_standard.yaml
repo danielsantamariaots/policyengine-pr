@@ -1,29 +1,225 @@
-description: Monthly voucher payment standard by number of bedrooms, set equal to the FY2025 Fair Market Rent for the San Juan-Guaynabo HUD Metro FMR Area.
+description: Monthly voucher payment standard by HUD FMR area (hud_area) and number of bedrooms, equal to the FY2025 Fair Market Rent (0 = efficiency, 1-5 bedrooms).
 metadata:
   unit: currency-USD
   period: month
-  label: Section 8 payment standard by bedrooms
+  label: Section 8 payment standard by area and bedrooms
   reference:
-    - title: "HUD, FY2025 HOME Program Rents, State of Puerto Rico, San Juan-Guaynabo, PR HUD Metro FMR Area, 'For Information Only: FAIR MARKET RENT' row (efficiency $552, 1 BR $569, 2 BR $656, 3 BR $861, 4 BR $1,033, 5 BR $1,188)"
+    - title: "HUD, FY2025 Fair Market Rent Documentation System, one page per Puerto Rico municipio: FMRs by bedroom and the municipios each FMR area consists of (read 4 Nov 2026; exception areas for income limits use their FMR area's rents: Adjuntas -> Ponce, Lares-Utuado -> Aguadilla-Isabela, Las Marías -> Mayagüez)"
+      href: https://www.huduser.gov/portal/datasets/fmr/fmrs/FY2025_code/2025summary.odn?fips=7212799999&year=2025&selection_type=county&data=2025
+    - title: "HUD, FY2025 HOME Program Rents, State of Puerto Rico, 'FAIR MARKET RENT' rows (five-bedroom values)"
       href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=RentLimits&program=HOME
     - title: "24 CFR 982.503(b): the PHA sets a payment standard between 90% and 110% of the FMR for each bedroom size"
       href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
-    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.A: payment standards set annually between 90% and 110% of the FMR, within three months of HUD's FMR publication; hold-harmless on FMR decreases"
+    - title: "PRPHA, Housing Choice Voucher Program Administrative Plan (June 20, 2025), Sec. VI.A: payment standards set annually between 90% and 110% of the FMR"
       href: https://docs.pr.gov/files/Vivienda/avp.pr.gov/Reglamentaci%C3%B3n/PRPHA_Administrative_Plan_SECTION_8_AMENDMENT_JUNE%20_2025.pdf
-  gap: >-
-    HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them.
-    The Administrative Plan states the 90-110% band but not the dollar schedule
-    adopted for FY2025 by area and bedroom size; 100% of the San Juan-Guaynabo
-    FMR is used for every area until PRPHA provides it.
-0:
-  2025-01-01: 552
-1:
-  2025-01-01: 569
-2:
-  2025-01-01: 656
-3:
-  2025-01-01: 861
-4:
-  2025-01-01: 1033
-5:
-  2025-01-01: 1188
+  gap: The dollar schedule PRPHA adopts within the 90-110% band is not published; 100% of the FMR is used.
+SAN_JUAN:
+  description: "San Juan-Guaynabo, PR HUD Metro FMR Area"
+  0:
+    2025-01-01: 552
+  1:
+    2025-01-01: 569
+  2:
+    2025-01-01: 656
+  3:
+    2025-01-01: 861
+  4:
+    2025-01-01: 1033
+  5:
+    2025-01-01: 1188
+CAGUAS:
+  description: "Caguas, PR HUD Metro FMR Area"
+  0:
+    2025-01-01: 490
+  1:
+    2025-01-01: 493
+  2:
+    2025-01-01: 577
+  3:
+    2025-01-01: 809
+  4:
+    2025-01-01: 969
+  5:
+    2025-01-01: 1114
+FAJARDO:
+  description: "Fajardo, PR HUD Metro FMR Area"
+  0:
+    2025-01-01: 503
+  1:
+    2025-01-01: 506
+  2:
+    2025-01-01: 589
+  3:
+    2025-01-01: 740
+  4:
+    2025-01-01: 828
+  5:
+    2025-01-01: 952
+BARRANQUITAS:
+  description: "Barranquitas-Aibonito, PR HUD Metro FMR Area"
+  0:
+    2025-01-01: 428
+  1:
+    2025-01-01: 428
+  2:
+    2025-01-01: 493
+  3:
+    2025-01-01: 599
+  4:
+    2025-01-01: 701
+  5:
+    2025-01-01: 806
+AGUADILLA:
+  description: "Aguadilla-Isabela, PR MSA"
+  0:
+    2025-01-01: 487
+  1:
+    2025-01-01: 490
+  2:
+    2025-01-01: 560
+  3:
+    2025-01-01: 681
+  4:
+    2025-01-01: 758
+  5:
+    2025-01-01: 872
+LARES_UTUADO:
+  description: "Lares-Utuado, PR Exception Area"
+  0:
+    2025-01-01: 487
+  1:
+    2025-01-01: 490
+  2:
+    2025-01-01: 560
+  3:
+    2025-01-01: 681
+  4:
+    2025-01-01: 758
+  5:
+    2025-01-01: 872
+ARECIBO:
+  description: "Arecibo, PR MSA"
+  0:
+    2025-01-01: 462
+  1:
+    2025-01-01: 465
+  2:
+    2025-01-01: 531
+  3:
+    2025-01-01: 731
+  4:
+    2025-01-01: 809
+  5:
+    2025-01-01: 930
+GUAYAMA:
+  description: "Guayama, PR MSA"
+  0:
+    2025-01-01: 415
+  1:
+    2025-01-01: 418
+  2:
+    2025-01-01: 489
+  3:
+    2025-01-01: 646
+  4:
+    2025-01-01: 648
+  5:
+    2025-01-01: 745
+MAYAGUEZ:
+  description: "Mayagüez, PR MSA"
+  0:
+    2025-01-01: 498
+  1:
+    2025-01-01: 518
+  2:
+    2025-01-01: 573
+  3:
+    2025-01-01: 730
+  4:
+    2025-01-01: 846
+  5:
+    2025-01-01: 973
+LAS_MARIAS:
+  description: "Las Marías Municipio, PR Exception Area"
+  0:
+    2025-01-01: 498
+  1:
+    2025-01-01: 518
+  2:
+    2025-01-01: 573
+  3:
+    2025-01-01: 730
+  4:
+    2025-01-01: 846
+  5:
+    2025-01-01: 973
+SAN_GERMAN:
+  description: "San Germán, PR MSA"
+  0:
+    2025-01-01: 430
+  1:
+    2025-01-01: 433
+  2:
+    2025-01-01: 539
+  3:
+    2025-01-01: 684
+  4:
+    2025-01-01: 718
+  5:
+    2025-01-01: 826
+PONCE:
+  description: "Ponce, PR MSA"
+  0:
+    2025-01-01: 512
+  1:
+    2025-01-01: 532
+  2:
+    2025-01-01: 589
+  3:
+    2025-01-01: 825
+  4:
+    2025-01-01: 894
+  5:
+    2025-01-01: 1028
+ADJUNTAS:
+  description: "Adjuntas Municipio, PR Exception Area"
+  0:
+    2025-01-01: 512
+  1:
+    2025-01-01: 532
+  2:
+    2025-01-01: 589
+  3:
+    2025-01-01: 825
+  4:
+    2025-01-01: 894
+  5:
+    2025-01-01: 1028
+YAUCO:
+  description: "Yauco, PR MSA"
+  0:
+    2025-01-01: 433
+  1:
+    2025-01-01: 450
+  2:
+    2025-01-01: 498
+  3:
+    2025-01-01: 658
+  4:
+    2025-01-01: 660
+  5:
+    2025-01-01: 759
+NONMETRO:
+  description: "Puerto Rico HUD Nonmetro Area"
+  0:
+    2025-01-01: 413
+  1:
+    2025-01-01: 429
+  2:
+    2025-01-01: 475
+  3:
+    2025-01-01: 666
+  4:
+    2025-01-01: 733
+  5:
+    2025-01-01: 843

@@ -24,9 +24,12 @@ tabulations allow calibration):
   income together); dividend_income and capital gains are zero.
 - is_veteran: served on active duty in the past (MIL == 2).
 - is_full_time_student: enrolled in school (SCH > 1) and aged 18 or over.
+- hud_area: the HUD FMR / income-limit area of the PUMA's municipios
+  (policyengine_pr/data/hud_areas.py); a PUMA spanning several areas takes
+  the area with most of its municipios (GAP: PUMAs 0700, 0800, 1900, 2000).
 - housing_assisted (Section 8 voucher): the PRCS does not ask about rent
   subsidies, so receipt is imputed. Pool: renter households (TEN == 3) with
-  income at or below the very low income limit for their size. Within four
+  income at or below the very low income limit for their size and area. Within four
   strata (member aged 62+ or not, income below the extremely low limit or
   not) households are drawn at random (seed 20241231) until the stratum's
   weighted count reaches its target: 28,425 voucher households in use (HUD
@@ -86,15 +89,28 @@ def uprating_factor(from_year: int = 2023, to_year: int = TAX_YEAR) -> float:
 def impute_vouchers(h: pd.DataFrame, p: pd.DataFrame, adj) -> np.ndarray:
     """Boolean per household: holds a Section 8 voucher (see module doc)."""
     from policyengine_pr import system
+    from policyengine_pr.data.hud_areas import area_of_puma
+    from policyengine_pr.variables.gov.hud.section8.hud_area import HUDArea
 
     limits = system.parameters.gov.hud.section8.income_limit
     instant = f"{TAX_YEAR}-01-01"
-    vli = np.array(
-        [limits.very_low.children[str(i)](instant) for i in range(1, 9)]
+    areas = [a.name for a in HUDArea]
+    area_index = np.array(
+        [areas.index(area_of_puma(int(x))) for x in h["PUMA"]]
     )
-    eli = np.array(
-        [limits.extremely_low.children[str(i)](instant) for i in range(1, 9)]
-    )
+
+    def table(node):
+        return np.array(
+            [
+                [
+                    node.children[a].children[str(i)](instant)
+                    for i in range(1, 9)
+                ]
+                for a in areas
+            ]
+        )
+
+    vli, eli = table(limits.very_low), table(limits.extremely_low)
 
     income = (
         (
@@ -116,8 +132,10 @@ def impute_vouchers(h: pd.DataFrame, p: pd.DataFrame, adj) -> np.ndarray:
         {"income": income, "size": size, "elderly": elderly}
     ).reindex(range(len(h)))
     idx = hh["size"].clip(1, 8).astype(int).values - 1
-    hh["eli"] = hh["income"].values <= eli[idx]
-    pool = (h["TEN"].values == 3) & (hh["income"].values <= vli[idx])
+    hh["eli"] = hh["income"].values <= eli[area_index, idx]
+    pool = (h["TEN"].values == 3) & (
+        hh["income"].values <= vli[area_index, idx]
+    )
 
     rng = np.random.default_rng(VOUCHER_SEED)
     assisted = np.zeros(len(h), dtype=bool)
@@ -144,6 +162,9 @@ def impute_vouchers(h: pd.DataFrame, p: pd.DataFrame, adj) -> np.ndarray:
 
 
 def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
+    from policyengine_pr.data.hud_areas import area_of_puma
+    from policyengine_pr.variables.gov.hud.section8.hud_area import HUDArea
+
     p = pd.read_csv(raw / "psam_p72.csv", usecols=PERSON_COLS)
     h = pd.read_csv(raw / "psam_h72.csv", usecols=HOUSEHOLD_COLS)
     h = h[
@@ -202,7 +223,13 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
         "is_tax_unit_dependent": p["is_dependent"].values,
         "is_full_time_student": (student & (p["AGEP"] >= 18)).values,
         "is_veteran": (p["MIL"].fillna(4) == 2).values,
-        # household inputs
+        # household inputs (hud_area stored as the HUDArea index)
+        "hud_area": np.array(
+            [
+                [a.name for a in HUDArea].index(area_of_puma(int(x)))
+                for x in h["PUMA"]
+            ]
+        ),
         "housing_assisted": impute_vouchers(h, p, adj),
         # tax unit inputs
         # Enum inputs are stored as the index in PRFilingStatus (SINGLE 0, JOINT 1)

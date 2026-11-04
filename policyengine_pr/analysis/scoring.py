@@ -56,6 +56,42 @@ def _weighted_deciles(values, weights, n=10):
     return deciles
 
 
+BENEFITS = [
+    ("pr_eitc", "Crédito por Trabajo", "Crédito por Trabajo"),
+    ("federal_actc", "Crédito federal por hijos", "Federal child credit"),
+    ("pan", "PAN", "PAN"),
+    ("tanf", "TANF", "TANF"),
+    ("section8", "Sección 8", "Section 8"),
+]
+
+
+def benefits_by_decile(sim):
+    """Current-law credits and benefits by household net-income decile:
+    mean dollars per household (all households in the decile, recipients
+    or not), the share of households receiving each, and the decile's
+    weighted total. Columns: decile, households, <var>_mean, <var>_share,
+    <var>_total for each variable in BENEFITS."""
+    w = sim.calculate("household_weight", YEAR)
+    net = sim.calculate("household_net_income", YEAR)
+    decile = _weighted_deciles(np.asarray(net), np.asarray(w))
+    values = {
+        v: np.asarray(sim.calculate(v, YEAR, map_to="household"))
+        for v, *_ in BENEFITS
+    }
+    rows = []
+    for d in range(1, 11):
+        m = decile == d
+        wd = w[m]
+        row = {"decile": d, "households": wd.sum()}
+        for v in values:
+            x = values[v][m]
+            row[f"{v}_mean"] = np.average(x, weights=wd)
+            row[f"{v}_share"] = np.average(x > 0, weights=wd)
+            row[f"{v}_total"] = (x * wd).sum()
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def default_dataset():
     """The calibrated PRCS when it has been built, else the survey-weighted one."""
     return PRCSCalibrated if PRCSCalibrated.file_path.exists() else PRCS

@@ -85,6 +85,18 @@ TEXT = {
         "rate. 0 = static; 0.25 is a common central estimate.",
     ),
     "eti_static": ("Ninguna (estático)", "None (static)"),
+    "benefits_title": (
+        "Créditos y beneficios por decil, ley vigente",
+        "Credits and benefits by decile, current law",
+    ),
+    "benefits_sub": (
+        "Promedio anual por hogar en cada decil, reciba o no el programa. Sección 8 se imputa a hogares arrendatarios dentro del límite de ingreso muy bajo (calibrado a 28,425 hogares; el subsidio total modelado es el 66% del de HUD).",
+        "Annual average per household in each decile, recipients or not. Section 8 is imputed to renter households within the very low income limit (calibrated to 28,425 households; the modelled subsidy total is 66% of HUD's).",
+    ),
+    "benefits_y": ("Promedio anual por hogar", "Annual average per household"),
+    "benefits_table": ("Ver tabla", "Table view"),
+    "col_share": ("% de hogares con {}", "% of households with {}"),
+    "col_mean": ("{} medio", "Mean {}"),
     "calibration_title": (
         "Calibración a totales oficiales",
         "Calibration to official totals",
@@ -160,6 +172,19 @@ def _calibration_report():
 
     _, report = calibrate(Simulation(dataset=PRCS))
     return report
+
+
+@st.cache_data(show_spinner=False)
+def _benefits_for(dataset_mtime: float):
+    from policyengine_pr.analysis.scoring import benefits_by_decile
+
+    return benefits_by_decile(_baseline())
+
+
+def _benefits():
+    from policyengine_pr.analysis.scoring import default_dataset
+
+    return _benefits_for(default_dataset().file_path.stat().st_mtime)
 
 
 @st.cache_data(show_spinner=False)
@@ -310,6 +335,56 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     fig.update_xaxes(dtick=1)
     fig.update_layout(barmode="relative", bargap=0.25)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+
+    from policyengine_pr.analysis.scoring import BENEFITS
+
+    st.subheader(t("benefits_title"))
+    ben = _benefits()
+    fig = charts.figure(
+        None,
+        None,
+        x_title=t("x_axis"),
+        y_money=True,
+        height=400,
+    )
+    series_keys = {
+        "pr_eitc": "eitc",
+        "federal_actc": "actc",
+        "pan": "pan",
+        "tanf": "tanf",
+        "section8": "section8",
+    }
+    for var, es, en in BENEFITS:
+        charts.bars(
+            fig,
+            ben["decile"],
+            ben[f"{var}_mean"],
+            (es, en)[L],
+            charts.SERIES[series_keys[var]],
+        )
+    fig.update_layout(barmode="stack", bargap=0.25)
+    fig.update_xaxes(dtick=1)
+    fig.update_yaxes(title_text=t("benefits_y"))
+    st.caption(t("benefits_sub"))
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    with st.expander(t("benefits_table")):
+        table = pd.DataFrame({t("x_axis"): ben["decile"]})
+        for var, es, en in BENEFITS:
+            label = (es, en)[L]
+            table[t("col_mean").format(label)] = ben[f"{var}_mean"]
+            table[t("col_share").format(label)] = ben[f"{var}_share"]
+        st.dataframe(
+            table.style.format(
+                {
+                    c: "${:,.0f}"
+                    for c in table.columns
+                    if "medio" in c or "Mean" in c
+                }
+                | {c: "{:.0%}" for c in table.columns if "%" in c}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
 
     st.subheader(t("totals_title"))
     tot = r["totals"]

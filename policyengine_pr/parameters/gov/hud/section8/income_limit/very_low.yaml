@@ -1,32 +1,281 @@
-description: Very low income limit (50% of area median income) for admission to the Housing Choice Voucher programme, by household size, San Juan-Guaynabo HUD Metro FMR Area, FY2025.
+description: Very low income limit (50% of area median income) for admission to the Housing Choice Voucher programme, by HUD income-limit area (hud_area) and household size, FY2025.
 metadata:
   unit: currency-USD
   period: year
-  label: Section 8 very low income limit (San Juan-Guaynabo)
+  label: Section 8 very low income limit by area
   reference:
-    - title: "HUD, FY2025 HOME Program Income Limits, State of Puerto Rico, San Juan-Guaynabo, PR HUD Metro FMR Area, VERY LOW INCOME row (effective 1 April 2025)"
+    - title: "HUD, FY2025 HOME Program Income Limits, State of Puerto Rico, 'VERY LOW INCOME' rows for every income-limit area (effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them)"
       href: https://www.hudexchange.info/resource/reportmanage/manage/?filter_Year=2025&filter_Scope=State&filter_State=PR&group=IncomeLmts&program=HOME
-    - title: "24 CFR 982.201(b)(1): initial eligibility limited to very low-income families (with 75% of admissions reserved for extremely low-income families)"
+    - title: "24 CFR 982.201(b)(1): initial eligibility limited to very low-income families (75% of admissions reserved for extremely low-income families)"
       href: https://www.ecfr.gov/current/title-24/subtitle-B/chapter-IX/part-982
-  gap: >-
-    HUD values effective 1 April 2025, dated 2025-01-01 so the 2025 tax year uses them.
-    San Juan-Guaynabo limits are applied to every household; the other
-    seven Puerto Rico FMR areas (docs/statutes/hud/HOME_IncomeLmts_State_PR_2025.txt)
-    are lower. Households larger than 8 use the size-8 value (HUD adds 8% of
-    the four-person limit per extra person).
-1:
-  2025-01-01: 13650
-2:
-  2025-01-01: 15600
-3:
-  2025-01-01: 17550
-4:
-  2025-01-01: 19450
-5:
-  2025-01-01: 21050
-6:
-  2025-01-01: 22600
-7:
-  2025-01-01: 24150
-8:
-  2025-01-01: 25700
+  gap: Households larger than 8 use the size-8 value (HUD adds 8% of the four-person limit per extra person).
+SAN_JUAN:
+  description: "San Juan-Guaynabo, PR HUD Metro FMR Area"
+  1:
+    2025-01-01: 13650
+  2:
+    2025-01-01: 15600
+  3:
+    2025-01-01: 17550
+  4:
+    2025-01-01: 19450
+  5:
+    2025-01-01: 21050
+  6:
+    2025-01-01: 22600
+  7:
+    2025-01-01: 24150
+  8:
+    2025-01-01: 25700
+CAGUAS:
+  description: "Caguas, PR HUD Metro FMR Area"
+  1:
+    2025-01-01: 12400
+  2:
+    2025-01-01: 14200
+  3:
+    2025-01-01: 15950
+  4:
+    2025-01-01: 17700
+  5:
+    2025-01-01: 19150
+  6:
+    2025-01-01: 20550
+  7:
+    2025-01-01: 21950
+  8:
+    2025-01-01: 23400
+FAJARDO:
+  description: "Fajardo, PR HUD Metro FMR Area"
+  1:
+    2025-01-01: 12050
+  2:
+    2025-01-01: 13750
+  3:
+    2025-01-01: 15450
+  4:
+    2025-01-01: 17150
+  5:
+    2025-01-01: 18550
+  6:
+    2025-01-01: 19900
+  7:
+    2025-01-01: 21300
+  8:
+    2025-01-01: 22650
+BARRANQUITAS:
+  description: "Barranquitas-Aibonito, PR HUD Metro FMR Area"
+  1:
+    2025-01-01: 10050
+  2:
+    2025-01-01: 11500
+  3:
+    2025-01-01: 12950
+  4:
+    2025-01-01: 14350
+  5:
+    2025-01-01: 15500
+  6:
+    2025-01-01: 16650
+  7:
+    2025-01-01: 17800
+  8:
+    2025-01-01: 18950
+AGUADILLA:
+  description: "Aguadilla-Isabela, PR MSA"
+  1:
+    2025-01-01: 11450
+  2:
+    2025-01-01: 13050
+  3:
+    2025-01-01: 14700
+  4:
+    2025-01-01: 16300
+  5:
+    2025-01-01: 17650
+  6:
+    2025-01-01: 18950
+  7:
+    2025-01-01: 20250
+  8:
+    2025-01-01: 21550
+LARES_UTUADO:
+  description: "Lares-Utuado, PR Exception Area"
+  1:
+    2025-01-01: 10150
+  2:
+    2025-01-01: 11550
+  3:
+    2025-01-01: 13000
+  4:
+    2025-01-01: 14400
+  5:
+    2025-01-01: 15600
+  6:
+    2025-01-01: 16750
+  7:
+    2025-01-01: 17900
+  8:
+    2025-01-01: 19050
+ARECIBO:
+  description: "Arecibo, PR MSA"
+  1:
+    2025-01-01: 11950
+  2:
+    2025-01-01: 13650
+  3:
+    2025-01-01: 15350
+  4:
+    2025-01-01: 17050
+  5:
+    2025-01-01: 18450
+  6:
+    2025-01-01: 19800
+  7:
+    2025-01-01: 21150
+  8:
+    2025-01-01: 22550
+GUAYAMA:
+  description: "Guayama, PR MSA"
+  1:
+    2025-01-01: 10150
+  2:
+    2025-01-01: 11600
+  3:
+    2025-01-01: 13050
+  4:
+    2025-01-01: 14500
+  5:
+    2025-01-01: 15700
+  6:
+    2025-01-01: 16850
+  7:
+    2025-01-01: 18000
+  8:
+    2025-01-01: 19150
+MAYAGUEZ:
+  description: "Mayagüez, PR MSA"
+  1:
+    2025-01-01: 11700
+  2:
+    2025-01-01: 13400
+  3:
+    2025-01-01: 15050
+  4:
+    2025-01-01: 16700
+  5:
+    2025-01-01: 18050
+  6:
+    2025-01-01: 19400
+  7:
+    2025-01-01: 20750
+  8:
+    2025-01-01: 22050
+LAS_MARIAS:
+  description: "Las Marías Municipio, PR Exception Area"
+  1:
+    2025-01-01: 10350
+  2:
+    2025-01-01: 11800
+  3:
+    2025-01-01: 13300
+  4:
+    2025-01-01: 14750
+  5:
+    2025-01-01: 15950
+  6:
+    2025-01-01: 17150
+  7:
+    2025-01-01: 18300
+  8:
+    2025-01-01: 19500
+SAN_GERMAN:
+  description: "San Germán, PR MSA"
+  1:
+    2025-01-01: 11000
+  2:
+    2025-01-01: 12600
+  3:
+    2025-01-01: 14150
+  4:
+    2025-01-01: 15700
+  5:
+    2025-01-01: 17000
+  6:
+    2025-01-01: 18250
+  7:
+    2025-01-01: 19500
+  8:
+    2025-01-01: 20750
+PONCE:
+  description: "Ponce, PR MSA"
+  1:
+    2025-01-01: 11650
+  2:
+    2025-01-01: 13300
+  3:
+    2025-01-01: 15000
+  4:
+    2025-01-01: 16650
+  5:
+    2025-01-01: 18000
+  6:
+    2025-01-01: 19300
+  7:
+    2025-01-01: 20650
+  8:
+    2025-01-01: 22000
+ADJUNTAS:
+  description: "Adjuntas Municipio, PR Exception Area"
+  1:
+    2025-01-01: 10200
+  2:
+    2025-01-01: 11600
+  3:
+    2025-01-01: 13100
+  4:
+    2025-01-01: 14500
+  5:
+    2025-01-01: 15700
+  6:
+    2025-01-01: 16850
+  7:
+    2025-01-01: 18050
+  8:
+    2025-01-01: 19150
+YAUCO:
+  description: "Yauco, PR MSA"
+  1:
+    2025-01-01: 10550
+  2:
+    2025-01-01: 12050
+  3:
+    2025-01-01: 13550
+  4:
+    2025-01-01: 15050
+  5:
+    2025-01-01: 16300
+  6:
+    2025-01-01: 17500
+  7:
+    2025-01-01: 18700
+  8:
+    2025-01-01: 19900
+NONMETRO:
+  description: "Puerto Rico HUD Nonmetro Area"
+  1:
+    2025-01-01: 9700
+  2:
+    2025-01-01: 11100
+  3:
+    2025-01-01: 12500
+  4:
+    2025-01-01: 13850
+  5:
+    2025-01-01: 15000
+  6:
+    2025-01-01: 16100
+  7:
+    2025-01-01: 17200
+  8:
+    2025-01-01: 18300

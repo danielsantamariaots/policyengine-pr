@@ -22,6 +22,7 @@ import streamlit as st
 import ui
 
 from policyengine_pr import Simulation, system
+from policyengine_pr.data.hud_areas import MUNICIPIOS
 from policyengine_pr.reforms.parametric import LEVERS, parametric_reform
 
 YEAR = 2025
@@ -107,6 +108,11 @@ TEXT = {
         "Housing Choice Voucher from the Departamento de la Vivienda. The "
         "subsidy is the San Juan fair market rent less 30% of adjusted "
         "income (24 CFR 982.505).",
+    ),
+    "municipio": ("Municipio", "Municipio"),
+    "municipio_help": (
+        "Fija el área de HUD: límites de ingreso y renta justa de mercado (FY2025) del vale.",
+        "Sets the HUD area: the voucher's income limits and fair market rent (FY2025).",
     ),
     "housing_rent": (
         "Renta mensual, con utilidades ($)",
@@ -532,6 +538,7 @@ def build_situation(hh, filer_wages):
                 "members": members,
                 "housing_assisted": {YEAR: hh["housing_assisted"]},
                 "housing_rent": {YEAR: hh["housing_rent"]},
+                "hud_area": {YEAR: MUNICIPIOS[hh["municipio"]][1]},
                 "pan_resources": {YEAR: hh["pan_resources"]},
                 "pan_pays_dependent_care": {
                     YEAR: hh["pan_pays_dependent_care"]
@@ -689,6 +696,12 @@ with st.sidebar:
             t("housing_assisted"),
             key="housing_assisted",
             help=t("housing_assisted_help"),
+        )
+        hh["municipio"] = st.selectbox(
+            t("municipio"),
+            list(MUNICIPIOS),
+            key="municipio",
+            help=t("municipio_help"),
         )
         hh["housing_rent"] = st.number_input(
             t("housing_rent"),

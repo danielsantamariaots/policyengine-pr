@@ -112,8 +112,13 @@ late: ship the household calculator first; aggregate estimates follow.
   $7,183. **Imputed since 2026-11-04**: renter households within the very
   low income limit are drawn by stratum (member 62+, extremely low income)
   to HUD's shares and the weights are calibrated to 28,425 voucher
-  households; the HAP total ($155 M) is 72% of HUD's $216 M (check only).
-  Section 8 now enters reform scoring through household net income. CliffWatch gains a two-household comparison
+  households; the HAP total ($142 M, area FMRs) is 66% of HUD's $216 M (check only).
+  Section 8 now enters reform scoring through household net income.
+  **Areas since 2026-11-04**: `hud_area` (15 HUD FMR / income-limit areas
+  from HUD's FY2025 FMR documentation pages, `policyengine_pr/data/hud_areas.py`)
+  drives the limits and FMRs; the app has a municipio selector, the PRCS
+  takes the PUMA's majority area. HUD's 2025 extract is saved alongside
+  2024 (27,948 vouchers in use, $634 a month). CliffWatch gains a two-household comparison
   (presets, or the same adults unmarried → marriage penalty). The URL
   carries every non-default input and lever (`ui.sync_query_params`), so a
   calculator or CliffWatch view can be shared as a link.

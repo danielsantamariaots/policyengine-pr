@@ -9,3 +9,4 @@
 
 - `raw/hud/PHA_2024_2020census.xlsx`: HUD Picture of Subsidized Households 2024, PHA table (downloaded from huduser.gov in a browser). The Puerto Rico voucher rows are committed as `docs/statutes/hud/psh_2024_pr_vouchers.csv`.
 - `housing_assisted` in `prcs_2023.h5` is imputed (see `policyengine_pr/data/prcs.py`), not observed: the PRCS has no rent-subsidy question.
+- `raw/hud/PHA_2025_2020census.xlsx`: the 2025 extract (31 Dec 2025); Puerto Rico rows in `docs/statutes/hud/psh_2025_pr_vouchers.csv`.
