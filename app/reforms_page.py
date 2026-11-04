@@ -131,11 +131,19 @@ TEXT = {
 
 
 @st.cache_resource(show_spinner=False)
-def _baseline():
+def _baseline_for(dataset_mtime: float):
+    """Baseline simulation, cached per dataset file version so a redeployed
+    data file never meets a baseline built from the previous one."""
     from policyengine_pr import Simulation
     from policyengine_pr.analysis.scoring import default_dataset
 
     return Simulation(dataset=default_dataset())
+
+
+def _baseline():
+    from policyengine_pr.analysis.scoring import default_dataset
+
+    return _baseline_for(default_dataset().file_path.stat().st_mtime)
 
 
 REPORT_CSV = (
@@ -155,9 +163,17 @@ def _calibration_report():
 
 
 @st.cache_data(show_spinner=False)
-def _score(changes: tuple, eti: float = 0.0):
+def _score_for(changes: tuple, eti: float, dataset_mtime: float):
     reform = parametric_reform(dict(changes)) if changes else None
     return score(reform, baseline_sim=_baseline(), eti=eti)
+
+
+def _score(changes: tuple, eti: float = 0.0):
+    from policyengine_pr.analysis.scoring import default_dataset
+
+    return _score_for(
+        changes, eti, default_dataset().file_path.stat().st_mtime
+    )
 
 
 def money_m(x):
