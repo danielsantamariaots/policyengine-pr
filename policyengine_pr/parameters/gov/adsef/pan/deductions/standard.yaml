@@ -1,0 +1,21 @@
+description: Standard deduction applied to every PAN household ("deducción fija").
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN standard deduction
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 45.E"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 27 ('Standard Deduction $100')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=27
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 6 ('Deducción Fija': 2022 $184, 2023 $198, 2024 $279)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=6
+    - title: "Metro PR and Sin Comillas, 11 Aug 2024 ($198 to $279 from August 2024)"
+      href: https://www.metro.pr/noticias/2024/08/11/anuncian-aumento-en-los-niveles-de-elegibilidad-del-pan-tras-incremento-en-el-salario-minimo/
+  gap: >-
+    2022 and 2023 effective dates not given by ADSEF; 1 January assumed.
+values:
+  2015-12-28: 100
+  2022-01-01: 184
+  2023-01-01: 198
+  2024-08-01: 279

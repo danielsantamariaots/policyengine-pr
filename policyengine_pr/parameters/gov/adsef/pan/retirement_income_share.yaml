@@ -1,0 +1,11 @@
+description: Share of retirement, veterans' and Social Security income counted as PAN gross income.
+metadata:
+  unit: /1
+  label: PAN share of retirement and Social Security income counted
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 26 ('also applied 50% for retirement, veterans, and Social Security, as approved on August 2018 by FNS')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=26
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 5 (2024 amendment: 50% of Social Security, retirement and unemployment income)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=5
+values:
+  2018-09-01: 0.5

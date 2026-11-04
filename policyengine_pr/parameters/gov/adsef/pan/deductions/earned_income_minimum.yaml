@@ -1,0 +1,12 @@
+description: Fixed earned-income deduction applied when 50% of earnings is below it.
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN minimum earned-income deduction
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 45.A.2"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 26 ('Fixed $100 if 50% is less than $100')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=26
+values:
+  2015-12-28: 100

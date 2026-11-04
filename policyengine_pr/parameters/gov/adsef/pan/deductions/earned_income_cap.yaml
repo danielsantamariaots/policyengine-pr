@@ -1,0 +1,22 @@
+description: Monthly cap on the earned-income deduction.
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN earned-income deduction cap
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 26 ('50% up to $700 (new october 2021)')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=26
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 6 ('Deducción Máxima de Ingreso por Salario (50%)': 2022 $900, 2023 $1,100, 2024 $1,400)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=6
+    - title: "Metro PR, 11 Aug 2024 (cap raised with the August 2024 amendment)"
+      href: https://www.metro.pr/noticias/2024/08/11/anuncian-aumento-en-los-niveles-de-elegibilidad-del-pan-tras-incremento-en-el-salario-minimo/
+  gap: >-
+    The ADSEF statement gives the 2022 and 2023 values by calendar year without
+    effective dates; 1 January is assumed for those two. The 2021 value in the
+    statement ($600) predates the October 2021 increase to $700 in the plan.
+values:
+  2015-12-28: 600
+  2021-10-01: 700
+  2022-01-01: 900
+  2023-01-01: 1_100
+  2024-08-01: 1_400

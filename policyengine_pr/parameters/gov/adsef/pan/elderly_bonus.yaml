@@ -1,0 +1,16 @@
+description: Additional monthly PAN benefit per household member aged 60 or over (20% of the one-person zero-income quota).
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN elderly bonus
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 51.C"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 28 ('add by each elderly $28.00') and p. 29"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=28
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 6 ('Bono de Edad Avanzada')"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=6
+values:
+  2021-10-01: 28
+  2022-01-01: 33
+  2023-01-01: 37

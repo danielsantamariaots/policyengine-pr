@@ -57,4 +57,5 @@
     pr_taxable_gross_income: 0
     pr_income_tax: 0
     household_market_income: 18_000
-    household_net_income: 18_000
+    # 18,000 of benefits plus PAN: 50% counted -> 750 a month less 479 of deductions = 271 <= 633; (183 + 37) x 12 = 2,640
+    household_net_income: 20_640

@@ -1,0 +1,116 @@
+# Expected values computed by hand from ADSEF's NAP State Plan of Operations
+# FY2022 (pp. 26-28) and the 2024 amendment figures in ADSEF's 30 Oct 2024
+# statement (p. 6): earned-income deduction 50% up to $1,400, standard
+# deduction $279, one-person net income limit $633 (from Aug 2024), max
+# benefit $183 (1 person) / $368 (3 persons, October 2021 table), elderly
+# bonus $37, 50% of Social Security and pensions counted. The benefit
+# reduction rate is 0 (GAP: Tabla de Beneficios not published), so every
+# eligible household receives the maximum.
+
+- name: Single worker at $12,000 is eligible and receives the maximum
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 12_000
+    households:
+      household:
+        members: [p]
+  output:
+    # monthly: 1,000 gross; deductions min(500, 1,400) + 279 = 779; net 221 <= 633
+    pan_deductions: 9_348
+    pan_net_income: 2_652
+    pan_eligible: true
+    pan: 2_196
+
+- name: Single worker at $24,000 is over the limit
+  period: 2025
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 24_000
+    households:
+      household:
+        members: [p]
+  output:
+    # monthly: 2,000 gross; deductions 1,000 + 279; net 721 > 633
+    pan_eligible: false
+    pan: 0
+
+- name: Parent with two children at $30,000 (3-person table)
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 32
+        employment_income: 30_000
+      c1:
+        age: 4
+      c2:
+        age: 8
+    households:
+      household:
+        members: [p, c1, c2]
+  output:
+    pan_household_size: 3
+    # monthly: 2,500 gross; deductions min(1,250, 1,400) + 279 = 1,529; net 971 <= 1,706
+    pan_net_income: 11_652
+    pan_eligible: true
+    # 368 x 12
+    pan: 4_416
+
+- name: Retiree with pension and Social Security above the limit
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 65
+        pension_income: 24_000
+        social_security: 14_000
+    households:
+      household:
+        members: [p]
+  output:
+    # 50% x 38,000 = 19,000 counted; monthly 1,583.33; deductions 100 + 100 + 279 = 479; net 1,104.33 > 633
+    pan_gross_income: 19_000
+    pan_deductions: 5_748
+    pan_eligible: false
+    pan: 0
+
+- name: Retiree on $9,000 of Social Security gets the maximum plus the elderly bonus
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 65
+        social_security: 9_000
+    households:
+      household:
+        members: [p]
+  output:
+    # counted 4,500 -> 375 a month; deductions 479; net 0
+    pan_net_income: 0
+    pan_eligible: true
+    # (183 + 37) x 12
+    pan: 2_640
+
+- name: Wages below $200 a month use the $100 minimum earned-income deduction
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      p:
+        age: 30
+        employment_income: 1_200
+    households:
+      household:
+        members: [p]
+  output:
+    # 50% x 100 = 50 < 100 -> 100; plus 279
+    pan_deductions: 4_548

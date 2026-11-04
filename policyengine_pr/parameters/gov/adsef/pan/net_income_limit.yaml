@@ -1,0 +1,54 @@
+description: Maximum monthly net income for PAN eligibility, by household size.
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN maximum monthly net income
+  reference:
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 28, 'Maximum Monthly Net Income by Household Size (effective date October 2021)'"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=28
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 6 (one-person figures 2021-2024)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=6
+    - title: "Metro PR, 11 Aug 2024, August 2024 amendment (one-person maximum net income $619 to $633)"
+      href: https://www.metro.pr/noticias/2024/08/11/anuncian-aumento-en-los-niveles-de-elegibilidad-del-pan-tras-incremento-en-el-salario-minimo/
+  gap: >-
+    Only the October 2021 table is published for sizes 2-18. Later changes are
+    documented for a one-person household only (ADSEF statement; August 2024
+    press release). Sizes 2-18 keep the 2021 values until ADSEF provides the
+    current Tabla. Households larger than 18 use the size-18 value.
+1:
+  2021-10-01: 619
+  2024-08-01: 633
+2:
+  2021-10-01: 1179
+3:
+  2021-10-01: 1706
+4:
+  2021-10-01: 2206
+5:
+  2021-10-01: 2666
+6:
+  2021-10-01: 3199
+7:
+  2021-10-01: 3599
+8:
+  2021-10-01: 4112
+9:
+  2021-10-01: 4632
+10:
+  2021-10-01: 5152
+11:
+  2021-10-01: 5666
+12:
+  2021-10-01: 6186
+13:
+  2021-10-01: 6699
+14:
+  2021-10-01: 7219
+15:
+  2021-10-01: 7732
+16:
+  2021-10-01: 8252
+17:
+  2021-10-01: 8766
+18:
+  2021-10-01: 9286

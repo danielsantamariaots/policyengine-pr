@@ -1,0 +1,9 @@
+description: Age from which a PAN household member counts as elderly (deduction and bonus).
+metadata:
+  unit: year
+  label: PAN elderly age
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículos 45.C.1 and 51.C"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+values:
+  2015-12-28: 60

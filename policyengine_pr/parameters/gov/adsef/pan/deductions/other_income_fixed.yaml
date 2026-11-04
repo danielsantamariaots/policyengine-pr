@@ -1,0 +1,12 @@
+description: Fixed deduction for households whose income is only pensions, Social Security, child support, unemployment or help from relatives (not combinable with the earned-income deduction).
+metadata:
+  unit: currency-USD
+  period: month
+  label: PAN fixed deduction on other income
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 45.B"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 26"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=26
+values:
+  2015-12-28: 100

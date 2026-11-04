@@ -1,0 +1,17 @@
+description: Share of monthly net income subtracted from the maximum PAN benefit to obtain the benefit paid.
+metadata:
+  unit: /1
+  label: PAN benefit reduction rate
+  reference:
+    - title: "Reglamento 8684 (ADSEF, 28 Dec 2015), Artículo 5 def. 69 and Artículo 51.A (benefit 'de acuerdo a las tablas vigentes')"
+      href: https://docs.pr.gov/files/Familia/Reglamentos/Reglamento%208684%20-%20Reglamento%20para%20establecer%20las%20normas%20de%20elegibilidad%20del%20programa%20de%20asistencia%20nutricional%20(PAN).pdf
+    - title: "ADSEF, NAP State Plan of Operations FY2022, p. 29 (benefits 'assigned according to the Table of Benefits')"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=29
+  gap: >-
+    GAP. ADSEF's Tabla de Beneficios (the benefit for each net-income band
+    between zero and the limit) is not published. With 0 the model pays the
+    maximum benefit to every eligible household, which overstates benefits
+    above zero income and creates an artificial cliff at the income limit.
+    Replace with the real schedule when ADSEF provides it.
+values:
+  2015-12-28: 0
