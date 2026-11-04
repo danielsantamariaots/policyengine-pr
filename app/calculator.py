@@ -7,8 +7,15 @@ Three pages share one sidebar: Inicio (choose a page), Calculadora
 net income as wages rise). Shared text and layout live in ui.py.
 """
 
-import cliffwatch
-import pandas as pd
+import sys
+from pathlib import Path
+
+# Import policyengine_pr from this checkout, not from a package installed at
+# first deploy (Streamlit Community Cloud keeps that install across pushes).
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+import cliffwatch  # noqa: E402
+import pandas as pd  # noqa: E402
 import plotly.graph_objects as go
 import reforms_page
 import streamlit as st
