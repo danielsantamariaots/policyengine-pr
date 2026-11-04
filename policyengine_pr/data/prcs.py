@@ -78,7 +78,6 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
     minor_other = (p["AGEP"] < 18) & ~is_head & ~is_spouse
     in_head_unit = is_head | is_spouse | child_of_head | minor_other
     # tax unit ids: head's unit = household id; every other adult = own unit
-    other = ~in_head_unit
     p["tax_unit_id"] = np.where(
         in_head_unit, p["household_id"], len(h) + np.arange(len(p))
     )
