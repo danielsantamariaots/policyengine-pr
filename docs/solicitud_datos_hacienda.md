@@ -161,6 +161,13 @@ Atentamente,
 
 **Formato.** Un archivo CSV por tabla y año, con una fila de encabezado, sin celdas combinadas, valores monetarios en dólares sin separadores de miles, y las celdas colapsadas marcadas en una columna adicional ("nota").
 
+**Guion de tabulación y libro de ejemplo.** Para reducir el trabajo del personal de Hacienda, acompañamos esta solicitud con:
+
+1. `tabulaciones_hacienda.py`: un guion en Python (pandas y openpyxl, sin otras dependencias) que, ejecutado dentro de Hacienda sobre los microdatos de planillas de un año y, opcionalmente, sobre el archivo de comprobantes W-2PR, produce todas las tablas de la Sección 3, aplica la regla de supresión colapsando las filas con menos de 10 planillas en el tramo contiguo, conserva los totales y escribe un libro Excel (una hoja por tabla, más "Léame" y "Diccionario") y un CSV por tabla. Ningún microdato sale del guion; solo se escriben sumas y conteos ya suprimidos. Lo único que requiere ajuste es la sección de configuración al inicio del archivo, donde se indica el nombre que cada columna tiene en los archivos de Hacienda; las columnas que no existan se tratan como cero y se documentan en la hoja "Léame".
+2. `tabulaciones_482_2023_SINTETICO.xlsx`: el libro Excel que produce el guion sobre datos **sintéticos** generados por el propio guion (`--sintetico`). No contiene datos de Hacienda; sirve únicamente para mostrar el formato exacto de cada tabla y para que el personal técnico pruebe el guion antes de apuntarlo a los datos reales.
+
+Hacienda puede revisar el código completo antes de ejecutarlo, modificarlo, o sustituirlo por su propio proceso siempre que el resultado tenga la misma estructura. Si prefieren otro umbral de supresión o un criterio de colapso distinto, basta cambiar la constante `MIN_PLANILLAS` o la función `suprimir`.
+
 **Definición de IBA para las filas.** Línea 5 del Formulario 482 del año correspondiente. Para la Tabla C, el IBA más los ingresos exentos del Anejo IE, de modo que la exención no mueva al contribuyente de tramo.
 
 **Alternativa de mayor valor.** Si Hacienda contempla producir un archivo de microdatos anonimizado (muestra estratificada con identificadores eliminados, edades en grupos, municipio sustituido por región, ingresos altos acotados), ese archivo sustituiría a todas las tablas anteriores y permitiría al modelo reproducir la distribución completa sin calibración. Espacios Abiertos está disponible para discutir las salvaguardas que Hacienda considere necesarias.
