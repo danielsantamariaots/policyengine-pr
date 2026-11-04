@@ -1,0 +1,11 @@
+description: Special tax on eligible dividend distributions from domestic corporations (and qualifying foreign corporations) received by individuals.
+metadata:
+  unit: /1
+  label: PR preferential rate on dividends
+  reference:
+    - title: Sección 1023.06(b), Ley 1-2011 (15% for distributions after 30 June 2014), OGP compilation p. 62
+      href: https://www.ogp.pr.gov
+    - title: Hacienda, 2025 Instructions, Schedule FF Individual, Part II, line 3, p. 36 (transfer to Schedule A2 line 4(f))
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=36
+values:
+  2014-07-01: 0.15

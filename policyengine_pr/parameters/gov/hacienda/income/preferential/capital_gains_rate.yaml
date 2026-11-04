@@ -1,0 +1,11 @@
+description: Special tax rate on net long-term capital gains of individuals, in lieu of the regular tax; the taxpayer may instead elect the regular rates if lower.
+metadata:
+  unit: /1
+  label: PR preferential rate on long-term capital gains
+  reference:
+    - title: Sección 1023.02(a), Ley 1-2011 (15% for sales after 30 June 2014), OGP compilation p. 57
+      href: https://www.ogp.pr.gov
+    - title: Hacienda, 2025 Instructions, Schedule A2 Individual, line 4(a), p. 29
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=29
+values:
+  2014-07-01: 0.15

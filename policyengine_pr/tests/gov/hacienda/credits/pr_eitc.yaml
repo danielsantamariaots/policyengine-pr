@@ -226,7 +226,7 @@
     tax_units:
       tax_unit:
         members: [filer]
-        pr_eitc_other_income: 10_001
+        pr_eitc_unmodelled_other_income: 10_001
     households:
       household:
         members: [filer]

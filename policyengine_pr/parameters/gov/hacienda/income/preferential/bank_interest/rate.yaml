@@ -1,0 +1,11 @@
+description: Optional special tax rate on non-exempt interest paid on deposits in interest-bearing accounts at Puerto Rico financial institutions, in lieu of the regular rates.
+metadata:
+  unit: /1
+  label: PR preferential rate on bank deposit interest
+  reference:
+    - title: Sección 1023.04(a)(1), Ley 1-2011, OGP compilation p. 58
+      href: https://www.ogp.pr.gov
+    - title: Hacienda, 2025 Instructions, Schedule FF Individual, Part I, Columns B-D, p. 35
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=35
+values:
+  2011-01-01: 0.10

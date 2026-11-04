@@ -1,0 +1,140 @@
+# Expected values computed by hand from the 2025 Formulario 482 instructions,
+# Schedule A2 Individual (pp. 29-30): lines 4-14 (tax with preferential rates),
+# 16(d) (all income at regular rates) and 17 (the smaller). Rate table p. 19:
+# 0% to $9,000, 7% to $25,000 (1,120), 14% to $41,500 (3,430), 25% to $61,500.
+
+- name: Capital gain below $20,000 is taxed at 15% with no deduction proration
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 40
+        employment_income: 50_000
+        long_term_capital_gains: 10_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_taxable_gross_income: 60_000
+    pr_preferential_income: 10_000
+    # Column A: 50,000 - 3,500 = 46,500 -> 3,430 + 25% x 5,000 = 4,680; x 0.92 = 4,305.60
+    # Column C: 10,000 x 15% = 1,500. Line 14 = 5,805.60
+    pr_tax_with_preferential_rates: 5_805.60
+    # Line 16(d): 56,500 -> 3,430 + 25% x 15,000 = 7,180; x 0.92 = 6,605.60
+    pr_tax_at_regular_rates: 6_605.60
+    pr_regular_tax_before_credits: 5_805.60
+
+- name: Regular rates chosen when lower than the preferential rate
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 40
+        long_term_capital_gains: 10_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    # Line 14: column A 0 (exemption exceeds regular income), column C 1,500
+    pr_tax_with_preferential_rates: 1_500
+    # Line 16(d): 10,000 - 3,500 = 6,500 in the 0% bracket
+    pr_tax_at_regular_rates: 0
+    pr_regular_tax_before_credits: 0
+
+- name: "Dividends of $30,000 prorate Anejo A deductions 57% / 43%"
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 40
+        employment_income: 40_000
+        dividend_income: 30_000
+        mortgage_interest: 10_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_taxable_gross_income: 70_000
+    pr_deductions: 10_000
+    # Line 7: 40,000 / 70,000 = 57%; 30,000 / 70,000 = 43%
+    # Column A: 40,000 - 5,700 - 3,500 = 30,800 -> 1,120 + 14% x 5,800 = 1,932; x 0.92 = 1,777.44
+    # Column C: 30,000 - 4,300 = 25,700 x 15% = 3,855. Line 14 = 5,632.44
+    pr_tax_with_preferential_rates: 5_632.44
+    # Line 16(d): 70,000 - 10,000 - 3,500 = 56,500 -> 7,180 x 0.92 = 6,605.60
+    pr_tax_at_regular_rates: 6_605.60
+    pr_regular_tax_before_credits: 5_632.44
+
+- name: Bank interest exclusion is $100 single
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 40
+        interest_income: 1_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_exempt_interest_income: 100
+    pr_taxable_interest_income: 900
+    # 900 x 10% = 90 vs regular rates 0 (below the exemption): the smaller
+    pr_tax_with_preferential_rates: 90
+    pr_regular_tax_before_credits: 0
+
+- name: Bank interest exclusion is $200 on a joint return
+  period: 2025
+  input:
+    people:
+      filer:
+        age: 40
+        interest_income: 150
+      spouse:
+        age: 40
+        interest_income: 150
+    tax_units:
+      tax_unit:
+        members: [filer, spouse]
+        pr_filing_status: JOINT
+    households:
+      household:
+        members: [filer, spouse]
+  output:
+    pr_exempt_interest_income: 200
+    pr_taxable_interest_income: 100
+
+- name: Preferential income counts toward the $100,000 factor test and the ABT base
+  period: 2025
+  absolute_error_margin: 0.01
+  input:
+    people:
+      filer:
+        age: 40
+        employment_income: 95_000
+        dividend_income: 10_000
+    tax_units:
+      tax_unit:
+        members: [filer]
+    households:
+      household:
+        members: [filer]
+  output:
+    pr_gross_income: 105_000
+    pr_abt_income: 10_000
+    # Column A: 95,000 - 3,500 = 91,500 -> 8,430 + 33% x 30,000 = 18,330; x 0.95 = 17,413.50
+    # Column C: 10,000 x 15% = 1,500. Line 14 = 18,913.50
+    pr_tax_with_preferential_rates: 18_913.50

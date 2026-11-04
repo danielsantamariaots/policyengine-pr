@@ -5,16 +5,20 @@ class pr_regular_tax_before_credits(Variable):
     value_type = float
     entity = TaxUnit
     label = "PR regular tax before credits"
-    documentation = "Return Part 3, line 17: the determination factor applied to table tax plus gradual adjustment."
+    documentation = (
+        "Return Part 3, line 17. Without preferential income: table tax plus "
+        "gradual adjustment times the determination factor. With it, Anejo A2 "
+        "line 17: the smaller of the tax with preferential rates (line 14) "
+        "and the tax on all income at the regular rates (line 16(d)); the "
+        "factor and the gradual adjustment are already inside both."
+    )
     unit = USD
     definition_period = YEAR
 
     def formula(tax_unit, period, parameters):
-        p = parameters(period).gov.hacienda.income.tax_determination.rate
-        tax = tax_unit("pr_regular_tax", period)
-        adjustment = tax_unit("pr_gradual_adjustment", period)
-        gross_income = tax_unit("pr_gross_income", period)
-        factor = where(
-            gross_income <= p.gross_income_threshold, p.reduced, p.standard
+        regular = tax_unit("pr_tax_at_regular_rates", period)
+        with_preferential = tax_unit("pr_tax_with_preferential_rates", period)
+        has_preferential = tax_unit("pr_preferential_income", period) > 0
+        return where(
+            has_preferential, min_(regular, with_preferential), regular
         )
-        return (tax + adjustment) * factor

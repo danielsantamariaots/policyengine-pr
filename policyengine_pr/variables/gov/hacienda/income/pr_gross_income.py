@@ -11,4 +11,11 @@ class pr_gross_income(Variable):
     )
     unit = USD
     definition_period = YEAR
-    adds = ["employment_income", "self_employment_income", "pension_income"]
+    adds = [
+        "employment_income",
+        "self_employment_income",
+        "pension_income",
+        "interest_income",
+        "dividend_income",
+        "pr_taxable_capital_gains",
+    ]

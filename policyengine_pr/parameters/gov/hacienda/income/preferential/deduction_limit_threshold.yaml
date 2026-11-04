@@ -1,0 +1,11 @@
+description: Income subject to preferential rates at or above which the Anejo A deductions are prorated between regular and preferential income.
+metadata:
+  unit: currency-USD
+  label: PR preferential income threshold for the deduction limitation
+  reference:
+    - title: Sección 1033.20(a), Ley 1-2011, OGP compilation p. 180
+      href: https://www.ogp.pr.gov
+    - title: Hacienda, 2025 Instructions, Schedule A2 Individual, lines 5 and 7, p. 29
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=29
+values:
+  2011-01-01: 20_000

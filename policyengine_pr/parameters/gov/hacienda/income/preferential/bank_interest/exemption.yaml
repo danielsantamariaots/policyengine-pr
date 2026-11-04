@@ -1,0 +1,20 @@
+description: Interest on deposits in Puerto Rico financial institutions excluded from gross income, by filing status.
+metadata:
+  unit: currency-USD
+  label: PR exempt bank deposit interest
+  breakdown:
+    - pr_filing_status
+  reference:
+    - title: Sección 1031.02(a)(3)(K), Ley 1-2011 ($2,000 / $4,000; $100 / $200 for taxable years beginning after 31 December 2018), OGP compilation p. 100
+      href: https://www.ogp.pr.gov
+    - title: Hacienda, 2025 Instructions, Schedule FF Individual, Part I, line 3, p. 35
+      href: https://hacienda.pr.gov/sites/default/files/inst_individuals_2025.pdf#page=35
+SINGLE:
+  2011-01-01: 2_000
+  2019-01-01: 100
+JOINT:
+  2011-01-01: 4_000
+  2019-01-01: 200
+SEPARATE:
+  2011-01-01: 2_000
+  2019-01-01: 100

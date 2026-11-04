@@ -6,7 +6,8 @@ class household_market_income(Variable):
     entity = Household
     label = "Household market income"
     documentation = (
-        "Wages, self-employment profit, pensions and Social Security benefits."
+        "Wages, self-employment profit, pensions, Social Security benefits, "
+        "interest, dividends and capital gains."
     )
     unit = USD
     definition_period = YEAR
@@ -15,4 +16,7 @@ class household_market_income(Variable):
         "self_employment_income",
         "pension_income",
         "social_security",
+        "interest_income",
+        "dividend_income",
+        "long_term_capital_gains",
     ]
