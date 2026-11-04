@@ -43,8 +43,8 @@ TEXT = {
     "col_reform": ("Reforma contributiva", "Tax reform"),
     "col_cost": ("Costo para Hacienda", "Cost to Hacienda"),
     "col_cost_help": (
-        "**En palabras sencillas:** Cuánto dinero dejaría de recibir Hacienda cada año con esta propuesta.\n\n**Detalle:** Contribución perdida más Crédito por Trabajo adicional, en millones",
-        "**In plain words:** How much money Hacienda would stop receiving each year under this proposal.\n\n**Detail:** Tax lost plus extra Crédito por Trabajo, in millions",
+        "Cuánto dinero dejaría de recibir Hacienda cada año con esta propuesta: la contribución perdida más el Crédito por Trabajo adicional, en millones.",
+        "How much money Hacienda would stop receiving each year under this proposal: tax lost plus extra Crédito por Trabajo, in millions.",
     ),
     "col_pan": ("Cambio en PAN", "PAN change"),
     "col_better": ("Hogares que ganan", "Households better off"),
@@ -94,8 +94,8 @@ TEXT = {
     "col_change": ("Cambio", "Change"),
     "eti": ("Respuesta de comportamiento", "Behavioural response"),
     "eti_help": (
-        "**En palabras sencillas:** ¿La gente trabaja o declara más cuando le queda más de cada dólar extra? «Ninguna» supone que no cambia nada. **ETI 0.25**: respuesta moderada, la estimación más habitual en la investigación; **ETI 0.40**: respuesta alta. Con respuesta, una rebaja de contribuciones cuesta algo menos de lo que parece (la gente gana y declara más) y una subida recauda algo menos.\n\n**Detalle:** Elasticidad del ingreso tributable (ETI): cambio porcentual del ingreso declarado por cada 1% de cambio en la tasa neta de retención (1 − tasa marginal). Se aplica a los salarios, sobre el cambio en la tasa marginal neta de cada contribuyente, al estilo de Saez, Slemrod y Giertz (2012): 0.25 es la estimación central de esa revisión; 0.40 su rango alto.",
-        "**In plain words:** Do people work or report more when they keep more of each extra dollar? 'None' assumes nothing changes. **ETI 0.25**: a moderate response, the most common estimate in the research; **ETI 0.40**: a strong response. With a response, a tax cut costs somewhat less than it looks (people earn and report more) and a tax rise raises somewhat less.\n\n**Detail:** Elasticity of taxable income (ETI): the percentage change in reported income for each 1% change in the net-of-tax rate (1 − marginal rate). Applied to wages, on each filer's change in the net marginal rate, following Saez, Slemrod and Giertz (2012): 0.25 is that review's central estimate; 0.40 its high end.",
+        "¿La gente gana o declara más cuando le queda más de cada dólar extra? «Ninguna» supone que nada cambia (modelo estático). ETI 0.25 es una respuesta moderada, la estimación central de la investigación (Saez, Slemrod y Giertz, 2012); ETI 0.40 es una respuesta alta. Técnicamente, la elasticidad del ingreso tributable es el cambio porcentual del ingreso declarado por cada 1% de cambio en la tasa neta (1 − tasa marginal), aplicada aquí a los salarios de cada contribuyente. Con respuesta, una rebaja cuesta algo menos de lo que parece y una subida recauda algo menos.",
+        "Do people earn or report more when they keep more of each extra dollar? 'None' assumes nothing changes (static model). ETI 0.25 is a moderate response, the central estimate in the research (Saez, Slemrod and Giertz, 2012); ETI 0.40 is a strong response. Technically, the elasticity of taxable income is the percentage change in reported income for each 1% change in the net-of-tax rate (1 − marginal rate), applied here to each filer's wages. With a response, a cut costs somewhat less than it looks and a rise raises somewhat less.",
     ),
     "eti_static": ("Ninguna (estático)", "None (static)"),
     "benefits_title": (

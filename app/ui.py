@@ -236,13 +236,13 @@ TEXT = {
     ),
     "preset": ("Hogar tipo", "Household preset"),
     "preset_help": (
-        "**En palabras sencillas:** Un hogar ya rellenado para empezar rápido; después puede cambiar cualquier dato.\n\n**Detalle:** Elija un hogar de ejemplo y ajuste lo que quiera debajo.",
-        "**In plain words:** A pre-filled household to start quickly; you can change any detail afterwards.\n\n**Detail:** Pick an example household, then adjust anything below.",
+        "Un hogar ya rellenado para empezar rápido; después puede cambiar cualquier dato debajo.",
+        "A pre-filled household to start quickly; you can change any detail below afterwards.",
     ),
     "example_reform": ("Propuestas de ejemplo", "Example proposals"),
     "example_reform_help": (
-        "**En palabras sencillas:** Una propuesta de cambio en la ley ya preparada; al elegirla, las cifras muestran la diferencia entre la ley de hoy y la propuesta.\n\n**Detalle:** Rellena los parámetros de abajo; puede editarlos después.",
-        "**In plain words:** A ready-made proposal to change the law; when chosen, the figures show the difference between today's law and the proposal.\n\n**Detail:** Fills the levers below; you can edit them afterwards.",
+        "Una propuesta de cambio en la ley ya preparada: al elegirla fija los parámetros por usted y las cifras pasan a mostrar la diferencia entre la ley de hoy y la propuesta. Puede ajustar los parámetros después.",
+        "A ready-made proposal to change the law: choosing it sets the parameters for you and the figures switch to the difference between today's law and the proposal. You can adjust the parameters afterwards.",
     ),
     "reform_name": ("Nombre de la reforma contributiva", "Tax reform name"),
     "reform_default_name": ("Reforma contributiva", "Tax reform"),
@@ -263,26 +263,26 @@ TEXT = {
     ),
     "m_tax": ("Contribución de PR", "PR income tax"),
     "m_tax_help": (
-        "**En palabras sencillas:** Lo que el hogar paga a Hacienda en el año por sus ingresos, antes de descontar lo que le retuvieron en el trabajo y los créditos que le devuelven.\n\n**Detalle:** Línea 26 del Formulario 482: lo que el hogar debe a Hacienda antes de retenciones y créditos reembolsables.",
-        "**In plain words:** What the household pays Hacienda for the year on its income, before counting what was withheld at work and the credits paid back.\n\n**Detail:** Formulario 482 line 26: what the household owes Hacienda before withholding and refundable credits.",
+        "Lo que el hogar debe a Hacienda por sus ingresos del año, antes de descontar las retenciones del trabajo y los créditos reembolsables: es la línea 26 del Formulario 482.",
+        "What the household owes Hacienda on the year's income, before withholding at work and refundable credits are taken off: line 26 of Formulario 482.",
     ),
     "m_credits": ("Créditos", "Credits"),
     "m_credits_help": (
-        "**En palabras sencillas:** Dinero que el gobierno le paga al hogar aunque no deba contribución: el Crédito por Trabajo de Puerto Rico y el crédito federal por hijos.\n\n**Detalle:** Crédito por Trabajo (línea 27C) más el crédito federal por hijos (línea 27D). Se pagan aunque no se deba contribución.",
-        "**In plain words:** Money the government pays the household even if it owes no tax: Puerto Rico's Crédito por Trabajo and the federal child credit.\n\n**Detail:** Crédito por Trabajo (line 27C) plus the federal child credit (line 27D). Paid even when no tax is owed.",
+        "Dinero que el gobierno paga al hogar aunque no deba contribución: el Crédito por Trabajo de Puerto Rico (línea 27C) y el crédito federal adicional por hijos (línea 27D).",
+        "Money the government pays the household even if it owes no tax: Puerto Rico's Crédito por Trabajo (line 27C) and the federal additional child credit (line 27D).",
     ),
     "m_net": ("Ingreso neto", "Net income"),
     "m_net_help": (
-        "**En palabras sencillas:** Lo que le queda al hogar al final del año: sus ingresos, menos contribuciones y Seguro Social, más créditos y ayudas.\n\n**Detalle:** Ingresos del hogar menos contribución de PR, Seguro Social y Medicare, más créditos reembolsables, PAN y TANF.",
-        "**In plain words:** What the household is left with at the end of the year: its income, minus taxes and Social Security, plus credits and benefits.\n\n**Detail:** Household income minus PR tax, Social Security and Medicare, plus refundable credits, PAN and TANF.",
+        "Lo que le queda al hogar al final del año: sus ingresos, menos la contribución de Puerto Rico y el Seguro Social y Medicare, más los créditos reembolsables, el PAN, el TANF y la Sección 8.",
+        "What the household is left with at the end of the year: its income, minus Puerto Rico tax and Social Security and Medicare, plus refundable credits, PAN, TANF and Section 8.",
     ),
     "m_rate": (
         "De cada $100 más, se queda con",
         "Of each extra $100, it keeps",
     ),
     "m_rate_help": (
-        "**En palabras sencillas:** Si el hogar ganara $100 más, cuántos dólares le quedarían después de pagar más contribución y de perder parte de los créditos y ayudas. Más de $100 significa que los créditos crecen más de lo que sube la contribución.\n\n**Detalle:** 100 menos la tasa contributiva neta: (ingreso de mercado − ingreso neto) / ingreso de mercado. Más de $100 cuando el hogar recibe más en créditos de lo que paga.",
-        "**In plain words:** If the household earned $100 more, how many dollars it would keep after paying more tax and losing part of its credits and benefits. More than $100 means credits grow faster than the tax.\n\n**Detail:** Net tax rate: (market income − net income) / market income. Negative when the household receives more in credits than it pays.",
+        "Si el hogar ganara $100 más, cuántos dólares le quedarían después de pagar más contribución y de perder parte de los créditos y ayudas. Se calcula como 100 menos la tasa neta (ingreso de mercado menos ingreso neto, dividido por el ingreso de mercado); más de $100 significa que los créditos crecen más de lo que sube la contribución.",
+        "If the household earned $100 more, how many dollars it would keep after paying more tax and losing part of its credits and benefits. Computed as 100 minus the net rate (market income minus net income, over market income); more than $100 means credits grow faster than the tax.",
     ),
     "headline_sentence": (
         "Su hogar paga **{}** de contribución sobre ingresos, recibe **{}** en "
