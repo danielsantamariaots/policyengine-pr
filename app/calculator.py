@@ -123,6 +123,13 @@ OUTPUTS = [
         "Taxable wages, self-employment and pensions, before deductions",
     ),
     (
+        "pr_preferential_income",
+        "Ingresos a tasas preferenciales (Anejo A2, línea 5)",
+        "Income at preferential rates (Anejo A2, line 5)",
+        "Intereses bancarios (10%), dividendos y ganancias de capital (15%); ya incluidos en la línea 5",
+        "Bank interest (10%), dividends and capital gains (15%); already inside line 5",
+    ),
+    (
         "pr_deductions",
         "Deducciones, Anejo A (línea 6)",
         "Deductions, Anejo A (line 6)",
@@ -161,8 +168,8 @@ OUTPUTS = [
         "pr_regular_tax_before_credits",
         "Contribución regular tras 92%/95% (línea 17)",
         "Regular tax after 92%/95% (line 17)",
-        "Se paga el 92% de la tabla si el ingreso bruto no pasa de $100,000; el 95% si lo pasa",
-        "92% of the table if gross income is at most $100,000; 95% above",
+        "Se paga el 92% de la tabla si el ingreso bruto no pasa de $100,000; el 95% si lo pasa. Con ingresos a tasas preferenciales, el menor entre el Anejo A2 y las tasas ordinarias",
+        "92% of the table if gross income is at most $100,000; 95% above. With preferential income, the lower of Anejo A2 and the ordinary rates",
     ),
     (
         "pr_abt_excess",
@@ -254,6 +261,30 @@ PERSON_INPUTS = [
         1_000,
         "No tributan en Puerto Rico",
         "Not taxed in Puerto Rico",
+    ),
+    (
+        "interest_income",
+        "Intereses de depósitos bancarios en PR ($)",
+        "Interest on PR bank deposits ($)",
+        500,
+        "Anejo FF; primeros $100 ($200 conjunta) exentos; 10% o tasas ordinarias",
+        "Anejo FF; first $100 ($200 joint) exempt; 10% or ordinary rates",
+    ),
+    (
+        "dividend_income",
+        "Dividendos de corporaciones de PR ($)",
+        "Dividends from PR corporations ($)",
+        500,
+        "Anejo FF, Parte II; 15% (Sección 1023.06)",
+        "Anejo FF, Part II; 15% (Sección 1023.06)",
+    ),
+    (
+        "long_term_capital_gains",
+        "Ganancia neta de capital a largo plazo ($)",
+        "Net long-term capital gain ($)",
+        1_000,
+        "Anejo D; 15% o tasas ordinarias si resultan menores (Sección 1023.02)",
+        "Anejo D; 15% or ordinary rates if lower (Sección 1023.02)",
     ),
 ]
 DEDUCTION_INPUTS = [

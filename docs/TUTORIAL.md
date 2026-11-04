@@ -44,7 +44,7 @@ como están.
 | Casados que rinden planilla conjunta | Active para una pareja; aparecen los campos del cónyuge |
 | Edad y salarios | Por persona. Las edades importan: exención para jóvenes (16–26), exención de pensión (60+), edad de los dependientes para los créditos |
 | Es veterano | Añade la exención adicional de $1,500 |
-| Otros ingresos | Ganancia neta por cuenta propia (Anejo M), pensión de plan cualificado (Anejo H), Seguro Social (no tributa) |
+| Otros ingresos | Ganancia neta por cuenta propia (Anejo M), pensión de plan cualificado (Anejo H), Seguro Social (no tributa), intereses bancarios (10%, primeros $100 exentos), dividendos y ganancias de capital (15%, o las tasas ordinarias si resultan menores: Anejo A2) |
 | Dependientes (hijos) | Número y edades. Cuentan para la exención por dependiente ($2,500), el Crédito por Trabajo (hasta 18 años, o 25 si estudian) y el crédito federal por hijos (menores de 17) |
 | Deducciones (Anejo A) | Cantidades pagadas; la calculadora aplica los límites de ley |
 | Avanzado | Partidas sujetas a contribución básica alterna que el modelo aún no calcula |
@@ -120,8 +120,8 @@ reforma, y los precipicios se calculan sobre la reforma.
 
 ## Qué no incluye todavía
 
-- Intereses, dividendos y ganancias de capital a tasas preferenciales
-  (Anejo A2).
+- Tasas preferenciales distintas del 10% (intereses bancarios), 15%
+  (dividendos y ganancias de capital): columnas de 4% y 20% del Anejo A2.
 - Créditos no reembolsables por inversión (Anejo B).
 - Beneficios: PAN, Medicaid/Vital, TANF, Sección 8.
 - Efectos de comportamiento: el modelo es estático.
@@ -165,6 +165,7 @@ With a reform active, both curves are compared.
 at $44,000 vs $45,000 (the EITC cliff); *Bracket 2 starts* at $12,000 (tax
 falls $193 for a $30,000 household).
 
-**Not yet included:** preferential-rate income, Anejo B investment credits,
+**Not yet included:** preferential rates other than 10%/15% (Anejo A2
+columns at 4%/20%), Anejo B investment credits,
 benefits (PAN, Medicaid), behavioural responses. Results are estimates, not
 professional advice.

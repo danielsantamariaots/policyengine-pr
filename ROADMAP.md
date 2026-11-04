@@ -29,6 +29,10 @@ late: ship the household calculator first; aggregate estimates follow.
   tourism, film, opportunity zones, purchased credits). None is a
   household credit, so `pr_nonrefundable_credits` stays an input; a
   reform affecting these is a business-incentive reform, out of scope.
-- **Preferential rates (Anejo A2).** Interest, dividends and capital
-  gains at 10%/15% are not modelled; such income is currently absent
-  rather than mistaxed at ordinary rates. Next income item to add.
+- **Preferential rates (Anejo A2).** Modelled since 2026-11-04: bank
+  deposit interest (10%, $100/$200 exclusion), dividends (15%) and
+  long-term capital gains (15%), with the Sección 1033.20 deduction
+  proration and the line-17 choice of the lower tax. Not modelled: the
+  4%/20% columns (special acts, pension lump sums), capital-loss
+  carryovers, and interest from outside Puerto Rico (taxed at ordinary
+  rates; enter it as self-employment income only as a stopgap).

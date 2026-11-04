@@ -17,7 +17,14 @@ MINIMUM_WAGE_ANNUAL = 10.50 * 2080  # $10.50/hour, Ley 47-2021, from July 2024
 # Default sidebar values. Every household widget has a key here so presets
 # can overwrite them through st.session_state.
 # ---------------------------------------------------------------------------
-PERSON_VARS = ["self_employment_income", "pension_income", "social_security"]
+PERSON_VARS = [
+    "self_employment_income",
+    "pension_income",
+    "social_security",
+    "interest_income",
+    "dividend_income",
+    "long_term_capital_gains",
+]
 DEDUCTION_VARS = [
     "mortgage_interest",
     "medical_expenses",
@@ -272,14 +279,14 @@ TEXT = {
     ),
     "not_included_title": ("Qué no incluye", "What is not included"),
     "not_included": (
-        "Intereses, dividendos y ganancias de capital a tasas preferenciales "
-        "(Anejo A2); créditos por inversión (Anejo B); beneficios como PAN, "
+        "Tasas preferenciales distintas del 10% y 15% (columnas de 4% y 20% "
+        "del Anejo A2); créditos por inversión (Anejo B); beneficios como PAN, "
         "Medicaid/Vital, TANF y Sección 8, cuyos precipicios a ingresos bajos "
         "son mayores que los contributivos; efectos de comportamiento. La "
         "exención para jóvenes (Ley 135-2014) se aplica automáticamente "
         "entre los 16 y 26 años.",
-        "Interest, dividends and capital gains at preferential rates (Anejo "
-        "A2); investment credits (Anejo B); benefits such as PAN, "
+        "Preferential rates other than 10% and 15% (Anejo A2 columns at 4% "
+        "and 20%); investment credits (Anejo B); benefits such as PAN, "
         "Medicaid/Vital, TANF and Section 8, whose cliffs at low incomes are "
         "larger than the tax ones; behavioural responses. The youth "
         "exemption (Ley 135-2014) applies automatically at ages 16–26.",
