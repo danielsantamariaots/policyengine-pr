@@ -18,10 +18,10 @@ streamlit run app/calculator.py
 Se abre en el navegador en `http://localhost:8501`. El idioma se elige
 arriba de la barra lateral (Español por defecto). Debajo, tres páginas:
 
-- **Inicio**: dos tarjetas (*¿Cuánto paga mi hogar?* → Calculadora;
+- **Inicio**: el botón *Empezar con un ejemplo* abre *Mi hogar* con una madre de 32 años y dos hijos; debajo, tres tarjetas (*¿Cuánto paga mi hogar?* → Mi hogar;
   *¿Dónde pierde mi hogar al ganar más?* → CliffWatch), la guía y la lista
   de lo que el modelo no incluye.
-- **Calculadora** y **CliffWatch** comparten la barra lateral: el mismo
+- **Mi hogar** (la calculadora) y **¿Y si gano más?** (CliffWatch) comparten la barra lateral: el mismo
   hogar y la misma reforma se ven en las dos.
 
 Las dos páginas empiezan con una línea que describe el hogar activo
@@ -87,7 +87,7 @@ Para volver a la ley vigente, restaure el valor original del parámetro.
 
 ## 4. CliffWatch
 
-Arriba de la barra lateral, cambie *Calculadora* por *CliffWatch*. Con el
+Arriba de la barra lateral, cambie *Mi hogar* por *¿Y si gano más?* (CliffWatch). Con el
 mismo hogar, la página muestra:
 
 - **Ingreso neto frente a ingreso de mercado**, con los salarios del
@@ -123,7 +123,7 @@ la renta mensual, el subsidio no supera la renta.
 página abierta; el desplegable *Compartir* de la barra lateral muestra el
 enlace. Quien lo abra verá exactamente lo mismo.
 
-## 5. Reformas
+## 5. Reforma contributiva
 
 La tercera página simula cada reforma sobre los microdatos de la Encuesta
 sobre la Comunidad de Puerto Rico 2023 (PUMS, unos 1.28 millones de
@@ -216,7 +216,7 @@ from $0 to $150,000, with *Table view* adding the effective marginal rate.
 levers a proposal is likely to move. Change any of them and the page shows
 deltas against current law plus a *Change in net income* chart.
 
-**4. CliffWatch.** Switch *Calculator* to *CliffWatch* at the top of the
+**4. CliffWatch.** Switch *My household* to *What if I earn more?* at the top of the
 sidebar: net income vs market income in $500 steps to $150,000, taxes and
 credits by wage level, the effective marginal rate, and tables of cliffs
 (where $500 more in wages lowers net income) and high-rate zones (≥ 50%).
@@ -248,3 +248,6 @@ Section 8 only when the household says it holds a voucher, with HUD's
 limits and fair market rents for the chosen municipio rather than
 Vivienda's unpublished payment-standard schedule. Results are estimates,
 not professional advice.
+
+
+> Desde el 4 de noviembre de 2026 los parámetros uno a uno (tramos, tasas, exenciones, Crédito por Trabajo) están ocultos tras el interruptor *Ajustar los parámetros uno a uno* en la sección *Reforma contributiva* de la barra lateral; las *Propuestas de ejemplo* los fijan sin abrirlo.

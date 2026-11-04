@@ -93,7 +93,7 @@ TEXT = {
     "s_section8": ("Sección 8", "Section 8 (housing voucher)"),
     "s_cliff": ("Precipicio", "Cliff"),
     "s_emtr": ("Ley vigente", "Current law"),
-    "s_emtr_reform": ("Reforma", "Reform"),
+    "s_emtr_reform": ("Reforma contributiva", "Tax reform"),
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
     "you": ("Su hogar", "Your household"),
     "chart_net_sub": (
@@ -131,7 +131,7 @@ TEXT = {
     "col_width": ("Ancho", "Width"),
     "scenario": ("Escenario", "Scenario"),
     "current": ("Ley vigente", "Current law"),
-    "reform": ("Reforma", "Reform"),
+    "reform": ("Reforma contributiva", "Tax reform"),
     "table_view": ("Ver tabla", "Table view"),
     "cause_eitc": (
         "Se pierde el Crédito por Trabajo",

@@ -34,8 +34,11 @@ TEXT = {
         "to official totals for revenue, Crédito por Trabajo and PAN (see "
         "Calibration, at the foot).",
     ),
-    "custom": ("Reforma de la barra lateral", "Sidebar reform"),
-    "col_reform": ("Reforma", "Reform"),
+    "custom": (
+        "Reforma contributiva de la barra lateral",
+        "Sidebar tax reform",
+    ),
+    "col_reform": ("Reforma contributiva", "Tax reform"),
     "col_cost": ("Costo para Hacienda", "Cost to Hacienda"),
     "col_cost_help": (
         "Contribución perdida más Crédito por Trabajo adicional, en millones",
@@ -45,7 +48,7 @@ TEXT = {
     "col_better": ("Hogares que ganan", "Households better off"),
     "col_worse": ("Hogares que pierden", "Households worse off"),
     "col_mean": ("Cambio medio por hogar", "Mean change per household"),
-    "pick": ("Reforma a detallar", "Reform to detail"),
+    "pick": ("Reforma contributiva a detallar", "Tax reform to detail"),
     "chart_title": (
         "Cambio medio en ingreso neto por decil de ingreso",
         "Mean change in net income by income decile",
@@ -75,7 +78,7 @@ TEXT = {
     ),
     "col_item": ("Partida", "Item"),
     "col_base": ("Ley vigente", "Current law"),
-    "col_ref": ("Reforma", "Reform"),
+    "col_ref": ("Reforma contributiva", "Tax reform"),
     "col_change": ("Cambio", "Change"),
     "eti": ("Respuesta de comportamiento", "Behavioural response"),
     "eti_help": (

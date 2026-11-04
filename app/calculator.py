@@ -136,10 +136,22 @@ TEXT = {
         "Pass-through and exempt items not modelled; wages are never "
         "subject (2025 instructions, p. 82).",
     ),
-    "reform": ("Reforma", "Reform"),
+    "reform": ("Reforma contributiva", "Tax reform"),
     "reform_caption": (
         "Edite cualquier parámetro; los demás mantienen la ley vigente.",
         "Edit any lever; unchanged levers keep current law.",
+    ),
+    "show_levers": (
+        "Ajustar los parámetros uno a uno",
+        "Adjust the parameters one by one",
+    ),
+    "show_levers_help": (
+        "Para analistas: tramos, tasas, exenciones y Crédito por Trabajo. Las propuestas de ejemplo los fijan por usted.",
+        "For analysts: brackets, rates, exemptions and Crédito por Trabajo. The example proposals set them for you.",
+    ),
+    "levers_changed": (
+        "{} parámetro(s) cambiado(s) respecto a la ley vigente.",
+        "{} parameter(s) changed from current law.",
     ),
     "reform_active": (
         "**{}** activa: {} parámetro(s) cambiado(s). Las diferencias "
@@ -207,7 +219,7 @@ TEXT = {
     "col_what": ("Qué es", "What it is"),
     "col_amount": ("Cantidad", "Amount"),
     "col_current": ("Ley vigente", "Current law"),
-    "col_reform": ("Reforma", "Reform"),
+    "col_reform": ("Reforma contributiva", "Tax reform"),
     "col_change": ("Cambio", "Change"),
 }
 
@@ -727,16 +739,20 @@ with st.sidebar:
         key="reform_name",
         placeholder=ui.t("reform_default_name", L),
     )
-    st.caption(t("reform_caption"))
+    show_levers = st.toggle(
+        t("show_levers"), key="show_levers", help=t("show_levers_help")
+    )
+    if show_levers:
+        st.caption(t("reform_caption"))
     changes = {}
     for path, label_en, kind in LEVERS:
         label = LEVER_LABELS_ES.get(label_en, label_en) if L == 0 else label_en
         base_value = CURRENT[path]
-        if kind == "rate":
+        if show_levers and kind == "rate":
             new = st.number_input(
                 label, 0.0, 1.0, step=0.01, format="%.4f", key=f"r_{path}"
             )
-        else:
+        elif show_levers:
             new = st.number_input(
                 label,
                 0.0,
@@ -745,8 +761,12 @@ with st.sidebar:
                 format="%.0f",
                 key=f"r_{path}",
             )
+        else:
+            new = float(st.session_state.get(f"r_{path}", base_value))
         if abs(new - base_value) > 1e-9:
             changes[path] = new
+    if changes and not show_levers:
+        st.caption(t("levers_changed", len(changes)))
     reform = parametric_reform(changes) if changes else None
     reform_name = st.session_state["reform_name"] or ui.t(
         "reform_default_name", L

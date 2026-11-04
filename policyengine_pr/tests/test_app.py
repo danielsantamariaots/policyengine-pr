@@ -32,7 +32,7 @@ def _radio(at, key):
 
 def test_home_renders(app):
     _no_errors(app)
-    assert app.title[0].value.startswith("Modelo contributivo")
+    assert app.title[0].value.startswith("¿Cuánto paga su hogar")
 
 
 @pytest.mark.parametrize("lang", ["Español", "English"])
@@ -60,6 +60,7 @@ def test_example_reform_switches_to_comparison_mode(app):
     at.sidebar.selectbox(key="example_reform").set_value(
         "ampliar_tramo_0"
     ).run()
+    at.sidebar.toggle(key="show_levers").set_value(True).run()
     _no_errors(at)
     assert (
         at.sidebar.number_input(
@@ -120,6 +121,7 @@ def test_shared_link_restores_household_and_reform():
 
     at = AppTest.from_file(str(APP), default_timeout=120)
     at.query_params["view"] = "calc"
+    at.query_params["show_levers"] = "1"
     at.query_params["filer_wages"] = "42000"
     at.query_params["joint"] = "1"
     at.query_params["r.gov.hacienda.income.rates[1].threshold"] = "12000"

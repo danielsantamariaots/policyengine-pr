@@ -165,21 +165,29 @@ EXAMPLE_REFORMS = _example_reforms()
 TEXT = {
     "nav": ("Página", "Page"),
     "nav_home": ("Inicio", "Home"),
-    "nav_calc": ("Calculadora", "Calculator"),
-    "nav_cliff": ("CliffWatch", "CliffWatch"),
-    "nav_reform": ("Reformas", "Reforms"),
+    "nav_calc": ("Mi hogar", "My household"),
+    "nav_cliff": ("¿Y si gano más?", "What if I earn more?"),
+    "nav_reform": ("Reforma contributiva", "Tax reform"),
     "home_title": (
-        "Modelo contributivo de Puerto Rico",
-        "Puerto Rico tax model",
+        "¿Cuánto paga su hogar en contribuciones y cuánto recibe en créditos y ayudas?",
+        "How much does your household pay in taxes, and how much does it get in credits and benefits?",
     ),
     "home_intro": (
-        "Un modelo abierto del sistema contributivo de individuos de Puerto "
-        "Rico (año contributivo 2025), construido sobre PolicyEngine. Cada "
-        "regla está citada a un formulario o instrucción oficial de Hacienda "
-        "o del IRS. Elija qué quiere saber:",
-        "An open model of Puerto Rico's individual tax system (tax year "
-        "2025), built on PolicyEngine. Every rule is cited to an official "
-        "Hacienda or IRS form or instruction. Choose what you want to know:",
+        "Descríbalo en un minuto y vea el resultado línea por línea, con cada "
+        "regla citada a un documento oficial de Hacienda, el IRS, ADSEF o HUD. "
+        "Año contributivo 2025.",
+        "Describe it in a minute and see the result line by line, with every "
+        "rule cited to an official Hacienda, IRS, ADSEF or HUD document. Tax "
+        "year 2025.",
+    ),
+    "start": ("Empezar con un ejemplo", "Start with an example"),
+    "start_help": (
+        "Abre Mi hogar con una madre de 32 años, dos hijos y $30,000 de salario; cambie lo que quiera.",
+        "Opens My household with a 32-year-old mother, two children and $30,000 in wages; change anything.",
+    ),
+    "home_more": (
+        "O elija qué quiere saber:",
+        "Or choose what you want to know:",
     ),
     "card_calc_title": (
         "¿Cuánto paga mi hogar?",
@@ -187,25 +195,25 @@ TEXT = {
     ),
     "card_calc_body": (
         "Contribución, créditos e ingreso neto de un hogar, línea por línea "
-        "según la planilla (Formulario 482). Pruebe una reforma y vea la "
-        "diferencia.",
+        "según la planilla (Formulario 482). Pruebe una reforma contributiva "
+        "y vea la diferencia.",
         "A household's tax, credits and net income, line by line as on the "
-        "return (Formulario 482). Try a reform and see the difference.",
+        "return (Formulario 482). Try a tax reform and see the difference.",
     ),
     "card_cliff_title": (
         "¿Dónde pierde mi hogar al ganar más?",
         "Where does my household lose by earning more?",
     ),
     "card_reform_title": (
-        "¿Cuánto cuesta una reforma y a quién beneficia?",
-        "What does a reform cost and who gains?",
+        "¿Cuánto cuesta una reforma contributiva y a quién beneficia?",
+        "What does a tax reform cost and who gains?",
     ),
     "card_reform_body": (
-        "Cada reforma simulada sobre la Encuesta de la Comunidad de Puerto "
-        "Rico: costo para Hacienda, hogares que ganan y pierden, cambio por "
-        "decil de ingreso.",
-        "Each reform simulated on the Puerto Rico Community Survey: cost to "
-        "Hacienda, households better and worse off, change by income decile.",
+        "Cada reforma contributiva simulada sobre la Encuesta de la Comunidad "
+        "de Puerto Rico: costo para Hacienda, hogares que ganan y pierden, "
+        "cambio por decil de ingreso.",
+        "Each tax reform simulated on the Puerto Rico Community Survey: cost "
+        "to Hacienda, households better and worse off, change by income decile.",
     ),
     "card_cliff_body": (
         "Cómo cambian contribuciones y créditos a medida que suben los "
@@ -228,13 +236,13 @@ TEXT = {
         "Elija un hogar de ejemplo y ajuste lo que quiera debajo.",
         "Pick an example household, then adjust anything below.",
     ),
-    "example_reform": ("Reformas de ejemplo", "Example reforms"),
+    "example_reform": ("Propuestas de ejemplo", "Example proposals"),
     "example_reform_help": (
         "Rellena los parámetros de abajo; puede editarlos después.",
         "Fills the levers below; you can edit them afterwards.",
     ),
-    "reform_name": ("Nombre de la reforma", "Reform name"),
-    "reform_default_name": ("Reforma", "Reform"),
+    "reform_name": ("Nombre de la reforma contributiva", "Tax reform name"),
+    "reform_default_name": ("Reforma contributiva", "Tax reform"),
     "summary_single": ("planilla individual", "single return"),
     "summary_joint": ("planilla conjunta", "joint return"),
     "summary_filer": ("contribuyente de {} años", "filer aged {}"),
@@ -279,17 +287,23 @@ TEXT = {
         "Net tax rate: (market income − net income) / market income. "
         "Negative when the household receives more in credits than it pays.",
     ),
+    "headline_sentence": (
+        "Su hogar paga **{}** de contribución sobre ingresos, recibe **{}** en "
+        "créditos reembolsables y se queda con **{}** de ingreso neto al año. ",
+        "Your household pays **{}** in income tax, receives **{}** in "
+        "refundable credits and keeps **{}** in net income a year. ",
+    ),
     "rate_sentence_pos": (
-        "De cada $100 que gana este hogar, **${:.0f}** se van en "
-        "contribuciones netas de créditos.",
-        "Out of every $100 this household earns, **${:.0f}** goes to taxes "
-        "net of credits.",
+        "De cada $100 adicionales que gane, se queda con **${:.0f}**; el "
+        "resto se va en contribuciones y créditos que se reducen.",
+        "Of each additional $100 it earns, it keeps **${:.0f}**; the rest "
+        "goes to taxes and credits that shrink.",
     ),
     "rate_sentence_neg": (
-        "Este hogar recibe **${:.0f}** en créditos netos por cada $100 que "
-        "gana: los créditos superan lo que paga en contribuciones.",
-        "This household receives **${:.0f}** in net credits for every $100 "
-        "it earns: credits exceed what it pays in taxes.",
+        "De cada $100 adicionales que gane, se queda con **${:.0f}**: los "
+        "créditos crecen más de lo que sube la contribución.",
+        "Of each additional $100 it earns, it keeps **${:.0f}**: credits "
+        "grow faster than the tax.",
     ),
     "rate_sentence_zero": (
         "Este hogar no tiene ingresos de mercado.",
@@ -357,7 +371,7 @@ TEXT = {
     ),
     "col_param": ("Parámetro", "Parameter"),
     "col_current": ("Ley vigente", "Current law"),
-    "col_reform": ("Reforma", "Reform"),
+    "col_reform": ("Reforma contributiva", "Tax reform"),
     "col_source": ("Archivo", "File"),
     "share_title": ("Compartir", "Share"),
     "share_help": (
@@ -526,7 +540,7 @@ def unmarried_split(hh):
     return a, b
 
 
-SHARED_KEYS = ("view", "lang", "reform_name", "compare_with")
+SHARED_KEYS = ("view", "lang", "reform_name", "compare_with", "show_levers")
 
 
 def _coerce(value, like):
@@ -553,6 +567,8 @@ def apply_query_params(lever_defaults):
                     st.session_state[f"r_{path}"] = float(v)
             elif k in DEFAULTS:
                 st.session_state[k] = _coerce(v, DEFAULTS[k])
+            elif k == "show_levers":
+                st.session_state[k] = v in ("1", "true", "True")
             elif k in SHARED_KEYS:
                 st.session_state[k] = v
         except (TypeError, ValueError):
@@ -574,7 +590,9 @@ def sync_query_params(lever_defaults):
             out[f"r.{path}"] = f"{v:g}"
     for k in SHARED_KEYS:
         v = s.get(k)
-        if v and v not in ("home", "none", "Español"):
+        if v is True:
+            out[k] = "1"
+        elif v and v is not False and v not in ("home", "none", "Español"):
             out[k] = str(v)
     if st.query_params.to_dict() != out:
         st.query_params.from_dict(out)
@@ -602,6 +620,7 @@ def init_state(lever_defaults):
     st.session_state.setdefault("view", "home")
     st.session_state.setdefault("lang", "Español")
     st.session_state.setdefault("reform_name", "")
+    st.session_state.setdefault("show_levers", False)
     apply_query_params(lever_defaults)
 
 
@@ -715,12 +734,19 @@ def metric_row(base, ref, L):
         delta_color="inverse",
         help=md("m_rate_help", L),
     )
+    head = md(
+        "headline_sentence",
+        L,
+        money(shown["pr_income_tax"]).replace("$", "\\$"),
+        money(shown["pr_refundable_credits"]).replace("$", "\\$"),
+        money(shown["household_net_income"]).replace("$", "\\$"),
+    )
     if not market:
-        st.caption(md("rate_sentence_zero", L))
+        st.markdown(head + md("rate_sentence_zero", L))
     elif rate >= 0:
-        st.caption(md("rate_sentence_pos", L, rate * 100))
+        st.markdown(head + md("rate_sentence_pos", L, 100 - rate * 100))
     else:
-        st.caption(md("rate_sentence_neg", L, -rate * 100))
+        st.markdown(head + md("rate_sentence_neg", L, 100 - rate * 100))
 
 
 def not_included(L):
@@ -764,9 +790,23 @@ def tutorial(L):
                 st.markdown(text[L])
 
 
+def start_example():
+    st.session_state["preset"] = "single_parent"
+    apply_preset()
+    st.session_state["view"] = "calc"
+
+
 def home(L):
     st.title(t("home_title", L))
     st.markdown(t("home_intro", L))
+    st.button(
+        t("start", L),
+        key="start_example",
+        type="primary",
+        help=t("start_help", L),
+        on_click=start_example,
+    )
+    st.markdown(t("home_more", L))
     c1, c2, c3 = st.columns(3)
     for col, title, body, view in (
         (c1, "card_calc_title", "card_calc_body", "calc"),
