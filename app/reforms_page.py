@@ -96,7 +96,7 @@ TEXT = {
     "benefits_y": ("Promedio anual por hogar", "Annual average per household"),
     "benefits_table": ("Ver tabla", "Table view"),
     "col_share": ("% de hogares con {}", "% of households with {}"),
-    "col_mean": ("{} medio", "Mean {}"),
+    "col_ben_mean": ("{} medio", "Mean {}"),
     "calibration_title": (
         "Calibración a totales oficiales",
         "Calibration to official totals",
@@ -371,7 +371,7 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
         table = pd.DataFrame({t("x_axis"): ben["decile"]})
         for var, es, en in BENEFITS:
             label = (es, en)[L]
-            table[t("col_mean").format(label)] = ben[f"{var}_mean"]
+            table[t("col_ben_mean").format(label)] = ben[f"{var}_mean"]
             table[t("col_share").format(label)] = ben[f"{var}_share"]
         st.dataframe(
             table.style.format(
