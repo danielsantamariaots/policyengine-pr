@@ -737,9 +737,9 @@ def metric_row(base, ref, L):
     head = md(
         "headline_sentence",
         L,
-        money(shown["pr_income_tax"]).replace("$", "\\$"),
-        money(shown["pr_refundable_credits"]).replace("$", "\\$"),
-        money(shown["household_net_income"]).replace("$", "\\$"),
+        money(shown["pr_income_tax"]),
+        money(shown["pr_refundable_credits"]),
+        money(shown["household_net_income"]),
     )
     if not market:
         st.markdown(head + md("rate_sentence_zero", L))

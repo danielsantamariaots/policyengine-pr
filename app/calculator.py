@@ -7,6 +7,7 @@ Three pages share one sidebar: Inicio (choose a page), Calculadora
 net income as wages rise). Shared text and layout live in ui.py.
 """
 
+import contextlib
 import sys
 from pathlib import Path
 
@@ -53,6 +54,55 @@ TEXT = {
     ),
     "language": ("Idioma / Language", "Idioma / Language"),
     "household": ("Hogar", "Household"),
+    "g_preset": (
+        "Empiece con un hogar tipo (opcional)",
+        "Start from a typical household (optional)",
+    ),
+    "step1": (
+        "1 · ¿Quién vive en el hogar?",
+        "1 · Who lives in the household?",
+    ),
+    "step2": ("2 · ¿Qué ingresos tienen?", "2 · What income do they have?"),
+    "step3": ("3 · Vivienda y ayudas", "3 · Housing and benefits"),
+    "g_joint": (
+        "¿Rinde planilla conjunta con su cónyuge?",
+        "Do you file jointly with your spouse?",
+    ),
+    "g_filer_age": ("Su edad", "Your age"),
+    "g_spouse_age": ("Edad de su cónyuge", "Your spouse's age"),
+    "g_filer_wages": ("Sus salarios al año ($)", "Your wages a year ($)"),
+    "g_spouse_wages": (
+        "Salarios de su cónyuge al año ($)",
+        "Your spouse's wages a year ($)",
+    ),
+    "g_filer_veteran": ("Usted es veterano o veterana", "You are a veteran"),
+    "g_spouse_veteran": (
+        "Su cónyuge es veterano o veterana",
+        "Your spouse is a veteran",
+    ),
+    "g_children": (
+        "¿Cuántos hijos viven con usted?",
+        "How many children live with you?",
+    ),
+    "g_child_age": ("Edad del hijo {}", "Age of child {}"),
+    "g_other_income": (
+        "{}: otros ingresos (pensión, Seguro Social, cuenta propia…)",
+        "{}: other income (pension, Social Security, self-employment…)",
+    ),
+    "g_filer": ("Usted", "You"),
+    "g_spouse": ("Su cónyuge", "Your spouse"),
+    "g_deductions": (
+        "Deducciones de la planilla (Anejo A), si las tiene",
+        "Deductions on the return (Anejo A), if any",
+    ),
+    "step3_intro": (
+        "Estas respuestas solo afectan al PAN y a la Sección 8. Si no aplican, déjelas como están.",
+        "These answers only affect PAN and Section 8. If they do not apply, leave them as they are.",
+    ),
+    "sidebar_guided_note": (
+        "Describa el hogar en el panel principal. Aquí puede probar una reforma contributiva.",
+        "Describe the household in the main panel. Here you can try a tax reform.",
+    ),
     "joint": (
         "Casados que rinden planilla conjunta",
         "Married filing jointly",
@@ -602,8 +652,10 @@ with st.sidebar:
     )
 
 
-def person_inputs(prefix_key):
-    with st.expander(t("other_income", t(prefix_key))):
+def person_inputs(prefix_key, guided=False):
+    who = t("g_" + prefix_key) if guided else t(prefix_key)
+    label = t("g_other_income", who) if guided else t("other_income", who)
+    with st.expander(label):
         return {
             var: st.number_input(
                 (es, en)[L],
@@ -617,111 +669,170 @@ def person_inputs(prefix_key):
         }
 
 
-hh = {}
-with st.sidebar:
-    st.header(t("household"))
+def household_form(guided):
+    """The household inputs. guided=True renders the three-step builder on
+    the main page with plain-language labels; False renders the compact
+    sidebar form. Both use the same widget keys, so the household persists
+    across pages."""
+    hh = {}
+
+    def T(key, *args):
+        gk = "g_" + key
+        if guided and gk in TEXT:
+            return t(gk, *args)
+        return ui.t(key, L) if key == "preset" else t(key, *args)
+
+    def cols(n):
+        return st.columns(n) if guided else [contextlib.nullcontext()] * n
+
     st.selectbox(
-        ui.t("preset", L),
+        T("preset"),
         [p[0] for p in ui.PRESETS],
         format_func=lambda k: next(p[1 + L] for p in ui.PRESETS if p[0] == k),
         key="preset",
         on_change=ui.apply_preset,
         help=ui.t("preset_help", L),
     )
-    hh["joint"] = st.toggle(t("joint"), key="joint")
-    hh["filer_age"] = st.number_input(t("filer_age"), 16, 100, key="filer_age")
-    filer_wages = st.number_input(
-        t("filer_wages"), 0, 2_000_000, step=1_000, key="filer_wages"
-    )
-    hh["filer_veteran"] = st.checkbox(t("filer_veteran"), key="filer_veteran")
-    hh["filer"] = person_inputs("filer")
-    hh["spouse_age"], hh["spouse_wages"] = 35, 0
-    hh["spouse_veteran"], hh["spouse"] = False, {}
-    if hh["joint"]:
-        hh["spouse_age"] = st.number_input(
-            t("spouse_age"), 16, 100, key="spouse_age"
-        )
-        hh["spouse_wages"] = st.number_input(
-            t("spouse_wages"), 0, 2_000_000, step=1_000, key="spouse_wages"
-        )
-        hh["spouse_veteran"] = st.checkbox(
-            t("spouse_veteran"), key="spouse_veteran"
-        )
-        hh["spouse"] = person_inputs("spouse")
-    n_children = st.number_input(t("children"), 0, 8, key="n_children")
-    hh["child_ages"] = [
-        st.number_input(t("child_age", i + 1), 0, 25, key=f"c{i}")
-        for i in range(n_children)
-    ]
-    with st.expander(t("deductions")):
-        hh["deductions"] = {
-            var: st.number_input(
-                (es, en)[L],
+    if guided:
+        step1, step2, step3 = st.tabs([t("step1"), t("step2"), t("step3")])
+    else:
+        step1 = step2 = step3 = contextlib.nullcontext()
+
+    with step1:
+        hh["joint"] = st.toggle(T("joint"), key="joint")
+        c1, c2 = cols(2)
+        with c1:
+            hh["filer_age"] = st.number_input(
+                T("filer_age"), 16, 100, key="filer_age"
+            )
+            hh["filer_veteran"] = st.checkbox(
+                T("filer_veteran"), key="filer_veteran"
+            )
+        hh["spouse_age"], hh["spouse_wages"] = 35, 0
+        hh["spouse_veteran"], hh["spouse"] = False, {}
+        with c2:
+            if hh["joint"]:
+                hh["spouse_age"] = st.number_input(
+                    T("spouse_age"), 16, 100, key="spouse_age"
+                )
+                hh["spouse_veteran"] = st.checkbox(
+                    T("spouse_veteran"), key="spouse_veteran"
+                )
+        n_children = st.number_input(T("children"), 0, 8, key="n_children")
+        kid_cols = cols(4) if n_children else []
+        hh["child_ages"] = []
+        for i in range(n_children):
+            with kid_cols[i % 4] if guided else contextlib.nullcontext():
+                hh["child_ages"].append(
+                    st.number_input(T("child_age", i + 1), 0, 25, key=f"c{i}")
+                )
+
+    with step2:
+        c1, c2 = cols(2)
+        with c1:
+            filer_wages = st.number_input(
+                T("filer_wages"), 0, 2_000_000, step=1_000, key="filer_wages"
+            )
+            hh["filer"] = person_inputs("filer", guided)
+        with c2:
+            if hh["joint"]:
+                hh["spouse_wages"] = st.number_input(
+                    T("spouse_wages"),
+                    0,
+                    2_000_000,
+                    step=1_000,
+                    key="spouse_wages",
+                )
+                hh["spouse"] = person_inputs("spouse", guided)
+        with st.expander(T("deductions")):
+            hh["deductions"] = {
+                var: st.number_input(
+                    (es, en)[L],
+                    0,
+                    1_000_000,
+                    step=step,
+                    help=(hes, hen)[L],
+                    key=f"d_{var}",
+                )
+                for var, es, en, step, hes, hen in DEDUCTION_INPUTS
+            }
+            hh["other_deductions"] = st.number_input(
+                t("other_deductions"),
                 0,
                 1_000_000,
-                step=step,
-                help=(hes, hen)[L],
-                key=f"d_{var}",
+                step=500,
+                help=t("other_deductions_help"),
+                key="other_deductions",
             )
-            for var, es, en, step, hes, hen in DEDUCTION_INPUTS
-        }
-        hh["other_deductions"] = st.number_input(
-            t("other_deductions"),
-            0,
-            1_000_000,
-            step=500,
-            help=t("other_deductions_help"),
-            key="other_deductions",
-        )
-    with st.expander(t("pan_inputs")):
-        hh["pan_resources"] = st.number_input(
-            t("pan_resources"),
-            0,
-            1_000_000,
-            step=500,
-            key="pan_resources",
-            help=t("pan_resources_help"),
-        )
-        hh["pan_pays_dependent_care"] = st.checkbox(
-            t("pan_care"),
-            key="pan_pays_dependent_care",
-            help=t("pan_care_help"),
-        )
-        hh["pan_recurrent_medical_expenses"] = st.checkbox(
-            t("pan_medical"),
-            key="pan_recurrent_medical_expenses",
-            help=t("pan_medical_help"),
-        )
-    with st.expander(t("housing")):
-        hh["housing_assisted"] = st.checkbox(
-            t("housing_assisted"),
-            key="housing_assisted",
-            help=t("housing_assisted_help"),
-        )
-        hh["municipio"] = st.selectbox(
-            t("municipio"),
-            list(MUNICIPIOS),
-            key="municipio",
-            help=t("municipio_help"),
-        )
-        hh["housing_rent"] = st.number_input(
-            t("housing_rent"),
-            0,
-            10_000,
-            step=50,
-            key="housing_rent",
-            help=t("housing_rent_help"),
-        )
-    with st.expander(t("advanced")):
-        hh["abt_other_income"] = st.number_input(
-            t("abt_other"),
-            0,
-            5_000_000,
-            step=1_000,
-            help=t("abt_other_help"),
-            key="abt_other_income",
-        )
+        with st.expander(t("advanced")):
+            hh["abt_other_income"] = st.number_input(
+                t("abt_other"),
+                0,
+                5_000_000,
+                step=1_000,
+                help=t("abt_other_help"),
+                key="abt_other_income",
+            )
 
+    with step3:
+        if guided:
+            st.caption(t("step3_intro"))
+        c1, c2 = cols(2)
+        with c1:
+            hh["municipio"] = st.selectbox(
+                t("municipio"),
+                list(MUNICIPIOS),
+                key="municipio",
+                help=t("municipio_help"),
+            )
+            hh["housing_assisted"] = st.checkbox(
+                t("housing_assisted"),
+                key="housing_assisted",
+                help=t("housing_assisted_help"),
+            )
+            hh["housing_rent"] = st.number_input(
+                t("housing_rent"),
+                0,
+                10_000,
+                step=50,
+                key="housing_rent",
+                help=t("housing_rent_help"),
+            )
+        with c2:
+            hh["pan_resources"] = st.number_input(
+                t("pan_resources"),
+                0,
+                1_000_000,
+                step=500,
+                key="pan_resources",
+                help=t("pan_resources_help"),
+            )
+            hh["pan_pays_dependent_care"] = st.checkbox(
+                t("pan_care"),
+                key="pan_pays_dependent_care",
+                help=t("pan_care_help"),
+            )
+            hh["pan_recurrent_medical_expenses"] = st.checkbox(
+                t("pan_medical"),
+                key="pan_recurrent_medical_expenses",
+                help=t("pan_medical_help"),
+            )
+    return hh, filer_wages
+
+
+if view == "calc":
+    st.title(t("title"))
+    charts.mobile_hint(t("mobile_hint"))
+    st.caption(t("caption"))
+    hh, filer_wages = household_form(guided=True)
+    with st.sidebar:
+        st.caption(t("sidebar_guided_note"))
+else:
+    with st.sidebar:
+        st.header(t("household"))
+        hh, filer_wages = household_form(guided=False)
+
+with st.sidebar:
     st.header(t("reform"))
     st.selectbox(
         ui.t("example_reform", L),
@@ -843,9 +954,6 @@ if view == "cliff":
     ui.tutorial(L)
     st.stop()
 
-st.title(t("title"))
-charts.mobile_hint(t("mobile_hint"))
-st.caption(t("caption"))
 st.markdown(f"**{ui.household_summary(hh, filer_wages, L)}**")
 if reform:
     st.info(t("reform_active", reform_name, len(changes)))

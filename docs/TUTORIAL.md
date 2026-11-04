@@ -33,21 +33,15 @@ archivo de parámetros de cada uno) y *Cómo usar estas páginas*.
 
 ## 1. Describir el hogar
 
-En la barra lateral, primero **Hogar tipo**: seis hogares de ejemplo
-(trabajador con salario mínimo, madre o padre con dos hijos, pareja con dos
-salarios, pensionado de 65, joven de 22, cuenta propia) que rellenan los
-campos; después ajuste lo que quiera. *Hogar personalizado* deja los campos
-como están.
-
-| Campo | Qué poner |
-|---|---|
-| Casados que rinden planilla conjunta | Active para una pareja; aparecen los campos del cónyuge |
-| Edad y salarios | Por persona. Las edades importan: exención para jóvenes (16–26), exención de pensión (60+), edad de los dependientes para los créditos |
-| Es veterano | Añade la exención adicional de $1,500 |
-| Otros ingresos | Ganancia neta por cuenta propia (Anejo M), pensión de plan cualificado (Anejo H), Seguro Social (no tributa), intereses bancarios (10%, primeros $100 exentos), dividendos y ganancias de capital (15%, o las tasas ordinarias si resultan menores: Anejo A2) |
-| Dependientes (hijos) | Número y edades. Cuentan para la exención por dependiente ($2,500), el Crédito por Trabajo (hasta 18 años, o 25 si estudian) y el crédito federal por hijos (menores de 17) |
-| Deducciones (Anejo A) | Cantidades pagadas; la calculadora aplica los límites de ley |
-| Avanzado | Partidas sujetas a contribución básica alterna que el modelo aún no calcula |
+En *Mi hogar* el formulario está en el panel principal, en tres pasos:
+**1 · ¿Quién vive en el hogar?** (planilla conjunta o no, edades, hijos),
+**2 · ¿Qué ingresos tienen?** (salarios; pensión, Seguro Social y cuenta
+propia bajo *otros ingresos*; deducciones del Anejo A si las tiene) y
+**3 · Vivienda y ayudas** (municipio, vale de Sección 8, recursos y gastos
+que afectan al PAN). Puede empezar con un *hogar tipo* y cambiar lo que
+quiera. En las demás páginas el mismo formulario, en versión compacta,
+está en la barra lateral; lo que escriba en un sitio se conserva en el
+otro.
 
 ## 2. Leer los resultados
 

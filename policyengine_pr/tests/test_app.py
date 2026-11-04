@@ -48,10 +48,10 @@ def test_calculator_renders_in_both_languages(app, lang):
 def test_preset_fills_the_sidebar(app):
     at = app
     _radio(at, "view").set_value("calc").run()
-    at.sidebar.selectbox(key="preset").set_value("retiree").run()
+    at.selectbox(key="preset").set_value("retiree").run()
     _no_errors(at)
-    assert at.sidebar.number_input(key="filer_age").value == 65
-    assert at.sidebar.number_input(key="filer_pension_income").value == 24_000
+    assert at.number_input(key="filer_age").value == 65
+    assert at.number_input(key="filer_pension_income").value == 24_000
 
 
 def test_example_reform_switches_to_comparison_mode(app):
@@ -104,9 +104,9 @@ def test_cliffwatch_marriage_penalty_comparison(app):
 def test_voucher_preset_pays_section8(app):
     at = app
     _radio(at, "view").set_value("calc").run()
-    at.sidebar.selectbox(key="preset").set_value("voucher").run()
+    at.selectbox(key="preset").set_value("voucher").run()
     _no_errors(at)
-    assert at.sidebar.checkbox(key="housing_assisted").value is True
+    assert at.checkbox(key="housing_assisted").value is True
     table = next(
         d.value
         for d in at.dataframe
@@ -127,8 +127,8 @@ def test_shared_link_restores_household_and_reform():
     at.query_params["r.gov.hacienda.income.rates[1].threshold"] = "12000"
     at.run()
     _no_errors(at)
-    assert at.sidebar.number_input(key="filer_wages").value == 42_000
-    assert at.sidebar.toggle(key="joint").value is True
+    assert at.number_input(key="filer_wages").value == 42_000
+    assert at.toggle(key="joint").value is True
     assert (
         at.sidebar.number_input(
             key="r_gov.hacienda.income.rates[1].threshold"
