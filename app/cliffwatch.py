@@ -970,6 +970,7 @@ def render(
             st.plotly_chart(
                 fig, use_container_width=True, config=charts.CONFIG
             )
+            charts.explain(L, t("explain_compare_net"))
             fig = charts.figure(
                 t("compare_emtr"),
                 x_title=t("x_axis"),
@@ -1002,4 +1003,5 @@ def render(
             st.plotly_chart(
                 fig, use_container_width=True, config=charts.CONFIG
             )
+            charts.explain(L, t("explain_compare_emtr"))
     st.caption(md("note"))
