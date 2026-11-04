@@ -148,6 +148,10 @@ TEXT = {
         "Across the income range",
     ),
     "you": ("Su hogar", "Your household"),
+    "section8_hint": (
+        "La Sección 8 se dibuja solo si marca *El hogar tiene un vale de Sección 8* en Vivienda.",
+        "Section 8 is drawn only if you tick *Household holds a Section 8 voucher* under Housing.",
+    ),
     "range_caption": (
         "Mismo hogar; salarios del contribuyente de $0 a $150,000. Para "
         "precipicios y tasas marginales, vea CliffWatch.",
@@ -939,6 +943,8 @@ with left:
         fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
     )
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    if not reform and not hh["housing_assisted"]:
+        st.caption(t("section8_hint"))
 
     df[t("marginal")] = (1 - df[t("s_net")].diff() / df[xcol].diff()) * 100
     with st.expander(t("table_view")):

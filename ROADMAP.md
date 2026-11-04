@@ -132,10 +132,11 @@ late: ship the household calculator first; aggregate estimates follow.
 | When | Step | Status |
 |---|---|---|
 | Nov 2026 | Send the four data requests (Hacienda, ADSEF, Salud, Vivienda) | letters drafted (Vivienda 4 Nov 2026) |
-| Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | live at https://policyengine-pr.streamlit.app (4 Nov 2026); custom domain pending |
+| Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | live at https://policyengine-pr.streamlit.app (4 Nov 2026); keep-warm GitHub Action every 4 h (`.github/workflows/keep_warm.yml`); custom domain pending |
 | Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI green, guide done, repo public (4 Nov 2026); AGPL-3.0 (4 Nov 2026) |
 | Nov–Dec 2026 | CPA validation of 10–15 real anonymised 2025 returns | workbook prepared |
-| Dec 2026 | Calibration review (weights, tax-unit construction) | first pass 4 Nov 2026: 90% of weight ratios within 0.44–2.4, 0.1% of weight above 3 (large PAN households with EITC); PAN-only households scaled to 0.68, EITC households to 1.27. Tax-unit rules reviewed (spouse codes 21/23 joint, partners 22/24 separate, dependents <21 or student <26); re-check against Hacienda's tables |
+| Dec 2026 | Calibration review (weights, tax-unit construction) | first pass 4 Nov 2026: 90% of weight ratios within 0.44–2.4, 0.1% of weight above 3 (large PAN households with EITC); PAN-only households scaled to 0.68, EITC households to 1.27. Tax-unit rules reviewed (spouse codes 21/23 joint, partners 22/24 separate, dependents <21 or student <26); re-check against Hacienda's tables  **Participant check 4 Nov 2026** (`docs/validacion/comparacion_participantes.md`): PAN persons 1.96 M vs FNS 1.27 M (whole household treated as one núcleo); EITC 816k tax units vs Hacienda's 700k 'families' (calibrated to households; switch to returns when Hacienda's tables arrive) |
+
 | Dec 2026 | Reform report template, dry-run on a dummy reform | dry run 4 Nov 2026: EITC +20% with ETI 0.25, 2.3 s to Markdown, 0.1 s to Word; stale "not uprated" line fixed |
 | Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | both done 4 Nov 2026 (Section 8 with San Juan tables; PAN resources and care/student/medical deductions as inputs) |
 | Jan 2027 | Behavioural response switch (ETI) on top brackets | done |

@@ -269,6 +269,10 @@ TEXT = {
         "A sus salarios no hay penalidad ni bono por matrimonio.",
         "At your wages there is neither a marriage penalty nor a bonus.",
     ),
+    "section8_hint": (
+        "La Sección 8 se dibuja solo si marca *El hogar tiene un vale de Sección 8* en Vivienda.",
+        "Section 8 is drawn only if you tick *Household holds a Section 8 voucher* under Housing.",
+    ),
     "note": (
         "La tasa marginal efectiva se calcula sobre pasos de $500. El PAN se "
         "modela con el beneficio máximo para todo hogar elegible, porque ADSEF "
@@ -606,6 +610,8 @@ def render(
     marker_lines(fig)
     fig.update_layout(barmode="relative", bargap=0.15)
     st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+    if not assisted:
+        st.caption(md("section8_hint"))
 
     # --- EMTR
     fig = charts.figure(

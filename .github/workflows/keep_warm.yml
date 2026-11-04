@@ -1,0 +1,26 @@
+# Streamlit Community Cloud puts an app to sleep after a period without
+# visits; the first visitor then waits about a minute while it restarts.
+# This visits the app every four hours so it stays awake. If Community
+# Cloud stops counting these requests as visits, move the app to a small
+# paid host (see ROADMAP.md, launch checklist).
+name: keep-warm
+
+on:
+  schedule:
+    - cron: "17 */4 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Load the app's front page
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 120 \
+              "https://policyengine-pr.streamlit.app/?view=calc")
+            echo "attempt $i: HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 60
+          done
+          exit 1
