@@ -66,6 +66,14 @@ TEXT = {
     "col_base": ("Ley vigente", "Current law"),
     "col_ref": ("Reforma", "Reform"),
     "col_change": ("Cambio", "Change"),
+    "eti": ("Respuesta de comportamiento", "Behavioural response"),
+    "eti_help": (
+        "Elasticidad del ingreso tributable: cuánto cambian los salarios cuando cambia la "
+        "tasa marginal neta. 0 = modelo estático; 0.25 es una estimación central habitual.",
+        "Elasticity of taxable income: how much wages respond to the net-of-tax marginal "
+        "rate. 0 = static; 0.25 is a common central estimate.",
+    ),
+    "eti_static": ("Ninguna (estático)", "None (static)"),
     "calibration_title": (
         "Calibración a totales oficiales",
         "Calibration to official totals",
@@ -129,9 +137,9 @@ def _calibration_report():
 
 
 @st.cache_data(show_spinner=False)
-def _score(changes: tuple):
+def _score(changes: tuple, eti: float = 0.0):
     reform = parametric_reform(dict(changes)) if changes else None
-    return score(reform, baseline_sim=_baseline())
+    return score(reform, baseline_sim=_baseline(), eti=eti)
 
 
 def money_m(x):
@@ -162,12 +170,19 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     if sidebar_changes:
         reforms.append((sidebar_name, tuple(sorted(sidebar_changes.items()))))
 
-    results = {name: _score(changes) for name, changes in reforms}
+    st.title(t("title"))
+    eti = st.radio(
+        t("eti"),
+        [0.0, 0.25, 0.4],
+        format_func=lambda v: t("eti_static") if v == 0 else f"ETI {v}",
+        horizontal=True,
+        help=t("eti_help"),
+    )
+    results = {name: _score(changes, eti) for name, changes in reforms}
     households = (
         next(iter(results.values()))["summary"]["households"] if results else 0
     )
 
-    st.title(t("title"))
     st.caption(t("caption", households))
 
     table = pd.DataFrame(

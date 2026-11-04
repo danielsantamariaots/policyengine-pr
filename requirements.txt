@@ -1,0 +1,9 @@
+# Runtime for Streamlit Community Cloud; the package itself is installed from this repo
+-e .
+policyengine-core==3.34.3
+streamlit==1.66.1
+plotly==5.24.1
+pandas==3.1.0
+numpy==2.5.4
+h5py==3.16.0
+pyyaml==6.0.3

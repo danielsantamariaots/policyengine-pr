@@ -2,9 +2,12 @@
 __pycache__/
 *.egg-info/
 *.h5
+!data/prcs_2023_calibrated.h5
 .pytest_cache/
 dist/
 .claude/
 .DS_Store
 ~$*
-data/
+data/*
+!data/prcs_2023_calibrated.h5
+!data/README.md

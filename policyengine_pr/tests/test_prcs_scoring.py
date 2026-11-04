@@ -48,3 +48,27 @@ def test_calibration_hits_every_target():
     w, report = calibrate(Simulation(dataset=PRCS))
     assert (w > 0).all()
     assert (abs(report["after_ratio"] - 1) < 1e-6).all()
+
+
+def test_behavioural_response_shrinks_the_static_revenue_gain():
+    from policyengine_pr.analysis.scoring import score
+    from policyengine_pr.reforms.parametric import parametric_reform
+
+    reform = parametric_reform({"gov.hacienda.income.rates[4].rate": 0.38})
+    static = score(reform)["summary"]["revenue_change"]
+    dynamic = score(reform, eti=0.25)["summary"]["revenue_change"]
+    assert static < 0  # a revenue gain is a negative "cost"
+    assert dynamic > static  # the gain shrinks when earners respond
+
+
+def test_report_and_validation_workbook_build(tmp_path):
+    from policyengine_pr.analysis.report import write_report
+    from policyengine_pr.analysis.validation_workbook import build
+
+    md = write_report(
+        {"gov.hacienda.income.rates[1].threshold": 12_000.0},
+        "Prueba",
+        tmp_path / "r.md",
+    )
+    assert "## Totales" in md.read_text()
+    assert build(tmp_path / "v.xlsx").exists()

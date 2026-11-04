@@ -1,0 +1,53 @@
+# Administrative totals the PRCS weights are calibrated to.
+# Each target: the model aggregate (variable, entity-level statistic) and the
+# published value with its source. Values in dollars per year or counts.
+# Sources are in docs/statutes/calibration/SOURCES.md.
+
+- name: households
+  description: Occupied households (PRCS 2023 weighted total, kept as a population constraint)
+  variable: household_weight
+  statistic: count
+  value: 1_277_488
+  source: PRCS 2023 1-year PUMS, housing file, WGTP sum of occupied units with persons
+
+- name: persons
+  description: Persons in households, household-weighted (sum of WGTP x NP; kept as a population constraint so calibration does not shift household sizes)
+  variable: person_weight
+  statistic: count
+  value: 2_820_359
+  source: PRCS 2023 1-year PUMS, WGTP x household size over occupied units with persons (the PWGTP sum is 3,168,018; person and household weights are calibrated separately by the Census Bureau)
+
+- name: net_income_tax
+  description: Net individual income tax collections, General Fund, FY2023-24 (net of refunds including the Crédito por Trabajo)
+  variable: pr_income_tax_net_of_eitc
+  statistic: sum
+  value: 2_615_500_000
+  source: Hacienda, comunicado de cierre de recaudos AF2023-2024 (Sept 2024), "Individuos" 2,615.5 M
+
+- name: eitc_total
+  description: Crédito por Trabajo paid, tax year 2023 (ciclo contributivo 2024)
+  variable: pr_eitc
+  statistic: sum
+  value: 1_303_000_000
+  source: Hacienda, comunicado de prensa 26 Dec 2024, "cerca de $1,303 millones en Crédito por Trabajo"
+
+- name: eitc_claimants
+  description: Families receiving the Crédito por Trabajo, tax year 2023
+  variable: pr_eitc
+  statistic: count_positive
+  value: 700_000
+  source: Hacienda, comunicado de prensa 26 Dec 2024, "cerca de 700,000 familias trabajadoras"
+
+- name: pan_households
+  description: PAN households, FY2024 monthly average
+  variable: pan
+  statistic: count_positive
+  value: 738_510
+  source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 average households
+
+- name: pan_benefits
+  description: PAN benefits issued, FY2024
+  variable: pan
+  statistic: sum
+  value: 2_928_990_448
+  source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 total food cost

@@ -59,12 +59,55 @@ def default_dataset():
     return PRCSCalibrated if PRCSCalibrated.file_path.exists() else PRCS
 
 
-def score(reform=None, dataset=None, baseline_sim=None):
+MTR_DELTA = 1_000.0  # wage increment used to measure the marginal tax rate
+
+
+def _burden(sim):
+    """Tax plus employee payroll less refundable credits, per person."""
+    return (
+        sim.calculate("pr_income_tax", YEAR, map_to="person")
+        + sim.calculate("employee_social_security_tax", YEAR)
+        + sim.calculate("employee_medicare_tax", YEAR)
+        - sim.calculate("pr_refundable_credits", YEAR, map_to="person")
+    )
+
+
+def _net_of_tax_rate(sim, dataset, reform):
+    """1 - marginal rate on an extra 1,000 dollars of wages, per person."""
+    wages = sim.calculate("employment_income", YEAR)
+    bumped = Simulation(dataset=dataset, reform=reform)
+    bumped.set_input("employment_income", YEAR, wages + MTR_DELTA)
+    mtr = (_burden(bumped) - _burden(sim)) / MTR_DELTA
+    return np.clip(1 - mtr, 0.05, None)
+
+
+def behavioural_reform_sim(dataset, reform, eti):
+    """Reform simulation with wages adjusted by the elasticity of taxable
+    income: earnings change by (net-of-tax rate ratio) ** eti, earners only.
+    Static when eti = 0."""
+    ref_sim = Simulation(dataset=dataset, reform=reform)
+    if not eti:
+        return ref_sim
+    base_sim = Simulation(dataset=dataset)
+    wages = base_sim.calculate("employment_income", YEAR)
+    ratio = _net_of_tax_rate(ref_sim, dataset, reform) / _net_of_tax_rate(
+        base_sim, dataset, None
+    )
+    adjusted = np.where(wages > 0, wages * ratio**eti, wages)
+    out = Simulation(dataset=dataset, reform=reform)
+    out.set_input("employment_income", YEAR, adjusted)
+    return out
+
+
+def score(reform=None, dataset=None, baseline_sim=None, eti=0.0):
+    """Score a reform. ``eti`` > 0 adds a behavioural response of wages to
+    the change in marginal rates (elasticity of taxable income; 0.25 is a
+    common central estimate, 0 is static)."""
     dataset = dataset or default_dataset()
     base_sim = baseline_sim or Simulation(dataset=dataset)
     base = _household_frame(base_sim)
     ref = (
-        _household_frame(Simulation(dataset=dataset, reform=reform))
+        _household_frame(behavioural_reform_sim(dataset, reform, eti))
         if reform
         else base.copy()
     )

@@ -74,3 +74,20 @@ late: ship the household calculator first; aggregate estimates follow.
   All met exactly; weight ratios 0.07–4.45. Scoring and the Reformas page
   use `prcs_2023_calibrated.h5` when built. Distributional targets from
   Hacienda's Tabla A will replace these aggregates when they arrive.
+
+## Launch checklist (target: March–April 2027)
+
+| When | Step | Status |
+|---|---|---|
+| Nov 2026 | Send the three data requests (Hacienda, ADSEF, Salud) | letters drafted |
+| Nov 2026 | Host the app (Streamlit Community Cloud, custom domain) | files prepared |
+| Nov 2026 | CI, CONTRIBUTING guide, licence, public repo | CI + guide done; licence pending EA |
+| Nov–Dec 2026 | CPA validation of 10–15 real anonymised 2025 returns | workbook prepared |
+| Dec 2026 | Calibration review (weights, tax-unit construction) | pending |
+| Dec 2026 | Reform report template, dry-run on a dummy reform | generator done |
+| Jan 2027 | Section 8 (HUD income limits, rent input); PAN resources test | pending |
+| Jan 2027 | Behavioural response switch (ETI) on top brackets | done |
+| Jan 2027 | Mobile layout and accessibility pass | pending |
+| Feb–Mar 2027 | Tax year 2026 parameters (instructions + BI RI EITC adjustment) | waits on Hacienda |
+| Mar 2027 | Replace aggregate calibration with Hacienda's distributional tables | waits on Hacienda |
+| Mar–Apr 2027 | Launch; score the reform proposal within days of release | — |
