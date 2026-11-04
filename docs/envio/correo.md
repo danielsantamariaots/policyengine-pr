@@ -14,7 +14,7 @@ Lo que más me interesa que mires:
 
 Lo que todavía no está, para que no te sorprenda: ADSEF no publica la tabla que reduce el PAN con el ingreso, así que el modelo paga el máximo a todo el que es elegible; el TANF usa el máximo de una familia de tres para todos; la Sección 8 usa las rentas de HUD y no el esquema de Vivienda. Todo eso está declarado en la propia herramienta y en las cuatro cartas de solicitud de datos que tenemos listas para Hacienda, ADSEF, Salud y Vivienda. Falta también la comprobación con planillas reales de un CPA, que es lo que nos permitirá decir en público que cuadra.
 
-Te adjunto el tutorial en español, una nota técnica por si quieres pasársela a alguien que sepa de datos, y una carpeta con todos los documentos del proyecto (metodología, hoja de ruta, cartas, informes de ejemplo, casos de validación). Los PDF de las fuentes oficiales pesan 38 MB; si los quieres te los paso por enlace.
+Te adjunto el tutorial en español, una nota técnica por si quieres pasársela a alguien que sepa de datos, la lista de todo lo que tenemos que pedir a las agencias (y a quién) para completar la plataforma, y una carpeta con todos los documentos del proyecto (metodología, hoja de ruta, cartas, informes de ejemplo, casos de validación). Los PDF de las fuentes oficiales pesan 38 MB; si los quieres te los paso por enlace.
 
 Dos cosas que me ayudarían de ti esta semana: que lo pruebes como si fueras una persona que no sabe nada de contribuciones y me digas en qué te atascas, y que pensemos juntos el nombre que le vamos a dar antes de que alguien lo comparta.
 
