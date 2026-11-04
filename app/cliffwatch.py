@@ -5,6 +5,7 @@ The whole earnings range is one simulation, using policyengine-core axes on
 the filer's employment income, so a $500 step is affordable.
 """
 
+import charts
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
@@ -93,6 +94,19 @@ TEXT = {
     "s_emtr": ("Ley vigente", "Current law"),
     "s_emtr_reform": ("Reforma", "Reform"),
     "x_axis": ("Salarios del contribuyente", "Filer wages"),
+    "you": ("Su hogar", "Your household"),
+    "chart_net_sub": (
+        "Salarios del contribuyente de $0 a $150,000 en pasos de $500; las X rojas marcan precipicios",
+        "Filer wages from $0 to $150,000 in $500 steps; red Xs mark cliffs",
+    ),
+    "chart_components_sub": (
+        "Créditos y beneficios por encima de cero; contribuciones por debajo",
+        "Credits and benefits above zero; taxes below",
+    ),
+    "chart_emtr_sub": (
+        "De cada $100 adicionales de salario, la parte que se va en contribuciones y créditos perdidos; sombreado = 50% o más",
+        "Of each additional $100 in wages, the share lost to taxes and withdrawn credits; shaded = 50% or more",
+    ),
     "cliffs_title": ("Precipicios detectados", "Cliffs detected"),
     "no_cliffs": (
         "No hay precipicios para este hogar: el ingreso neto nunca baja al "
@@ -389,66 +403,44 @@ def render(
         t("m_emtr_here"), f"{emtr_here:.0%}", help=md("m_emtr_here_help")
     )
 
-    layout = dict(
-        margin=dict(l=10, r=10, t=10, b=10),
-        hovermode="x unified",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", y=1.1, x=0),
-        xaxis=dict(
-            title=t("x_axis"), tickprefix="$", tickformat=",", showgrid=False
-        ),
-        yaxis=dict(
-            title=None,
-            tickprefix="$",
-            tickformat=",",
-            gridcolor="rgba(128,128,128,0.18)",
-            zeroline=False,
-        ),
-    )
-
-    def marker_line(fig):
-        fig.add_vline(
-            x=filer_wages, line=dict(color=MARKET_COLOR, width=1, dash="dot")
+    def marker_lines(fig):
+        fig.update_xaxes(tickprefix="$", tickformat=",")
+        charts.vline(
+            fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
         )
         for w in cliffs["wages"]:
-            fig.add_vline(
-                x=w, line=dict(color=CLIFF_COLOR, width=1, dash="dash")
-            )
+            charts.vline(fig, w, color=charts.SERIES["cliff"], dash="dash")
 
     # --- net income vs market income
-    st.subheader(t("chart_net"))
-    fig = go.Figure()
-    fig.add_trace(
-        go.Scatter(
-            x=base["wages"],
-            y=base["market"],
-            name=t("s_market"),
-            mode="lines",
-            line=dict(color=MARKET_COLOR, width=2, dash="dash"),
-            hovertemplate="%{y:$,.0f}<extra>" + t("s_market") + "</extra>",
-        )
+    fig = charts.figure(
+        t("chart_net"),
+        t("chart_net_sub"),
+        x_title=t("x_axis"),
+        y_money=True,
+        height=400,
     )
-    fig.add_trace(
-        go.Scatter(
-            x=base["wages"],
-            y=base["net"],
-            name=t("s_net"),
-            mode="lines",
-            line=dict(color=NET_COLOR if ref is None else TAX_COLOR, width=2),
-            hovertemplate="%{y:$,.0f}<extra>" + t("s_net") + "</extra>",
-        )
+    charts.line(
+        fig,
+        base["wages"],
+        base["market"],
+        t("s_market"),
+        charts.SERIES["market"],
+        dash="dash",
     )
-    if ref is not None:
-        fig.add_trace(
-            go.Scatter(
-                x=ref["wages"],
-                y=ref["net"],
-                name=reform_name,
-                mode="lines",
-                line=dict(color=PAYROLL_COLOR, width=2),
-                hovertemplate="%{y:$,.0f}<extra>" + reform_name + "</extra>",
-            )
+    if ref is None:
+        charts.line(
+            fig, base["wages"], base["net"], t("s_net"), charts.SERIES["net"]
+        )
+    else:
+        charts.line(
+            fig,
+            base["wages"],
+            base["net"],
+            t("s_emtr"),
+            charts.SERIES["baseline"],
+        )
+        charts.line(
+            fig, ref["wages"], ref["net"], reform_name, charts.SERIES["reform"]
         )
     if len(cliffs):
         at = shown[shown["wages"].isin(cliffs["wages"])]
@@ -458,85 +450,108 @@ def render(
                 y=at["net"],
                 name=t("s_cliff"),
                 mode="markers",
-                marker=dict(color=CLIFF_COLOR, size=9, symbol="x"),
+                marker=dict(
+                    color=charts.SERIES["cliff"],
+                    size=10,
+                    symbol="x",
+                    line=dict(width=2),
+                ),
                 hovertemplate="%{y:$,.0f}<extra>" + t("s_cliff") + "</extra>",
             )
         )
-    marker_line(fig)
-    fig.update_layout(height=360, **layout)
-    st.plotly_chart(fig, use_container_width=True)
+    last = shown.iloc[-1]
+    charts.end_label(
+        fig,
+        last["wages"],
+        last["net"],
+        money(last["net"]),
+        charts.SERIES["net"] if ref is None else charts.SERIES["reform"],
+    )
+    marker_lines(fig)
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     # --- components: credits above zero, taxes below
-    st.subheader(t("chart_components"))
-    fig = go.Figure()
-    bars = [
-        ("eitc", "s_eitc", CREDIT_COLOR, 1),
-        ("actc", "s_actc", "#0d7a52", 1),
-        ("pan", "s_pan", PAN_COLOR, 1),
-        ("tanf", "s_tanf", TANF_COLOR, 1),
-        ("tax", "s_tax", TAX_COLOR, -1),
-        ("payroll", "s_payroll", PAYROLL_COLOR, -1),
-    ]
-    for key, label, color, sign in bars:
-        fig.add_trace(
-            go.Bar(
-                x=shown["wages"],
-                y=sign * shown[key],
-                name=t(label),
-                marker=dict(color=color, line=dict(width=0)),
-                hovertemplate="%{y:$,.0f}<extra>" + t(label) + "</extra>",
-            )
+    fig = charts.figure(
+        t("chart_components"),
+        t("chart_components_sub"),
+        x_title=t("x_axis"),
+        y_money=True,
+        height=400,
+    )
+    for key, label, sign in (
+        ("eitc", "s_eitc", 1),
+        ("actc", "s_actc", 1),
+        ("pan", "s_pan", 1),
+        ("tanf", "s_tanf", 1),
+        ("tax", "s_tax", -1),
+        ("payroll", "s_payroll", -1),
+    ):
+        charts.bars(
+            fig,
+            shown["wages"],
+            sign * shown[key],
+            t(label),
+            charts.SERIES[key],
         )
-    fig.add_hline(y=0, line=dict(color=MARKET_COLOR, width=1))
-    marker_line(fig)
-    fig.update_layout(height=360, barmode="relative", bargap=0, **layout)
-    st.plotly_chart(fig, use_container_width=True)
+    charts.hline(fig, 0, color=charts.ZERO)
+    marker_lines(fig)
+    fig.update_layout(barmode="relative", bargap=0.15)
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     # --- EMTR
-    st.subheader(t("chart_emtr"))
-    fig = go.Figure()
-    for df_, label, color in (
-        (base, t("s_emtr"), TAX_COLOR),
-        (ref, reform_name, PAYROLL_COLOR),
-    ):
-        if df_ is None:
-            continue
-        fig.add_trace(
-            go.Scatter(
-                x=df_["wages"],
-                y=df_["emtr"],
-                name=label,
-                mode="lines",
-                line=dict(color=color, width=2, shape="hv"),
-                hovertemplate="%{y:.0%}<extra>" + label + "</extra>",
-            )
-        )
+    fig = charts.figure(
+        t("chart_emtr"),
+        t("chart_emtr_sub"),
+        x_title=t("x_axis"),
+        y_percent=True,
+        height=360,
+    )
     for _, z in zones.iterrows():
         fig.add_vrect(
             x0=z["from"],
             x1=z["to"],
-            fillcolor=CLIFF_COLOR,
+            fillcolor=charts.SERIES["cliff"],
             opacity=0.08,
             line_width=0,
         )
-    fig.add_hline(
-        y=HIGH_EMTR, line=dict(color=MARKET_COLOR, width=1, dash="dot")
+    if ref is None:
+        charts.line(
+            fig,
+            base["wages"],
+            base["emtr"],
+            t("s_emtr"),
+            charts.SERIES["tax"],
+            money=False,
+            shape="hv",
+        )
+    else:
+        charts.line(
+            fig,
+            base["wages"],
+            base["emtr"],
+            t("s_emtr"),
+            charts.SERIES["baseline"],
+            money=False,
+            shape="hv",
+        )
+        charts.line(
+            fig,
+            ref["wages"],
+            ref["emtr"],
+            reform_name,
+            charts.SERIES["reform"],
+            money=False,
+            shape="hv",
+        )
+    charts.hline(fig, HIGH_EMTR, color=charts.MUTED, dash="dot", label="50%")
+    charts.hline(
+        fig, 1, color=charts.SERIES["cliff"], dash="dot", label="100%"
     )
-    fig.add_hline(y=1, line=dict(color=CLIFF_COLOR, width=1, dash="dot"))
-    marker_line(fig)
-    emtr_layout = dict(layout)
-    emtr_layout["yaxis"] = dict(
-        title=None,
-        tickformat=".0%",
-        range=[
-            min(-0.1, shown["emtr"].min() - 0.05),
-            max(1.2, shown["emtr"].max() + 0.1),
-        ],
-        gridcolor="rgba(128,128,128,0.18)",
-        zeroline=False,
-    )
-    fig.update_layout(height=320, **emtr_layout)
-    st.plotly_chart(fig, use_container_width=True)
+    marker_lines(fig)
+    # cap the axis at 150%: a cliff's one-step rate can be several hundred
+    # per cent and would flatten everything else (cliffs are listed below)
+    fig.update_yaxes(range=[min(-0.1, shown["emtr"].min() - 0.05), 1.5])
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     # --- tables
     left, right = st.columns(2)

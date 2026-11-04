@@ -7,6 +7,7 @@ mean change in net income. Selecting a row shows the decile chart.
 
 from pathlib import Path
 
+import charts
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -52,6 +53,14 @@ TEXT = {
     "x_axis": (
         "Decil de ingreso neto del hogar (1 = más bajo)",
         "Household net-income decile (1 = lowest)",
+    ),
+    "chart_sub": (
+        "Cambio anual medio en el ingreso neto de los hogares de cada decil, reforma menos ley vigente",
+        "Mean annual change in household net income by decile, reform minus current law",
+    ),
+    "share_sub": (
+        "Porcentaje de hogares de cada decil cuyo ingreso neto sube (arriba) o baja (abajo)",
+        "Share of households in each decile whose net income rises (above) or falls (below)",
     ),
     "s_change": ("Cambio medio ($/año)", "Mean change ($/year)"),
     "share_title": (
@@ -228,60 +237,66 @@ def render(L, example_reforms, current_values, sidebar_changes, sidebar_name):
     r = results[pick]
     dec = r["deciles"]
 
-    layout = dict(
-        margin=dict(l=10, r=10, t=10, b=10),
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", y=1.1, x=0),
-        xaxis=dict(title=t("x_axis"), dtick=1, showgrid=False),
-        yaxis=dict(
-            title=None, gridcolor="rgba(128,128,128,0.18)", zeroline=False
-        ),
+    fig = charts.figure(
+        t("chart_title"),
+        t("chart_sub"),
+        x_title=t("x_axis"),
+        y_money=True,
+        height=360,
     )
-    st.subheader(t("chart_title"))
-    fig = go.Figure(
+    fig.add_trace(
         go.Bar(
             x=dec["decile"],
             y=dec["mean_change"],
             name=t("s_change"),
             marker=dict(
                 color=[
-                    REFORM_COLOR if v < 0 else BASELINE_COLOR
+                    charts.SERIES["worse"]
+                    if v < 0
+                    else charts.SERIES["better"]
                     for v in dec["mean_change"]
-                ]
+                ],
+                line=dict(width=0),
             ),
+            text=[f"${v:+,.0f}" for v in dec["mean_change"]],
+            textposition="outside",
+            textfont=dict(size=11, color=charts.MUTED),
+            cliponaxis=False,
             hovertemplate="%{y:$,.0f}<extra></extra>",
         )
     )
-    fig.add_hline(y=0, line=dict(color=MARKET_COLOR, width=1))
-    fig.update_layout(height=320, **layout)
-    fig.update_yaxes(tickprefix="$", tickformat=",")
-    st.plotly_chart(fig, use_container_width=True)
+    charts.hline(fig, 0, color=charts.ZERO)
+    fig.update_xaxes(dtick=1)
+    fig.update_layout(showlegend=False, bargap=0.25)
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
-    st.subheader(t("share_title"))
-    fig = go.Figure()
-    fig.add_trace(
-        go.Bar(
-            x=dec["decile"],
-            y=dec["share_better_off"],
-            name=t("s_better"),
-            marker=dict(color=BASELINE_COLOR),
-            hovertemplate="%{y:.0%}<extra>" + t("s_better") + "</extra>",
-        )
+    fig = charts.figure(
+        t("share_title"),
+        t("share_sub"),
+        x_title=t("x_axis"),
+        y_percent=True,
+        height=320,
     )
-    fig.add_trace(
-        go.Bar(
-            x=dec["decile"],
-            y=-dec["share_worse_off"],
-            name=t("s_worse"),
-            marker=dict(color=REFORM_COLOR),
-            hovertemplate="%{y:.0%}<extra>" + t("s_worse") + "</extra>",
-        )
+    charts.bars(
+        fig,
+        dec["decile"],
+        dec["share_better_off"],
+        t("s_better"),
+        charts.SERIES["better"],
+        money=False,
     )
-    fig.add_hline(y=0, line=dict(color=MARKET_COLOR, width=1))
-    fig.update_layout(height=280, barmode="relative", **layout)
-    fig.update_yaxes(tickformat=".0%")
-    st.plotly_chart(fig, use_container_width=True)
+    charts.bars(
+        fig,
+        dec["decile"],
+        -dec["share_worse_off"],
+        t("s_worse"),
+        charts.SERIES["worse"],
+        money=False,
+    )
+    charts.hline(fig, 0, color=charts.ZERO)
+    fig.update_xaxes(dtick=1)
+    fig.update_layout(barmode="relative", bargap=0.25)
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     st.subheader(t("totals_title"))
     tot = r["totals"]

@@ -14,9 +14,9 @@ from pathlib import Path
 # first deploy (Streamlit Community Cloud keeps that install across pushes).
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import charts  # noqa: E402
 import cliffwatch  # noqa: E402
 import pandas as pd  # noqa: E402
-import plotly.graph_objects as go
 import reforms_page
 import streamlit as st
 import ui
@@ -95,6 +95,7 @@ TEXT = {
         "A lo largo de la escala de ingresos",
         "Across the income range",
     ),
+    "you": ("Su hogar", "Your household"),
     "range_caption": (
         "Mismo hogar; salarios del contribuyente de $0 a $150,000. Para "
         "precipicios y tasas marginales, vea CliffWatch.",
@@ -463,6 +464,7 @@ money = ui.money
 # Sidebar: language, page, household, reform
 # ---------------------------------------------------------------------------
 st.set_page_config(page_title="Modelo contributivo PR", layout="wide")
+charts.inject_css()
 
 CURRENT = {path: current_value(path) for path, _, _ in LEVERS}
 ui.init_state(CURRENT)
@@ -672,8 +674,6 @@ ui.metric_row(base, ref, L)
 left, right = st.columns([3, 2])
 
 with left:
-    st.subheader(t("range_title"))
-    st.caption(t("range_caption"))
     rows = []
     for w in range(0, 150_001, 2_500):
         s = build_situation(hh, w)
@@ -699,60 +699,64 @@ with left:
     df = pd.DataFrame(rows)
     xcol = t("x_axis")
 
-    layout = dict(
-        margin=dict(l=10, r=10, t=10, b=10),
-        hovermode="x unified",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", y=1.08, x=0),
-        xaxis=dict(title=xcol, tickprefix="$", tickformat=",", showgrid=False),
-        yaxis=dict(
-            title=None,
-            tickprefix="$",
-            tickformat=",",
-            gridcolor="rgba(128,128,128,0.18)",
-            zeroline=False,
-        ),
+    if reform:
+        fig = charts.figure(
+            t("s_change"),
+            t("change_caption"),
+            x_title=xcol,
+            y_money=True,
+            height=320,
+        )
+        charts.line(
+            fig,
+            df[xcol],
+            df[t("s_change")],
+            t("s_change"),
+            charts.SERIES["reform"],
+        )
+        charts.hline(fig, 0, color=charts.ZERO)
+        charts.vline(
+            fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
+        )
+        fig.update_layout(showlegend=False)
+        fig.update_xaxes(tickprefix="$", tickformat=",")
+        st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
+
+    fig = charts.figure(
+        t("range_title"),
+        t("range_caption"),
+        x_title=xcol,
+        y_money=True,
+        height=400,
     )
-
-    def line(fig, col, color, name=None):
-        fig.add_trace(
-            go.Scatter(
-                x=df[xcol],
-                y=df[col],
-                name=name or col,
-                mode="lines",
-                line=dict(color=color, width=2),
-                hovertemplate="%{y:$,.0f}<extra>" + (name or col) + "</extra>",
-            )
-        )
-
     if reform:
-        fig = go.Figure()
-        line(fig, t("s_change"), REFORM_COLOR)
-        fig.add_hline(y=0, line=dict(color="#9a9a94", width=1))
-        fig.add_vline(
-            x=filer_wages, line=dict(color="#9a9a94", width=1, dash="dot")
+        charts.line(
+            fig,
+            df[xcol],
+            df[t("s_net")],
+            t("s_net_current"),
+            charts.SERIES["baseline"],
         )
-        fig.update_layout(height=300, **layout)
-        st.plotly_chart(fig, use_container_width=True)
-        st.caption(t("change_caption"))
-
-    fig = go.Figure()
-    if reform:
-        line(fig, t("s_net"), BASELINE_COLOR, t("s_net_current"))
-        line(fig, reform_name, REFORM_COLOR)
+        charts.line(
+            fig,
+            df[xcol],
+            df[reform_name],
+            reform_name,
+            charts.SERIES["reform"],
+        )
     else:
-        line(fig, t("s_tax"), BASELINE_COLOR)
-        line(fig, t("s_payroll"), REFORM_COLOR)
-        line(fig, t("s_credits"), CREDIT_COLOR)
-        line(fig, t("s_pan"), PAN_COLOR)
-        line(fig, t("s_tanf"), TANF_COLOR)
-    fig.add_vline(
-        x=filer_wages, line=dict(color="#9a9a94", width=1, dash="dot")
+        for col, key in (
+            ("s_tax", "tax"),
+            ("s_payroll", "payroll"),
+            ("s_credits", "eitc"),
+            ("s_pan", "pan"),
+            ("s_tanf", "tanf"),
+        ):
+            charts.line(fig, df[xcol], df[t(col)], t(col), charts.SERIES[key])
+    charts.vline(
+        fig, filer_wages, color=charts.MUTED, dash="dot", label=t("you")
     )
-    fig.update_layout(height=380, **layout)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, config=charts.CONFIG)
 
     df[t("marginal")] = (1 - df[t("s_net")].diff() / df[xcol].diff()) * 100
     with st.expander(t("table_view")):
