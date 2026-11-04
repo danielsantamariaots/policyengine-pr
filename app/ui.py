@@ -362,8 +362,8 @@ TEXT = {
     ),
     "why_title": ("¿Por qué estos números?", "Why these numbers?"),
     "why_tax": (
-        "**Contribución:** su ingreso bruto ajustado es {} ; tras {} de deducciones y exenciones queda {} sujeto a contribución. La tabla da {}, que la ley rebaja al 92% o 95% ({}), y la contribución básica alterna añade {}: total **{}**.",
-        "**Tax:** your adjusted gross income is {} ; after {} in deductions and exemptions, {} is subject to tax. The table gives {}, which the law reduces to 92% or 95% ({}), and the alternate basic tax adds {}: total **{}**.",
+        "**Contribución:** su ingreso bruto ajustado es {}; tras {} de deducciones y exenciones queda {} sujeto a contribución. La tabla da {}, que la ley rebaja al 92% o 95% ({}), y la contribución básica alterna añade {}: total **{}**.",
+        "**Tax:** your adjusted gross income is {}; after {} in deductions and exemptions, {} is subject to tax. The table gives {}, which the law reduces to 92% or 95% ({}), and the alternate basic tax adds {}: total **{}**.",
     ),
     "why_credits": (
         "**Créditos:** **{}** de Crédito por Trabajo (depende del ingreso ganado y de los dependientes) y **{}** de crédito federal por hijos (ACTC). Son reembolsables: se cobran aunque la contribución sea cero.",
