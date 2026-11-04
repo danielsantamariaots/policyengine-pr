@@ -15,6 +15,19 @@ Not yet used:
 - Number of individual returns: Hacienda reported 1,038,899 returns filed a week before the 15 April 2024 deadline and projected 1.2 million for the cycle (press release "Más de un millón de planillas radicadas…"). The model's tax units are every adult, not filers, so a filer count needs a filing rule first.
 - Hacienda's statistical tabulations by AGI bracket (the data request in docs/solicitud_datos_hacienda.docx) would replace these aggregate targets with distributional ones.
 
+## ADSEF listados mensuales de emisiones (added 2026-11-04)
+
+Monthly PAN issuance listings by municipio and office, Sep 2023 – Aug 2025,
+provided by ADSEF to Espacios Abiertos (`docs/statutes/pan/adsef_listados/`).
+Twelve-month means to Aug 2025 replace the FNS FY2024 totals and add the
+composition: `pan_households` 730,133 casos; `pan_benefits` $2,933 M (12 ×
+monthly issuance); `pan_participants_elderly` 427,780; `pan_participants_with_wages`
+216,240; `pan_participants_with_social_security` 449,200; `pan_units_without_income`
+147,003 (all constraints); `pan_participants` 1,247,785 check-only (the model
+has 1.78 M after calibration: persons per núcleo is a structural gap, see
+`docs/validacion/comparacion_participantes.md`). FY2024 means in the file
+(738,471 / 1,274,285 / $2,928 M) match USDA FNS Keydata.
+
 ## HUD Picture of Subsidized Households 2024 (added 2026-11-04)
 
 Target `section8_households` = 27,948 (33,883 Housing Choice Vouchers in

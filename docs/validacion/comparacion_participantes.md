@@ -60,6 +60,15 @@ agosto de 2025 frente al modelo (base calibrada):
 | Participantes con Seguro Social | 25.8% | 36.0% |
 | Núcleos sin ningún ingreso | 11% | 20.1% |
 
+**Tras recalibrar con estas cifras (misma fecha).** Los núcleos, los dólares,
+los participantes de 60+, con salarios, con Seguro Social y los núcleos sin
+ingreso se reproducen exactamente; los participantes totales quedan en 1.78
+millones (objetivo 1.25 M, solo comprobación): el número de personas por
+núcleo es una propiedad de la estructura de los hogares de la encuesta y de
+la regla de pagar el máximo, y forzarlo con los pesos los vuelve extremos.
+El 90% de los cocientes de pesos queda entre 0.19 y 3.0; el 2.6% del peso
+queda en hogares escalados más de cinco veces.
+
 **Lectura.** El dinero por núcleo cuadra (es el objetivo de calibración).
 Lo que no cuadra es la composición: el modelo mete demasiadas personas por
 núcleo y demasiados trabajadores, y pocas personas mayores y núcleos sin

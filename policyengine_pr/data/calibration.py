@@ -63,29 +63,45 @@ def contributions(sim, targets) -> tuple[np.ndarray, np.ndarray]:
     return np.vstack(rows), np.array(values)
 
 
-def entropy_reweight(w0, A, t, max_iter=200, tol=1e-9):
-    """Minimise sum w log(w/w0) s.t. A w = t. Dual Newton iterations."""
+def entropy_reweight(w0, A, t, max_iter=2000, tol=1e-9):
+    """Minimise sum w log(w/w0) s.t. A w = t, by Newton steps on the dual
+    D(lam) = sum w0 exp(A'lam) - t'lam with an Armijo line search; rows are
+    scaled so every constraint has comparable magnitude."""
     lam = np.zeros(A.shape[0])
     scale = np.abs(A).max(axis=1)
     scale[scale == 0] = 1
     As, ts = A / scale[:, None], t / scale
+
+    def weights(l):
+        return w0 * np.exp(np.clip(As.T @ l, -50, 50))
+
+    def dual(l):
+        return weights(l).sum() - ts @ l
+
+    w = weights(lam)
     for _ in range(max_iter):
-        w = w0 * np.exp(As.T @ lam)
         g = As @ w - ts
         if np.max(np.abs(g) / np.maximum(np.abs(ts), 1)) < tol:
             break
         H = (As * w) @ As.T
-        step = np.linalg.solve(H + 1e-12 * np.eye(len(ts)), g)
-        # damped step to keep the exponent in range
+        try:
+            step = np.linalg.solve(
+                H + 1e-10 * np.trace(H) * np.eye(len(ts)), g
+            )
+        except np.linalg.LinAlgError:
+            step = g
+        d0 = dual(lam)
         alpha = 1.0
-        while alpha > 1e-4:
+        while alpha > 1e-6:
             cand = lam - alpha * step
-            wc = w0 * np.exp(As.T @ cand)
-            if np.isfinite(wc).all() and wc.max() < 1e12:
-                lam = cand
+            if dual(cand) <= d0 - 1e-4 * alpha * (g @ step):
                 break
             alpha /= 2
-    return w0 * np.exp(As.T @ lam)
+        if alpha <= 1e-6:
+            cand = lam - 1e-3 * g  # gradient fallback
+        lam = cand
+        w = weights(lam)
+    return w
 
 
 def calibrate(sim, targets=None) -> tuple[np.ndarray, pd.DataFrame]:

@@ -43,10 +43,12 @@ vales de Sección 8 se asignan al azar entre los hogares arrendatarios de
 ingreso muy bajo hasta igualar las cifras de HUD.
 
 Después, los pesos de la encuesta se ajustan para que la muestra reproduzca
-nueve totales oficiales: hogares y personas, recaudo neto de la contribución
+trece totales oficiales: hogares y personas, recaudo neto de la contribución
 de individuos (Hacienda, año fiscal 2024), total y número de familias con
-Crédito por Trabajo (Hacienda, año contributivo 2023), hogares y dólares
-del PAN (USDA, año fiscal 2024) y vales de Sección 8 en uso (HUD, 2025).
+Crédito por Trabajo (Hacienda, año contributivo 2023), núcleos y dólares
+del PAN y su composición (participantes de 60+, con salarios, con Seguro
+Social y núcleos sin ingreso, de los listados mensuales de ADSEF hasta
+agosto de 2025) y vales de Sección 8 en uso (HUD, 2025).
 La tabla *Calibración a totales oficiales* de la página Reforma
 contributiva muestra cada uno, antes y después del ajuste.
 

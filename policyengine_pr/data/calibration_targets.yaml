@@ -39,18 +39,54 @@
   source: Hacienda, comunicado de prensa 26 Dec 2024, "cerca de 700,000 familias trabajadoras"
 
 - name: pan_households
-  description: PAN households (núcleos de servicio) receiving benefits, FY2024 monthly average
+  description: PAN núcleos (casos) with benefits, monthly average Sep 2024 - Aug 2025
   variable: pan_units_receiving
   statistic: sum
-  value: 738_510
-  source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 average households
+  value: 730_133
+  source: ADSEF, listados mensuales de emisiones (docs/statutes/pan/adsef_listados/), SERVICIO = PAN, mean of CASOS; FY2024 mean 738,471 matches USDA FNS Keydata (738,510)
 
 - name: pan_benefits
-  description: PAN benefits issued, FY2024
+  description: PAN benefits issued, 12 x monthly average Sep 2024 - Aug 2025
   variable: pan
   statistic: sum
-  value: 2_928_990_448
-  source: USDA FNS Keydata (Feb 2025), Table 2b NAP Puerto Rico, FY2024 total food cost
+  value: 2_932_975_716
+  source: ADSEF listados, mean BENEFICIOOTORGADO x 12; FY2024 x 12 = $2,928 M matches USDA FNS Keydata ($2,929 M)
+
+- name: pan_participants
+  description: Persons in PAN núcleos, monthly average Sep 2024 - Aug 2025 (check only; persons per núcleo is set by the household structure and the pay-the-maximum rule, and forcing it through the weights makes them extreme)
+  variable: pan_participants
+  statistic: sum
+  value: 1_247_785
+  check_only: true
+  source: ADSEF listados, mean PARTICIPANTES
+
+- name: pan_participants_elderly
+  description: PAN participants aged 60 or over, monthly average Sep 2024 - Aug 2025
+  variable: pan_participants_elderly
+  statistic: sum
+  value: 427_780
+  source: ADSEF listados, mean of the 60+ column
+
+- name: pan_participants_with_wages
+  description: PAN participants with wages, monthly average Sep 2024 - Aug 2025
+  variable: pan_participants_with_wages
+  statistic: sum
+  value: 216_240
+  source: ADSEF listados, mean SALARIOS
+
+- name: pan_participants_with_social_security
+  description: PAN participants with Social Security, monthly average Sep 2024 - Aug 2025
+  variable: pan_participants_with_social_security
+  statistic: sum
+  value: 449_200
+  source: ADSEF listados, mean SEGUROSOCIAL
+
+- name: pan_units_without_income
+  description: PAN núcleos with no income, monthly average Sep 2024 - Aug 2025
+  variable: pan_units_without_income
+  statistic: sum
+  value: 147_003
+  source: ADSEF listados, mean FAMSININGRESO
 
 - name: section8_households
   description: Households with a Housing Choice Voucher in use, 31 Dec 2025 (33,883 units x 82.5% occupied, all 74 Puerto Rico PHAs)
