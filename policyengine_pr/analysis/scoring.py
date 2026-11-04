@@ -29,6 +29,8 @@ AGGREGATES = [
     ("pr_eitc", "Crédito por Trabajo", "Crédito por Trabajo"),
     ("federal_actc", "Crédito federal por hijos", "Federal child credit"),
     ("pan", "PAN", "PAN"),
+    ("tanf", "TANF", "TANF"),
+    ("section8", "Sección 8", "Section 8"),
     (
         "household_net_income",
         "Ingreso neto de los hogares",

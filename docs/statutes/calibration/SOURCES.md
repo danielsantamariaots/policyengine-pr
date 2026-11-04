@@ -15,6 +15,14 @@ Not yet used:
 - Number of individual returns: Hacienda reported 1,038,899 returns filed a week before the 15 April 2024 deadline and projected 1.2 million for the cycle (press release "Más de un millón de planillas radicadas…"). The model's tax units are every adult, not filers, so a filer count needs a filing rule first.
 - Hacienda's statistical tabulations by AGI bracket (the data request in docs/solicitud_datos_hacienda.docx) would replace these aggregate targets with distributional ones.
 
+## HUD Picture of Subsidized Households 2024 (added 2026-11-04)
+
+Target `section8_households` = 28,425 (33,948 Housing Choice Vouchers in
+Puerto Rico × 83.7% occupied, unit-weighted over the 75 PHAs) and the
+check-only `section8_benefits` = $215.6 M (28,425 × $631.8 × 12). Source
+file `docs/statutes/hud/psh_2024_pr_vouchers.csv`, from
+https://www.huduser.gov/portal/datasets/assthsg.html (PHA table, 2024).
+
 ## Method
 
 Entropy (minimum-discrimination) reweighting of household weights: minimise

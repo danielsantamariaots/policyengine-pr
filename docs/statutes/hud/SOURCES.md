@@ -26,9 +26,15 @@ allowance schedule; both are flagged `gap:` in
 
 ## What the model does
 
-- Only households flagged `housing_assisted` (an app input) get a subsidy;
-  voucher receipt is not imputed in the PRCS microdata, so Section 8 does
-  not enter reform scoring.
+- Only households flagged `housing_assisted` get a subsidy. In the app it
+  is an input; in the PRCS microdata it is imputed (since 2026-11-04) to
+  renter households within the very low income limit, drawn at random
+  within four strata (member 62+, income below the extremely low limit) to
+  HUD's shares, and calibrated to 28,425 voucher households in use. The
+  modelled HAP total ($155 M) is 72% of HUD's $216 M (28,425 × $632 × 12),
+  consistent with PRPHA paying above 100% of the San Juan FMR or with
+  lower incomes among actual voucher holders; reported as a check in
+  `data/calibration_report.csv`.
 - Annual income = wages + net self-employment profit + pensions + Social
   Security + interest + dividends + TANF. Adjusted income subtracts $480
   per member under 18 and $525 if any member is 62 or over.

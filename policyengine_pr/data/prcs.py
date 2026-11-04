@@ -24,6 +24,17 @@ tabulations allow calibration):
   income together); dividend_income and capital gains are zero.
 - is_veteran: served on active duty in the past (MIL == 2).
 - is_full_time_student: enrolled in school (SCH > 1) and aged 18 or over.
+- housing_assisted (Section 8 voucher): the PRCS does not ask about rent
+  subsidies, so receipt is imputed. Pool: renter households (TEN == 3) with
+  income at or below the very low income limit for their size. Within four
+  strata (member aged 62+ or not, income below the extremely low limit or
+  not) households are drawn at random (seed 20241231) until the stratum's
+  weighted count reaches its target: 28,425 voucher households in use (HUD
+  Picture of Subsidized Households, 31 Dec 2024, 33,948 units x 83.7%
+  occupied), 25.6% with a head aged 62+, 63.0% below 30% of area median,
+  treated as independent. housing_rent stays 0 (subsidy capped at the
+  payment standard): assisted tenants report only their own share of the
+  rent in the PRCS, so GRNTP would understate the gross rent.
 """
 
 from pathlib import Path
@@ -53,7 +64,14 @@ PERSON_COLS = [
     "MIL",
     "ADJINC",
 ]
-HOUSEHOLD_COLS = ["SERIALNO", "WGTP", "TYPEHUGQ", "PUMA"]
+HOUSEHOLD_COLS = ["SERIALNO", "WGTP", "TYPEHUGQ", "PUMA", "TEN"]
+
+# HUD Picture of Subsidized Households, 31 Dec 2024, Puerto Rico HCV rows
+# (docs/statutes/hud/psh_2024_pr_vouchers.csv), unit-weighted.
+VOUCHER_HOUSEHOLDS = 28_425  # 33,948 units x 83.7% occupied
+VOUCHER_SHARE_ELDERLY = 0.256  # head aged 62+
+VOUCHER_SHARE_ELI = 0.630  # income below 30% of area median
+VOUCHER_SEED = 20241231
 
 
 def uprating_factor(from_year: int = 2023, to_year: int = TAX_YEAR) -> float:
@@ -63,6 +81,66 @@ def uprating_factor(from_year: int = 2023, to_year: int = TAX_YEAR) -> float:
 
     pay = system.parameters.gov.data.uprating.average_annual_pay
     return float(pay(f"{to_year}-01-01")) / float(pay(f"{from_year}-01-01"))
+
+
+def impute_vouchers(h: pd.DataFrame, p: pd.DataFrame, adj) -> np.ndarray:
+    """Boolean per household: holds a Section 8 voucher (see module doc)."""
+    from policyengine_pr import system
+
+    limits = system.parameters.gov.hud.section8.income_limit
+    instant = f"{TAX_YEAR}-01-01"
+    vli = np.array(
+        [limits.very_low.children[str(i)](instant) for i in range(1, 9)]
+    )
+    eli = np.array(
+        [limits.extremely_low.children[str(i)](instant) for i in range(1, 9)]
+    )
+
+    income = (
+        (
+            (
+                p["WAGP"].fillna(0)
+                + p["SEMP"].fillna(0).clip(lower=0)
+                + p["RETP"].fillna(0)
+                + p["SSP"].fillna(0)
+                + p["INTP"].fillna(0).clip(lower=0)
+            )
+            * adj
+        )
+        .groupby(p["household_id"])
+        .sum()
+    )
+    size = p.groupby("household_id").size()
+    elderly = (p["AGEP"] >= 62).groupby(p["household_id"]).any()
+    hh = pd.DataFrame(
+        {"income": income, "size": size, "elderly": elderly}
+    ).reindex(range(len(h)))
+    idx = hh["size"].clip(1, 8).astype(int).values - 1
+    hh["eli"] = hh["income"].values <= eli[idx]
+    pool = (h["TEN"].values == 3) & (hh["income"].values <= vli[idx])
+
+    rng = np.random.default_rng(VOUCHER_SEED)
+    assisted = np.zeros(len(h), dtype=bool)
+    for is_elderly in (True, False):
+        for is_eli in (True, False):
+            target = (
+                VOUCHER_HOUSEHOLDS
+                * (
+                    VOUCHER_SHARE_ELDERLY
+                    if is_elderly
+                    else 1 - VOUCHER_SHARE_ELDERLY
+                )
+                * (VOUCHER_SHARE_ELI if is_eli else 1 - VOUCHER_SHARE_ELI)
+            )
+            cell = np.flatnonzero(
+                pool
+                & (hh["elderly"].values == is_elderly)
+                & (hh["eli"].values == is_eli)
+            )
+            order = cell[rng.permutation(len(cell))]
+            cum = np.cumsum(h["WGTP"].values[order])
+            assisted[order[: int(np.searchsorted(cum, target)) + 1]] = True
+    return assisted
 
 
 def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
@@ -124,6 +202,8 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
         "is_tax_unit_dependent": p["is_dependent"].values,
         "is_full_time_student": (student & (p["AGEP"] >= 18)).values,
         "is_veteran": (p["MIL"].fillna(4) == 2).values,
+        # household inputs
+        "housing_assisted": impute_vouchers(h, p, adj),
         # tax unit inputs
         # Enum inputs are stored as the index in PRFilingStatus (SINGLE 0, JOINT 1)
         "pr_filing_status": pd.Series(joint.values.astype(int), index=tu_index)

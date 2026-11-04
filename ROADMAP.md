@@ -109,7 +109,11 @@ late: ship the household calculator first; aggregate estimates follow.
   HUD's Picture of Subsidized Households 2024 (PHA table, saved as
   `docs/statutes/hud/psh_2024_pr_vouchers.csv`): 33,948 vouchers across 75
   PHAs (PRPHA 12,437), average HAP $632 a month, average household income
-  $7,183; a calibration target once voucher receipt is imputed. CliffWatch gains a two-household comparison
+  $7,183. **Imputed since 2026-11-04**: renter households within the very
+  low income limit are drawn by stratum (member 62+, extremely low income)
+  to HUD's shares and the weights are calibrated to 28,425 voucher
+  households; the HAP total ($155 M) is 72% of HUD's $216 M (check only).
+  Section 8 now enters reform scoring through household net income. CliffWatch gains a two-household comparison
   (presets, or the same adults unmarried → marriage penalty). The URL
   carries every non-default input and lever (`ui.sync_query_params`), so a
   calculator or CliffWatch view can be shared as a link.
