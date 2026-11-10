@@ -38,7 +38,7 @@ Además: diccionario de datos, fecha de corte, nota de supresión, y las tabulac
 ## 2. ADSEF (Administración de Desarrollo Socioeconómico de la Familia)
 
 **PAN.**
-1. La **Tabla de Beneficios** vigente (artículo 5, def. 69, y artículo 51.A del Reglamento 8684): beneficio mensual por tamaño del núcleo y tramo de ingreso neto. Es la laguna más importante del modelo: sin ella, todo núcleo elegible recibe el máximo y el precipicio al superar el límite es en parte un artefacto.
+1. La **Tabla de Beneficios** vigente (hoy el nivel del beneficio es una estimación ajustada a lo que ADSEF emite por participante; la Tabla la sustituiría) (artículo 5, def. 69, y artículo 51.A del Reglamento 8684): beneficio mensual por tamaño del núcleo y tramo de ingreso neto. Es la laguna más importante del modelo: sin ella, todo núcleo elegible recibe el máximo y el precipicio al superar el límite es en parte un artefacto.
 2. Límites de ingreso neto máximo y beneficios máximos por tamaño del núcleo (1 a 18+), con fecha; solo conocemos los de octubre de 2021 y el ajuste de 2024 para una persona.
 3. Plan Estatal de Operaciones del NAP de los años fiscales 2025 y 2026 (o su sección VII).
 4. Cantidades vigentes de las deducciones del artículo 45 (cuido, incapacidad, estudiante, gastos médicos, enfermedad terminal, agricultura).

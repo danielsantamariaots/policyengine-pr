@@ -35,7 +35,8 @@
     household_tax: 3_100
     # 30,000 - 3,100 + 7,189.82
     # 30,000 - 805 - 2,295 payroll + 4,894.82 + 2,295 + PAN 4,416 (3-person maximum, GAP: no benefit schedule)
-    household_net_income: 38_505.82
+    # includes PAN 6,234.13 (three persons)
+    household_net_income: 40_323.95
 
 - name: Single, no dependents, $50,000 wages
   period: 2025

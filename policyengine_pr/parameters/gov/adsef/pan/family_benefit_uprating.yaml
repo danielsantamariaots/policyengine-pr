@@ -1,0 +1,19 @@
+description: Factor applied to the October 2021 maximum benefits of núcleos of two or more persons, equal to the published growth of the one-person maximum since October 2021.
+metadata:
+  unit: /1
+  label: PAN maximum benefit uprating for núcleos of 2 or more
+  reference:
+    - title: "ADSEF, Ponencia ante el Comité de Transición, 30 Oct 2024, p. 6: one-person maximum benefit $140 (Oct 2021), $165 (2022), $183 (2023)"
+      href: https://transicion2024.pr.gov/Agencias/127/Ponencias/PONENCIA%20ADSEF%20PDF.pdf#page=6
+    - title: "ADSEF, listados mensuales de emisiones, Sep 2024 - Aug 2025: $196 issued per participant a month ($335 per caso), against $152 with the October 2021 table (docs/statutes/pan/adsef_listados/)"
+      href: https://www.observatoriofiscalpr.com/chart/pan/
+  gap: >-
+    ESTIMATE, not a published amount. ADSEF has published the post-2021
+    maximum benefit for one person only. Sizes 2-18 are assumed to have grown
+    in the same proportion (165/140, then 183/140). With this factor the
+    modelled issuance per participant matches ADSEF's; replace with the
+    Tabla de Beneficios when ADSEF provides it.
+values:
+  2021-10-01: 1.0
+  2022-01-01: 1.178571
+  2023-01-01: 1.307143

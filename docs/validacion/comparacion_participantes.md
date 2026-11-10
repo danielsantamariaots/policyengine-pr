@@ -60,14 +60,41 @@ agosto de 2025 frente al modelo (base calibrada):
 | Participantes con Seguro Social | 25.8% | 36.0% |
 | Núcleos sin ningún ingreso | 11% | 20.1% |
 
-**Tras recalibrar con estas cifras (misma fecha).** Los núcleos, los dólares,
-los participantes de 60+, con salarios, con Seguro Social y los núcleos sin
-ingreso se reproducen exactamente; los participantes totales quedan en 1.78
-millones (objetivo 1.25 M, solo comprobación): el número de personas por
-núcleo es una propiedad de la estructura de los hogares de la encuesta y de
-la regla de pagar el máximo, y forzarlo con los pesos los vuelve extremos.
-El 90% de los cocientes de pesos queda entre 0.19 y 3.0; el 2.6% del peso
-queda en hogares escalados más de cinco veces.
+**Corrección del 10 de noviembre de 2026: los participantes ya cuadran.**
+La primera recalibración dejaba 1.78 millones de participantes frente a los
+1.25 millones oficiales. La causa era el nivel del beneficio: con la tabla de
+2021 el modelo pagaba $152 por participante al mes y ADSEF emite $196, de
+modo que para cuadrar los dólares la reponderación metía más personas. Se
+corrigió con tres cambios, los tres declarados como estimaciones hasta que
+ADSEF entregue su Tabla de Beneficios:
+
+1. **Participación (take-up).** No todo núcleo elegible solicita el PAN: el
+   modelo tenía 888 mil núcleos elegibles y ADSEF paga a 730 mil. La
+   participación se asigna entre los elegibles con una probabilidad que
+   reproduce los casos, los participantes y los de 60 años o más de ADSEF
+   (`policyengine_pr/data/pan_takeup.py`).
+2. **Máximos de núcleos de 2 o más personas**: la tabla de octubre de 2021
+   por el aumento publicado del máximo de una persona ($140 a $183, ×1.307).
+3. **Ajuste a lo emitido**: todos los máximos por 1.08, la razón entre lo que
+   ADSEF emite por participante y lo que daba el modelo.
+
+| Medida | Modelo (10 nov. 2026) | ADSEF (sep. 2024 – ago. 2025) |
+|---|---|---|
+| Núcleos (casos) | 730,133 | 730,133 |
+| Participantes | 1,247,785 | 1,247,785 |
+| Personas por núcleo | 1.71 | 1.71 |
+| Beneficio emitido | $2,933 M | $2,933 M |
+| Beneficio por participante al mes | $196 | $196 |
+| Participantes de 60+ | 427,780 (34.3%) | 427,780 (34.3%) |
+| Participantes con salarios | 216,240 | 216,240 |
+| Núcleos sin ingreso | 147,003 | 147,003 |
+| Participantes con Seguro Social (solo comprobación) | 346,109 | 449,200 |
+| Participantes menores de 18 (no es objetivo) | 17.4% | 21.3% |
+
+Los pesos quedan mejor que antes: el 98% de los cocientes entre 0.40 y 2.30,
+ninguno por encima de 2.9. Lo que no cuadra es el Seguro Social (77%): ADSEF
+cuenta más perceptores menores de 60 años de los que hay en los hogares de
+bajo ingreso de la encuesta.
 
 **Lectura.** El dinero por núcleo cuadra (es el objetivo de calibración).
 Lo que no cuadra es la composición: el modelo mete demasiadas personas por

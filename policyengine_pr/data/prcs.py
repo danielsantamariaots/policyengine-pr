@@ -31,6 +31,9 @@ tabulations allow calibration):
   that each member aged 60+ who is not the head or spouse forms their own
   (Reglamento 8684, separate núcleos, item 10). Disabled adults and
   independent students (items 5-8, 11-13) are not identified: GAP.
+- pan_participates (PAN take-up): imputed after the build so that
+  participating núcleos reproduce ADSEF's casos, participants, 60+, with
+  wages and with Social Security (policyengine_pr/data/pan_takeup.py).
 - housing_assisted (Section 8 voucher): the PRCS does not ask about rent
   subsidies, so receipt is imputed. Pool: renter households (TEN == 3) with
   income at or below the very low income limit for their size and area. Within four
@@ -260,6 +263,9 @@ def build_prcs(raw: Path = RAW, out: Path = OUT) -> Path:
     }
     out.parent.mkdir(parents=True, exist_ok=True)
     PRCS().save_dataset(data, out)
+    from policyengine_pr.data.pan_takeup import impute_pan_takeup
+
+    impute_pan_takeup(PRCS)
     return out
 
 

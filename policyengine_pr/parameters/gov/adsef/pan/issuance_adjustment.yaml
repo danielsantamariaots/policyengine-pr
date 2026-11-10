@@ -1,0 +1,16 @@
+description: Factor applied to every maximum benefit so that the modelled benefit per participant equals what ADSEF issues; it stands for the increases after 2023 and the periodic adjustment of benefits to available funds.
+metadata:
+  unit: /1
+  label: PAN issuance adjustment
+  reference:
+    - title: "ADSEF, listados mensuales de emisiones, Sep 2024 - Aug 2025: $2,933 M a year issued to 1,247,785 participants ($196 per participant a month); the published maxima give $181 for the same participants"
+      href: https://www.observatoriofiscalpr.com/chart/pan/
+    - title: "Reglamento 8684, Art. 51.B (benefits may vary with available funds); NAP State Plan FY2022, p. 30 (carry-over funds distributed as a percentage adjustment)"
+      href: https://serviciosenlinea.adsef.pr.gov/documents/NAP-STATE-PLAN-FIRMADO.pdf#page=30
+  gap: >-
+    ESTIMATE, not a published amount: ADSEF issuance per participant divided
+    by the modelled benefit per participant for the same núcleos. Replace
+    with the Tabla de Beneficios when ADSEF provides it.
+values:
+  2021-10-01: 1.0
+  2024-09-01: 1.08

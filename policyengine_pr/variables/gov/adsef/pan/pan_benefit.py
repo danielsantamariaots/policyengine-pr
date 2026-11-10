@@ -20,6 +20,7 @@ class pan_benefit(Variable):
             pan_unit("pan_max_benefit", period)
             - p.benefit_reduction_rate * net,
         )
-        return where(
-            pan_unit("pan_eligible", period), monthly * MONTHS_IN_YEAR, 0
+        receives = pan_unit("pan_eligible", period) & pan_unit(
+            "pan_participates", period
         )
+        return where(receives, monthly * MONTHS_IN_YEAR, 0)

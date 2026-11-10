@@ -43,12 +43,15 @@ vales de Sección 8 se asignan al azar entre los hogares arrendatarios de
 ingreso muy bajo hasta igualar las cifras de HUD.
 
 Después, los pesos de la encuesta se ajustan para que la muestra reproduzca
-trece totales oficiales: hogares y personas, recaudo neto de la contribución
+doce totales oficiales: hogares y personas, recaudo neto de la contribución
 de individuos (Hacienda, año fiscal 2024), total y número de familias con
-Crédito por Trabajo (Hacienda, año contributivo 2023), núcleos y dólares
-del PAN y su composición (participantes de 60+, con salarios, con Seguro
-Social y núcleos sin ingreso, de los listados mensuales de ADSEF hasta
-agosto de 2025) y vales de Sección 8 en uso (HUD, 2025).
+Crédito por Trabajo (Hacienda, año contributivo 2023), y del PAN los
+núcleos, los participantes (1,247,785), los dólares y la composición
+(participantes de 60+, con salarios y núcleos sin ingreso, de los datos de
+ADSEF hasta agosto de 2025), y los vales de Sección 8 en uso (HUD, 2025).
+Como no todo núcleo elegible solicita el PAN, la participación se asigna
+entre los elegibles de modo que los participantes se parezcan a los de
+ADSEF.
 La tabla *Calibración a totales oficiales* de la página Reforma
 contributiva muestra cada uno, antes y después del ajuste.
 
@@ -60,7 +63,8 @@ contributiva muestra cada uno, antes y después del ajuste.
   comprobación con planillas reales de 2025 revisadas por un CPA.
 - **Para las ayudas**, hay tres lagunas que la propia herramienta declara:
   ADSEF no publica la tabla que reduce el PAN con el ingreso, de modo que
-  el modelo paga el máximo a todo núcleo elegible; el TANF usa el máximo de
+  el modelo paga el máximo a todo núcleo elegible, y ese máximo es una
+  estimación ajustada a lo que ADSEF emite por participante; el TANF usa el máximo de
   una familia de tres para todo tamaño; la Sección 8 usa las rentas justas
   de mercado de HUD del municipio, no el esquema en dólares de Vivienda.
 - **Para una reforma**, los totales están calibrados a las cifras

@@ -53,11 +53,10 @@
   source: ADSEF listados, mean BENEFICIOOTORGADO x 12; FY2024 x 12 = $2,928 M matches USDA FNS Keydata ($2,929 M)
 
 - name: pan_participants
-  description: Persons in PAN núcleos, monthly average Sep 2024 - Aug 2025 (check only; persons per núcleo is set by the household structure and the pay-the-maximum rule, and forcing it through the weights makes them extreme)
+  description: Persons in PAN núcleos, monthly average Sep 2024 - Aug 2025
   variable: pan_participants
   statistic: sum
   value: 1_247_785
-  check_only: true
   source: ADSEF listados, mean PARTICIPANTES
 
 - name: pan_participants_elderly
@@ -75,10 +74,11 @@
   source: ADSEF listados, mean SALARIOS
 
 - name: pan_participants_with_social_security
-  description: PAN participants with Social Security, monthly average Sep 2024 - Aug 2025
+  description: PAN participants with Social Security, monthly average Sep 2024 - Aug 2025 (check only; ADSEF counts more recipients under 60 than the survey's low-income households contain)
   variable: pan_participants_with_social_security
   statistic: sum
   value: 449_200
+  check_only: true
   source: ADSEF listados, mean SEGUROSOCIAL
 
 - name: pan_units_without_income

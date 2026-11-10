@@ -137,3 +137,13 @@ totally disabled members; 30 days to report changes.
    entrepagosycuentas.com) give a one-person net cap of ~$1,025 and "gross
    limits"; they contradict FNS's statement that NAP has no gross income
    test and ADSEF's $633. Not used.
+
+## Benefit level and take-up (2026-11-10)
+
+ADSEF issues $196 per participant a month (Sep 2024 – Aug 2025); the October
+2021 table with the published one-person updates gave $152. Two estimated
+parameters close the gap until the Tabla de Beneficios is obtained:
+`family_benefit_uprating` (sizes 2–18 × 183/140, the published growth of the
+one-person maximum) and `issuance_adjustment` (all maxima × 1.08). Take-up is
+imputed in the microdata (`policyengine_pr/data/pan_takeup.py`); in the
+household calculator an eligible núcleo is shown its benefit.

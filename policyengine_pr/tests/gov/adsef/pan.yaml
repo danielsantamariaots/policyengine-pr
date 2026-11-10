@@ -1,3 +1,4 @@
+# benefit levels since Sep 2024: one person 183 x 1.08 (issuance adjustment); sizes 2+ = 2021 table x 1.307143 (one-person growth) x 1.08; elderly bonus 37 x 1.08
 # Expected values computed by hand from ADSEF's NAP State Plan of Operations
 # FY2022 (pp. 26-28) and the 2024 amendment figures in ADSEF's 30 Oct 2024
 # statement (p. 6): earned-income deduction 50% up to $1,400, standard
@@ -26,7 +27,8 @@
     pan_deductions: 9_348
     pan_net_income: 2_652
     pan_eligible: true
-    pan: 2_196
+    # 183 x 1.08 x 12
+    pan: 2_371.68
 
 - name: Single worker at $24,000 is over the limit
   period: 2025
@@ -70,7 +72,8 @@
     pan_net_income: 11_652
     pan_eligible: true
     # 368 x 12
-    pan: 4_416
+    # 368 x 1.307143 x 1.08 x 12
+    pan: 6_234.13
 
 - name: Retiree with pension and Social Security above the limit
   period: 2025
@@ -113,7 +116,8 @@
     pan_net_income: 0
     pan_eligible: true
     # (183 + 37) x 12
-    pan: 2_640
+    # (183 + 37) x 1.08 x 12
+    pan: 2_851.2
 
 - name: Wages below $200 a month use the $100 minimum earned-income deduction
   period: 2025

@@ -1,3 +1,4 @@
+# benefit levels since Sep 2024: one person 183 x 1.08 (issuance adjustment); sizes 2+ = 2021 table x 1.307143 (one-person growth) x 1.08; elderly bonus 37 x 1.08
 # Expected values from Reglamento 8684 Art. 45-48 and the NAP SPO FY2022
 # pp. 26-28 (deductions: earned 50% up to $1,400 from Aug 2024; dependent care
 # $225 / $200; student, elderly and medical $100; standard $279 from Aug 2024;
@@ -32,8 +33,9 @@
     pan_resources_eligible: true
     pan_eligible: true
     # three persons, maximum $368 x 12
-    pan_benefit: 4_416
-    pan: 4_416
+    # 368 x 1.307143 x 1.08 x 12
+    pan_benefit: 6_234.13
+    pan: 6_234.13
 
 - name: Same household with $6,000 in resources is over the $5,000 limit
   period: 2025
@@ -125,6 +127,7 @@
   output:
     # family: 2,500 a month gross earned, 50% deduction capped at 1,400 -> 1,100 - 279 = 821 > 1,179? no: 2,500 - 1,250 - 279 = 971 <= 1,179 (two persons) -> eligible, $257
     # grandmother: 50% of 750 = 375 counted; deductions 100 + 100 + 279 = 479 -> net 0 -> eligible, 183 + 37 bonus
-    pan_benefit: [3_084, 2_640]
+    # family of two: 257 x 1.307143 x 1.08 x 12; grandmother: (183 + 37) x 1.08 x 12
+    pan_benefit: [4_353.73, 2_851.2]
     pan_units_receiving: 2
-    pan: 5_724
+    pan: 7_204.93
