@@ -81,6 +81,20 @@ aparecen dentro de hogares más grandes con trabajadores. Los listados dan
 los objetivos para corregirlo: participantes, 60+, con salarios, con Seguro
 Social, sin ingreso, y todo ello por municipio.
 
+## PAN: serie anual 2013–2026 del Observatorio Fiscal (añadido 10 nov. 2026)
+
+El panel *Datos del PAN* del Observatorio Fiscal de Espacios Abiertos
+(`docs/statutes/pan/observatorio/`) da la serie anual por año fiscal federal
+construida con los datos de ADSEF. Confirma los objetivos de calibración
+(AFF2025: 1,246,507 participantes y $2,944 M, frente a 1,247,785 y $2,933 M
+de los listados mensuales hasta agosto de 2025) y añade la tendencia: los
+participantes de 60 años o más pasan del 19.5% en 2013 al 35.0% en 2026, los
+que tienen salarios del 8.3% al 18.2%, los que no tienen ingreso del 29.1% al
+15.3%, y los participantes por hogar de 2.12 a 1.79. El AFF2026 (1,222,408
+participantes, $2,989 M) es el dato a usar cuando el modelo pase a las reglas
+de 2026. También trae participantes, hogares, mayores y menores por municipio
+y año, útiles para una calibración regional.
+
 ## Crédito por Trabajo
 
 | Medida | Modelo | Publicado | Fuente |
